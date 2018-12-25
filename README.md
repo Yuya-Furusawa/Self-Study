@@ -10,5 +10,7 @@ This repository is for my self-study.
   - Matrix(Julia_matrix.ipynb)
 - Machine Learning(Python)
   - Chapter2 (Classification Problem)
+  - Chapter3 (Using scikit-learn)
+  - Chapter4 (Data Preprocessing)
 - Algorithm for "Coordination on Networks" (network_algorithm.ipynb)
 - Algorithm for "Financial Networks and Contagion" (Financial_Network.ipynb)

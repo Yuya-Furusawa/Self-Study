@@ -42,3 +42,40 @@
 5. リモートに反映する
 
 `git push -f origin feature`
+
+
+## git rebase -i
+
+1. commitログを確認
+
+`git log --oneline`
+
+	1. コマンド確認
+
+	commit_id_3 commitメッセージ < HEAD
+	commit_id_2 commitメッセージ
+	commit_id_1 commitメッセージ
+
+2. commitをまとめる
+
+`git rebase -i HEAD~3`
+
+次の画面が表示される
+
+	pick commit_id_1 commitメッセージ
+	pick commit_id_2 commitメッセージ
+	pick commit_id_3 commitメッセージ
+
+3. fixupにする
+
+コマンド`pick`を`fixup`にする
+
+	pick commit_id_1 commitメッセージ
+	fixup commit_id_2 commitメッセージ
+	fixup commit_id_3 commitメッセージ
+
+4. viを終了
+
+5. リモートに反映する
+
+`git push -f origin feature`

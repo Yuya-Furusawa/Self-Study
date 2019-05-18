@@ -1,1 +1,11 @@
 .ipynb_checkpoints/
+machine-learning/__pycache__/
+machine-learning/checkpoint
+machine-learning/logs/
+machine-learning/t10k-images-idx3-ubyte
+machine-learning/t10k-labels-idx1-ubyte
+machine-learning/train-images-idx3-ubyte
+machine-learning/train-labels-idx1-ubyte
+machine-learning/train-model.data-00000-of-00001
+machine-learning/train-model.index
+machine-learning/train-model.meta

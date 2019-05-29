@@ -44,7 +44,7 @@
 `git push -f origin feature`
 
 
-## git rebase -i
+## git rebase -i でコミットをまとめる
 
 1. commitログを確認
 
@@ -55,6 +55,8 @@
 	commit_id_3 commitメッセージ < HEAD
 	commit_id_2 commitメッセージ
 	commit_id_1 commitメッセージ
+
+これらをまとめたい
 
 2. commitをまとめる
 
@@ -77,5 +79,46 @@
 4. viを終了
 
 5. リモートに反映する
+
+`git push -f origin feature`
+
+
+## git rebase -i で離れたところにあるコミットをまとめる
+
+1. commitログを確認
+
+`git log --oneline`
+
+例えばこんな感じ
+
+	9dc13c0 (HEAD -> master) fix ModuleB
+	2bf2d88 fix ModuleA
+	249a171 add ModuleB
+	5a43974 add ModuleA
+	65ef5c7 first commit
+
+5a43974と2bf2d88、249a171と9dc13c0をまとめたい
+
+2. rebaseする
+
+`git rebase -i HEAD~4`
+
+こんな感じのvimが開く
+
+	pick 5a43974 add ModuleA
+	pick 249a171 add ModuleB
+	pick 2bf2d88 fix ModuleA
+	pick 9dc13c0 fix ModuleB
+
+3. 順序を入れ替えてfixupする
+
+	pick 5a43974 add ModuleA
+	fixup 2bf2d88 fix ModuleA
+	pick 249a171 add ModuleB
+	fixup 9dc13c0 fix ModuleB
+
+4. viを終了
+
+5. リモートに反映
 
 `git push -f origin feature`

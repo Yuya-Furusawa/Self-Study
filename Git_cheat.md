@@ -122,3 +122,58 @@
 5. リモートに反映
 
 `git push -f origin feature`
+
+
+## コミットメッセージの変更
+
+1. rebaseする
+
+	pick 5a43974 add ModuleA
+	pick 249a171 add ModuleB
+	pick 2bf2d88 fix ModuleA
+	pick 9dc13c0 fix ModuleB
+
+9dc13c0のコミットメッセージを"add ModuleC"に変えたい
+
+2. `pick`を`edit`に変える
+
+	pick 5a43974 add ModuleA
+	pick 249a171 add ModuleB
+	pick 2bf2d88 fix ModuleA
+	edit 9dc13c0 fix ModuleB
+
+3. エディタを終了
+
+こんな感じの画面になる
+
+	You can amend the commit now, with
+
+ 		git commit --amend 
+
+	Once you are satisfied with your changes, run
+
+ 		git rebase --continue
+
+ 4. commmitする
+
+ `git commit --amend`
+
+ するとこんな感じになる
+
+	fix ModuleB
+
+	# Please enter the commit message for your changes. Lines starting
+	# with '#' will be ignored, and an empty message aborts the commit.
+
+5. メッセージを修正
+
+	add ModuleC
+
+	# Please enter the commit message for your changes. Lines starting
+	# with '#' will be ignored, and an empty message aborts the commit.
+
+6. エディタを終了、`git rebase --continue`する
+
+7. リモートに反映
+
+`git push -f origin feature`

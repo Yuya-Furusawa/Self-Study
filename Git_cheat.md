@@ -147,12 +147,9 @@
 こんな感じの画面になる
 
 	You can amend the commit now, with
-
- 		git commit --amend 
-
+	git commit --amend 
 	Once you are satisfied with your changes, run
-
- 		git rebase --continue
+	git rebase --continue
 
  4. commmitする
 
@@ -161,16 +158,14 @@
  するとこんな感じになる
 
 	fix ModuleB
-
-	# Please enter the commit message for your changes. Lines starting
-	# with '#' will be ignored, and an empty message aborts the commit.
+	Please enter the commit message for your changes. Lines starting
+	with '#' will be ignored, and an empty message aborts the commit.
 
 5. メッセージを修正
 
 	add ModuleC
-
-	# Please enter the commit message for your changes. Lines starting
-	# with '#' will be ignored, and an empty message aborts the commit.
+	Please enter the commit message for your changes. Lines starting
+	with '#' will be ignored, and an empty message aborts the commit.
 
 6. エディタを終了、`git rebase --continue`する
 

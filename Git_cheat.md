@@ -153,9 +153,9 @@
 
  4. commmitする
 
- `git commit --amend`
+`git commit --amend`
 
- するとこんな感じになる
+するとこんな感じになる
 
 	fix ModuleB
 	Please enter the commit message for your changes. Lines starting
@@ -172,3 +172,22 @@
 7. リモートに反映
 
 `git push -f origin feature`
+
+
+## branchの削除
+
+### ローカルブランチ
+
+- HEADにマージしたブランチの削除
+
+	`git branch --delete foo`
+
+- マージしたかどうかを問わずに削除
+
+	`git branch -D foo`
+
+### リモートブランチ
+
+- リモートブランチ`foo`を削除
+
+	`git push --delete origin foo`

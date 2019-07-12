@@ -3,11 +3,8 @@
 This repository is for my self-study.
 
 ## Contents
-- Text mining(aozora.py, abe_network.py)
-- Network Simulation(nx_ba_1.py)
-- Notes on Julia
-  - Basics(Studying_Julia.ipynb)
-  - Matrix(Julia_matrix.ipynb)
+
+### machine-learning
 - Machine Learning(Python)
   - Chapter2 (Classification Problem)
   - Chapter3 (Using scikit-learn)
@@ -20,8 +17,25 @@ This repository is for my self-study.
   - Chapter12 (Multilayer Artificial Neural Network)
   - Chapter13 (Basics of TensorFlow)
   - Chapter14 (Mechanism of TensorFlow)
+
+### deep-learning
+- Deep Learning(Python)
+  - Chapter3 (Neural Network)
+
+### Industrial-Organization
 - Industrial Organization(Python, R, Matlab)
   - Codes which are used in Grad Empirical IO class (2019, S1S2)
+
+### oyamasemi
+- wald_friedman
+- uncertainty_traps
+
+### Others
+- Notes on Julia
+  - Basics(Studying_Julia.ipynb)
+  - Matrix(Julia_matrix.ipynb)
+- Text mining(aozora.py, abe_network.py)
+- Network Simulation(nx_ba_1.py)
 - Algorithm for "Coordination on Networks" (network_algorithm.ipynb)
 - Algorithm for "Financial Networks and Contagion" (Financial_Network.ipynb)
 - Note on LMSR(CostFunction.ipynb)

@@ -9,3 +9,4 @@ machine-learning/train-labels-idx1-ubyte
 machine-learning/train-model.data-00000-of-00001
 machine-learning/train-model.index
 machine-learning/train-model.meta
+deep-learning/ch04/__pycache__/

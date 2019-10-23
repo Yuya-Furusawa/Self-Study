@@ -4,16 +4,18 @@ from itertools import chain, combinations
 
 class Network:
 
-    def __init__(self, phi, n, C, alpha):
-        self.n = n
+    def __init__(self, phi):
         self.phi = phi
-        self.C = C
-        self.alpha = alpha
 
-    def compute_payoff(self, G):
-        x = np.linalg.inv(np.eye(self.n) - self.phi * G) @ self.alpha
+    def compute_effort(self, G, alpha):
+        n, m = G.shape
+        return np.linalg.inv(np.eye(n) - self.phi * G) @ alpha
+
+    def compute_payoff(self, G, C, alpha):
+        n, m = G.shape
+        x = self.compute_effort(G, alpha)
         bool_matrix = G == 1
-        cost = np.array([sum(self.C[i, bool_matrix[i]]) for i in range(self.n)])
+        cost = np.array([sum(C[i, bool_matrix[i]]) for i in range(n)])
         return 1/2 * x**2 - cost
 
     def powerset(self, iterable):
@@ -23,11 +25,11 @@ class Network:
         else:
             return chain.from_iterable(combinations(s,r) for r in range(1, len(s)+1))
 
-    def check_best_response(self, G):
+    def check_best_response(self, G, C, alpha):
+        n, m = G.shape
         NB = {}
-        payoff = self.compute_payoff(G)
-        print(payoff)
-        for i in range(self.n):
+        payoff = self.compute_payoff(G, C, alpha)
+        for i in range(n):
             max_payoff = payoff[i]
             remove_edges = []
             edges_index = [j for j, x in enumerate(G[i,:]) if x == 1]
@@ -36,31 +38,55 @@ class Network:
                 G_copy = copy.copy(G)
                 for edge in delete_edge:
                     G_copy[i, edge] = 0
-                new_payoff = self.compute_payoff(G_copy)
-                print("agent {0}, delete_edge {1}, new_payoff {2}".format(i, delete_edge, new_payoff))
+                new_payoff = self.compute_payoff(G_copy, C, alpha)
                 if new_payoff[i] > max_payoff:
                     max_payoff = new_payoff[i]
                     remove_edges = list(delete_edge)
-                elif new_payoff[i] == max_payoff:
-                    if remove_edges == []:
-                        remove_edges.append(edges_index)
-                    remove_edges.append(list(delete_edge))
-            NB[i] = np.random.choice(remove_edges, 1)
+            if remove_edges == []:
+                NB[i] = []
+            else:
+                NB[i] = remove_edges
         
         return NB
 
-    def main(self, G):
-        NB = self.check_best_response(G)
+    def main(self, G, C, alpha, verbose=True):
+        """
+        G : potential network
+        """
+        NB = self.check_best_response(G, C, alpha)
         NB_agents = [k for k, v in NB.items() if v != []]
         while NB_agents != []:
             agent = np.random.choice(NB_agents, 1)
             remove_edges = NB[int(agent)]
             for edge in remove_edges:
                 G[agent, edge] = 0
-            print("agent {0} removes {1}".format(agent, remove_edges))
-            NB = self.check_best_response(G)
+            if verbose:
+                print("agent {0} removes {1}".format(agent, remove_edges))
+            NB = self.check_best_response(G, C, alpha)
             NB_agents = [k for k, v in NB.items() if v != []]
         return G
+
+    def find_key_player(self, G, C, alpha):
+        """
+        simple algorithm by definition
+        there may be much room to improve
+
+        G : potential network
+        """
+        n, m = G.shape
+        importances = []
+        eqm_G = self.main(G, C, alpha, verbose=False)
+        total_efforts = sum(self.compute_effort(eqm_G, alpha)) 
+        for i in range(n):
+            deleted_G = np.delete(np.delete(G,i,0),i,1)
+            deleted_C = np.delete(np.delete(C,i,0),i,1)
+            deleted_alpha = np.delete(alpha, i)
+            deleted_eqm_G = self.main(deleted_G, deleted_C, deleted_alpha, verbose=False)
+            deleted_total_efforts = sum(self.compute_effort(deleted_eqm_G, deleted_alpha))
+            importances.append(total_efforts - deleted_total_efforts)
+        key_player = np.where(importances == np.max(importances))
+        return key_player
+
 
 
 if __name__ == "__main__":
@@ -74,16 +100,17 @@ if __name__ == "__main__":
     alpha = np.ones(n)
 
     # cost matrix
-    """
-    C = np.array([[0, 6, 0.3, 3, 2],
-                  [0.2, 0, 1, 0.02, 1],
-                  [0.01, 3.5, 0, 2, 0],
-                  [0.2, 7, 0.1, 0, 0.1],
-                  [0.5, 1, 0.12, 0.2, 0]])
-    """
-    C = np.array([[0, 1.7, 1.7],
-                  [1.3, 0, 0.1],
-                  [0.5, 2, 0]])
-    algo = Network(phi, n, C, alpha)
+    C = np.array([[0,0,0],[0.5,0,0.5],[0.6,0.6,0]])
 
-    print(algo.main(G))
+    for cost in np.arange(0, 2.5, 0.1):
+        C[0,1] = cost
+        C[0,2] = cost
+        algo = Network(phi)
+        eqm_G = algo.main(G, C, alpha, verbose=False)
+        print("==========")
+        print("cost : {0}".format(cost))
+        print("efforts : {0}".format(algo.compute_effort(eqm_G, alpha)))
+        print("payoffs : {0}".format(algo.compute_payoff(eqm_G, C, alpha)))
+        print("key player : {0}".format(algo.find_key_player(G, C, alpha)))
+        print(eqm_G)
+        

@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+\usepackage[affil-it]{authblk}
+%
+\usepackage{amsmath,amssymb,amsthm,ascmac}
+\usepackage{float}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{subcaption}
+\usepackage{here}
+\usepackage{pifont}
+\usepackage{comment}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{dsfont}
+\usetikzlibrary{patterns}
+
+\usepackage{mathptmx} % rm & math
+\usepackage[scaled=0.90]{helvet} % ss
+\usepackage{courier} % tt
+\normalfont
+\usepackage[T1]{fontenc}
+
+\geometry{left=1.0in,right=1.0in,top=1.0in,bottom=1.0in}
+%¥usepackage[top=25truemm,bottom=25truemm,left=10truemm,right=10truemm]{geometry}
+\usepackage{setspace}
+\setstretch{1.5} %行間の広さ指定
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem{assumption}{Assumption}
+\newtheorem*{assumption*}{Assumption}
+\newtheorem{example}{Example}
+\newtheorem*{example*}{Example}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\bm}[1]{{\mbox{\boldmath $#1$}}}
+
+
+\begin{document}
+
+\title{Endogenous Network Formation with Peer Effects}
+
+\author{Yuya Furusawa}
+\affil{U-Tokyo, GSE, 29-186036}
+
+\date{\today}
+
+\maketitle
+
+\begin{abstract}
+aaaa
+\end{abstract}
+
+
+\section{Introduction}
+
+TO DO
+\begin{itemize}
+  \item Model Story
+  \item Literature Review
+\end{itemize}
+
+
+\section{Model}
+
+There are $n$ agents in the economy, and denote the set of agents $N = \{ 1, \cdots, n\}$.
+We assume $n$ is finite and $n \ge 2$.
+
+The game consists of two-stage game: "choosing neighbors" and "choosing an effort level".
+Initially, agents are connected in the potential network $g^p$.
+We consider the network $g^p$ is connected, directed and unweighted.
+The potential network $g^p$ is represented by adjacency matrix $G^p = {(g_{ij}^p)}_{ij}$ where, for any $i \neq j$,
+\[ g_{ij}^p =
+	\begin{cases}
+		1 \  (\text{if $i$ has a link to $j$ in $g^p $}) \\
+		0 \  (\text{otherwise})
+	\end{cases} \]
+Note that $G^p$ can be asymetric and $g_{ii}^p = 0$ for all $i$.
+Denote the set of agent $i$'s neighbors in the potential network $N_i(g^p)$.
+In the first stage, each agent $i$ chooses the partners from the potential neighbors, $N_i(g^p)$.
+This strategy can be represented by the function $\phi_i : N \rightarrow N$ for all $i$.
+When forming a link, each agent incurs a cost $c_{ij} \ge 0$.
+After forming links, the network $g$ is realized.
+$g$ is represented by the adjacency matrix $G = {(g_{ij})}_{ij}$ such that, for any pair $(i,j)$,
+\[ g_{ij} = 
+	\begin{cases}
+		1 \  (\text{if} \  j \in \phi_i(N_i(g^p)) ) \\
+		0 \  (\text{otherwise})
+	\end{cases} \]
+We can see the realization of the network depends on the potential networl $g^p$ and costs $C = {(c_{ij})}_{ij}$.
+To represent this dependency, we write the realized network $g$ as $g(g^p, C)$.
+
+In the second stage, each agent $i = 1, \cdots, n$ excerts an effort $x_i \ge 0$, and gets a payoff which depends on the agents' efforts and realized network.
+\[ u_i(x_1, \cdots, x_n, g, C) = v_i(x_1, \cdots, x_n, g, \phi) - \sum_{j=1} g_{ij} c_{ij} \]
+where
+\[ v_i(x_1, \cdots, x_n, g, \phi) = \alpha_i x_i - \frac{1}{2} x_i^2 + \phi \sum_{j=1}^n g_{ij} x_i x_j \]
+Here, we focus on bilinear payoff functions.
+We assume $\alpha_i > 0$ for all $i$, and $\phi > 0$.
+Denote $\boldsymbol{x} = (x_1, \cdots, x_n)$ and $\boldsymbol{\alpha} = (\alpha_1, \cdots, \alpha_n)$
+
+\section{Equilibrium}
+
+
+\section{Comparative Statics}
+
+
+\section{Finding the Key Player}
+
+
+\section{Conclusion}
+
+
+\section{Reference}
+
+
+\end{document}

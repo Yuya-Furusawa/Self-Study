@@ -43,6 +43,7 @@
 \newtheorem*{remark}{Remark}
 
 \newcommand{\bm}[1]{{\mbox{\boldmath $#1$}}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
 
 
 \begin{document}
@@ -65,8 +66,14 @@ aaaa
 
 TO DO
 \begin{itemize}
-  \item Model Story
-  \item Literature Review
+	\item Network with peer effects
+	\item Importance of network formation
+	\begin{itemize}
+ 		\item Model Story
+ 		\item Numerical example
+ 	\end{itemize}
+ 	\item Summary of results
+  	\item Literature Review
 \end{itemize}
 
 
@@ -105,9 +112,45 @@ where
 \[ v_i(x_1, \cdots, x_n, g, \phi) = \alpha_i x_i - \frac{1}{2} x_i^2 + \phi \sum_{j=1}^n g_{ij} x_i x_j \]
 Here, we focus on bilinear payoff functions.
 We assume $\alpha_i > 0$ for all $i$, and $\phi > 0$.
-Denote $\boldsymbol{x} = (x_1, \cdots, x_n)$ and $\boldsymbol{\alpha} = (\alpha_1, \cdots, \alpha_n)$
+Denote $\bs{x} = (x_1, \cdots, x_n)$ and $\bs{\alpha} = (\alpha_1, \cdots, \alpha_n)$.
+
+Before go into an equilibrium analysis, we introduce a well-known network centrality measure which is useful for our analysis.
+Consider the $n$-square adjacency matrix $G$ of a network $g$ where $g_{ij} = 1$ if $i$ has a direct link to $j$ and $g_{ij} = 0$ otherwise.
+We introduce a following definition from Katz(1953) and Bonacich(1987).
+
+\begin{definition}
+Given a vector $\bs{u} \in \mathbb{R}_+^n$, and a small enough $\phi \ge 0$, the vector of Katz-Bonacich centralities of parameter $\phi$ in network $g$ is defined as:
+
+\[ \bs{b}_{\bs{u}} = {(\bs{I} - \phi G)}^{-1} \bs{u} = \sum_{p=0}^{\infty} \phi^p G^p \bs{u} \]
+
+\end{definition}
+
+Katz-Bonacich centrality can be thought of a centrality measure which considers the discounted sum of the walks.
+The $i$-th entry of the vector $\bs{b}_{\bs{u}}$ is denoted by $\bs{b}_{\bs{u}, i}$.
+We write the sum of Katz-Bonacich centrarities as $b_{\bs{u}} = \sum_{i=1}^n \bs{b}_{\bs{u}, i}$
+
 
 \section{Equilibrium}
+
+In this paper, we consider the subgame perfect equilibrium where all agents take pure strtegies in every subgame.
+The reason why we consider such a equilibrium is that pure strategies in choosing neighbors makes network deterministic.
+If agents take mixed actions in the first stage, the realized network can be stochastic and we cannot directly compare the realized network.
+
+We characterize the equilibrium by standard way: backward induction.
+First, given realized network $g$, consider the second stage, choosing an effort level.
+To characterize the equilibrium in this subgame, we require a new assumption.
+Denote $\rho (G)$ as the spectral radius of the matrix $G$.
+
+\begin{assumption}
+$\phi \rho(G^p) < 1$
+\end{assumption}
+
+We show that, under this assumption, there exists a unique Nash equilibrium in the second stage for any realized network.
+
+\begin{proposition}
+Under Assumption 1, for any realized network $G$, the subgame has a unique Nash equilibrium $\bs{x}^*$, which is interior and given by
+\[ \bs{x}^* = {(\bs{I} - \phi G)}^{-1} \bs{\alpha} \]
+\end{proposition}
 
 
 \section{Comparative Statics}
@@ -120,6 +163,9 @@ Denote $\boldsymbol{x} = (x_1, \cdots, x_n)$ and $\boldsymbol{\alpha} = (\alpha_
 
 
 \section{Reference}
+
+
+\section{Appendix}
 
 
 \end{document}

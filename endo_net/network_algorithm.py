@@ -88,29 +88,95 @@ class Network:
         return key_player
 
 
+def find_key_player_fix(G, alpha, phi):
+    """
+    find a key player in the fixed network
+    this method is for comparing my model with previous ones
+
+    G : fixed network
+    """
+    n, m = G.shape
+    importances = []
+    M = np.linalg.inv(np.eye(n) - phi * G)
+    b = M @ alpha
+    for i in range(n):
+        x = b[i] * sum(M[:,i]) / M[i,i]
+        importances.append(x)
+    key_player = np.where(importances == np.max(importances))
+    return key_player
+
+
+
 
 if __name__ == "__main__":
-    n = 3 # number of agents
-    phi = 1/3
+    n = 5 # number of agents
+    phi = 1/n
 
     G = np.ones((n,n))
     for i in range(n):
-        G[i, i] = 0 
+        G[i, i] = 0
+
+
+"""
+    ## Example of Large Discontinuity in Network
 
     alpha = np.ones(n)
 
-    # cost matrix
-    C = np.array([[0,0,0],[0.5,0,0.5],[0.6,0.6,0]])
+    epsilon = 0.05
 
-    for cost in np.arange(0, 2.5, 0.1):
-        C[0,1] = cost
-        C[0,2] = cost
-        algo = Network(phi)
-        eqm_G = algo.main(G, C, alpha, verbose=False)
-        print("==========")
-        print("cost : {0}".format(cost))
-        print("efforts : {0}".format(algo.compute_effort(eqm_G, alpha)))
-        print("payoffs : {0}".format(algo.compute_payoff(eqm_G, C, alpha)))
-        print("key player : {0}".format(algo.find_key_player(G, C, alpha)))
-        print(eqm_G)
-        
+    C = np.array([[0, 3 - epsilon, 3 - epsilon, 3 - epsilon, 3 - epsilon],
+                  [3 - epsilon, 0, 3 - epsilon, 3 - epsilon, 3 - epsilon],
+                  [3 - epsilon, 3 - epsilon, 0, 3 - epsilon, 3 - epsilon],
+                  [3 - epsilon, 3 - epsilon, 3 - epsilon, 0, 3 - epsilon],
+                  [3 - epsilon, 3 - epsilon, 3 - epsilon, 3 - epsilon, 0]])
+
+    algo = Network(phi)
+    eqm_G = algo.main(G, C, alpha, verbose=False)
+    print("=====Before=====")
+    print("efforts : {0}".format(algo.compute_effort(eqm_G, alpha)))
+    print("payoffs : {0}".format(algo.compute_payoff(eqm_G, C, alpha)))
+    print("key player : {0}".format(algo.find_key_player(G, C, alpha)))
+    print(eqm_G)
+
+    C_hat = np.array([[0, 3 + 4 * epsilon, 3 - epsilon, 3 - epsilon, 3 - epsilon],
+                      [3 - epsilon, 0, 3 - epsilon, 3 - epsilon, 3 - epsilon],
+                      [3 - epsilon, 3 - epsilon, 0, 3 - epsilon, 3 - epsilon],
+                      [3 - epsilon, 3 - epsilon, 3 - epsilon, 0, 3 - epsilon],
+                      [3 - epsilon, 3 - epsilon, 3 - epsilon, 3 - epsilon, 0]])
+
+    algo = Network(phi)
+    eqm_G = algo.main(G, C_hat, alpha, verbose=False)
+    print("=====After=====")
+    print("efforts : {0}".format(algo.compute_effort(eqm_G, alpha)))
+    print("payoffs : {0}".format(algo.compute_payoff(eqm_G, C_hat, alpha)))
+    print("key player : {0}".format(algo.find_key_player(G, C_hat, alpha)))
+    print(eqm_G)
+"""
+
+    ## Example of Comparison with My Model and Previous Models in Finding Key Players
+
+alpha = np.ones(n)
+
+C = np.array([[0, 3.6, 0.2, 0.2, 0.2],
+              [0.3, 0, 0.2, 4, 4.5],
+              [0.2, 0.2, 0, 4.5, 4.3],
+              [4.1, 0.2, 0.4, 0, 6.5],
+              [3.2, 4.1, 0.3, 1, 0]])
+
+G_fix = np.array([[0, 0, 1, 1, 1],
+                  [1, 0, 1, 0, 0],
+                  [1, 1, 0, 0, 0],
+                  [0, 1, 1, 0, 0],
+                  [0, 0, 1, 0, 0]])
+
+algo = Network(phi)
+eqm_G = algo.main(G, C, alpha, verbose=False)
+key_player = algo.find_key_player(G, C, alpha)
+key_player_fix = find_key_player_fix(G_fix, alpha, phi)
+
+print("=====Endogenous Network=====")
+print(eqm_G)
+print("key player : {0}".format(key_player))
+print("=====Fixed Network=====")
+print("key player : {0}".format(key_player_fix))
+ 

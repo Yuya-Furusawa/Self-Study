@@ -84,7 +84,7 @@ TO DO
 There are $n$ agents in the economy, and denote the set of agents $N = \{ 1, \cdots, n\}$.
 We assume $n$ is finite and $n \ge 2$.
 
-The game consists of two-stage game: "choosing neighbors" and "choosing an effort level".
+The game consists of two-stage game: {\it{choosing neighbors}} and {\it{choosing an effort level}}.
 Initially, agents are connected in the potential network $g^p$.
 We consider the network $g^p$ is connected, directed and unweighted.
 The potential network $g^p$ is represented by adjacency matrix $\bm{G}^p = {(g_{ij}^p)}_{ij}$ where, for any $i \neq j$,
@@ -95,24 +95,27 @@ The potential network $g^p$ is represented by adjacency matrix $\bm{G}^p = {(g_{
 	\end{cases} \]
 Note that $\bm{G}^p$ can be asymetric and $g_{ii}^p = 0$ for all $i$.
 Denote the set of agent $i$'s neighbors in the potential network $N_i(g^p)$.
-In the first stage, each agent $i$ chooses the partners from the potential neighbors, $N_i(g^p)$.
-This strategy can be represented by the function $\phi_i : N \rightarrow N$ for all $i$.
-When forming a link, each agent incurs a cost $c_{ij} \ge 0$.
+In the first stage, each agent $i$ simultaneously chooses the partners from the potential neighbors, $N_i(g^p)$, where $N_i(g^p) = \{ j \in N | g_{ij}^p = 1 \}$.
+This strategy can be represented by its subset $\psi_i \subset N_i(g^p)$, and $\psi_i$ can be empty.
+Since $\psi_i$ depends on potential network $g^p$, to emphasize it, we denote $\psi_i(g^p)$.
+We denote its profile $\bm{\psi}(g^p) = \prod_{i=1}^n \psi_i(g^p)$.
+We assume that when forming a link, each agent incurs a cost $c_{ij} \ge 0$.
+The link formation cost represents, for example, geographic distance or psychological barrier.
 After forming links, the network $g$ is realized.
 $g$ is represented by the adjacency matrix $\bm{G} = {(g_{ij})}_{ij}$ such that, for any pair $(i,j)$,
 \[ g_{ij} = 
 	\begin{cases}
-		1 \  (\text{if} \  j \in \phi_i(N_i(g^p)) ) \\
+		1 \  (\text{if} \  j \in \psi_i(g^p) ) \\
 		0 \  (\text{otherwise})
 	\end{cases} \]
-We can see the realization of the network depends on the potential networl $g^p$ and costs $\bm{C} = {(c_{ij})}_{ij}$.
-To represent this dependency, we write the realized network $g$ as $g(g^p, C)$.
+We can see the realization of the network depends on agents' choosing strategy $\bm{\psi}$ (so also depends on potential network $g^p$) and costs $\bm{C} = {(c_{ij})}_{ij}$.
+To represent this dependency, we write the realized network $g$ as $g(\bm{\psi}, \bm{C})$.
 
-In the second stage, each agent $i = 1, \cdots, n$ excerts an effort $x_i \ge 0$, and gets a payoff which depends on the agents' efforts and realized network.
+In the second stage, each agent $i = 1, \cdots, n$ simultaneously excerts an effort $x_i \ge 0$, and gets a payoff which depends on the agents' efforts and realized network.
 Denote $\bm{x} = (x_1, \cdots, x_n)$.
-\[ u_i(\bm{x}, g, \bm{C}) = v_i(\bm{x}, g, \phi) - \sum_{j=1} g_{ij} c_{ij} \]
+\[ u_i(\bm{x}, \bm{\psi}, \bm{C}, \phi) = v_i(\bm{x}, g(\bm{\psi}, \bm{C}), \phi) - \sum_{j=1} g_{ij} c_{ij} \]
 where
-\[ v_i(\bm{x}, g, \phi) = \alpha_i x_i - \frac{1}{2} x_i^2 + \phi \sum_{j=1}^n g_{ij} x_i x_j \]
+\[ v_i(\bm{x}, g(\bm{\psi}, \bm{C}), \phi) = \alpha_i x_i - \frac{1}{2} x_i^2 + \phi \sum_{j=1}^n g_{ij} x_i x_j \]
 Here, we focus on bilinear payoff functions.
 We assume $\alpha_i > 0$ for all $i$, and $\phi > 0$.
 Denote $\bm{\alpha} = (\alpha_1, \cdots, \alpha_n)$.
@@ -124,13 +127,13 @@ We introduce a following definition from Katz(1953) and Bonacich(1987).
 \begin{definition}
 Given a vector $\bm{u} \in \mathbb{R}_+^n$, and a small enough $\phi \ge 0$, the vector of Katz-Bonacich centralities of parameter $\phi$ in network $g$ is defined as:
 
-\[ \bm{b}_{\bm{u}} = {(\bm{I} - \phi \bm{G})}^{-1} \bm{u} = \sum_{p=0}^{\infty} \phi^p \bm{G}^p \bm{u} \]
+\[ \bm{b}_{\bm{u}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{u} = \sum_{p=0}^{\infty} \phi^p \bm{G}^p \bm{u} \]
 
 \end{definition}
 
 Katz-Bonacich centrality can be thought of a centrality measure which considers the discounted sum of the walks.
-The $i$-th entry of the vector $\bm{b}_{\bm{u}}$ is denoted by $\bm{b}_{\bm{u}, i}$.
-We write the sum of Katz-Bonacich centrarities as $b_{\bm{u}} = \sum_{i=1}^n \bm{b}_{\bm{u}, i}$
+The $i$-th entry of the vector $\bm{b}_{\bm{u}}(g, \phi)$ is denoted by $b_{\bm{u}, i}(g, \phi)$.
+We write the sum of Katz-Bonacich centrarities as $b_{\bm{u}}(g, \phi) = \sum_{i=1}^n b_{\bm{u}, i}(g, \phi)$
 
 
 \section{Equilibrium}
@@ -138,8 +141,13 @@ We write the sum of Katz-Bonacich centrarities as $b_{\bm{u}} = \sum_{i=1}^n \bm
 In this paper, we consider the subgame perfect equilibrium where all agents take pure strtegies in every subgame.
 The reason why we consider such a equilibrium is that pure strategies in choosing neighbors makes network deterministic.
 If agents take mixed actions in the first stage, the realized network can be stochastic and we cannot directly compare the realized network.
+We call the network emerged in the pure-strategy subgame perfect equilibrium as {\it{equilibrium network}}.
 
-We characterize the equilibrium by standard way: backward induction.
+\begin{definition}
+The network $g^+$ is equilibrium network if $g^* = g(\bm{\psi}^*, \bm{C})$ where $\bm{\psi}^*$ is the strategies in the pure-strategy subgame perfect equilibrium.
+\end{definition}
+
+We characterize the equilibrium network by a standard way: backward induction.
 First, given realized network $g$, consider the second stage, choosing an effort level.
 To characterize the equilibrium in this subgame, we require a new assumption.
 Denote $\rho (\bm{G})$ as the spectral radius of the matrix $\bm{G}$.
@@ -156,36 +164,44 @@ Under Assumption 1, for any realized network $G$, the subgame has a unique Nash 
 \end{proposition}
 
 Ballester, Calvo-Armengol, and Zenou(2006, 2010) show that there exists a unique interior Nash equilibrium when the spectral radius of the adjacency matrix of the network is small enough.
-In our model, the spectral radius of the adjacency matrix of realized network may not be satisfy that condition.
+In our model, the spectral radius of the adjacency matrix of realized network may not satisfy that condition.
 Proposition 1 says that we can satisfy the condition under Assumption 1.
 Note that Proposition 1 also provides the Nash equilibrium, which is a first step of backward induction.
 
+Here $\bm{x}^*$ is the optimal effort in the realized network, and so we can find $x_i^*$'s are dependent of $\bm{\psi}$ and $\bm{C}$.
+Therefore, optimal effort levels can be written as $x_i^*(\bm{\psi}, \bm{C})$.
+From Proposition 1, we can calculate as follows:
+\[ v_i^*(\bm{x}^*, \bm{\psi}, \bm{C}, \phi) = \frac{1}{2} {[b_{\bm{\alpha}, i}(g(\bm{\psi}, \bm{C}), \phi)]}^2 = \frac{1}{2} {x_i^*}^2 \]
+
 In order to characterize the subgame perfect equilibrium, next we consider the agents' strategy to choose neighbors.
 In light of Proposition 1, we only need to consider Nash equilibria given the efforts in the second stage Nash equilibrium.
-Since the number of agents and strategies is finite, there exists Nash equilibria.
-As mentioned above, we will consider the pure staretegy equilibrium.
+Since the number of agents and strategies is finite, there exists Nash equilibrium, but as mentioned above, we will consider the pure staretegy equilibrium.
 To show the existence of such a equilibrium, we consider the following algorithm.
 
 \begin{algorithm}
 \ 
 \begin{description}
 	\item[Step 0.]\mbox{}\\
-		Let $G^{(0)}$ be the initial realized network where $G^{(0)} = G^p$.
-		Compute each players' payoffs.
-		Denote the set of agents who do not take best response as $NB^{(0)}$.
+		Let $g^{(0)}$ be the initial realized network where $g^{(0)} = g^p$, that is $\psi_i^{(0)} = N_i(g^p)$.
+		Compute each players' optimal effort and payoffs.
+		Denote the set of agents who do not take best response as $NB^{(0)}$:\footnote{Here, we omit variable $x$ in the representation of payoff $u$ because optimal effort level $\bm{x}^*$ also depends on $\bm{\psi}$ and $\bm{C}$ as mentioned above.}
+		\[ NB^{(0)} = \{i \in N | \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\tilde{\psi}_i^*, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{\psi}^{(0)}, \bm{C}, \phi) \ \text{and} \ \tilde{\psi}_i \neq \psi_i^{(0)} \} \]
 		Go into Step 1.
 	\item[Step $k(\ge 1)$.]\mbox{}\\
 		Check whether $NB^{(k-1)}$ is empty or not.
-		If $NB^{(k-1)} = \emptyset$, define $G^* = G^{(k-1)}$ and terminate the algorithm.
+
+		If $NB^{(k-1)} = \emptyset$, define $g^* = g(\bm{\psi}^{(k-1)}, \bm{C})$ and terminate the algorithm.
+
 		Otherwise, choose a agent $i \in NB^{(k-1)}$ randomly.
-		Agent $i$ takes best response for $G^{(k-1)}$.
-		After $i$'s changing links, new network is emerged and let such a network $G^{(k)}$.
+		Agent $i$ takes best response, changing links, then new network is emerged.
+		That is, $i$ changes her strategy from $\phi_i^{(k-1)}$ to $\phi_i^{(k)}$ such that $u_i(\psi_i^{(k)}, \psi_{-i}^{(k-1)}, \bm{C}, \phi) > u_i(\bm{\psi}^{(k-1)}, \bm{C}, \phi)$, and for any other agents $j (\neq i)$ remain their strategies, $\psi_j^{(k)} = \psi_j^{(k-1)}$.
+		Then, new network $g = g(\bm{\psi}^{(k)}, \bm{C})$ is formed.
 		Compute each players' payoffs and define $NB^{(k)}$.
-		Proceed Step $k+1$.
+		Proceed to Step $k+1$.
 \end{description}
 \end{algorithm}
 
-Algorithm 1 is one of the "best response dynamics" algorithms, where agents take their best reponses in each steps.
+Algorithm 1 is one of the {\it{best response dynamics}} algorithms, where agents take their best reponses in each steps.
 To show the theorem, we need some additional lemmas.
 
 \begin{lemma}
@@ -256,7 +272,7 @@ This may lead to the different networks.
 However, we can show that the equilibrium which is derived by the algorithm is unique.
 
 \begin{theorem}
-Given $C, G^p, \bm{\alpha}, and \phi$, the equilibrium derived by Algorithm 1 is unique.
+Given $C, G^p, \bm{\alpha}, and \phi$, the equilibrium network derived by Algorithm 1 is unique.
 \end{theorem}
 
 From this theorem, the order of the agents who take best responses does not matter.

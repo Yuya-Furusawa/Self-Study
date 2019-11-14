@@ -144,7 +144,10 @@ The $i$-th entry of the vector $\bm{b}_{\bm{u}}(g, \phi)$ is denoted by $b_{\bm{
 We write the sum of Katz-Bonacich centrarities as $b_{\bm{u}}(g, \phi) = \sum_{i=1}^n b_{\bm{u}, i}(g, \phi)$
 
 
-\section{Equilibrium}
+\section{Equilibrium and Characterization}
+
+
+\subsection{Equilibrium definition and its existence}
 
 In this paper, we consider the subgame perfect equilibrium where all agents take pure strtegies in every subgame.
 The reason why we consider such a equilibrium is that pure strategies in choosing neighbors makes network deterministic.
@@ -233,7 +236,7 @@ To do that, we need some lemmas.
 		\end{cases} \]
 	Also consider the $\bm{\hat{\psi}}$ and $\bm{\psi}$  which construct network $\tilde{g}$ and $g$ respectively. 
 	Then,
-	\[ v_i^* (\bm{x}^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) > v_i^* (\bm{x}^*(g(\bm{\psi})), \bm{\psi}, \phi)\]
+	\[ v_i^* (\bm{x}^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) > v_i^* (\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi)\]
 \end{lemma}
 
 Lemma 1 states that function $v_i$ is a increasing function in $\psi_i$.
@@ -252,7 +255,7 @@ Lemma 1 states that function $v_i$ is a increasing function in $\psi_i$.
 	and $g$, $\hat{g}$, $h$, and $\hat{h}$ satisfy that $G \ge H$ and  $\hat{G} \ge \hat{H}$.
 	Also consider the $\bm{\hat{\psi}}$, $\bm{\psi}$, $\bm{\hat{\varphi}}$, and $\bm{\varphi}$  which construct network $\tilde{g}$, $g$, $\hat{h}$, and $h$ respectively. 
 	Then
-	\[ v_i^*(\bm{x}^*(\hat{g}(\bm{\hat{\psi}})), \bm{\hat{\psi}}, \phi) - v_i^*(\bm{x}^*(g(\bm{\psi})), \bm{\psi}, \phi) \ge v_i^*(\bm{x}^*(\hat{h}(\bm{\hat{\varphi}})), \bm{\hat{\varphi}}, \phi) - v_i^*(\bm{h}^*(g(\bm{\varphi})), \bm{\varphi}, \phi)\]
+	\[ v_i^*(\bm{x}^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) - v_i^*(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) \ge v_i^*(\bm{x}^*(\hat{h}(\bm{\hat{\varphi}})), \hat{h}(\bm{\hat{\varphi}}), \phi) - v_i^*(\bm{h}^*(g(\bm{\varphi})), h(\bm{\varphi}), \phi)\]
 \end{lemma}
 
 Lemma 2 states shows the concavity of the function $v$ in the network.
@@ -266,7 +269,12 @@ Algorithm 1 terminates in finite steps, and converged network represents the equ
 The algorithm never fails to converge because the removed links will not be reformed in the later steps.
 The intuition behind this theorem is that
 
-Note that the equilibrium network is not necessarily unique.
+
+\subsection{Uniqueness of the equilibrium}
+
+Previous subsection shows the existence of the equilibrium, and we argue the uniqueness of the equilibrium in this subsection.
+Since the equilibrium in the second stage is unique from Proposition 1, we focus on the first stage strategies.
+However, the equilibrium network is not necessarily unique.
 Consider the following example.
 
 \begin{example}
@@ -284,8 +292,8 @@ Denote the realized network $g$ as
 		g_{21} & 0
 	\end{array} \right] \]
 where $g_{12}, g_{21} \in \{0,1\}$.
-By proposition 1, we can compute each player's payoffs.
-\[ (u_1, u_2) =
+By proposition 1, we can compute each player's equilibrium payoffs:
+\[ (u_1^*, u_2^*) =
 	\begin{cases}
 		\left( \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - c_{12}, \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - c_{21} \right) & (g_{12} = 1, g_{21} = 1) \\
 		\left( \frac{1}{2}{(1+\phi)}^2 - c_{12}, \frac{1}{2} \right) & (g_{12} = 1, g_{21} = 0) \\
@@ -339,12 +347,13 @@ The set of deleted links is determined only by costs, but not by the other playe
 From now on, we only consider the network derived by the algorithm.
 
 
-\section{Comparative Statics}
+\subsection{Comparative Statics}
 
 In this section, we argue the comparative statics by changing the parameter $\bm{C}$.
-When the cost of forming links decrease, we conjecture the 
+When the cost of forming links decrease, we conjecture that the network becomes denser because agents are more likely to form the links.
 
 We denote that, for network $g$ and $h$, $g \supseteq h$ if all links in the network $h$ are existed in the network $g$, that is $G \ge H$.
+Next proposition shows that our conjection is verified.
 
 \begin{proposition}
 Given the potential network $g^p$.
@@ -353,10 +362,131 @@ Then,
 \[ g(\bm{\psi}^*(g^p, \bm{\hat{C}})) \supseteq g(\bm{\psi}^*(g^p, \bm{C})) \]
 \end{proposition}
 
+The network is a increasing function in the costs of forming links.
+However, it is obvious that this function is discontiunous.
+The next example shows that small changes in the costs makes the network entirely changed.
 
+\begin{example}
+Consider the network with $n = 5$, and the potential network so that $g_{ij}^p = 1$ for any pair $ij(i \neq j)$.
+Assume $\bm{\alpha} = (1, 1, 1, 1, 1)$ and $\phi = \frac{1}{5}$, which satisfies the Assumption 1.
+For small enough $\epsilon > 0$, consider the costs $C$ such that
+\[ C = \left[
+			\begin{array}{ccccc}
+				0 & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
+				3 - \epsilon & 0 & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
+				3 - \epsilon & 3 - \epsilon & 0 & 3 - \epsilon & 3 - \epsilon \\
+				3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 0 & 3 - \epsilon \\
+				3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 0
+			\end{array} \right] \]
+Then, the equilibrium network $g^*$ becomes
+\[G^* = \left[
+			\begin{array}{ccccc}
+				0 & 1 & 1 & 1 & 1 \\
+				1 & 0 & 1 & 1 & 1 \\
+				1 & 1 & 0 & 1 & 1 \\
+				1 & 1 & 1 & 0 & 1 \\
+				1 & 1 & 1 & 1 & 0
+			\end{array} \right] \]
+The equilibrium network becomes complete network.
+On the other hand, when the cost of forming a link from agent $1$ to agent $2$ slightly increases, that is,
+\[\hat{C} = \left[
+			\begin{array}{ccccc}
+				0 & 3 + 4 \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
+				3 - \epsilon & 0 & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
+				3 - \epsilon & 3 - \epsilon & 0 & 3 - \epsilon & 3 - \epsilon \\
+				3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 0 & 3 - \epsilon \\
+				3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 0
+			\end{array} \right] \]
+then, the equilibrium network $\hat{g}^*$ becomes
+\[ \hat{G}^* = \left[
+			\begin{array}{ccccc}
+				0 & 0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0 & 0
+			\end{array} \right] \]
+The equilibrium network is empty network.
+\end{example}
+
+Tiny changes in the costs generates large discontinuity in the structure of the network.
+Example 2 shows that our model incorporates the {\it{phase transition}}.
 
 
 \section{Finding the Key Player}
+
+In this section, we argue the {\it{key player}} in the network.
+In the previous literatures, for example Ballester, Calvo-Armengol, and Zenou(2006, 2010) and Liu et.al.(2012), argue the key player and give necessary and sufficient condition of who becomes it in the context of similar model.
+In these papers, key player is defined as the agent who, once removed from the network, generates the highest possible reduction in aggreate effort level.
+Key player is thought of, for example, the player who supports the criminal activity of his friends in the context of criminal network.
+The formal definition of key player is given as follows:
+
+\begin{definition}
+Agent $i$ is the key player in the exogenous network $g$ if, given network $g$,
+\[ i \in \arg \max_{i \in N} \{ x^*(g) - x^*(g^{-i}) \} \]
+\end{definition}
+
+Here we denote $x^*(g) = \sum_{i=1}^n x_i^*(g)$ and $g^{-i}$ is the network where agent $i$ is removed from the network $g$.
+The adjecency matrix of $g^{-i}$, $G^{-i}$, is obtained from $G$ by setting to zero all of its $i$th row and column entries.
+Previous literatures show the key player in the exogenous network does not always coincide with the most active player who excerts highest effort.
+
+In this paper, the definition of key player might be different from the previous ones.
+Since the network is endogenous in our model, the key player is the agent who generates the largest reduction in the total effort level once she is removed from the potential network.
+
+\begin{definition}
+Agent $i$ is the key player in the endogenous network if, given potential network $g^p$,
+\[ i \in \arg \max_{i \in N} \{ x^*(g(\bm{\psi}({g^p}^{-i}, C))) - x^*(g(\bm{\psi}({g^p}^{-i}, C^{-i}))) \} \]
+\end{definition}
+Here we denote ${g^p}^{-i}$ is the network where agent $i$ is removed from the network $g^p$ as before.
+$C^{-i}$ is obtained from $C$ by setting to zero all of its $i$th row and column entries.
+
+As discussed in the previous section, there exists a discontinuity of the network realization in the link formation costs, so it is very difficult to identify the condition to be a key player.
+The realization of the network is a key factor to be a key player in the endogenous network.
+We know that denser network leads higher effort level by the network externality, so, in order to become a key player in the endogenous network, the realized network after removing should be sparse.
+
+Although it is difficult to identify who becomes key player, we can find that the most active player, key player in the endogenous network, and key player in the exogenous network can be different each other.
+To compare the kay player in the endogenous network and exogenous network, we treat realized network from the potential network and costs as given, then compute the key player in the exogenous network.
+Endogenous one is computed by the deefinition.
+
+\begin{example}
+Consider the network with $n=5$, and the potential network so that $g_{ij}^p = 1$ for any pair $ij(i \neq j)$.
+Assume $\bm{\alpha} = (1, 1, 1, 1, 1)$ and $\phi = \frac{1}{5}$, which satisfies the Assumption 1.
+
+Consider the link formation costs as follows:
+\[C = \left[
+			\begin{array}{ccccc}
+				0 & 3.6 & 0.2 & 0.2 & 0.2 \\
+				0.3 & 0 & 0.2 & 0.5 & 5.5 \\
+				0.2 & 0.2 & 0 & 4.5 & 4.3 \\
+				4.1 & 0.2 & 0.4 & 0 & 6.5 \\
+				3.2 & 4.1 & 0.3 & 1.0 & 0
+			\end{array} \right] \]
+Then, the realized equilibrium network $g^*$ is:
+\[G^* = \left[
+			\begin{array}{ccccc}
+				0 & 0 & 1 & 1 & 1 \\
+				1 & 0 & 1 & 1 & 0 \\
+				1 & 1 & 0 & 0 & 0 \\
+				0 & 1 & 1 & 0 & 0 \\
+				0 & 0 & 1 & 0 & 0
+			\end{array} \right] \]
+In this network, the agent who excerts highest effort is agent $2$.
+However, the key player in the endogenous network $g^*$ is agent $1$.
+On the other hand, when we treat the network $g^*$ as given, the key player in the exogenous network is agent $3$.
+See Table\ref{tab:key player}.
+
+\begin{table}[htb]
+  \begin{center}
+    \begin{tabular}{|l|c|} \hline
+      highest effort & agent $2$ \\ \hline
+      key player in the endogenous network & agent $1$ \\ \hline
+      key player in the exogenous network & agent $3$ \\ \hline
+    \end{tabular}
+    \caption{Difference of key players}
+    \label{tab:key player}
+  \end{center}
+\end{table}
+\end{example}
 
 
 \section{Conclusion}

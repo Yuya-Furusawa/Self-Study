@@ -242,7 +242,7 @@ To do that, we need some lemmas.
 Lemma 1 states that function $v_i$ is a increasing function in $\psi_i$.
 
 \begin{lemma}
-	Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ (its adjacency matrices are $G$, $\hat{G}$, $H$, and $\hat{H}$ respectively) such that
+	Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ (its adjacency matrices are $\bm{G}$, $\bm{\hat{G}}$, $\bm{H}$, and $\bm{\hat{H}}$ respectively) such that
 	\[  \begin{cases}
 			\hat{g}_{ij} = 1, g_{ij} = 0 \\
 			\hat{g}_{lm} = g_{lm} \ \text{for any} \ lm  \neq ij
@@ -252,7 +252,7 @@ Lemma 1 states that function $v_i$ is a increasing function in $\psi_i$.
 			\hat{h}_{ij} = 1, h_{ij} = 0 \\
 			\hat{h}_{lm} = h_{lm} \ \text{for any} \ lm  \neq ij
 		\end{cases} \]
-	and $g$, $\hat{g}$, $h$, and $\hat{h}$ satisfy that $G \ge H$ and  $\hat{G} \ge \hat{H}$.
+	and $g$, $\hat{g}$, $h$, and $\hat{h}$ satisfy that $\bm{G} \ge \bm{H}$ and  $\bm{\hat{G}} \ge \bm{\hat{H}}$.
 	Also consider the $\bm{\hat{\psi}}$, $\bm{\psi}$, $\bm{\hat{\varphi}}$, and $\bm{\varphi}$  which construct network $\tilde{g}$, $g$, $\hat{h}$, and $h$ respectively. 
 	Then
 	\[ v_i^*(\bm{x}^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) - v_i^*(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) \ge v_i^*(\bm{x}^*(\hat{h}(\bm{\hat{\varphi}})), \hat{h}(\bm{\hat{\varphi}}), \phi) - v_i^*(\bm{h}^*(g(\bm{\varphi})), h(\bm{\varphi}), \phi)\]
@@ -279,14 +279,14 @@ Consider the following example.
 
 \begin{example}
 Consider the network with $n=2$, and the potential network $g^p$ such that,
-\[ G^p = \left[
+\[ \bm{G}^p = \left[
 	\begin{array}{cc}
 		0 & 1 \\
 		1 & 0
 	\end{array} \right] \]
 Assume $\bm{\alpha} = (1, 1)$ and $\phi$ satisfies Assumption 1.
 Denote the realized network $g$ as
-\[ G = \left[
+\[ \bm{G} = \left[
 	\begin{array}{cc}
 		0 & g_{12} \\
 		g_{21} & 0
@@ -304,12 +304,12 @@ From this calculation, if $c_{12}$ and $c_{21}$ satisfy
 \[ \frac{1}{2}{(1+\phi)}^2 - \frac{1}{2} < c_{12} < \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 \]
 \[ \frac{1}{2}{(1+\phi)}^2 - \frac{1}{2} < c_{21} < \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 \]
 then $(g_{12}, g_{21}) = (1,1)$ and $(g_{12}, g_{21}) = (0,0)$ are both Nash equilibria.
-Thus, $G = \left[
+Thus, $\bm{G} = \left[
 	\begin{array}{cc}
 		0 & 1 \\
 		1 & 0
 	\end{array} \right]$
-and $G = \left[
+and $\bm{G} = \left[
 	\begin{array}{cc}
 		0 & 0 \\
 		0 & 0
@@ -339,7 +339,7 @@ For example, not changing neighbors and changing them can be both best responses
 From this lemma, we can show the uniqueness of the equilibrium network from the algorithm.
 
 \begin{theorem}
-Given $C, g^p, \bm{\alpha}, and \phi$, the equilibrium network derived by Algorithm 1 is unique.
+Given $\bm{C}, g^p, \bm{\alpha}, and \phi$, the equilibrium network derived by Algorithm 1 is unique.
 \end{theorem}
 
 From this theorem, we can say the order of the agents who take best responses does not matter.
@@ -352,7 +352,7 @@ From now on, we only consider the network derived by the algorithm.
 In this section, we argue the comparative statics by changing the parameter $\bm{C}$.
 When the cost of forming links decrease, we conjecture that the network becomes denser because agents are more likely to form the links.
 
-We denote that, for network $g$ and $h$, $g \supseteq h$ if all links in the network $h$ are existed in the network $g$, that is $G \ge H$.
+We denote that, for network $g$ and $h$, $g \supseteq h$ if all links in the network $h$ are existed in the network $g$, that is $\bm{G} \ge \bm{H}$.
 Next proposition shows that our conjection is verified.
 
 \begin{proposition}
@@ -369,8 +369,8 @@ The next example shows that small changes in the costs makes the network entirel
 \begin{example}
 Consider the network with $n = 5$, and the potential network so that $g_{ij}^p = 1$ for any pair $ij(i \neq j)$.
 Assume $\bm{\alpha} = (1, 1, 1, 1, 1)$ and $\phi = \frac{1}{5}$, which satisfies the Assumption 1.
-For small enough $\epsilon > 0$, consider the costs $C$ such that
-\[ C = \left[
+For small enough $\epsilon > 0$, consider the costs $\bm{C}$ such that
+\[ \bm{C} = \left[
 			\begin{array}{ccccc}
 				0 & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
 				3 - \epsilon & 0 & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
@@ -379,7 +379,7 @@ For small enough $\epsilon > 0$, consider the costs $C$ such that
 				3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 0
 			\end{array} \right] \]
 Then, the equilibrium network $g^*$ becomes
-\[G^* = \left[
+\[\bm{G}^* = \left[
 			\begin{array}{ccccc}
 				0 & 1 & 1 & 1 & 1 \\
 				1 & 0 & 1 & 1 & 1 \\
@@ -389,7 +389,7 @@ Then, the equilibrium network $g^*$ becomes
 			\end{array} \right] \]
 The equilibrium network becomes complete network.
 On the other hand, when the cost of forming a link from agent $1$ to agent $2$ slightly increases, that is,
-\[\hat{C} = \left[
+\[\bm{\hat{C}} = \left[
 			\begin{array}{ccccc}
 				0 & 3 + 4 \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
 				3 - \epsilon & 0 & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
@@ -398,7 +398,7 @@ On the other hand, when the cost of forming a link from agent $1$ to agent $2$ s
 				3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 0
 			\end{array} \right] \]
 then, the equilibrium network $\hat{g}^*$ becomes
-\[ \hat{G}^* = \left[
+\[ \bm{\hat{G}}^* = \left[
 			\begin{array}{ccccc}
 				0 & 0 & 0 & 0 & 0 \\
 				0 & 0 & 0 & 0 & 0 \\
@@ -410,7 +410,8 @@ The equilibrium network is empty network.
 \end{example}
 
 Tiny changes in the costs generates large discontinuity in the structure of the network.
-Example 2 shows that our model incorporates the {\it{phase transition}}.
+Example 2 shows that our model incorporates the {\it{phase transition}}, the phenomenon that the feature of the network is totally changed.
+But as discussed above, it is difficult to identify the threshold of the transition by the discontinuity of the realized network.
 
 
 \section{Finding the Key Player}
@@ -427,7 +428,7 @@ Agent $i$ is the key player in the exogenous network $g$ if, given network $g$,
 \end{definition}
 
 Here we denote $x^*(g) = \sum_{i=1}^n x_i^*(g)$ and $g^{-i}$ is the network where agent $i$ is removed from the network $g$.
-The adjecency matrix of $g^{-i}$, $G^{-i}$, is obtained from $G$ by setting to zero all of its $i$th row and column entries.
+The adjecency matrix of $g^{-i}$, $\bm{G}^{-i}$, is obtained from $\bm{G}$ by setting to zero all of its $i$th row and column entries.
 Previous literatures show the key player in the exogenous network does not always coincide with the most active player who excerts highest effort.
 
 In this paper, the definition of key player might be different from the previous ones.
@@ -435,10 +436,10 @@ Since the network is endogenous in our model, the key player is the agent who ge
 
 \begin{definition}
 Agent $i$ is the key player in the endogenous network if, given potential network $g^p$,
-\[ i \in \arg \max_{i \in N} \{ x^*(g(\bm{\psi}({g^p}^{-i}, C))) - x^*(g(\bm{\psi}({g^p}^{-i}, C^{-i}))) \} \]
+\[ i \in \arg \max_{i \in N} \{ x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}))) - x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}^{-i}))) \} \]
 \end{definition}
 Here we denote ${g^p}^{-i}$ is the network where agent $i$ is removed from the network $g^p$ as before.
-$C^{-i}$ is obtained from $C$ by setting to zero all of its $i$th row and column entries.
+$\bm{C}^{-i}$ is obtained from $\bm{C}$ by setting to zero all of its $i$th row and column entries.
 
 As discussed in the previous section, there exists a discontinuity of the network realization in the link formation costs, so it is very difficult to identify the condition to be a key player.
 The realization of the network is a key factor to be a key player in the endogenous network.
@@ -446,14 +447,14 @@ We know that denser network leads higher effort level by the network externality
 
 Although it is difficult to identify who becomes key player, we can find that the most active player, key player in the endogenous network, and key player in the exogenous network can be different each other.
 To compare the kay player in the endogenous network and exogenous network, we treat realized network from the potential network and costs as given, then compute the key player in the exogenous network.
-Endogenous one is computed by the deefinition.
+Endogenous one is computed by the definition.
 
 \begin{example}
 Consider the network with $n=5$, and the potential network so that $g_{ij}^p = 1$ for any pair $ij(i \neq j)$.
 Assume $\bm{\alpha} = (1, 1, 1, 1, 1)$ and $\phi = \frac{1}{5}$, which satisfies the Assumption 1.
 
 Consider the link formation costs as follows:
-\[C = \left[
+\[\bm{C} = \left[
 			\begin{array}{ccccc}
 				0 & 3.6 & 0.2 & 0.2 & 0.2 \\
 				0.3 & 0 & 0.2 & 0.5 & 5.5 \\
@@ -462,7 +463,7 @@ Consider the link formation costs as follows:
 				3.2 & 4.1 & 0.3 & 1.0 & 0
 			\end{array} \right] \]
 Then, the realized equilibrium network $g^*$ is:
-\[G^* = \left[
+\[\bm{G}^* = \left[
 			\begin{array}{ccccc}
 				0 & 0 & 1 & 1 & 1 \\
 				1 & 0 & 1 & 1 & 0 \\
@@ -470,10 +471,10 @@ Then, the realized equilibrium network $g^*$ is:
 				0 & 1 & 1 & 0 & 0 \\
 				0 & 0 & 1 & 0 & 0
 			\end{array} \right] \]
-In this network, the agent who excerts highest effort is agent $2$.
+In this network, we can compute that the agent who excerts highest effort is agent $2$.
 However, the key player in the endogenous network $g^*$ is agent $1$.
 On the other hand, when we treat the network $g^*$ as given, the key player in the exogenous network is agent $3$.
-See Table\ref{tab:key player}.
+See Table \ref{tab:key player}.
 
 \begin{table}[htb]
   \begin{center}
@@ -491,11 +492,149 @@ See Table\ref{tab:key player}.
 
 \section{Conclusion}
 
+This paper argues the game with externality in the endogenously formed network.
+Contrary to the previous literatures, agents endogenously form the network.
+In the model, agents choose their neighbors in the potential network at first, and then the network is realized.
+When agents form links to neighbors, they incur the link-specific costs.
+Next, agents decide their effort level in this formed network, and their decisions generates the externality, peer effect, through the network.
+We focus on the subgame perfect equilibrium where agents take pure strategies in each stage.
+We mainly make use of the best response algorithm.
+By this algorithm, we show that there always exists the equilibrium for any potential network and link formation costs.
+In addition, the equilibrium derived by the algorithm is always unique.
+However, the realized network high dimensional discontiunous function in the costs, so it is difficult to identify the structure of the network from the link formation costs.
+We can find the key player in the endogenous network is not necessarily same with the one in the exogenous network.
 
-\section{Reference}
+Some weaknesses are remaining in our model for the future work.
+First, link formation is accomplished by the unilateral decisions.
+This is mainly due to the simplification of the analysis.
+In reality, the relationships are made by the bilateral agreement, such as friendship network and firm-to-firm relationship.
+In such a model, the network is treated as undirected network.
+To incorporate the bilateral decisions, in the model similar to ours, we have to consider the complex belief system: when I offer the relationship, will she accept my offer?
+The beliefs depend on other agents' decisions and beliefs, so it is not easy to bilateral link formation.
+Second, links don't have any weights, unweighted network.
+In many situations, relationships have unequal importances, for example, the closeness of friends are not equal in the social network.
+In order to make the links weighted, agents have to deecide the link weights when they form relationships.
+Our model can be extened to the unweighted network when agents choose the intensity of each forming links like Kim, J., Patacchini, E., Picard, P.M. and Y. Zenou (2017)~\cite{Urban}.
+However, in such a model, agents form links to all other agents (weights are unequal), that is, realized network becomes complete network.
+This is not appropriate for representing the real environment.
+Finally, our model and results should be testified by empirical works.
+In our model, link formation cost allows any kinds of interpretations, for example, geographic distance, monetary cost to keep in touch with, and the psychological barrier.
+To conduct empirical works, we need appropriate panel data of the network.
 
 
 \section{Appendix}
+
+
+\begin{thebibliography}{99}
+\bibitem{}
+	Acemoglu, D. and Azar, P. (2019),
+	"Endogenous Production Networks",
+	Econometrica, \textit{forthcoming}.
+\bibitem{}
+	Acemoglu, D., Ozdaglar, A. E., and Tahbaz-Salehi, A. (2015),
+	"Systemic Risk in Endogenous Financial Networks",
+	Columbia Business School Research Paper No. 15-17.
+\bibitem{}
+	Babus, A. (2016),
+	"The formation of financial networks",
+	The RAND Journal of Economics, 47: 239-272.
+\bibitem{whowho}
+	Ballester, C., Calvó‐Armengol, A., and Zenou, Y. (2006),
+	"Who's who in networks. Wanted: The key player,"
+	Econometrica, 74(5), 1403-1417.
+\bibitem{delinquent}
+	Ballester, C., Zenou, Y., and Calvó-Armengol, A. (2010),
+	"Delinquent networks",
+	Journal of the European Economic Association, 8(1), 34-61.
+\bibitem{context}
+	Ballester, C., and Zenou, Y. (2014),
+	"Key player policies when contextual effects matter",
+	Journal of Mathematical Sociology, 38.4, 233–248.
+\bibitem{}
+	Banerjee, A., Chandrasekhar, A. G., Duflo, E., and Jackson, M. O. (2013),
+	"The diffusion of microfinance",
+	Science, 341(6144), 1236498.
+\bibitem{}
+	Bramoullé, Y., Kranton, R., and D'Amours, M. (2014),
+	"Strategic interaction and networks",
+	American Economic Review, 104(3), 898-930.
+\bibitem{}
+	Calvó-Armengol, A., Patacchini, E., and Zenou, Y. (2009),
+	"Peer effects and social networks in education",
+	The Review of Economic Studies, 76(4), 1239-1267.
+\bibitem{}
+	Canen, N., Jackson, M. O. and Trebbi, F. (2019),
+	"Endogenous Networks and Legislative Activity",
+	\textit{Working Paper}.
+\bibitem{}
+	Cohen-Cole, E., Patacchini, E., and Zenou, Y. (2010),
+	"Systemic risk and network formation in the interbank market",
+	CAREFIN Research Paper, (25).
+\bibitem{}
+	Dell, M. (2015),
+	"Trafficking networks and the Mexican drug war",
+	American Economic Review, 105(6), 1738-79.
+\bibitem{contagion}
+	Elliott, M., Golub, B., and Jackson, M. O. (2014),
+	"Financial networks and contagion",
+	American Economic Review, 104(10), 3115-53.
+\bibitem{}
+	Farboodi, M. (2014),
+	"Intermediation and voluntary exposure to counterparty risk",
+	\textit{Working Paper}.
+\bibitem{}
+	Galeotti, A., Goyal, S., Jackson, M. O., Vega-Redondo, F., and Yariv, L. (2010),
+	"Network games",
+	The review of economic studies, 77(1), 218-244.
+\bibitem{social}
+	Jackson, M. O. (2010),
+	"Social and economic networks",
+	Princeton university press.
+\bibitem{}
+	Jackson, M. O., and Wolinsky, A. (1996),
+	"A strategic model of social and economic networks",
+	Journal of economic theory, 71(1), 44-74.
+\bibitem{Urban}
+	Kim, J., Patacchini, E., Picard, P.M. and Y. Zenou (2017),
+	"Urban interactions",
+	\textit{Working Paper}.
+\bibitem{}
+	König, M. D., Liu, X., and Zenou, Y. (2019),
+	"R\&D Networks: Theory, Empirics, and Policy Implications",
+	Review of Economics and Statistics, 101(3), 476-491.
+\bibitem{}
+	König, M. D., Rohner, D., Thoenig, M., and Zilibotti, F. (2017),
+	"Networks in conflict: Theory and evidence from the great war of africa",
+	Econometrica, 85(4), 1093-1132.
+\bibitem{criminal}
+	Liu, X., Patacchini, E., Zenou, Y., and Lee, L. F. (2012),
+	"Criminal networks: Who is the key player?",
+	\textit{Working Paper}.
+\bibitem{}
+	Liu, X., Patacchini, E., and Zenou, Y. (2014),
+	"Endogenous peer effects: local aggregate or local average?",
+	Journal of Economic Behavior \& Organization, 103, 39-59.
+\bibitem{}
+	Marco, B., and Eleonora, P., (2018),
+	"Influencing Connected Legislators",
+	Journal of Political Economy, 126, no. 6, 2277-2322.
+\bibitem{}
+	Marco, B., Eleonora, P., and Edoardo, R. (2019),
+	"Endogenous Social Connections in Legislatures",
+	\textit{Working Paper}.
+\bibitem{}
+	Margherita, C., and Mariapia, M. (2015),
+	"Formation of Migrant  Networks",
+	Scandinavian Journal of Economics, 117(2), 592–618.
+\bibitem{AGT}
+	Nisan, N., Roughgarden, T., Tardos, E., and Vazirani, V. V. (Eds.). (2007),
+	"Algorithmic game theory",
+	Cambridge university press.
+\bibitem{}
+	Oberfield, E. (2018),
+	"A theory of input–output architecture",
+	Econometrica, 86(2), 559-589.
+\end{thebibliography}
 
 
 \end{document}

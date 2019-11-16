@@ -50,7 +50,7 @@
 
 \begin{document}
 
-\title{Network Game with Endogenous Formation and Peer-Effect}
+\title{Endogenous Network Formation with Peer-Effects}
 
 \author{Yuya Furusawa}
 \affil{U-Tokyo, GSE, 29-186036}
@@ -75,8 +75,13 @@ TO DO
  		\item Numerical example
  	\end{itemize}
  	\item Summary of results
-  	\item Literature Review
+  	\item Literature Review(Contribution)
 \end{itemize}
+
+
+This paper contributes to the growing literatures on the endogenous networks.
+Oberfield (2018), and Acemoglu and Azar (2019) argue the endogenous production networks.
+
 
 
 \section{Model}
@@ -130,7 +135,7 @@ Denote $\bm{\alpha} = (\alpha_1, \cdots, \alpha_n)$.
 
 Before go into an equilibrium analysis, we introduce a well-known network centrality measure which is useful for our analysis.
 Consider the $n$-square adjacency matrix $\bm{G}$ of a network $g$ where $g_{ij} = 1$ if $i$ has a direct link to $j$ and $g_{ij} = 0$ otherwise.
-We introduce a following definition from Katz(1953) and Bonacich(1987).
+We introduce a following definition from Katz(1953)~\cite{katz} and Bonacich(1987)~\cite{bonacich}.
 
 \begin{definition}
 Given a vector $\bm{u} \in \mathbb{R}_+^n$, and a small enough $\phi \ge 0$, the vector of Katz-Bonacich centralities of parameter $\phi$ in network $g$ is defined as:
@@ -167,6 +172,7 @@ Denote $\rho (\bm{G})$ as the spectral radius of the matrix $\bm{G}$.
 $\phi \rho(\bm{G}^p) < 1$
 \end{assumption}
 
+This assumption ensures that the spill-over effect is bounded in the potential network which is the possiblly largest network.
 We show that, under this assumption, there exists a unique Nash equilibrium in the second stage for any realized network.
 
 \begin{proposition}
@@ -182,7 +188,10 @@ Note that Proposition 1 also provides the Nash equilibrium, which is a first ste
 
 Here $\bm{x}^*$ is the optimal effort in the realized network, and so we can find $x_i^*$s' are dependent of $\bm{\psi}$, so optimal effort levels can be written as $x_i^*(\bm{\psi})$.
 From Proposition 1, we can calculate as follows:
-\[ v_i^*(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) = \frac{1}{2} {[b_{\bm{\alpha}, i}(g(\bm{\psi}), \phi)]}^2 = \frac{1}{2} {x_i^*(g(\bm{\psi}))}^2 \]
+\begin{equation}
+	\label{opteff}
+	v_i^*(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) = \frac{1}{2} {[b_{\bm{\alpha}, i}(g(\bm{\psi}), \phi)]}^2 = \frac{1}{2} {x_i^*(g(\bm{\psi}))}^2
+\end{equation}
 
 In order to characterize the subgame perfect equilibrium, next we consider the agents' strategy to choose neighbors.
 In light of Proposition 1, we only need to consider Nash equilibria given the efforts in the second stage Nash equilibrium.
@@ -224,7 +233,7 @@ To show the existence of such a equilibrium, we consider the following algorithm
 \end{algorithm}
 
 Algorithm 1 is one of the {\it{best response dynamics}} algorithms, where agents take their best reponses in each steps.
-You may notice that if the best reponse dynamics halts, it returns a pure strategy Nash equilibrium.\footnote{See Nisan, Noam, et al., eds. Algorithmic game theory. Cambridge university press, 2007.}
+You may notice that if the best reponse dynamics halts, it returns a pure strategy Nash equilibrium.\footnote{See Nisan, Noam, et al.~\cite{AGT}}
 Thus, to show the existence of the equilibrium, we need to show this algorithm always terminates.
 To do that, we need some lemmas.
 
@@ -236,16 +245,20 @@ To do that, we need some lemmas.
 		\end{cases} \]
 	Also consider the $\bm{\hat{\psi}}$ and $\bm{\psi}$  which construct network $\tilde{g}$ and $g$ respectively. 
 	Then,
-	\[ v_i^* (\bm{x}^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) > v_i^* (\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi)\]
+	\[ \bm{x}^*(\hat{g}(\bm{\hat{\psi}})) \ge \bm{x}^*(g(\bm{\psi})) \]
+	and
+	\[ x_i^*(\hat{g}(\bm{\hat{\psi}})) > x_i^*(g(\bm{\psi})) \]
 \end{lemma}
 
 Lemma 1 states that function $v_i$ is a increasing function in $\psi_i$.
+From (\ref{opteff}), we can have 
+\[ v_i^*(x_i^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) > v_i^*(x_i^*(g(\bm{\psi})), g(\bm{\psi}), \phi)\]
 
 \begin{lemma}
 	Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ (its adjacency matrices are $\bm{G}$, $\bm{\hat{G}}$, $\bm{H}$, and $\bm{\hat{H}}$ respectively) such that
 	\[  \begin{cases}
 			\hat{g}_{ij} = 1, g_{ij} = 0 \\
-			\hat{g}_{lm} = g_{lm} \ \text{for any} \ lm  \neq ij
+			\hat{g}_{lm{}} = g_{lm} \ \text{for any} \ lm  \neq ij
 		\end{cases}
 		\ \text{and} \ 
 		\begin{cases}
@@ -417,7 +430,7 @@ But as discussed above, it is difficult to identify the threshold of the transit
 \section{Finding the Key Player}
 
 In this section, we argue the {\it{key player}} in the network.
-In the previous literatures, for example Ballester, Calvo-Armengol, and Zenou(2006, 2010) and Liu et.al.(2012), argue the key player and give necessary and sufficient condition of who becomes it in the context of similar model.
+In the previous literatures, for example Ballester, Calvo-Armengol, and Zenou(2006, 2010)~\cite{whowho, delinquent} and Liu et.al.(2012)~\cite{criminal}, argue the key player and give necessary and sufficient condition of who becomes it in the context of similar model.
 In these papers, key player is defined as the agent who, once removed from the network, generates the highest possible reduction in aggreate effort level.
 Key player is thought of, for example, the player who supports the criminal activity of his friends in the context of criminal network.
 The formal definition of key player is given as follows:
@@ -479,7 +492,7 @@ See Table \ref{tab:key player}.
 \begin{table}[htb]
   \begin{center}
     \begin{tabular}{|l|c|} \hline
-      highest effort & agent $2$ \\ \hline
+      agent with highest effort & agent $2$ \\ \hline
       key player in the endogenous network & agent $1$ \\ \hline
       key player in the exogenous network & agent $3$ \\ \hline
     \end{tabular}
@@ -524,11 +537,76 @@ To conduct empirical works, we need appropriate panel data of the network.
 
 \section{Appendix}
 
+\begin{proof}[Proof of Proposition 1.]
+	For all pair $ij$, from the definition of $g$ and $g^p$, $g_{ij} \ge 0$, $g_{ij}^p \ge 0$, and $g_{ij}^p \ge g_{ij}$.
+	By the theorem $\text{I}^*$ of Debreu and Herstein (1952)~\cite{debreu}, we can have
+	\[ \rho(\bm{G}^p) \ge \rho(\bm{G})  \]
+	Since $\phi > 0$, by Assumption 1, $\phi \rho(\bm{G}) < 1$.
+	By Theorem 1 of Ballester, Calv\'{o}-Armengol and Zenou (2005)~\cite{whowho}, we can have a unique Nash equilibrium $\bm{x}^*$, which is interior and given by
+	\[ \bm{x}^* = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \] 
+\end{proof}
+
+\begin{proof}[Proof of Lemma 1.]
+	We can write
+	\[ \bm{x}(g) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} = \sum_{p=0}^{\infty} \phi^p \bm{G}^p \bm{\alpha} \]
+	\[ \bm{x}(\hat{g}) = {(\bm{I} - \phi \bm{\hat{G}})}^{-1} \bm{\alpha} = \sum_{p=0}^{\infty} \phi^p \bm{\hat{G}}^p \bm{\alpha} \]
+	Therefore,
+	\begin{eqnarray}
+		\label{lemma1-1}
+		\bm{x}^*(\hat{g}) - \bm{x}^*(g) &=& \sum_{p=0}^{\infty} \phi^p \bm{\hat{G}}^p \bm{\alpha} - \sum_{p=0}^{\infty} \phi^p \bm{G}^p \bm{\alpha} \notag \\
+										&=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{G}}^p - \bm{G}^p) \bm{\alpha} \notag \\
+										&=& \phi (\bm{\hat{G}} - \bm{G}) \bm{\alpha} + \phi^2 (\bm{\hat{G}}^2 - \bm{G}^2) \bm{\alpha} + \cdots
+	\end{eqnarray}
+	By construction, we can write $\bm{\hat{G}} = \bm{G} + \bm{D}$ where $d_{ij} = 1$ and $d_{lm} = 0$ for any $lm \neq ij$.
+	Then, the right hand side of (\ref{lemma1-1}) can be written as
+	\[ \phi \bm{D} \bm{\alpha} + \phi (\bm{G} \bm{D} + \bm{D} \bm{G} + \bm{D}^2) \bm{\alpha} + \cdots \]
+	Since $\bm{G}$ and $\bm{D}$ are both nonnegative matrices, their combinations are also nonnegative.
+	Therefore, we have
+	\begin{eqnarray*}
+		\phi \bm{D} \bm{\alpha} + \phi (\bm{G} \bm{D} + \bm{D} \bm{G} + \bm{D}^2) \bm{\alpha} + \cdots &\ge& \bm{0} \\
+		\Leftrightarrow \bm{x}^*(\hat{g}) - \bm{x}^*(g) &\ge& \bm{0}
+	\end{eqnarray*}
+	In addition, since $\hat{g}_{ij} - g_{ij} = 1$, $\alpha_j > 0$, and $\phi > 0$, $i$-th element of $\phi \bm{D} \bm{\alpha}$ is strictly greater than $0$.
+	That is, $i$-th element of $\bm{x}^*(\hat{g}) - \bm{x}^*(g)$ is strictly greater than $0$.
+	Thus, we have
+	\[ x_i^*(\hat{g}) > x_i^*(g) \]
+\end{proof}
+
+\begin{proof}[Lemma 2.]
+	Let $\bm{D}$ be the matrix such that $d_{ij} = 1$ and $d_{lm} = 0$ for any $lm \neq ij$.
+	Then, we can write $\bm{\hat{G}} = \bm{G} + \bm{D}$ and $\bm{\hat{H}} = \bm{H} + \bm{D}$.
+	We can have
+	\begin{eqnarray*}
+		\bm{x}^*(\hat{g}) - \bm{x}^*(g)
+			&=& \sum_{p=0}^{\infty} \phi^p \bm{\hat{G}}^p \bm{\alpha} - \sum_{p=0}^{\infty} \phi^p \bm{G}^p \bm{\alpha} \\
+			&=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{G}}^p - \bm{G}^p) \bm{\alpha} \\
+			&=& \sum_{p=0}^{\infty} \phi^p ({(\bm{G} + \bm{D})}^p - \bm{G}^p) \\
+			&=& \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{G} \bm{D} + \bm{D} \bm{G} + \bm{D}^2 \} \bm{\alpha} + \cdots \\
+		\bm{x}^*(\hat{h}) - \bm{x}^*(h)
+			&=& \sum_{p=0}^{\infty} \phi^p \bm{\hat{H}}^p \bm{\alpha} - \sum_{p=0}^{\infty} \phi^p \bm{H}^p \bm{\alpha} \\
+			&=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{H}}^p - \bm{H}^p) \bm{\alpha} \\
+			&=& \sum_{p=0}^{\infty} \phi^p ({(\bm{H} + \bm{D})}^p - \bm{H}^p) \\
+			&=& \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{H} \bm{D} + \bm{D} \bm{H} + \bm{D}^2 \} \bm{\alpha} + \cdots
+	\end{eqnarray*}
+	Therefore,
+	\begin{equation}
+		\label{lemma2}
+		\{ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \} - \{ \bm{x}^*(\hat{h}) - \bm{x}^*(h) \} = \phi^2 ((\bm{G} - \bm{H}) \bm{D} + \bm{D} (\bm{G} - \bm{H})) \bm{\alpha} + \cdots
+	\end{equation}
+	By construction, $\bm{G} - \bm{H}$ is nonnegative matrix.
+	Since $\bm{D}$ is nonnegative, the combination of $\bm{G} - \bm{H}$ and $\bm{D}$ is also nonnegative.
+	The right hand side of (\ref{lemma2}) is greater than or equal to zero.
+	Thus,
+	\[ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) - \bm{x}^*(h) \]
+	Therefore, from (\ref{opteff}),
+	\[ v_i^*(\bm{x}^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) - v_i^*(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) \ge v_i^*(\bm{x}^*(\hat{h}(\bm{\hat{\varphi}})), \hat{h}(\bm{\hat{\varphi}}), \phi) - v_i^*(\bm{h}^*(g(\bm{\varphi})), h(\bm{\varphi}), \phi)\]
+\end{proof}
+
 
 \begin{thebibliography}{99}
-\bibitem{}
+\bibitem{}{}
 	Acemoglu, D. and Azar, P. (2019),
-	"Endogenous Production Networks",
+	"Endogenous Production Networks",{}
 	Econometrica, \textit{forthcoming}.
 \bibitem{}
 	Acemoglu, D., Ozdaglar, A. E., and Tahbaz-Salehi, A. (2015),
@@ -539,11 +617,11 @@ To conduct empirical works, we need appropriate panel data of the network.
 	"The formation of financial networks",
 	The RAND Journal of Economics, 47: 239-272.
 \bibitem{whowho}
-	Ballester, C., Calvó‐Armengol, A., and Zenou, Y. (2006),
+	Ballester, C., Calv\'{o}‐Armengol, A., and Zenou, Y. (2006),
 	"Who's who in networks. Wanted: The key player,"
 	Econometrica, 74(5), 1403-1417.
 \bibitem{delinquent}
-	Ballester, C., Zenou, Y., and Calvó-Armengol, A. (2010),
+	Ballester, C., Zenou, Y., and Calv\'{o}-Armengol, A. (2010),
 	"Delinquent networks",
 	Journal of the European Economic Association, 8(1), 34-61.
 \bibitem{context}
@@ -554,12 +632,16 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Banerjee, A., Chandrasekhar, A. G., Duflo, E., and Jackson, M. O. (2013),
 	"The diffusion of microfinance",
 	Science, 341(6144), 1236498.
+\bibitem{bonacich}
+	Bonacich, P. (1987),
+	"Power and centrality: A family of measures",
+	American journal of sociology, 92(5), 1170-1182.
 \bibitem{}
-	Bramoullé, Y., Kranton, R., and D'Amours, M. (2014),
+	Bramoull\'{e}, Y., Kranton, R., and D'Amours, M. (2014),
 	"Strategic interaction and networks",
 	American Economic Review, 104(3), 898-930.
 \bibitem{}
-	Calvó-Armengol, A., Patacchini, E., and Zenou, Y. (2009),
+	Calv\'{o}-Armengol, A., Patacchini, E., and Zenou, Y. (2009),
 	"Peer effects and social networks in education",
 	The Review of Economic Studies, 76(4), 1239-1267.
 \bibitem{}
@@ -570,10 +652,20 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Cohen-Cole, E., Patacchini, E., and Zenou, Y. (2010),
 	"Systemic risk and network formation in the interbank market",
 	CAREFIN Research Paper, (25).
+\bibitem{debreu}
+	Debreu, G., and Herstein, I. N. (1953),
+	"Nonnegative square matrices",
+	Econometrica: Journal of the Econometric Society, 597-607.
 \bibitem{}
 	Dell, M. (2015),
 	"Trafficking networks and the Mexican drug war",
 	American Economic Review, 105(6), 1738-79.
+\bibitem{}
+	Denbee, E., Julliard, C., Li, Y., and Yuan, K. Z. (2018),
+	"Network Risk and Key Players: A Structural Analysis of Interbank Liquidity",
+	Fisher College of Business Working Paper No. 2018-03-011;
+	Charles A. Dice Center Working Paper No. 2018-11;
+	Columbia Business School Research Paper No. 17-6. 
 \bibitem{contagion}
 	Elliott, M., Golub, B., and Jackson, M. O. (2014),
 	"Financial networks and contagion",
@@ -594,16 +686,20 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Jackson, M. O., and Wolinsky, A. (1996),
 	"A strategic model of social and economic networks",
 	Journal of economic theory, 71(1), 44-74.
+\bibitem{katz}
+	Katz, L. (1953),
+	"A new status index derived from sociometric analysis",
+	Psychometrika, 18(1), 39-43.
 \bibitem{Urban}
 	Kim, J., Patacchini, E., Picard, P.M. and Y. Zenou (2017),
 	"Urban interactions",
 	\textit{Working Paper}.
 \bibitem{}
-	König, M. D., Liu, X., and Zenou, Y. (2019),
+	K\"{o}nig, M. D., Liu, X., and Zenou, Y. (2019),
 	"R\&D Networks: Theory, Empirics, and Policy Implications",
 	Review of Economics and Statistics, 101(3), 476-491.
 \bibitem{}
-	König, M. D., Rohner, D., Thoenig, M., and Zilibotti, F. (2017),
+	K\"{o}nig, M. D., Rohner, D., Thoenig, M., and Zilibotti, F. (2017),
 	"Networks in conflict: Theory and evidence from the great war of africa",
 	Econometrica, 85(4), 1093-1132.
 \bibitem{criminal}

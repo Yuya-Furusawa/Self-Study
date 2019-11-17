@@ -572,7 +572,8 @@ To conduct empirical works, we need appropriate panel data of the network.
 	\[ x_i^*(\hat{g}) > x_i^*(g) \]
 \end{proof}
 
-\begin{proof}[Lemma 2.]
+\begin{proof}[Proof of Lemma 2.]
+	Here, we abbreviate the strategies $\bm{\psi}$.
 	Let $\bm{D}$ be the matrix such that $d_{ij} = 1$ and $d_{lm} = 0$ for any $lm \neq ij$.
 	Then, we can write $\bm{\hat{G}} = \bm{G} + \bm{D}$ and $\bm{\hat{H}} = \bm{H} + \bm{D}$.
 	We can have
@@ -599,7 +600,94 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Thus,
 	\[ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) - \bm{x}^*(h) \]
 	Therefore, from (\ref{opteff}),
-	\[ v_i^*(\bm{x}^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) - v_i^*(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) \ge v_i^*(\bm{x}^*(\hat{h}(\bm{\hat{\varphi}})), \hat{h}(\bm{\hat{\varphi}}), \phi) - v_i^*(\bm{h}^*(g(\bm{\varphi})), h(\bm{\varphi}), \phi)\]
+	\[ v_i^*(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i^*(\bm{x}^*(g), g, \phi) \ge v_i^*(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i^*(\bm{x}^*(h), h, \phi)\]
+\end{proof}
+
+\begin{proof}[Proof of Theorem 1.]
+	Here, we abbreviate the strategies $\bm{\psi}$.
+	Suppose link $ij$ is removed at step $\tau(\ge0)$ in Algorithm 1.
+	Assume link $ij$ is reformed at step $\tau + t (t \ge 1)$.
+	Denote $g \setminus \{ ij \}$ as the network obtained by removing link $ij$ from network $g$.
+	Denote $g \cup \{ ij \}$ as the network obtained by adding link $ij$ to netwotk $g$.
+	At step $\tau$,
+	\begin{align}
+		\label{thm1-1}
+		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - c_{ij} - \sum_{k \neq j} g_{ik}^{(\tau - 1)} c_{ik} \notag \\
+			& < v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) - \sum_{k \neq j} {g_{ik} \setminus \{ ij \}}^{(\tau - 1)} c_{ik}
+	\end{align}
+	At step $\tau + t$,
+	\begin{align}
+		\label{thm1-2}
+		& v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi) - \sum_{k \neq j} g_{ik}^{(\tau + t-1)} c_{ik} \notag \\
+			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - c_{ij} - \sum_{k \neq j} {g_{ik} \cup \{ ij \}}^{(\tau + t-1)} c_{ik}
+	\end{align}
+	From (\ref{thm1-1}),
+	\[ c_{ij} > v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \]
+	From (\ref{thm1-2}),
+	\[ c_{ij} < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi) \]
+	Therefore,
+	\begin{align}
+		\label{thm1-3}
+		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \notag \\
+			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi)
+	\end{align}
+	Note that, from Lemma 2,
+	\begin{align*}
+		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \\
+			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi)
+	\end{align*}
+	This contradicts to (\ref{thm1-3}), and link $ij$ will never be reformed once it is removed.
+
+	Since the number of links is finite, the algorithm terminates in finite steps.
+	By the construction of the algorithm, the converged network represents Nash equilibrium.
+\end{proof}
+
+\begin{proof}[Proof of Lemma 3.]
+	Take any $i \in N$.
+	Consider the network $g$ with $g_{ij} = g_{ik} = 1$.
+	Suppose $i$ has multiple strategies which are best responses and bring strictly higher payoffs given other agents' strategies fixed.
+	Without loss of generarity, we can assume such strategies are removing link $ij$ and removing link $ik$.
+	Therefore,
+	\begin{align}
+		\label{lemma3-1}
+		& u_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) = u_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) \notag \\
+			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - (\sum_{l=1}^n g_{il} c_{il} - c_{ij}) = v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) - (\sum_{l=1}^n g_{il} c_{il} - c_{ik}) \notag \\
+			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) + c_{ij} = v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) + c_{ik} \notag \\
+			& \Leftrightarrow c_{ij} = v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) - v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) + c_{ik}
+	\end{align}
+	Also, we have
+	\begin{align}
+		\label{lemma3-2}
+		& u_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) > u_i^*(\bm{x}^*(g), g, \phi) \notag \\
+			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - (\sum_{l=1}^n g_{il} c_{il} - c_{ij}) > v_i^*(\bm{x}^*(g), g, \phi) - \sum_{l=1}^n g_{il} c_{il} \notag \\
+			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) + c_{ij} > v_i^*(\bm{x}^*(g), g, \phi) \notag \\
+			& \Leftrightarrow c_{ik} > v_i^*(\bm{x}^*(g), g, \phi) - v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi)
+	\end{align}
+	Inequality (\ref{lemma3-2}) is obtained from equation (\ref{lemma3-1}).
+	Consider the strategy removing $ij$ and $ik$, which is not best reponse.
+	Hence, we can have
+	\begin{align}
+		\label{lemma3-3}
+		& u_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) > u_i^*(\bm{x}^*(g \setminus \{ij,ik\}), g \setminus \{ij,ik\}, \phi) \notag \\
+			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - (\sum_{l=1}^n g_{il} c_{il} - c_{ij}) > v_i^*(\bm{x}^*(g \setminus \{ij,ik\}), g \setminus \{ij,ik\}, \phi) - (\sum_{l=1}^n g_{il} c_{il} - c_{ij} - c_{ik}) \notag \\
+			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - v_i^*(\bm{x}^*(g \setminus \{ij,ik\}), g \setminus \{ij,ik\}, \phi) > c_{ik}
+	\end{align}
+	By (\ref{lemma3-2}) and (\ref{lemma3-3}),
+	\[ v_i^*(\bm{x}^*(g), g, \phi) - v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) < v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - v_i^*(\bm{x}^*(g \setminus \{ij,ik\}), g \setminus \{ij,ik\}, \phi) \]
+	However, by Lemma 2,
+	\[ v_i^*(\bm{x}^*(g), g, \phi) - v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) \ge v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - v_i^*(\bm{x}^*(g \setminus \{ij,ik\}), g \setminus \{ij,ik\}, \phi) \]
+	This is contradiction, and deleting $ij$ and deleting $ik$ cannot be best responses at the same time.
+\end{proof}
+
+\begin{proof}[Proof of Theorem 2.]
+	Fix $\bm{C}$, $g^p$, $\bm{\alpha}$, and $\phi$.
+	Assume Algorithm 1 can return multiple equilibrium networks.
+	In light of Lemma 3, there have to be some agents who have strategy which brings strictly higher payoffs at some step $\tau$.
+\end{proof}
+
+\begin{proof}[Proof of Proposition 2.]
+	Consider the sequence of deleted links to converge to $g(\bm{\psi}^*(g^p, \bm{C})$.
+	Suppose this sequence is unique.
 \end{proof}
 
 
@@ -636,6 +724,10 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Bonacich, P. (1987),
 	"Power and centrality: A family of measures",
 	American journal of sociology, 92(5), 1170-1182.
+\bibitem{}
+	Bramoullé, Y., Djebbari, H., and Fortin, B. (2009),
+	"Identification of peer effects through social networks",
+	Journal of econometrics, 150(1), 41-55.
 \bibitem{}
 	Bramoull\'{e}, Y., Kranton, R., and D'Amours, M. (2014),
 	"Strategic interaction and networks",
@@ -678,6 +770,10 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Galeotti, A., Goyal, S., Jackson, M. O., Vega-Redondo, F., and Yariv, L. (2010),
 	"Network games",
 	The review of economic studies, 77(1), 218-244.
+\bibitem{}
+	Hiller, T. (2017),
+	"Peer effects in endogenous networks",
+	Games and Economic Behavior, 105, 349-367.
 \bibitem{social}
 	Jackson, M. O. (2010),
 	"Social and economic networks",
@@ -730,6 +826,10 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Oberfield, E. (2018),
 	"A theory of input–output architecture",
 	Econometrica, 86(2), 559-589.
+\bibitem{}
+	Rees, A. (1966),
+	"Information Networks in Labor Markets",
+	The American Economic Review, 56(1/2), 559-566.
 \end{thebibliography}
 
 

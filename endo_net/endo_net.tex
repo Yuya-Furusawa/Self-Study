@@ -78,10 +78,79 @@ TO DO
   	\item Literature Review(Contribution)
 \end{itemize}
 
+% Network with peer effects
+Network structures and local interactions play an important role in detemining individual and aggregate behavior.
+Individual behavior generates a positive or negative externalities and affects neighbors' behavior, which is referred to as peer effect.
+Recently, many literatures in the economics theoretically and emprically point out this significance.
+In these works, it is shown that peer effects are important in many kinds of network, for example, social network, criminal network, firm-to-firm networks where firms invest R\&D activities, networks for labor market participation, educational network, and so on.
+In criminal network, when the neighbors are highly devoted to criminal activities such as drug abuses, the agent are more likely to concentrate on the drug usage due to the information or traffickinf from his neighbors.
 
+% Importance of network formation
+However, many existing literatures about the networks in economics ignore the mechanism of the network formation, and they cannot answer the question why such a network we have?
+
+
+% Summary of results
+We develop the two stage dynamic game, where agents form links to other agents in the first stage and agents excert efforts in the second stage.
+Second stage game is eccensially same with the model in Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho}.
+Agents simultaneously choose a nonnegative effort level and the agents' payoffs depend on not only their own effort but also neighbors' effort.
+The agents' efforts generates the positive externalities, so called "peer effects", to the connected agents in the network.
+We extend the model of Ballester, Calvo-Armengol, and Zenou(2006)~\cite{whowho} to the endogenous network by introducing first stage game, choosing neighbors.
+In the first stage, agents simultaneously choose their neighbors from the neighbors in the potential network, which represents the maximual possible conncetion without any limitations.
+When agents decide who to connect, they incur the link-specific costs, which is a key factor for determining the network.
+The link formation costs (and benefits of efforts) make the heterogeneity across the agents, which leads to the various types of networks.
+We consider the subgame perfect equilibrium where all agents take pure starategies in the both stages.
+
+We establish that such an equilibrium always exists.
+The existence of an equilibrium can be shown by the best response dynamics algorithm, which always halts in finite steps.
+The algorithm starts from the potential network, the potentially largest network, and the agent who does not take best response is randomly choosen and takes best response, which changes the structure of the network.
+We can also show the equilibrium derived by this algorithm is unique, but equilibrium itself may not be unique.
+This uniqueness enables us to analyze a comparative statics in the link formation costs.
+Reduction in the costs leads to larger network because agents are more likely to connect to other agents.
+Realized network is discontinuous in the link formation costs, so changes in the costs leads to discontinuous changes in the network.
+We give a example that tiny change in the link formation costs leads to drastic change of the network structure, phase transition.
+We analyze a key player policy in this endogenous network as in the previous literatures.
+Key player is the agent in the potential network who makes largest reduction of aggregate effort level once he removed from the potential network.
+However, it is difficult to find key players from the link formation costs because its discontinuity.
+We give a example that key player in the endogenous network and in the exogenous (key player defined in the previous literatures) might be different.
+
+% Literature Review
 This paper contributes to the growing literatures on the endogenous networks.
-Oberfield (2018), and Acemoglu and Azar (2019) argue the endogenous production networks.
+Endogeneity of the network is one of the hottest topics in the field of econimic networks and many researchers tackle this problem.
+Oberfield(2018)~\cite{ober}, and Acemoglu and Azar(2019)~\cite{endo_net} argue the endogenous production networks.
+In their model, the productivity of the firms is determined by the input or supplier, and the its customer, who use its output as input, and final consumers generates the firms' profit.
+This productivity is the key factor for network formation, and, in equilibrium, input-output architecture endogenously emerge.
+Farboodi(2014)~\cite{farboodi} Babus(2016)~\cite{babus} argue the endogenous formation of financial networks.
+For other networks, Canen, Jackson, and Trebbi(2019)~\cite{canen} empirically analyze the formation of networks of politicians.
 
+% Closely Related Literature
+This paper is closely related to Kim, Patacchini, Picard, and Zenou(2017)~\cite{Urban} which considers the social relationship formation in the urban geographical space.
+They consider the model where a contiuum of agents distributes over the line segment and decides the intensity of interactions to the agents who lives in the other point of the segment.
+The agents' payoff and the positive externalities of the interactions are eccentially same with our model and Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho} (and other literatures).
+Although the number of agents is infinite, we can treat their model as the network formation model.\footnote{In empirical part, they discritize the agents and consider the adjacency matrix as our model.}
+The key factor of network formation in their paper is the distribution of agents and the cost of interations which is measured by geographic distance.
+There are two differences in this paper and ours.
+First, in their model, the cost of interactions is only determined by the distance of two agents.
+In many cases, interactions are affected by various kinds of obstacles, such as psychological barrier and financial cost.
+In contrast, our model can incorporate any kinds of interaction costs, and it enables us to consider any kinds of economic situations in our framework.
+Second, they consider the weighted relationships and agents decide the intensity of interaction to every other agents.
+Due to this feature, we can remove the any kinds of discontinuity and compute the network structure and the weights of links analytically.
+However, analytical solution always shows that equilibrium network is always complete network, that is every agent connects all other agents in the network.
+Our model can explain the formation of any structure of the networks.
+
+Hiller(2017)~\cite{hiller} is also related to our paper.
+They develop the very similar model with ours, that is agents choose their neighbors and decide the level of efforts.
+They consider the general payoff function which include the payoff function in our model.
+But they consider the static game where all agents choose neighbors and effort levels simultaneously.
+In addition, the costs of link formation is determined by the number of links.
+This construction of the model lacks the uniqueness of the equilibrium, Nash equilibrium.
+Our model can have a kind of uniqueness of the equilibrium by setting the game dynamic.
+
+The rest of the paper is organized as follows.
+Section 2 describes the model.
+In section 3, we first give the definition of the equilibrium and present the result on its existence and uniqueness.
+We also present the result on comparative statics in this section.
+In section 4, we comment on the key player and Section 5 concludes.
+All proofs used to show the reults in this paper are attached in the Appendix(Section 6).
 
 
 \section{Model}
@@ -682,7 +751,23 @@ To conduct empirical works, we need appropriate panel data of the network.
 \begin{proof}[Proof of Theorem 2.]
 	Fix $\bm{C}$, $g^p$, $\bm{\alpha}$, and $\phi$.
 	Assume Algorithm 1 can return multiple equilibrium networks.
-	In light of Lemma 3, there have to be some agents who have strategy which brings strictly higher payoffs at some step $\tau$.
+	In light of Lemma 3, there have to be some agents who have strategy which brings strictly higher payoffs at some step in the algorithm.
+	Without loss of generality, we can assume player $i$ and $j$ ($i \neq j$ have strategies which give strictly higher payoffs at step $\tau$.
+	Let $g^{* [i]}$ ($g^{* [j]}$) be the converged network where player $i$ ($j$) take the best response at step $\tau$.
+	Also, let $D^{[i]}$ ($D^{[j]}$) be the set of deleted links in the steps from $g^{(\tau-1)}$ to $g^{* [i]}$ ($g^{* [j]}$).
+	Suppose the number of steps from $g^{(\tau-1)}$ to $g^{* [i]}$ ($g^{* [j]}$) is $m \in \mathbb{N}$ ($n \in \mathbb{N}$).
+	Consider the function $\iota^{[i]} : \{1, \cdots, m\} \rightarrow D^{[i]}$ and $\iota^{[j]} : \{1, \cdots, n\} \rightarrow D^{[j]}$, which indicate the deleted links in step $\tau - 1 + \iota^{[i]}(k)$ (, respectively step $\tau - 1 + \iota^{[j]}(k)$).
+
+	We will show $\iota^{[i]}(1) \subset D^{[j]}$ and $\iota^{[j]}(1) \subset D^{[i]}$.
+	By construction, $u_j(g^{(\tau-1)} \setminus \{ \iota^{[j]}(1) \}) > u_j(g^{(\tau-1)})$.
+	That is, we have
+	\[ v_j^*(g^{(\tau-1)} \setminus \{ \iota^{[j]}(1) \}) - (C - c_{\iota^{[j]}(1)}) > v_j^*(g^{(\tau-1)}) - C \]
+	where $C = \sum_{k=1}^n g^{(\tau-1)}_{jk} c_{jk}$.
+	In the steps after removing link $\iota^{[i]}(1)$, the network is now proper subset of $g^{(\tau-1)} \setminus \{\iota^{[i]}(1)\}$ and let $\tilde{g}$ be such a network.
+	By Lemma 1, we have
+	\[ v_j^*(g^{(\tau-1)} \setminus \{ \iota^{[j]}(1) \}) > v_j^*(\tilde{g} \setminus \{ \iota^{[j]}(1) \}) \]
+	and
+	\[ v_j^*(g^{(\tau-1)}) > v_j(\tilde{g})\]
 \end{proof}
 
 \begin{proof}[Proof of Proposition 2.]
@@ -692,15 +777,15 @@ To conduct empirical works, we need appropriate panel data of the network.
 
 
 \begin{thebibliography}{99}
-\bibitem{}{}
+\bibitem{endo_net}
 	Acemoglu, D. and Azar, P. (2019),
-	"Endogenous Production Networks",{}
+	"Endogenous Production Networks",
 	Econometrica, \textit{forthcoming}.
 \bibitem{}
 	Acemoglu, D., Ozdaglar, A. E., and Tahbaz-Salehi, A. (2015),
 	"Systemic Risk in Endogenous Financial Networks",
 	Columbia Business School Research Paper No. 15-17.
-\bibitem{}
+\bibitem{babus}
 	Babus, A. (2016),
 	"The formation of financial networks",
 	The RAND Journal of Economics, 47: 239-272.
@@ -725,7 +810,7 @@ To conduct empirical works, we need appropriate panel data of the network.
 	"Power and centrality: A family of measures",
 	American journal of sociology, 92(5), 1170-1182.
 \bibitem{}
-	Bramoullé, Y., Djebbari, H., and Fortin, B. (2009),
+	Bramoull\'{e}, Y., Djebbari, H., and Fortin, B. (2009),
 	"Identification of peer effects through social networks",
 	Journal of econometrics, 150(1), 41-55.
 \bibitem{}
@@ -736,7 +821,7 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Calv\'{o}-Armengol, A., Patacchini, E., and Zenou, Y. (2009),
 	"Peer effects and social networks in education",
 	The Review of Economic Studies, 76(4), 1239-1267.
-\bibitem{}
+\bibitem{canen}
 	Canen, N., Jackson, M. O. and Trebbi, F. (2019),
 	"Endogenous Networks and Legislative Activity",
 	\textit{Working Paper}.
@@ -762,7 +847,7 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Elliott, M., Golub, B., and Jackson, M. O. (2014),
 	"Financial networks and contagion",
 	American Economic Review, 104(10), 3115-53.
-\bibitem{}
+\bibitem{farboodi}
 	Farboodi, M. (2014),
 	"Intermediation and voluntary exposure to counterparty risk",
 	\textit{Working Paper}.
@@ -770,7 +855,7 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Galeotti, A., Goyal, S., Jackson, M. O., Vega-Redondo, F., and Yariv, L. (2010),
 	"Network games",
 	The review of economic studies, 77(1), 218-244.
-\bibitem{}
+\bibitem{hiller}
 	Hiller, T. (2017),
 	"Peer effects in endogenous networks",
 	Games and Economic Behavior, 105, 349-367.
@@ -822,7 +907,7 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Nisan, N., Roughgarden, T., Tardos, E., and Vazirani, V. V. (Eds.). (2007),
 	"Algorithmic game theory",
 	Cambridge university press.
-\bibitem{}
+\bibitem{ober}
 	Oberfield, E. (2018),
 	"A theory of input–output architecture",
 	Econometrica, 86(2), 559-589.

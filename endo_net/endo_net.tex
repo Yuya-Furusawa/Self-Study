@@ -66,18 +66,6 @@ aaaa
 
 \section{Introduction}
 
-TO DO
-\begin{itemize}
-	\item Network with peer effects
-	\item Importance of network formation
-	\begin{itemize}
- 		\item Model Story
- 		\item Numerical example
- 	\end{itemize}
- 	\item Summary of results
-  	\item Literature Review(Contribution)
-\end{itemize}
-
 % Network with peer effects
 Network structures and local interactions play an important role in detemining individual and aggregate behavior.
 Individual behavior generates a positive or negative externalities and affects neighbors' behavior, which is referred to as peer effect.
@@ -87,7 +75,7 @@ In criminal network, when the neighbors are highly devoted to criminal activitie
 
 % Importance of network formation
 However, many existing literatures about the networks in economics ignore the mechanism of the network formation, and they cannot answer the question why such a network we have?
-
+The 
 
 % Summary of results
 We develop the two stage dynamic game, where agents form links to other agents in the first stage and agents excert efforts in the second stage.
@@ -138,9 +126,9 @@ However, analytical solution always shows that equilibrium network is always com
 Our model can explain the formation of any structure of the networks.
 
 Hiller(2017)~\cite{hiller} is also related to our paper.
-They develop the very similar model with ours, that is agents choose their neighbors and decide the level of efforts.
-They consider the general payoff function which include the payoff function in our model.
-But they consider the static game where all agents choose neighbors and effort levels simultaneously.
+He develops the very similar model with ours: agents choose their neighbors and decide the level of efforts.
+He considers the general payoff function which include the payoff function in our model.
+But he considers the static game where all agents choose neighbors and effort levels simultaneously.
 In addition, the costs of link formation is determined by the number of links.
 This construction of the model lacks the uniqueness of the equilibrium, Nash equilibrium.
 Our model can have a kind of uniqueness of the equilibrium by setting the game dynamic.
@@ -321,7 +309,10 @@ To do that, we need some lemmas.
 
 Lemma 1 states that function $v_i$ is a increasing function in $\psi_i$.
 From (\ref{opteff}), we can have 
-\[ v_i^*(x_i^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) > v_i^*(x_i^*(g(\bm{\psi})), g(\bm{\psi}), \phi)\]
+\[ v_i^*(x^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) > v_i^*(x^*(g(\bm{\psi})), g(\bm{\psi}), \phi)\]
+and for any $j \neq i$,
+\[ v_j^*(x^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) \ge v_j^*(x^*(g(\bm{\psi})), g(\bm{\psi}), \phi)\]
+These imply that $v_i^*$ is increasing in $\psi$.
 
 \begin{lemma}
 	Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ (its adjacency matrices are $\bm{G}$, $\bm{\hat{G}}$, $\bm{H}$, and $\bm{\hat{H}}$ respectively) such that
@@ -348,8 +339,10 @@ Using Algorithm 1 and these lemmas, we can show there exists a pure strategy sub
 Algorithm 1 terminates in finite steps, and converged network represents the equilibrium network
 \end{theorem}
 
+%supermodular games
 The algorithm never fails to converge because the removed links will not be reformed in the later steps.
-The intuition behind this theorem is that
+We note that the 1st stage game given 2nd stage Nash equilibrium is the supermodular game.
+The set of strategies in 1st stage game is a complete lattice in $\mathbb{R}^{|N_i(g^p)|}$.
 
 
 \subsection{Uniqueness of the equilibrium}
@@ -357,7 +350,7 @@ The intuition behind this theorem is that
 Previous subsection shows the existence of the equilibrium, and we argue the uniqueness of the equilibrium in this subsection.
 Since the equilibrium in the second stage is unique from Proposition 1, we focus on the first stage strategies.
 However, the equilibrium network is not necessarily unique.
-Consider the following example.
+The following example shows that equilibrium network is not unique.
 
 \begin{example}
 Consider the network with $n=2$, and the potential network $g^p$ such that,
@@ -383,15 +376,15 @@ By proposition 1, we can compute each player's equilibrium payoffs:
 		\left( \frac{1}{2}, \frac{1}{2} \right) & (g_{12} = 0, g_{21} = 0)
 	\end{cases} \]
 From this calculation, if $c_{12}$ and $c_{21}$ satisfy
-\[ \frac{1}{2}{(1+\phi)}^2 - \frac{1}{2} < c_{12} < \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 \]
-\[ \frac{1}{2}{(1+\phi)}^2 - \frac{1}{2} < c_{21} < \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 \]
+\[ \frac{1}{2}{(1+\phi)}^2 - \frac{1}{2} < c_{12} < \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - \frac{1}{2} \]
+\[ \frac{1}{2}{(1+\phi)}^2 - \frac{1}{2} < c_{21} < \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - \frac{1}{2} \]
 then $(g_{12}, g_{21}) = (1,1)$ and $(g_{12}, g_{21}) = (0,0)$ are both Nash equilibria.
-Thus, $\bm{G} = \left[
+Thus, complete network $\bm{G} = \left[
 	\begin{array}{cc}
 		0 & 1 \\
 		1 & 0
 	\end{array} \right]$
-and $\bm{G} = \left[
+and empty network $\bm{G} = \left[
 	\begin{array}{cc}
 		0 & 0 \\
 		0 & 0
@@ -399,7 +392,56 @@ and $\bm{G} = \left[
 are both equilibrium networks.
 \end{example}
 
-Example 1 shows the equilibrium network may not be unique.
+%% The picture of equilibrium
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}       
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  (115.49,390.74) -- (519.5,390.74)(149.83,55) -- (149.83,423.95) (512.5,385.74) -- (519.5,390.74) -- (512.5,395.74) (144.83,62) -- (149.83,55) -- (154.83,62)  ;
+\draw [line width=0.75]  [dash pattern={on 0.84pt off 2.51pt}]  (148,172) -- (367.5,172) ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (367.5,171) -- (367.5,392) ;
+\draw  [draw opacity=0][fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (149.83,172) -- (367.5,172) -- (367.5,392) -- (149.83,392) -- cycle ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (266.5,72) -- (268.5,392) ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (498.5,272) -- (383.5,272.25) -- (149.5,271.75) ;
+\draw  [draw opacity=0][fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (266.5,72) -- (498.5,72) -- (498.5,272) -- (266.5,272) -- cycle ;
+\draw    (548,306) -- (320.89,225.67) ;
+\draw [shift={(319,225)}, rotate = 379.48] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw (540,391) node   {$c_{12}$};
+\draw (151,40) node   {$c_{21}$};
+\draw (138,403) node   {$O$};
+\draw (96,173) node   {$\frac{1}{2}\left(\frac{1}{1\ -\ \phi }\right)^{2} -\frac{1}{2}$};
+\draw (390,414) node   {$\frac{1}{2}\left(\frac{1}{1\ -\ \phi }\right)^{2} -\frac{1}{2}$};
+\draw (95,273) node   {$\frac{1}{2}( 1+\phi )^{2} -\frac{1}{2}$};
+\draw (265,414) node   {$\frac{1}{2}( 1+\phi )^{2} -\frac{1}{2}$};
+\draw (438,117) node   {$G^{*} \ =\ \begin{bmatrix}
+0 & 1\\
+1 & 0
+\end{bmatrix}$};
+\draw (206,352) node   {$G^{*} \ =\ \begin{bmatrix}
+0 & 0\\
+0 & 0
+\end{bmatrix}$};
+\draw (207,125) node   {$G^{*} \ =\ \begin{bmatrix}
+0 & 1\\
+0 & 0
+\end{bmatrix}$};
+\draw (442,336) node   {$G^{*} \ =\ \begin{bmatrix}
+0 & 0\\
+1 & 0
+\end{bmatrix}$};
+\draw (627,325) node   {$G^{*} \ =\begin{bmatrix}
+0 & 1\\
+1 & 0
+\end{bmatrix} ,\begin{bmatrix}
+0 & 0\\
+0 & 0
+\end{bmatrix}$};
+\end{tikzpicture}
+\caption{Equilibrium network region} \label{fig:eq}
+\end{figure}
+
+Example 1 shows the equilibrium network may not be unique and Figure \ref{fig:eq} shows that the region of costs which brings the respective equilibrium network.
+We can see the region which returns complete equilibrium network and empty equilibrium network overlap.
 From this perspective, the algorithm can potentially converge multiple equilibria.
 In each step, the number of the agents who do not take best responses is generally greater than one.
 Therefore, the order of the agents who delete the links is changed, and the network in each steps is also changed.
@@ -409,7 +451,7 @@ However, we can show that the equilibrium which is derived by the algorithm is u
 To show the uniquness, we need an additional result.
 Let $BR_i(\bm{\psi}_{-i})$ be the set of $i$'s best responses for $\bm{\psi}_{-i}$, that is
 \[ BR_i(\bm{\psi}_{-i}) = \{ \psi_i \subset N_i(g^p) | u_i(\bm{x}^*(g(\psi_i, \bm{\psi}_{-i})), \psi_i, \bm{\psi}_{-i}, \bm{C}, \phi) \ge u_i(\bm{x}^*(g(\tilde{\psi}_i, \bm{\psi}_{-i})), \tilde{\psi}_i, \bm{\psi}_{-i}, \bm{C}, \phi) \ \forall \tilde{\psi}_i \subset N_i(g^p) \} \]
-We can show that the number of best responses for other players' strategies is one.
+We can show that the number of best responses for other playe{}rs' strategies is one.
 
 \begin{lemma}
 In the Algorithm 1, for any step $k$, $|BR_i(\bm{\psi}_{-i}^{(k-1)})| = 1$ for any $i \in NB^{(k-1)}$
@@ -451,14 +493,14 @@ The next example shows that small changes in the costs makes the network entirel
 \begin{example}
 Consider the network with $n = 5$, and the potential network so that $g_{ij}^p = 1$ for any pair $ij(i \neq j)$.
 Assume $\bm{\alpha} = (1, 1, 1, 1, 1)$ and $\phi = \frac{1}{5}$, which satisfies the Assumption 1.
-For small enough $\epsilon > 0$, consider the costs $\bm{C}$ such that
+Consider the costs $\bm{C}$ such that
 \[ \bm{C} = \left[
 			\begin{array}{ccccc}
-				0 & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
-				3 - \epsilon & 0 & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
-				3 - \epsilon & 3 - \epsilon & 0 & 3 - \epsilon & 3 - \epsilon \\
-				3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 0 & 3 - \epsilon \\
-				3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 0
+				0 & 3 & 3 & 3 & 3 \\
+				3 & 0 & 3 & 3 & 3 \\
+				3 & 3 & 0 & 3 & 3 \\
+				3 & 3 & 3 & 0 & 3  \\
+				3 & 3 & 3 & 3 & 0
 			\end{array} \right] \]
 Then, the equilibrium network $g^*$ becomes
 \[\bm{G}^* = \left[
@@ -470,14 +512,14 @@ Then, the equilibrium network $g^*$ becomes
 				1 & 1 & 1 & 1 & 0
 			\end{array} \right] \]
 The equilibrium network becomes complete network.
-On the other hand, when the cost of forming a link from agent $1$ to agent $2$ slightly increases, that is,
-\[\bm{\hat{C}} = \left[
+On the other hand, when the cost of forming a link from agent $1$ to agent $2$ slightly increases, for small enough $\epsilon > 0$,
+\[ \bm{C} = \left[
 			\begin{array}{ccccc}
-				0 & 3 + 4 \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
-				3 - \epsilon & 0 & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon \\
-				3 - \epsilon & 3 - \epsilon & 0 & 3 - \epsilon & 3 - \epsilon \\
-				3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 0 & 3 - \epsilon \\
-				3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 3 - \epsilon & 0
+				0 & 3 + \epsilon & 3 & 3 & 3 \\
+				3 & 0 & 3 & 3 & 3 \\
+				3 & 3 & 0 & 3 & 3 \\
+				3 & 3 & 3 & 0 & 3  \\
+				3 & 3 & 3 & 3 & 0
 			\end{array} \right] \]
 then, the equilibrium network $\hat{g}^*$ becomes
 \[ \bm{\hat{G}}^* = \left[
@@ -491,7 +533,15 @@ then, the equilibrium network $\hat{g}^*$ becomes
 The equilibrium network is empty network.
 \end{example}
 
-Tiny changes in the costs generates large discontinuity in the structure of the network.
+With the cost structure $\bm{C}$, all agents keep connected to all other agents, but all agents are on the threshhold from keeping all links to removing them.
+In fact, all agents are indifference between them, keeping all links and removing all links give the exactly same payoff.
+Algorithm 1 returns the complete networks by its construction.
+When the cost of forming link from agent 1 to agent 2 slightly increases, agent 1 does not keep links to the others because agent 1's gain from agent 2 cannot compensate its cost.
+Since agent 1 removes all links, agent 1's level of effort drastically diclines.
+The gain from agent 1 also declines, and the levels of effort of agents declines.
+Therefore, the benefit of forming links cannot compensate the cost of keeping links, and all agents remove all links.
+
+We can see tiny changes in the costs generates large discontinuity in the structure of the network.
 Example 2 shows that our model incorporates the {\it{phase transition}}, the phenomenon that the feature of the network is totally changed.
 But as discussed above, it is difficult to identify the threshold of the transition by the discontinuity of the realized network.
 
@@ -553,7 +603,9 @@ Then, the realized equilibrium network $g^*$ is:
 				0 & 1 & 1 & 0 & 0 \\
 				0 & 0 & 1 & 0 & 0
 			\end{array} \right] \]
-In this network, we can compute that the agent who excerts highest effort is agent $2$.
+In this network, we can compute the equilibrium effort levels by computer.
+\[ (x_1^*, x_2^*, x_3^*, x_4^*, x_5^*) \approx (1.99541284, 2.12155963, 1.8233945, 1.78899083, 1.3646789) \]
+As you see, the agent who excerts highest effort is agent $2$.
 However, the key player in the endogenous network $g^*$ is agent $1$.
 On the other hand, when we treat the network $g^*$ as given, the key player in the exogenous network is agent $3$.
 See Table \ref{tab:key player}.
@@ -571,6 +623,13 @@ See Table \ref{tab:key player}.
 \end{table}
 \end{example}
 
+Agent 2 is the most active player (with highest effort) in both endogenous and exogenous network because he connects to the agent 1 and 3 who excert second and third highest effort and strategic complementarity let him excert high level effort.
+Agent 3 is the key player in the exogenous network.
+All other agents form link to her, so once she is removed from the network, the others cannot get benefit from her amd aggregate negative impact is large.
+The key player in the endogenous network is agent 1.
+Once he is removed from the potential network, agents 2 and 3, who have the highest and third highest effort levels, cannot get large benefit from him, so their effort levels decline.
+In addition, in the potential network without agent1, agent 3, who has the most incoming links, has only one link, so the negative impact of small effort level of agent 3 becomes large.
+
 
 \section{Conclusion}
 
@@ -586,7 +645,7 @@ In addition, the equilibrium derived by the algorithm is always unique.
 However, the realized network high dimensional discontiunous function in the costs, so it is difficult to identify the structure of the network from the link formation costs.
 We can find the key player in the endogenous network is not necessarily same with the one in the exogenous network.
 
-Some weaknesses are remaining in our model for the future work.
+Some weaknesses in our model are remaining for the future work.
 First, link formation is accomplished by the unilateral decisions.
 This is mainly due to the simplification of the analysis.
 In reality, the relationships are made by the bilateral agreement, such as friendship network and firm-to-firm relationship.
@@ -599,9 +658,12 @@ In order to make the links weighted, agents have to deecide the link weights whe
 Our model can be extened to the unweighted network when agents choose the intensity of each forming links like Kim, J., Patacchini, E., Picard, P.M. and Y. Zenou (2017)~\cite{Urban}.
 However, in such a model, agents form links to all other agents (weights are unequal), that is, realized network becomes complete network.
 This is not appropriate for representing the real environment.
-Finally, our model and results should be testified by empirical works.
-In our model, link formation cost allows any kinds of interpretations, for example, geographic distance, monetary cost to keep in touch with, and the psychological barrier.
-To conduct empirical works, we need appropriate panel data of the network.
+Finally, our model should be extended to various kinds of utility forms.
+Currently, we can only explore the model with positive peer effects in the network, but these are many networks such that the externalities does not exist or are not appropriate to apply.
+For example, our model is not suitable for analyzing the production network because we cannot incorporate the price of goods or production functions and the peer effect is not significant.
+The analizing mechanism of network formation is important for policy implication.
+It enables us to analyze the effect of intervention to the network on the allocation of goods or the social welfare.
+Analyzing various kinds of network formation opens the way to the "network design" field.
 
 
 \section{Appendix}
@@ -903,6 +965,10 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Margherita, C., and Mariapia, M. (2015),
 	"Formation of Migrant  Networks",
 	Scandinavian Journal of Economics, 117(2), 592–618.
+\bibitem{}
+	Milgrom, P., and Roberts, J. (1990),
+	"Rationalizability, learning, and equilibrium in games with strategic complementarities",
+	Econometrica: Journal of the Econometric Society, 1255-1277.
 \bibitem{AGT}
 	Nisan, N., Roughgarden, T., Tardos, E., and Vazirani, V. V. (Eds.). (2007),
 	"Algorithmic game theory",
@@ -915,6 +981,10 @@ To conduct empirical works, we need appropriate panel data of the network.
 	Rees, A. (1966),
 	"Information Networks in Labor Markets",
 	The American Economic Review, 56(1/2), 559-566.
+\bibitem{}
+	Vives, X. (1990),
+	"Nash equilibrium with strategic complementarities",
+	Journal of Mathematical Economics, 19(3), 305-321.
 \end{thebibliography}
 
 

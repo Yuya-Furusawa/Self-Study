@@ -50,7 +50,7 @@
 
 \begin{document}
 
-\title{Endogenous Network Formation with Peer-Effects}
+\title{Externalities, Equilibrium, and Supermodularity in Games with Endogenous Network Formation}
 
 \author{Yuya Furusawa}
 \affil{U-Tokyo, GSE, 29-186036}
@@ -74,8 +74,9 @@ In these works, it is shown that peer effects are important in many kinds of net
 In criminal network, when the neighbors are highly devoted to criminal activities such as drug abuses, the agent are more likely to concentrate on the drug usage due to the information or traffickinf from his neighbors.
 
 % Importance of network formation
-However, many existing literatures about the networks in economics ignore the mechanism of the network formation, and they cannot answer the question why such a network we have?
-The 
+However, many existing literatures about the networks in economics ignore the mechanism of the network formation.
+It is well known that some networks commonly show the certain structure, for example, financial networks are often core-periphery network, but the reason why such a network arises is still unknown.
+We provide the way to analyze this question by developing a theoretical model of game theoretic network formation model.
 
 % Summary of results
 We develop the two stage dynamic game, where agents form links to other agents in the first stage and agents excert efforts in the second stage.
@@ -86,9 +87,12 @@ We extend the model of Ballester, Calvo-Armengol, and Zenou(2006)~\cite{whowho} 
 In the first stage, agents simultaneously choose their neighbors from the neighbors in the potential network, which represents the maximual possible conncetion without any limitations.
 When agents decide who to connect, they incur the link-specific costs, which is a key factor for determining the network.
 The link formation costs (and benefits of efforts) make the heterogeneity across the agents, which leads to the various types of networks.
+The interpretion of links, effort, and link formation cost depend on the application we consider.
+For example, when we consider the criminal network, links, effort, and formation cost represent the flow of criminal informtion or trafficking weapons, the intension of criminal acrivity, and the geographical distance or the probability of capture, respectively.
+When we apply to the R\&D network, we can think of links as the contract to colaboration, effort as the investment to R\&D, and link formation cost as the negotiation cost or financial cost to sign a constract.
 We consider the subgame perfect equilibrium where all agents take pure starategies in the both stages.
 
-We establish that such an equilibrium always exists.
+We establish that the equilibrium always exists.
 The existence of an equilibrium can be shown by the best response dynamics algorithm, which always halts in finite steps.
 The algorithm starts from the potential network, the potentially largest network, and the agent who does not take best response is randomly choosen and takes best response, which changes the structure of the network.
 We can also show the equilibrium derived by this algorithm is unique, but equilibrium itself may not be unique.
@@ -164,6 +168,72 @@ The link formation cost represents, for example, geographic distance or psycholo
 Since $\psi_i$ depends on potential network $g^p$ and costs $\bm{C}$, to emphasize it, we denote $\psi_i(g^p, \bm{C})$.
 We denote its profile $\bm{\psi}(g^p, \bm{C}) = \prod_{i=1}^n \psi_i(g^p, \bm{C})$.
 After forming links, the network $g$ is realized.
+Figure \ref{fig:dif} represents the difference between potential network and realized network.
+Only links which exist in the potential network can be realized.
+
+%% Figure of the difference between potential network and realized network
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (201.07,65.56) .. controls (201.07,53.13) and (211.15,43.06) .. (223.57,43.06) .. controls (236,43.06) and (246.07,53.13) .. (246.07,65.56) .. controls (246.07,77.98) and (236,88.06) .. (223.57,88.06) .. controls (211.15,88.06) and (201.07,77.98) .. (201.07,65.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (74.18,106.79) .. controls (74.18,94.36) and (84.25,84.29) .. (96.68,84.29) .. controls (109.1,84.29) and (119.18,94.36) .. (119.18,106.79) .. controls (119.18,119.21) and (109.1,129.29) .. (96.68,129.29) .. controls (84.25,129.29) and (74.18,119.21) .. (74.18,106.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (279.5,173.5) .. controls (279.5,161.07) and (289.57,151) .. (302,151) .. controls (314.43,151) and (324.5,161.07) .. (324.5,173.5) .. controls (324.5,185.93) and (314.43,196) .. (302,196) .. controls (289.57,196) and (279.5,185.93) .. (279.5,173.5) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (74.18,240.21) .. controls (74.18,227.79) and (84.25,217.71) .. (96.68,217.71) .. controls (109.1,217.71) and (119.18,227.79) .. (119.18,240.21) .. controls (119.18,252.64) and (109.1,262.71) .. (96.68,262.71) .. controls (84.25,262.71) and (74.18,252.64) .. (74.18,240.21) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (201.07,281.44) .. controls (201.07,269.02) and (211.15,258.94) .. (223.57,258.94) .. controls (236,258.94) and (246.07,269.02) .. (246.07,281.44) .. controls (246.07,293.87) and (236,303.94) .. (223.57,303.94) .. controls (211.15,303.94) and (201.07,293.87) .. (201.07,281.44) -- cycle ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (239,89) -- (284.82,151.39) ;
+\draw [shift={(286,153)}, rotate = 233.71] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (198,75) -- (124.91,97.41) ;
+\draw [shift={(123,98)}, rotate = 342.95] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (226,94) -- (226,251) ;
+\draw [shift={(226,253)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (120,89) -- (194.1,64.62) ;
+\draw [shift={(196,64)}, rotate = 521.79] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (113,131) -- (206.81,257.39) ;
+\draw [shift={(208,259)}, rotate = 233.42000000000002] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (124,252) -- (192.13,277.3) ;
+\draw [shift={(194,278)}, rotate = 200.38] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (216,250) -- (216,95) ;
+\draw [shift={(216,93)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (240,260) -- (283.85,197.64) ;
+\draw [shift={(285,196)}, rotate = 485.11] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (293,202) -- (244.17,269.38) ;
+\draw [shift={(243,271)}, rotate = 305.93] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (275,171) -- (124.89,118.66) ;
+\draw [shift={(123,118)}, rotate = 379.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (538.07,65.56) .. controls (538.07,53.13) and (548.15,43.06) .. (560.57,43.06) .. controls (573,43.06) and (583.07,53.13) .. (583.07,65.56) .. controls (583.07,77.98) and (573,88.06) .. (560.57,88.06) .. controls (548.15,88.06) and (538.07,77.98) .. (538.07,65.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (411.18,106.79) .. controls (411.18,94.36) and (421.25,84.29) .. (433.68,84.29) .. controls (446.1,84.29) and (456.18,94.36) .. (456.18,106.79) .. controls (456.18,119.21) and (446.1,129.29) .. (433.68,129.29) .. controls (421.25,129.29) and (411.18,119.21) .. (411.18,106.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (616.5,173.5) .. controls (616.5,161.07) and (626.57,151) .. (639,151) .. controls (651.43,151) and (661.5,161.07) .. (661.5,173.5) .. controls (661.5,185.93) and (651.43,196) .. (639,196) .. controls (626.57,196) and (616.5,185.93) .. (616.5,173.5) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (411.18,240.21) .. controls (411.18,227.79) and (421.25,217.71) .. (433.68,217.71) .. controls (446.1,217.71) and (456.18,227.79) .. (456.18,240.21) .. controls (456.18,252.64) and (446.1,262.71) .. (433.68,262.71) .. controls (421.25,262.71) and (411.18,252.64) .. (411.18,240.21) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (538.07,281.44) .. controls (538.07,269.02) and (548.15,258.94) .. (560.57,258.94) .. controls (573,258.94) and (583.07,269.02) .. (583.07,281.44) .. controls (583.07,293.87) and (573,303.94) .. (560.57,303.94) .. controls (548.15,303.94) and (538.07,293.87) .. (538.07,281.44) -- cycle ;
+\draw    (535,75) -- (461.91,97.41) ;
+\draw [shift={(460,98)}, rotate = 342.95] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (563,94) -- (563,251) ;
+\draw [shift={(563,253)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (457,89) -- (531.1,64.62) ;
+\draw [shift={(533,64)}, rotate = 521.79] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (450,131) -- (543.81,257.39) ;
+\draw [shift={(545,259)}, rotate = 233.42000000000002] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (460,253) -- (529.11,277.34) ;
+\draw [shift={(531,278)}, rotate = 199.4] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (577,260) -- (620.85,197.64) ;
+\draw [shift={(622,196)}, rotate = 485.11] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw (223.57,65.56) node   {$1$};
+\draw (96.68,106.79) node   {$2$};
+\draw (96.68,240.21) node   {$3$};
+\draw (223.57,281.44) node   {$4$};
+\draw (302,173.5) node   {$5$};
+\draw (560.57,65.56) node   {$1$};
+\draw (433.68,106.79) node   {$2$};
+\draw (433.68,240.21) node   {$3$};
+\draw (560.57,281.44) node   {$4$};
+\draw (639,173.5) node   {$5$};
+\draw (203,336) node  [align=left] {potential network};
+\draw (553,334) node  [align=left] {realized network};
+\end{tikzpicture}
+\caption{Difference between potential network and realized network} \label{fig:dif}
+\end{figure}
+
 $g$ is represented by the adjacency matrix $\bm{G} = {(g_{ij})}_{ij}$ such that, for any pair $(i,j)$,
 \[ g_{ij} = 
 	\begin{cases}
@@ -513,7 +583,7 @@ Then, the equilibrium network $g^*$ becomes
 			\end{array} \right] \]
 The equilibrium network becomes complete network.
 On the other hand, when the cost of forming a link from agent $1$ to agent $2$ slightly increases, for small enough $\epsilon > 0$,
-\[ \bm{C} = \left[
+\[ \bm{\hat{C}} = \left[
 			\begin{array}{ccccc}
 				0 & 3 + \epsilon & 3 & 3 & 3 \\
 				3 & 0 & 3 & 3 & 3 \\
@@ -532,6 +602,78 @@ then, the equilibrium network $\hat{g}^*$ becomes
 			\end{array} \right] \]
 The equilibrium network is empty network.
 \end{example}
+
+
+%% The picture of equilibrium
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}        
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (199.07,64.56) .. controls (199.07,52.13) and (209.15,42.06) .. (221.57,42.06) .. controls (234,42.06) and (244.07,52.13) .. (244.07,64.56) .. controls (244.07,76.98) and (234,87.06) .. (221.57,87.06) .. controls (209.15,87.06) and (199.07,76.98) .. (199.07,64.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (72.18,105.79) .. controls (72.18,93.36) and (82.25,83.29) .. (94.68,83.29) .. controls (107.1,83.29) and (117.18,93.36) .. (117.18,105.79) .. controls (117.18,118.21) and (107.1,128.29) .. (94.68,128.29) .. controls (82.25,128.29) and (72.18,118.21) .. (72.18,105.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (277.5,172.5) .. controls (277.5,160.07) and (287.57,150) .. (300,150) .. controls (312.43,150) and (322.5,160.07) .. (322.5,172.5) .. controls (322.5,184.93) and (312.43,195) .. (300,195) .. controls (287.57,195) and (277.5,184.93) .. (277.5,172.5) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (72.18,239.21) .. controls (72.18,226.79) and (82.25,216.71) .. (94.68,216.71) .. controls (107.1,216.71) and (117.18,226.79) .. (117.18,239.21) .. controls (117.18,251.64) and (107.1,261.71) .. (94.68,261.71) .. controls (82.25,261.71) and (72.18,251.64) .. (72.18,239.21) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (199.07,280.44) .. controls (199.07,268.02) and (209.15,257.94) .. (221.57,257.94) .. controls (234,257.94) and (244.07,268.02) .. (244.07,280.44) .. controls (244.07,292.87) and (234,302.94) .. (221.57,302.94) .. controls (209.15,302.94) and (199.07,292.87) .. (199.07,280.44) -- cycle ;
+\draw    (196,74) -- (122.91,96.41) ;
+\draw [shift={(121,97)}, rotate = 342.95] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (221,93) -- (221,250) ;
+\draw [shift={(221,252)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (119,89) -- (193.08,67.56) ;
+\draw [shift={(195,67)}, rotate = 523.86] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (111,130) -- (204.81,256.39) ;
+\draw [shift={(206,258)}, rotate = 233.42000000000002] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (121,252) -- (190.11,276.34) ;
+\draw [shift={(192,277)}, rotate = 199.4] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (238,259) -- (281.85,196.64) ;
+\draw [shift={(283,195)}, rotate = 485.11] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (243,83) -- (288.82,145.39) ;
+\draw [shift={(290,147)}, rotate = 233.71] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (206,89) -- (109.21,216.41) ;
+\draw [shift={(108,218)}, rotate = 307.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (94.35,133) -- (94.67,212.71) ;
+\draw [shift={(94.68,214.71)}, rotate = 269.77] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (122,120) -- (266.1,168.36) ;
+\draw [shift={(268,169)}, rotate = 198.55] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (116,221) -- (211.81,91.61) ;
+\draw [shift={(213,90)}, rotate = 486.52] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (88,210) -- (88,134) ;
+\draw [shift={(88,132)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (123,231) -- (270.1,183.61) ;
+\draw [shift={(272,183)}, rotate = 522.14] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (228,251) -- (228,92) ;
+\draw [shift={(228,90)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (116.19,125.61) -- (210,252) ;
+\draw [shift={(115,124)}, rotate = 53.42] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (192,270) -- (124.88,245.68) ;
+\draw [shift={(123,245)}, rotate = 379.91999999999996] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (282,150) -- (238.17,89.62) ;
+\draw [shift={(237,88)}, rotate = 414.03] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (270,163) -- (122.9,113.64) ;
+\draw [shift={(121,113)}, rotate = 378.55] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (269,177) -- (123.9,223.39) ;
+\draw [shift={(122,224)}, rotate = 342.27] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (289,198) -- (242.16,263.37) ;
+\draw [shift={(241,265)}, rotate = 305.62] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (539.07,60.56) .. controls (539.07,48.13) and (549.15,38.06) .. (561.57,38.06) .. controls (574,38.06) and (584.07,48.13) .. (584.07,60.56) .. controls (584.07,72.98) and (574,83.06) .. (561.57,83.06) .. controls (549.15,83.06) and (539.07,72.98) .. (539.07,60.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (412.18,101.79) .. controls (412.18,89.36) and (422.25,79.29) .. (434.68,79.29) .. controls (447.1,79.29) and (457.18,89.36) .. (457.18,101.79) .. controls (457.18,114.21) and (447.1,124.29) .. (434.68,124.29) .. controls (422.25,124.29) and (412.18,114.21) .. (412.18,101.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (617.5,168.5) .. controls (617.5,156.07) and (627.57,146) .. (640,146) .. controls (652.43,146) and (662.5,156.07) .. (662.5,168.5) .. controls (662.5,180.93) and (652.43,191) .. (640,191) .. controls (627.57,191) and (617.5,180.93) .. (617.5,168.5) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (412.18,235.21) .. controls (412.18,222.79) and (422.25,212.71) .. (434.68,212.71) .. controls (447.1,212.71) and (457.18,222.79) .. (457.18,235.21) .. controls (457.18,247.64) and (447.1,257.71) .. (434.68,257.71) .. controls (422.25,257.71) and (412.18,247.64) .. (412.18,235.21) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (539.07,276.44) .. controls (539.07,264.02) and (549.15,253.94) .. (561.57,253.94) .. controls (574,253.94) and (584.07,264.02) .. (584.07,276.44) .. controls (584.07,288.87) and (574,298.94) .. (561.57,298.94) .. controls (549.15,298.94) and (539.07,288.87) .. (539.07,276.44) -- cycle ;
+\draw (221.57,64.56) node   {$1$};
+\draw (94.68,105.79) node   {$2$};
+\draw (94.68,239.21) node   {$3$};
+\draw (221.57,280.44) node   {$4$};
+\draw (300,172.5) node   {$5$};
+\draw (198,332) node  [align=left] {Equilibrium network $\displaystyle G$};
+\draw (561.57,60.56) node   {$1$};
+\draw (434.68,101.79) node   {$2$};
+\draw (434.68,235.21) node   {$3$};
+\draw (561.57,276.44) node   {$4$};
+\draw (640,168.5) node   {$5$};
+\draw (538,328) node  [align=left] {Equilibrium network $\displaystyle \hat{G}$};
+\end{tikzpicture}
+\caption{Equilibrium networks in Example 2} \label{fig:ex2}
+\end{figure}
 
 With the cost structure $\bm{C}$, all agents keep connected to all other agents, but all agents are on the threshhold from keeping all links to removing them.
 In fact, all agents are indifference between them, keeping all links and removing all links give the exactly same payoff.
@@ -555,19 +697,19 @@ Key player is thought of, for example, the player who supports the criminal acti
 The formal definition of key player is given as follows:
 
 \begin{definition}
-Agent $i$ is the key player in the exogenous network $g$ if, given network $g$,
+Agent $i$ is the key player in exogenous network $g$ if, given network $g$,
 \[ i \in \arg \max_{i \in N} \{ x^*(g) - x^*(g^{-i}) \} \]
 \end{definition}
 
 Here we denote $x^*(g) = \sum_{i=1}^n x_i^*(g)$ and $g^{-i}$ is the network where agent $i$ is removed from the network $g$.
 The adjecency matrix of $g^{-i}$, $\bm{G}^{-i}$, is obtained from $\bm{G}$ by setting to zero all of its $i$th row and column entries.
-Previous literatures show the key player in the exogenous network does not always coincide with the most active player who excerts highest effort.
+Previous literatures show the key player in exogenous network does not always coincide with the most active player who excerts highest effort.
 
 In this paper, the definition of key player might be different from the previous ones.
 Since the network is endogenous in our model, the key player is the agent who generates the largest reduction in the total effort level once she is removed from the potential network.
 
 \begin{definition}
-Agent $i$ is the key player in the endogenous network if, given potential network $g^p$,
+Agent $i$ is the key player in endogenous network if, given potential network $g^p$,
 \[ i \in \arg \max_{i \in N} \{ x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}))) - x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}^{-i}))) \} \]
 \end{definition}
 Here we denote ${g^p}^{-i}$ is the network where agent $i$ is removed from the network $g^p$ as before.
@@ -575,10 +717,10 @@ $\bm{C}^{-i}$ is obtained from $\bm{C}$ by setting to zero all of its $i$th row 
 
 As discussed in the previous section, there exists a discontinuity of the network realization in the link formation costs, so it is very difficult to identify the condition to be a key player.
 The realization of the network is a key factor to be a key player in the endogenous network.
-We know that denser network leads higher effort level by the network externality, so, in order to become a key player in the endogenous network, the realized network after removing should be sparse.
+We know that denser network leads higher effort level by the network externality, so, in order to become a key player in endogenous network, the realized network after removing should be sparse.
 
-Although it is difficult to identify who becomes key player, we can find that the most active player, key player in the endogenous network, and key player in the exogenous network can be different each other.
-To compare the kay player in the endogenous network and exogenous network, we treat realized network from the potential network and costs as given, then compute the key player in the exogenous network.
+Although it is difficult to identify who becomes key player, we can find that the most active player, key player in endogenous network, and key player in exogenous network can be different each other.
+To compare the kay player in endogenous network and exogenous network, we treat realized network from the potential network and costs as given, then compute the key player in exogenous network.
 Endogenous one is computed by the definition.
 
 \begin{example}
@@ -606,22 +748,70 @@ Then, the realized equilibrium network $g^*$ is:
 In this network, we can compute the equilibrium effort levels by computer.
 \[ (x_1^*, x_2^*, x_3^*, x_4^*, x_5^*) \approx (1.99541284, 2.12155963, 1.8233945, 1.78899083, 1.3646789) \]
 As you see, the agent who excerts highest effort is agent $2$.
-However, the key player in the endogenous network $g^*$ is agent $1$.
-On the other hand, when we treat the network $g^*$ as given, the key player in the exogenous network is agent $3$.
+However, the key player in endogenous network $g^*$ is agent $1$.
+On the other hand, when we treat the network $g^*$ as given, the key player in exogenous network is agent $3$.
 See Table \ref{tab:key player}.
+Figure \ref{fig:ex3} shows the key player in endogenous and exogenous network in this example.
 
 \begin{table}[htb]
   \begin{center}
     \begin{tabular}{|l|c|} \hline
       agent with highest effort & agent $2$ \\ \hline
-      key player in the endogenous network & agent $1$ \\ \hline
-      key player in the exogenous network & agent $3$ \\ \hline
+      key player in endogenous network & agent $1$ \\ \hline
+      key player in exogenous network & agent $3$ \\ \hline
     \end{tabular}
     \caption{Difference of key players}
     \label{tab:key player}
   \end{center}
 \end{table}
 \end{example}
+
+
+%% The picture of key players
+\begin{figure}[h]
+\raggedleft
+\tikzset{every picture/.style={line width=0.75pt}}      
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 208; green, 2; blue, 27 }  ,fill opacity=0.5 ] (416.07,67.56) .. controls (416.07,55.13) and (426.15,45.06) .. (438.57,45.06) .. controls (451,45.06) and (461.07,55.13) .. (461.07,67.56) .. controls (461.07,79.98) and (451,90.06) .. (438.57,90.06) .. controls (426.15,90.06) and (416.07,79.98) .. (416.07,67.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (289.18,108.79) .. controls (289.18,96.36) and (299.25,86.29) .. (311.68,86.29) .. controls (324.1,86.29) and (334.18,96.36) .. (334.18,108.79) .. controls (334.18,121.21) and (324.1,131.29) .. (311.68,131.29) .. controls (299.25,131.29) and (289.18,121.21) .. (289.18,108.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (494.5,175.5) .. controls (494.5,163.07) and (504.57,153) .. (517,153) .. controls (529.43,153) and (539.5,163.07) .. (539.5,175.5) .. controls (539.5,187.93) and (529.43,198) .. (517,198) .. controls (504.57,198) and (494.5,187.93) .. (494.5,175.5) -- cycle ;
+\draw  [fill={rgb, 255:red, 115; green, 201; blue, 21 }  ,fill opacity=0.5 ] (289.18,242.21) .. controls (289.18,229.79) and (299.25,219.71) .. (311.68,219.71) .. controls (324.1,219.71) and (334.18,229.79) .. (334.18,242.21) .. controls (334.18,254.64) and (324.1,264.71) .. (311.68,264.71) .. controls (299.25,264.71) and (289.18,254.64) .. (289.18,242.21) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (416.07,283.44) .. controls (416.07,271.02) and (426.15,260.94) .. (438.57,260.94) .. controls (451,260.94) and (461.07,271.02) .. (461.07,283.44) .. controls (461.07,295.87) and (451,305.94) .. (438.57,305.94) .. controls (426.15,305.94) and (416.07,295.87) .. (416.07,283.44) -- cycle ;
+\draw    (438,96) -- (438,253) ;
+\draw [shift={(438,255)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (336,92) -- (410.08,70.56) ;
+\draw [shift={(412,70)}, rotate = 523.86] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (328,133) -- (421.81,259.39) ;
+\draw [shift={(423,261)}, rotate = 233.42000000000002] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (460,86) -- (505.82,148.39) ;
+\draw [shift={(507,150)}, rotate = 233.71] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (423,92) -- (326.21,219.41) ;
+\draw [shift={(325,221)}, rotate = 307.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (311.35,136) -- (311.67,215.71) ;
+\draw [shift={(311.68,217.71)}, rotate = 269.77] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (333,224) -- (428.81,94.61) ;
+\draw [shift={(430,93)}, rotate = 486.52] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (305,213) -- (305,137) ;
+\draw [shift={(305,135)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (333.19,128.61) -- (427,255) ;
+\draw [shift={(332,127)}, rotate = 53.42] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (409,273) -- (341.88,248.68) ;
+\draw [shift={(340,248)}, rotate = 379.91999999999996] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (486,180) -- (340.9,226.39) ;
+\draw [shift={(339,227)}, rotate = 342.27] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw   (569,235) -- (766,235) -- (766,300) -- (569,300) -- cycle ;
+\draw  [fill={rgb, 255:red, 208; green, 2; blue, 27 }  ,fill opacity=0.5 ] (577.07,252.03) .. controls (577.07,246.49) and (581.56,242) .. (587.1,242) .. controls (592.64,242) and (597.13,246.49) .. (597.13,252.03) .. controls (597.13,257.57) and (592.64,262.06) .. (587.1,262.06) .. controls (581.56,262.06) and (577.07,257.57) .. (577.07,252.03) -- cycle ;
+\draw  [fill={rgb, 255:red, 115; green, 201; blue, 21 }  ,fill opacity=0.5 ] (576.89,282) .. controls (576.89,276.48) and (581.37,272) .. (586.89,272) .. controls (592.41,272) and (596.89,276.48) .. (596.89,282) .. controls (596.89,287.52) and (592.41,292) .. (586.89,292) .. controls (581.37,292) and (576.89,287.52) .. (576.89,282) -- cycle ;
+\draw (438.57,67.56) node   {$1$};
+\draw (311.68,108.79) node   {$2$};
+\draw (311.68,242.21) node   {$3$};
+\draw (438.57,283.44) node   {$4$};
+\draw (517,175.5) node   {$5$};
+\draw (682,251) node  [align=left] {{\scriptsize Key player in endogenous network}};
+\draw (679,280) node  [align=left] {{\scriptsize Key player in exogenous network}};
+\end{tikzpicture}
+\caption{Equilibrium network $G^{*}$ and key players in Example 3} \label{fig:ex3}
+\end{figure}
 
 Agent 2 is the most active player (with highest effort) in both endogenous and exogenous network because he connects to the agent 1 and 3 who excert second and third highest effort and strategic complementarity let him excert high level effort.
 Agent 3 is the key player in the exogenous network.

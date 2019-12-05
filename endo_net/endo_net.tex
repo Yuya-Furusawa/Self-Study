@@ -99,11 +99,15 @@ We can also show the equilibrium derived by this algorithm is unique, but equili
 This uniqueness enables us to analyze a comparative statics in the link formation costs.
 Reduction in the costs leads to larger network because agents are more likely to connect to other agents.
 Realized network is discontinuous in the link formation costs, so changes in the costs leads to discontinuous changes in the network.
-We give a example that tiny change in the link formation costs leads to drastic change of the network structure, phase transition.
+We give a example that tiny change in the link formation costs leads to drastic change of the network structure, "phase transition".
 We analyze a key player policy in this endogenous network as in the previous literatures.
 Key player is the agent in the potential network who makes largest reduction of aggregate effort level once he removed from the potential network.
 However, it is difficult to find key players from the link formation costs because its discontinuity.
 We give a example that key player in the endogenous network and in the exogenous (key player defined in the previous literatures) might be different.
+
+The existence of the equilibrium and the result of comparative statics are closely related to the supermodularity of this game.
+We can see that 2nd stage game and 1st stage game from the backward induction exihibit the strategic complementarity, or supermodularity.
+Supermodular game has some nice properties which enables us to have pure strategy equilibrium.
 
 % Literature Review
 This paper contributes to the growing literatures on the endogenous networks.
@@ -397,22 +401,31 @@ These imply that $v_i^*$ is increasing in $\psi$.
 		\end{cases} \]
 	and $g$, $\hat{g}$, $h$, and $\hat{h}$ satisfy that $\bm{G} \ge \bm{H}$ and  $\bm{\hat{G}} \ge \bm{\hat{H}}$.
 	Also consider the $\bm{\hat{\psi}}$, $\bm{\psi}$, $\bm{\hat{\varphi}}$, and $\bm{\varphi}$  which construct network $\tilde{g}$, $g$, $\hat{h}$, and $h$ respectively. 
-	Then
+	Then, for all $i$,
 	\[ v_i^*(\bm{x}^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) - v_i^*(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) \ge v_i^*(\bm{x}^*(\hat{h}(\bm{\hat{\varphi}})), \hat{h}(\bm{\hat{\varphi}}), \phi) - v_i^*(\bm{h}^*(g(\bm{\varphi})), h(\bm{\varphi}), \phi)\]
 \end{lemma}
 
 Lemma 2 states shows the concavity of the function $v$ in the network.
 If the network is more denser, the reduction of the utility without fixed cost by the link deletion becomes larger.
 Using Algorithm 1 and these lemmas, we can show there exists a pure strategy subgame perfect equilibrium.
+The algorithm never fails to converge because the removed links will not be reformed in the later steps.
 
 \begin{theorem}
 Algorithm 1 terminates in finite steps, and converged network represents the equilibrium network
 \end{theorem}
 
 %supermodular games
-The algorithm never fails to converge because the removed links will not be reformed in the later steps.
-We note that the 1st stage game given 2nd stage Nash equilibrium is the supermodular game.
-The set of strategies in 1st stage game is a complete lattice in $\mathbb{R}^{|N_i(g^p)|}$.
+We note that the 1st stage game given the effort level in 2nd stage Nash equilibrium is a supermodular game, the game which exhibits strategic complementarities..
+This game can satisfy some conditions of supermodularity: continuity and increasing-differences of utility function by lemma 2.
+By Topkis (1979)~\cite{topkis1979}, Milgrom and Roberts (1990)~\cite{milgromroberts}, and Topkis (1998)~\cite{topkis1998}, we can find there exist pure strategy Nash equilibrium in this game.
+We can easily see that 2nd stage game is with strategic complementarity, that is when the neighbors excerts high level effort, we also increase the level of effort.
+Lemma 2 shows 1st game also exhibit strategic complementarity and it is supermodular game.
+When not only neighbors we chooose but also the agents whom we do not connect directly form many links, it is more likely to have more neighbors.
+When agent $i$ forms more links, he can get more peer effect, so he excert more effort by the strategic complementarity in 2nd stage.
+Agent $i$'s increased effort makes agents who have a link to him excert more effort, so all agents' level of effort weakly increases, which is shown by Lemma 1.
+Provided the link formation costs, increasing level of efforts makes the agents to connect more agents, so if some agents have more connections, best response for it is the connecting to other agents, which is strategic complementarity.
+In addition, from Topkis (1979)~\cite{topkis1979}, Algorithm 1 returns the largest equilibrium point, that is, the equilibrium network where agents maximally chooses neighbors.
+However, this does not dilectly imply the equilibrium that Algorithm 1 brings is unique, so next we argue the uniqueness of the equilibrium.
 
 
 \subsection{Uniqueness of the equilibrium}
@@ -820,6 +833,9 @@ The key player in the endogenous network is agent 1.
 Once he is removed from the potential network, agents 2 and 3, who have the highest and third highest effort levels, cannot get large benefit from him, so their effort levels decline.
 In addition, in the potential network without agent1, agent 3, who has the most incoming links, has only one link, so the negative impact of small effort level of agent 3 becomes large.
 
+Again, due to the complexity of the relationship between link formation costs and realized network, we cannot propose the proposition who is the key player in endogenous network.
+The closed form solution to identify the key player is remaining for future work.
+
 
 \section{Conclusion}
 
@@ -1155,7 +1171,7 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Margherita, C., and Mariapia, M. (2015),
 	"Formation of Migrant  Networks",
 	Scandinavian Journal of Economics, 117(2), 592–618.
-\bibitem{}
+\bibitem{milgromroberts}
 	Milgrom, P., and Roberts, J. (1990),
 	"Rationalizability, learning, and equilibrium in games with strategic complementarities",
 	Econometrica: Journal of the Econometric Society, 1255-1277.
@@ -1171,6 +1187,14 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Rees, A. (1966),
 	"Information Networks in Labor Markets",
 	The American Economic Review, 56(1/2), 559-566.
+\bibitem{topkis1979}
+	Topkis, D. M. (1979),
+	"Equilibrium Points in Non-Zero Sum n-Person Submodular Games",
+	SIAM Journal of Control and Optimization, 17(6), 773-787.
+\bibitem{topkis1998}
+	Topkis, D. M. (1998),
+	"Supermodularity and complementarity",
+	Princeton university press.
 \bibitem{}
 	Vives, X. (1990),
 	"Nash equilibrium with strategic complementarities",

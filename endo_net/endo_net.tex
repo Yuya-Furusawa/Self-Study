@@ -115,8 +115,19 @@ Endogeneity of the network is one of the hottest topics in the field of econimic
 Oberfield(2018)~\cite{ober}, and Acemoglu and Azar(2019)~\cite{endo_net} argue the endogenous production networks.
 In their model, the productivity of the firms is determined by the input or supplier, and the its customer, who use its output as input, and final consumers generates the firms' profit.
 This productivity is the key factor for network formation, and, in equilibrium, input-output architecture endogenously emerge.
-Farboodi(2014)~\cite{farboodi} Babus(2016)~\cite{babus} argue the endogenous formation of financial networks.
-For other networks, Canen, Jackson, and Trebbi(2019)~\cite{canen} empirically analyze the formation of networks of politicians.
+Farboodi(2014)~\cite{farboodi} and other papers\footnote{For examples, Cohen-Cole, Patacchini, and Zenou(2010)~\cite{cohen}, Acemoglu, Ozdaglar, and Tahbaz-Salehi(2015)~\cite{acemo2015} and Babus(2016)~\cite{babus}} argue the endogenous formation of financial networks.
+Recently, many papers theoretically and empirically work for other networks\footnote{Canen, Jackson, and Trebbi(2019)~\cite{canen}, Marco, Eleonora, and Edoardo(2019)~\cite{Marco2019}, Margherita, and Mariapia(2015)~\cite{marg}, Tintelnot, Kikkawa, Mogstad, and Dhyne(2018)~\cite{Tin}}.
+Our model is one of the models in network game, such as Jackson, and Wolinsky(1996), Galeotti, Goyal, Jackson, Vega-Redondo, and Yariv(2010)~\cite{galeo} and Bramoull\'{e}, Kranton, and D'Amours(2014).
+
+This paper also related to the peer effect in the networks.
+The importance of peer effect is often pointed out originally in Rees(1966)~\cite{Rees} or recently Banerjee, Chandrasekhar, Duflo, and Jackson(2013)~\cite{ban}.
+Many papers develop the analysis of peer effects in the network.
+Calv\'{o}-Armengol, Patacchini, and Zenou(2009)~\cite{edu} theoretically and empirically analyzes the peer effect for the educational achivement.
+Liu, Patacchini, Zenou, and Lee(2012)~\cite{criminal} and Dell(2015)~\cite{Dell} argue the positive externalities in the criminal network.
+Bramoull\'{e}, Djebbari, and Fortin(2009)~\cite{identificationpeer} and Liu, Patacchini, and Zenou(2014)~\cite{endopeer} propose the conditions we can identify the peer effect in the network and analyze social network empirically.
+K\"{o}nig, Liu, and Zenou(2019)~\cite {RandD} provide theoretical and empirical discussion about R\&D network where peer effects exist.
+This paper also considers the peer effect in the network.
+As discusses below, due to this positive externality, we can theoretically extend these models to the endogenous network formation.
 
 % Closely Related Literature
 This paper is closely related to Kim, Patacchini, Picard, and Zenou(2017)~\cite{Urban} which considers the social relationship formation in the urban geographical space.
@@ -419,7 +430,7 @@ Algorithm 1 terminates in finite steps, and converged network represents the equ
 %supermodular games
 We note that the 1st stage game given the effort level in 2nd stage Nash equilibrium is a supermodular game, the game which exhibits strategic complementarities..
 This game can satisfy some conditions of supermodularity: continuity and increasing-differences of utility function by lemma 2.
-By Topkis (1979)~\cite{topkis1979}, Milgrom and Roberts (1990)~\cite{milgromroberts}, and Topkis (1998)~\cite{topkis1998}, we can find there exist pure strategy Nash equilibrium in this game.
+From the result of some papers \footnote{For example, Topkis (1979)~\cite{topkis1979}, Milgrom and Roberts (1990)~\cite{milgromroberts}, Vives(1990)~\cite{vives} and Topkis (1998)~\cite{topkis1998}}, we can find there exist pure strategy Nash equilibrium in this game.
 We can easily see that 2nd stage game is with strategic complementarity, that is when the neighbors excerts high level effort, we also increase the level of effort.
 Lemma 2 shows 1st game also exhibit strategic complementarity and it is supermodular game.
 When not only neighbors we chooose but also the agents whom we do not connect directly form many links, it is more likely to have more neighbors.
@@ -571,7 +582,7 @@ Then,
 \[ g(\bm{\psi}^*(g^p, \bm{\hat{C}})) \supseteq g(\bm{\psi}^*(g^p, \bm{C})) \]
 \end{proposition}
 
-The network is a increasing function in the costs of forming links.
+The realized network is a increasing function in the costs of forming links.
 However, it is obvious that this function is discontiunous.
 The next example shows that small changes in the costs makes the network entirely changed.
 
@@ -699,14 +710,14 @@ The gain from agent 1 also declines, and the levels of effort of agents declines
 Therefore, the benefit of forming links cannot compensate the cost of keeping links, and all agents remove all links.
 
 We can see tiny changes in the costs generates large discontinuity in the structure of the network.
-Example 2 shows that our model incorporates the {\it{phase transition}}, the phenomenon that the feature of the network is totally changed.
+Example 2 shows that our model incorporates the {\it{phase transition}}: the phenomenon that the feature of the network is totally changed\footnote{see Jackson(2010)~\cite{social}}.
 But as discussed above, it is difficult to identify the threshold of the transition by the discontinuity of the realized network.
 
 
 \section{Finding the Key Player}
 
 In this section, we argue the {\it{key player}} in the network, who has the largest impact on the aggregate behavior of the network.
-In the previous literatures, for example Ballester, Calvo-Armengol, and Zenou(2006, 2010)~\cite{whowho, delinquent} and Liu et.al.(2012)~\cite{criminal}, argue the key player and give necessary and sufficient condition of who becomes it in the context of similar model.
+In the previous literatures, for example Ballester, Calvo-Armengol, and Zenou(2006, 2010)~\cite{whowho, delinquent} and Liu et.al.(2012)~\cite{criminal}, argue the key player and give necessary and sufficient condition of who becomes it in the context of similar model\footnote{Denbee, Julliard, Li, and Yuan(2018)~\cite{denbee} defines the key player in financial network}.
 In these papers, key player is defined as the agent who, once removed from the network, generates the highest possible reduction in aggreate effort level.
 Key player is thought of, for example, the player who supports the criminal activity of his friends in the context of criminal network.
 The formal definition of key player is given as follows:
@@ -730,7 +741,7 @@ Agent $i$ is the key player in endogenous network if, given potential network $g
 Here we denote ${g^p}^{-i}$ is the network where agent $i$ is removed from the network $g^p$ as before.
 $\bm{C}^{-i}$ is obtained from $\bm{C}$ by setting to zero all of its $i$th row and column entries.
 
-As discussed in the previous section, there exists a discontinuity of the network realization in the link formation costs, so it is very difficult to identify the condition to be a key player.
+As discussed in the previous section, there exists a discontinuity of the network realization in the link formation costs, so it is very difficult to identify the condition to be a key player\footnote{Similar to Elliott, Golub, and Jackson(2014)~\cite{contagion}, we cannot identify which banks will be in default by the discontinuity of banks' values}.
 The realization of the network is a key factor to be a key player in the endogenous network.
 We know that denser network leads higher effort level by the network externality, so, in order to become a key player in endogenous network, the realized network after removing should be sparse.
 
@@ -1051,7 +1062,7 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Acemoglu, D. and Azar, P. (2019),
 	"Endogenous Production Networks",
 	Econometrica, \textit{forthcoming}.
-\bibitem{}
+\bibitem{acemo2015}
 	Acemoglu, D., Ozdaglar, A. E., and Tahbaz-Salehi, A. (2015),
 	"Systemic Risk in Endogenous Financial Networks",
 	Columbia Business School Research Paper No. 15-17.
@@ -1071,7 +1082,7 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Ballester, C., and Zenou, Y. (2014),
 	"Key player policies when contextual effects matter",
 	Journal of Mathematical Sociology, 38.4, 233–248.
-\bibitem{}
+\bibitem{ban}
 	Banerjee, A., Chandrasekhar, A. G., Duflo, E., and Jackson, M. O. (2013),
 	"The diffusion of microfinance",
 	Science, 341(6144), 1236498.
@@ -1079,15 +1090,15 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Bonacich, P. (1987),
 	"Power and centrality: A family of measures",
 	American journal of sociology, 92(5), 1170-1182.
-\bibitem{}
+\bibitem{identificationpeer}
 	Bramoull\'{e}, Y., Djebbari, H., and Fortin, B. (2009),
 	"Identification of peer effects through social networks",
 	Journal of econometrics, 150(1), 41-55.
-\bibitem{}
+\bibitem{bra2014}
 	Bramoull\'{e}, Y., Kranton, R., and D'Amours, M. (2014),
 	"Strategic interaction and networks",
 	American Economic Review, 104(3), 898-930.
-\bibitem{}
+\bibitem{edu}
 	Calv\'{o}-Armengol, A., Patacchini, E., and Zenou, Y. (2009),
 	"Peer effects and social networks in education",
 	The Review of Economic Studies, 76(4), 1239-1267.
@@ -1095,7 +1106,7 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Canen, N., Jackson, M. O. and Trebbi, F. (2019),
 	"Endogenous Networks and Legislative Activity",
 	\textit{Working Paper}.
-\bibitem{}
+\bibitem{cohen}
 	Cohen-Cole, E., Patacchini, E., and Zenou, Y. (2010),
 	"Systemic risk and network formation in the interbank market",
 	CAREFIN Research Paper, (25).
@@ -1103,11 +1114,11 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Debreu, G., and Herstein, I. N. (1953),
 	"Nonnegative square matrices",
 	Econometrica: Journal of the Econometric Society, 597-607.
-\bibitem{}
+\bibitem{Dell}
 	Dell, M. (2015),
 	"Trafficking networks and the Mexican drug war",
 	American Economic Review, 105(6), 1738-79.
-\bibitem{}
+\bibitem{denbee}
 	Denbee, E., Julliard, C., Li, Y., and Yuan, K. Z. (2018),
 	"Network Risk and Key Players: A Structural Analysis of Interbank Liquidity",
 	Fisher College of Business Working Paper No. 2018-03-011;
@@ -1121,7 +1132,7 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Farboodi, M. (2014),
 	"Intermediation and voluntary exposure to counterparty risk",
 	\textit{Working Paper}.
-\bibitem{}
+\bibitem{galeo}
 	Galeotti, A., Goyal, S., Jackson, M. O., Vega-Redondo, F., and Yariv, L. (2010),
 	"Network games",
 	The review of economic studies, 77(1), 218-244.
@@ -1133,7 +1144,7 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Jackson, M. O. (2010),
 	"Social and economic networks",
 	Princeton university press.
-\bibitem{}
+\bibitem{jackwol}
 	Jackson, M. O., and Wolinsky, A. (1996),
 	"A strategic model of social and economic networks",
 	Journal of economic theory, 71(1), 44-74.
@@ -1145,31 +1156,23 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Kim, J., Patacchini, E., Picard, P.M. and Y. Zenou (2017),
 	"Urban interactions",
 	\textit{Working Paper}.
-\bibitem{}
+\bibitem{RandD}
 	K\"{o}nig, M. D., Liu, X., and Zenou, Y. (2019),
 	"R\&D Networks: Theory, Empirics, and Policy Implications",
 	Review of Economics and Statistics, 101(3), 476-491.
-\bibitem{}
-	K\"{o}nig, M. D., Rohner, D., Thoenig, M., and Zilibotti, F. (2017),
-	"Networks in conflict: Theory and evidence from the great war of africa",
-	Econometrica, 85(4), 1093-1132.
 \bibitem{criminal}
 	Liu, X., Patacchini, E., Zenou, Y., and Lee, L. F. (2012),
 	"Criminal networks: Who is the key player?",
 	\textit{Working Paper}.
-\bibitem{}
+\bibitem{endopeer}
 	Liu, X., Patacchini, E., and Zenou, Y. (2014),
 	"Endogenous peer effects: local aggregate or local average?",
 	Journal of Economic Behavior \& Organization, 103, 39-59.
-\bibitem{}
-	Marco, B., and Eleonora, P., (2018),
-	"Influencing Connected Legislators",
-	Journal of Political Economy, 126, no. 6, 2277-2322.
-\bibitem{}
+\bibitem{Marco2019}
 	Marco, B., Eleonora, P., and Edoardo, R. (2019),
 	"Endogenous Social Connections in Legislatures",
 	\textit{Working Paper}.
-\bibitem{}
+\bibitem{marg}
 	Margherita, C., and Mariapia, M. (2015),
 	"Formation of Migrant  Networks",
 	Scandinavian Journal of Economics, 117(2), 592–618.
@@ -1185,10 +1188,14 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Oberfield, E. (2018),
 	"A theory of input–output architecture",
 	Econometrica, 86(2), 559-589.
-\bibitem{}
+\bibitem{Rees}
 	Rees, A. (1966),
 	"Information Networks in Labor Markets",
 	The American Economic Review, 56(1/2), 559-566.
+\bibitem{Tin}
+	Tintelnot, F., Kikkawa, A. K., Mogstad, M., and Dhyne, E. (2018),
+	"Trade and domestic production networks",
+	No. w25120, National Bureau of Economic Research.
 \bibitem{topkis1979}
 	Topkis, D. M. (1979),
 	"Equilibrium Points in Non-Zero Sum n-Person Submodular Games",
@@ -1197,7 +1204,7 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Topkis, D. M. (1998),
 	"Supermodularity and complementarity",
 	Princeton university press.
-\bibitem{}
+\bibitem{vives}
 	Vives, X. (1990),
 	"Nash equilibrium with strategic complementarities",
 	Journal of Mathematical Economics, 19(3), 305-321.

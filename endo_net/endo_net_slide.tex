@@ -1,0 +1,589 @@
+\documentclass[10pt,dvipdfmx]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{plainnat}
+
+\usepackage{amsmath,amssymb,amsthm,ascmac}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\usetikzlibrary{patterns}
+
+\title{Externalities, Equilibrium, and Supermodularity in Games with Endogenous Network Formation}
+\subtitle{master thesis}
+\date{\today}
+\author{Yuya Furusawa}
+\institute{U-Tokyo, GSE}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Introduction}
+
+\begin{frame}{Network with Peer Effect}
+\begin{itemize}
+    \item Network structure and local interactions play an important role in individual and aggregate nehavior
+    \item Externalities of the individual behavior in the network is a key factor for the aggeregate bahavior
+    \item Especially, we can see the importance of positive externalities
+    \begin{itemize}
+        \item R\&D network, criminal network, educational network
+    \end{itemize}
+    \item Many literatures argue the importance of "peer effects" both theoretically and empirically
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Endogeneity of the network}
+\begin{itemize}
+    \item However, in many works, the network is exogenous
+    \item 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{This paper}
+\begin{itemize}
+    \item This paper argue the endogenous network formation with peer effect
+    \item We consider the model where
+    \begin{itemize}
+        \item agents first choose the agents who they connect
+        \item agents choose the level of effort given the network structure
+    \end{itemize}
+    \item We provide
+    \begin{itemize}
+        \item the existence of subgame perfect equilibrium, where all agents take pure strategies at each stage
+        \item the argument about the uniqueness of the equilibrium
+        \item the discussion for policy implication (key player policy)
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Related Literature}
+\begin{itemize}
+    \item Network with peer effect
+    \begin{itemize}
+        \item Ballester et.al.(2006), Calv\'{o}-Armengol et.al.(2009), Liu et.al.(2012)
+    \end{itemize}
+    \item Endogenous network
+    \begin{itemize}
+        \item Acemoglu and Azar(2019), Oberfield(2018), Farboodi(2014)
+    \end{itemize}
+    \item Closely related paper
+    \begin{itemize}
+        \item Kim et.al.(2017), Hiller, T.(2017)
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\section{Model}
+
+\begin{frame}{Model : Setup}
+\begin{itemize}
+    \item the set of agents : $N = \{ 1, \cdots, n \}$ with $n \ge 2$ and $n < \infty$
+    \item Agents are initially connected in {\it{potential network}} $g^p$
+    \item $g^p$ is represented by adjacency matrix $\bm{G}^p = {(g_{ij}^p)}_{ij}$ where
+    \[ g_{ij}^p =
+        \begin{cases}
+            1 \  (\text{if $i$ has a link to $j$ in $g^p $}) \\
+            0 \  (\text{otherwise})
+        \end{cases} \]
+    \item Self-loop is not allowed : $g_{ii}^p = 0$ for all $i \in N$
+    \item Agent $i$'s neighbors in $g^p$ : $N_i(g^p) = \{ j \in N | g_{ij}^p = 1 \}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Model : 1st stage}
+\begin{itemize}
+    \item First, agents simultaneously choose their neighbors from the agents whom they connect in potential network
+    \item This strategy is represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, $\psi_{ii}=0$ for all $i \in N$, and $\psi_{ij} = 0$ for all $j \in N_i(g^p)$
+    \item Note that $\psi_i \in \Psi_i = \{0,1\}^n$
+    \item When agent form links, he incurs the link-specific costs $c_{ij} \ge 0$
+    \item "Choosing neighbors" strategy is dependent on $g^p$ and $\bm{C} = {c_{ij}}_{ij}$, so sometimes we denote $\psi_i(g^p, \bm{C})$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Model : Realized network}
+\begin{itemize}
+    \item At the end of 1st stage, we can see {\it{realized network}} denoted as $g$
+    \item $g$ is represented by tha adjacency matrix $\bm{G}$
+    \[ g_{ij} = 
+        \begin{cases}
+            1 \  (\text{if} \  \psi_{ij}(g^p, {\bm{C}}) = 1 ) \\
+            0 \  (\text{otherwise})
+        \end{cases} \]
+    \item $g$ depends on $\bm{\psi}(g^p, \bm{C}) = \prod_{i=1}^n \psi_i(g^p, \bm{C})$, so we can denote $g(\bm{\psi}(g^p, \bm{C}))$
+    \item We denote $g(\bm{\psi})$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Model : 1st stage}
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}
+\scalebox{0.7}[0.7]{     
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (201.07,65.56) .. controls (201.07,53.13) and (211.15,43.06) .. (223.57,43.06) .. controls (236,43.06) and (246.07,53.13) .. (246.07,65.56) .. controls (246.07,77.98) and (236,88.06) .. (223.57,88.06) .. controls (211.15,88.06) and (201.07,77.98) .. (201.07,65.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (74.18,106.79) .. controls (74.18,94.36) and (84.25,84.29) .. (96.68,84.29) .. controls (109.1,84.29) and (119.18,94.36) .. (119.18,106.79) .. controls (119.18,119.21) and (109.1,129.29) .. (96.68,129.29) .. controls (84.25,129.29) and (74.18,119.21) .. (74.18,106.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (279.5,173.5) .. controls (279.5,161.07) and (289.57,151) .. (302,151) .. controls (314.43,151) and (324.5,161.07) .. (324.5,173.5) .. controls (324.5,185.93) and (314.43,196) .. (302,196) .. controls (289.57,196) and (279.5,185.93) .. (279.5,173.5) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (74.18,240.21) .. controls (74.18,227.79) and (84.25,217.71) .. (96.68,217.71) .. controls (109.1,217.71) and (119.18,227.79) .. (119.18,240.21) .. controls (119.18,252.64) and (109.1,262.71) .. (96.68,262.71) .. controls (84.25,262.71) and (74.18,252.64) .. (74.18,240.21) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (201.07,281.44) .. controls (201.07,269.02) and (211.15,258.94) .. (223.57,258.94) .. controls (236,258.94) and (246.07,269.02) .. (246.07,281.44) .. controls (246.07,293.87) and (236,303.94) .. (223.57,303.94) .. controls (211.15,303.94) and (201.07,293.87) .. (201.07,281.44) -- cycle ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (239,89) -- (284.82,151.39) ;
+\draw [shift={(286,153)}, rotate = 233.71] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (198,75) -- (124.91,97.41) ;
+\draw [shift={(123,98)}, rotate = 342.95] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (226,94) -- (226,251) ;
+\draw [shift={(226,253)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (120,89) -- (194.1,64.62) ;
+\draw [shift={(196,64)}, rotate = 521.79] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (113,131) -- (206.81,257.39) ;
+\draw [shift={(208,259)}, rotate = 233.42000000000002] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (124,252) -- (192.13,277.3) ;
+\draw [shift={(194,278)}, rotate = 200.38] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (216,250) -- (216,95) ;
+\draw [shift={(216,93)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (240,260) -- (283.85,197.64) ;
+\draw [shift={(285,196)}, rotate = 485.11] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (293,202) -- (244.17,269.38) ;
+\draw [shift={(243,271)}, rotate = 305.93] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (275,171) -- (124.89,118.66) ;
+\draw [shift={(123,118)}, rotate = 379.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (538.07,65.56) .. controls (538.07,53.13) and (548.15,43.06) .. (560.57,43.06) .. controls (573,43.06) and (583.07,53.13) .. (583.07,65.56) .. controls (583.07,77.98) and (573,88.06) .. (560.57,88.06) .. controls (548.15,88.06) and (538.07,77.98) .. (538.07,65.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (411.18,106.79) .. controls (411.18,94.36) and (421.25,84.29) .. (433.68,84.29) .. controls (446.1,84.29) and (456.18,94.36) .. (456.18,106.79) .. controls (456.18,119.21) and (446.1,129.29) .. (433.68,129.29) .. controls (421.25,129.29) and (411.18,119.21) .. (411.18,106.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (616.5,173.5) .. controls (616.5,161.07) and (626.57,151) .. (639,151) .. controls (651.43,151) and (661.5,161.07) .. (661.5,173.5) .. controls (661.5,185.93) and (651.43,196) .. (639,196) .. controls (626.57,196) and (616.5,185.93) .. (616.5,173.5) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (411.18,240.21) .. controls (411.18,227.79) and (421.25,217.71) .. (433.68,217.71) .. controls (446.1,217.71) and (456.18,227.79) .. (456.18,240.21) .. controls (456.18,252.64) and (446.1,262.71) .. (433.68,262.71) .. controls (421.25,262.71) and (411.18,252.64) .. (411.18,240.21) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (538.07,281.44) .. controls (538.07,269.02) and (548.15,258.94) .. (560.57,258.94) .. controls (573,258.94) and (583.07,269.02) .. (583.07,281.44) .. controls (583.07,293.87) and (573,303.94) .. (560.57,303.94) .. controls (548.15,303.94) and (538.07,293.87) .. (538.07,281.44) -- cycle ;
+\draw    (535,75) -- (461.91,97.41) ;
+\draw [shift={(460,98)}, rotate = 342.95] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (563,94) -- (563,251) ;
+\draw [shift={(563,253)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (457,89) -- (531.1,64.62) ;
+\draw [shift={(533,64)}, rotate = 521.79] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (450,131) -- (543.81,257.39) ;
+\draw [shift={(545,259)}, rotate = 233.42000000000002] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (460,253) -- (529.11,277.34) ;
+\draw [shift={(531,278)}, rotate = 199.4] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (577,260) -- (620.85,197.64) ;
+\draw [shift={(622,196)}, rotate = 485.11] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw (223.57,65.56) node   {$1$};
+\draw (96.68,106.79) node   {$2$};
+\draw (96.68,240.21) node   {$3$};
+\draw (223.57,281.44) node   {$4$};
+\draw (302,173.5) node   {$5$};
+\draw (560.57,65.56) node   {$1$};
+\draw (433.68,106.79) node   {$2$};
+\draw (433.68,240.21) node   {$3$};
+\draw (560.57,281.44) node   {$4$};
+\draw (639,173.5) node   {$5$};
+\draw (203,336) node  [align=left] {potential network};
+\draw (553,334) node  [align=left] {realized network};
+\end{tikzpicture}}
+\caption{Difference between potential network and realized network}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Model : 2nd stage}
+\begin{itemize}
+    \item Given realized network, each agent $i = 1, \cdots, n$ simultaneously excerts an effort $x_i \ge 0$
+    \item Denote $\bm{x} = (x_1, \cdots, x_n)$
+    \item Payoff function is
+        \[ u_i(\bm{x}, \bm{\psi}, \bm{C}, \phi) = v_i(\bm{x}, g(\bm{\psi}), \phi) - \sum_{j=1}^n g_{ij}(\bm{\psi}) c_{ij} \]
+        where
+        \[ v_i(\bm{x}, g(\bm{\psi}), \phi) = \alpha_i x_i - \frac{1}{2} x_i^2 + \phi \sum_{j=1}^n g_{ij}(\bm{\psi}) x_i x_j \]
+    \item $\phi > 0$ and cross term represent the peer effect
+    \item Optimal level of effort depends on the realized network
+\end{itemize}
+\end{frame}
+
+
+\section{Equilibrium}
+
+\begin{frame}{Equilibrium}
+\begin{itemize}
+    \item {\bf{Definition}} : Given $g^p$ and $\bm{C}$, the network $g^*$ is equilibrium network if $g^* = g(\bm{\psi}^*)$ where $\bm{\psi}^*$ is the strategies in the pure-strategy subgame perfect equilibrium.
+    \item We focus on pure strategy equilibrium to consider the non-stochastic network
+\end{itemize}
+\end{frame}
+
+\begin{frame}{2nd stage equilibrium}
+\begin{itemize}
+    \item {\bf{Assumption}} : $\phi \rho(\bm{G}^p)$ where $\rho(\cdot)$ is spectral radius
+    \item {\bf{Proposition}} : Under Assumption, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, which is interior and given by
+    \[ \bm{x}^* = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \]
+    \item We can calculate as
+    \[ v_i^*(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) = \frac{1}{2} {x_i^*(g(\bm{\psi}))}^2 \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Best response dynamics : Step 0}
+    Let $g^{(0)}$ be the initial realized network where $g^{(0)} = g^p$, that is, chooosing strategy is $\psi_i^{(0)} \in \Psi_i$ such that $\psi_{ij}^{(0)} = 1$ for all $j \in N_i(g^p)$.
+    Compute each players' optimal effort and payoffs.
+    Denote the set of agents who do not take best response as $NB^{(0)}$:
+    \begin{equation*}
+    \begin{split}
+        NB^{(0)} = \{& i \in N | \exists \tilde{\psi}_i \subset N_i(g^p) \\
+                     &\text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(0)}), \tilde{\psi}_i, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(0)})), \bm{\psi}^{(0)}, \bm{C}, \phi) \\
+                     &\text{and} \ \tilde{\psi}_i \neq \psi_i^{(0)} \}
+    \end{split}
+    \end{equation*}
+    Go into Step 1.
+\end{frame}
+
+\begin{frame}{Best response dynamics : Step $k \ge 1$}
+    Check whether $NB^{(k-1)}$ is empty or not.
+
+    If $NB^{(k-1)} = \emptyset$, define $g^* = g(\bm{\psi}^{(k-1)})$ and terminate the algorithm.
+
+    Otherwise, choose a agent $i \in NB^{(k-1)}$ randomly.
+    $i$ changes her strategy from $\psi_i^{(k-1)}$ to $\psi_i^{(k)}$ such that $u_i(\bm{x}^*(g(\psi_i^{(k)}, \psi_{-i}^{(k-1)})), \psi_i^{(k)}, \psi_{-i}^{(k-1)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k-1)})), \bm{\psi}^{(k-1)}, \bm{C}, \phi)$, and for any $j (\neq i)$, $\psi_j^{(k)} = \psi_j^{(k-1)}$.
+    Then, new network $g(\bm{\psi}^{(k)})$ is realized.
+    Compute each players' payoffs and define $NB^{(k)}$:
+    \begin{equation*}
+    \begin{split}
+        NB^{(k)} = \{& i \in N | \exists \tilde{\psi}_i \subset N_i(g^p) \\
+                     &\text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(k)}), \tilde{\psi}_i, \psi_{-i}^{(k)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k)})), \bm{\psi}^{(k)}, \bm{C}, \phi) \\
+                     &\text{and} \ \tilde{\psi}_i \neq \psi_i^{(k)} \}
+    \end{split}
+    \end{equation*}
+    Proceed to Step $k+1$.
+\end{frame}
+
+\begin{frame}{Existence of the equilibrium network}
+\begin{itemize}
+    \item {\bf{Theorem}} : Best response dynamics algorithm terminates in finite steps, and converged network represents the equilibrium network
+    \item Given 2nd stage Nash equilibrium, 1st stage game becomes {\it{supermodular game}}, so pure strategy Nash equilibrium
+    \item By supermodularity, BR dynamics returns the largest equilibrium
+    \item {\bf{Intuition}} : When agent $i$ forms more links, he excert more effort by the strategic complementarity in 2nd stage. Agent $i$'s increased effort makes agents who have a link to him excert more effort, so all agents' level of effort weakly increases. Increasing level of efforts makes the agents to connect more agents.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Uniqueness of the equilibrium}
+\begin{itemize}
+    \item Equilibrium network may not be unique
+    \item {\bf{Example}} : Consider $n = 2$, $\bm{\alpha} = (1, 1)$, and $\bm{G}^p = \left[
+    \begin{array}{cc}
+        0 & 1 \\
+        1 & 0
+    \end{array} \right]$.
+
+        Then $\left[
+    \begin{array}{cc}
+        0 & 1 \\
+        1 & 0
+    \end{array} \right]$ and $\left[
+    \begin{array}{cc}
+        0 & 0 \\
+        0 & 0
+    \end{array} \right]$ can be both equilibrium network for some $c_{12}$ and $c_{21}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Uniqueness of the equilibrium}
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}  
+\scalebox{0.6}[0.6]{     
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  (115.49,390.74) -- (519.5,390.74)(149.83,55) -- (149.83,423.95) (512.5,385.74) -- (519.5,390.74) -- (512.5,395.74) (144.83,62) -- (149.83,55) -- (154.83,62)  ;
+\draw [line width=0.75]  [dash pattern={on 0.84pt off 2.51pt}]  (148,172) -- (367.5,172) ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (367.5,171) -- (367.5,392) ;
+\draw  [draw opacity=0][fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (149.83,172) -- (367.5,172) -- (367.5,392) -- (149.83,392) -- cycle ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (266.5,72) -- (268.5,392) ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (498.5,272) -- (383.5,272.25) -- (149.5,271.75) ;
+\draw  [draw opacity=0][fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (266.5,72) -- (498.5,72) -- (498.5,272) -- (266.5,272) -- cycle ;
+\draw    (548,306) -- (320.89,225.67) ;
+\draw [shift={(319,225)}, rotate = 379.48] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw (540,391) node   {$c_{12}$};
+\draw (151,40) node   {$c_{21}$};
+\draw (138,403) node   {$O$};
+\draw (96,173) node   {$\frac{1}{2}\left(\frac{1}{1\ -\ \phi }\right)^{2} -\frac{1}{2}$};
+\draw (390,414) node   {$\frac{1}{2}\left(\frac{1}{1\ -\ \phi }\right)^{2} -\frac{1}{2}$};
+\draw (95,273) node   {$\frac{1}{2}( 1+\phi )^{2} -\frac{1}{2}$};
+\draw (265,414) node   {$\frac{1}{2}( 1+\phi )^{2} -\frac{1}{2}$};
+\draw (438,117) node   {$G^{*} \ =\ \begin{bmatrix}
+0 & 1\\
+1 & 0
+\end{bmatrix}$};
+\draw (206,352) node   {$G^{*} \ =\ \begin{bmatrix}
+0 & 0\\
+0 & 0
+\end{bmatrix}$};
+\draw (207,125) node   {$G^{*} \ =\ \begin{bmatrix}
+0 & 1\\
+0 & 0
+\end{bmatrix}$};
+\draw (442,336) node   {$G^{*} \ =\ \begin{bmatrix}
+0 & 0\\
+1 & 0
+\end{bmatrix}$};
+\draw (627,325) node   {$G^{*} \ =\begin{bmatrix}
+0 & 1\\
+1 & 0
+\end{bmatrix} ,\begin{bmatrix}
+0 & 0\\
+0 & 0
+\end{bmatrix}$};
+\end{tikzpicture}}
+\caption{Equilibrium network region}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Uniqueness of the equilibrium}
+\begin{itemize}
+    \item {\bf{Theorem}} : The equilibrium network derived by BR dynamics is unique
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comparative Statics}
+\begin{itemize}
+    \item {\bf{Proposition}} : Given the potential network $g^p$. Consider the cost $\bm{\hat{C}}$ and $\bm{C}$ with $\bm{\hat{C}} \le \bm{C}$. Then,
+        \[ g(\bm{\psi}^*(g^p, \bm{\hat{C}})) \supseteq g(\bm{\psi}^*(g^p, \bm{C})) \]
+    \item When the link formation costs increase, the equilibrium network becomes denser
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Phase transition}
+\begin{itemize}
+    \item {\bf{Example}} : Suppose $n=5$, $\bm{\alpha} = (1, 1, 1, 1, 1)$, and $\phi = 1/5$
+    \item $\bm{C} = \left[
+            \begin{array}{ccccc}
+                0 & 3 & 3 & 3 & 3 \\
+                3 & 0 & 3 & 3 & 3 \\
+                3 & 3 & 0 & 3 & 3 \\
+                3 & 3 & 3 & 0 & 3  \\
+                3 & 3 & 3 & 3 & 0
+            \end{array} \right] \Rightarrow \bm{G}^* = \left[
+            \begin{array}{ccccc}
+                0 & 1 & 1 & 1 & 1 \\
+                1 & 0 & 1 & 1 & 1 \\
+                1 & 1 & 0 & 1 & 1 \\
+                1 & 1 & 1 & 0 & 1 \\
+                1 & 1 & 1 & 1 & 0
+            \end{array} \right]$
+    \item $\bm{\hat{C}} = \left[
+            \begin{array}{ccccc}
+                0 & 3 + \epsilon & 3 & 3 & 3 \\
+                3 & 0 & 3 & 3 & 3 \\
+                3 & 3 & 0 & 3 & 3 \\
+                3 & 3 & 3 & 0 & 3  \\
+                3 & 3 & 3 & 3 & 0
+            \end{array} \right] \Rightarrow \bm{\hat{G}}^* = \left[
+            \begin{array}{ccccc}
+                0 & 0 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 0 & 0
+            \end{array} \right]$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Phase transition}
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}
+\scalebox{0.7}[0.7]{     
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (199.07,64.56) .. controls (199.07,52.13) and (209.15,42.06) .. (221.57,42.06) .. controls (234,42.06) and (244.07,52.13) .. (244.07,64.56) .. controls (244.07,76.98) and (234,87.06) .. (221.57,87.06) .. controls (209.15,87.06) and (199.07,76.98) .. (199.07,64.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (72.18,105.79) .. controls (72.18,93.36) and (82.25,83.29) .. (94.68,83.29) .. controls (107.1,83.29) and (117.18,93.36) .. (117.18,105.79) .. controls (117.18,118.21) and (107.1,128.29) .. (94.68,128.29) .. controls (82.25,128.29) and (72.18,118.21) .. (72.18,105.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (277.5,172.5) .. controls (277.5,160.07) and (287.57,150) .. (300,150) .. controls (312.43,150) and (322.5,160.07) .. (322.5,172.5) .. controls (322.5,184.93) and (312.43,195) .. (300,195) .. controls (287.57,195) and (277.5,184.93) .. (277.5,172.5) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (72.18,239.21) .. controls (72.18,226.79) and (82.25,216.71) .. (94.68,216.71) .. controls (107.1,216.71) and (117.18,226.79) .. (117.18,239.21) .. controls (117.18,251.64) and (107.1,261.71) .. (94.68,261.71) .. controls (82.25,261.71) and (72.18,251.64) .. (72.18,239.21) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (199.07,280.44) .. controls (199.07,268.02) and (209.15,257.94) .. (221.57,257.94) .. controls (234,257.94) and (244.07,268.02) .. (244.07,280.44) .. controls (244.07,292.87) and (234,302.94) .. (221.57,302.94) .. controls (209.15,302.94) and (199.07,292.87) .. (199.07,280.44) -- cycle ;
+\draw    (196,74) -- (122.91,96.41) ;
+\draw [shift={(121,97)}, rotate = 342.95] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (221,93) -- (221,250) ;
+\draw [shift={(221,252)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (119,89) -- (193.08,67.56) ;
+\draw [shift={(195,67)}, rotate = 523.86] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (111,130) -- (204.81,256.39) ;
+\draw [shift={(206,258)}, rotate = 233.42000000000002] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (121,252) -- (190.11,276.34) ;
+\draw [shift={(192,277)}, rotate = 199.4] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (238,259) -- (281.85,196.64) ;
+\draw [shift={(283,195)}, rotate = 485.11] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (243,83) -- (288.82,145.39) ;
+\draw [shift={(290,147)}, rotate = 233.71] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (206,89) -- (109.21,216.41) ;
+\draw [shift={(108,218)}, rotate = 307.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (94.35,133) -- (94.67,212.71) ;
+\draw [shift={(94.68,214.71)}, rotate = 269.77] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (122,120) -- (266.1,168.36) ;
+\draw [shift={(268,169)}, rotate = 198.55] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (116,221) -- (211.81,91.61) ;
+\draw [shift={(213,90)}, rotate = 486.52] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (88,210) -- (88,134) ;
+\draw [shift={(88,132)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (123,231) -- (270.1,183.61) ;
+\draw [shift={(272,183)}, rotate = 522.14] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (228,251) -- (228,92) ;
+\draw [shift={(228,90)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (116.19,125.61) -- (210,252) ;
+\draw [shift={(115,124)}, rotate = 53.42] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (192,270) -- (124.88,245.68) ;
+\draw [shift={(123,245)}, rotate = 379.91999999999996] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (282,150) -- (238.17,89.62) ;
+\draw [shift={(237,88)}, rotate = 414.03] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (270,163) -- (122.9,113.64) ;
+\draw [shift={(121,113)}, rotate = 378.55] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (269,177) -- (123.9,223.39) ;
+\draw [shift={(122,224)}, rotate = 342.27] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (289,198) -- (242.16,263.37) ;
+\draw [shift={(241,265)}, rotate = 305.62] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (539.07,60.56) .. controls (539.07,48.13) and (549.15,38.06) .. (561.57,38.06) .. controls (574,38.06) and (584.07,48.13) .. (584.07,60.56) .. controls (584.07,72.98) and (574,83.06) .. (561.57,83.06) .. controls (549.15,83.06) and (539.07,72.98) .. (539.07,60.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (412.18,101.79) .. controls (412.18,89.36) and (422.25,79.29) .. (434.68,79.29) .. controls (447.1,79.29) and (457.18,89.36) .. (457.18,101.79) .. controls (457.18,114.21) and (447.1,124.29) .. (434.68,124.29) .. controls (422.25,124.29) and (412.18,114.21) .. (412.18,101.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (617.5,168.5) .. controls (617.5,156.07) and (627.57,146) .. (640,146) .. controls (652.43,146) and (662.5,156.07) .. (662.5,168.5) .. controls (662.5,180.93) and (652.43,191) .. (640,191) .. controls (627.57,191) and (617.5,180.93) .. (617.5,168.5) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (412.18,235.21) .. controls (412.18,222.79) and (422.25,212.71) .. (434.68,212.71) .. controls (447.1,212.71) and (457.18,222.79) .. (457.18,235.21) .. controls (457.18,247.64) and (447.1,257.71) .. (434.68,257.71) .. controls (422.25,257.71) and (412.18,247.64) .. (412.18,235.21) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (539.07,276.44) .. controls (539.07,264.02) and (549.15,253.94) .. (561.57,253.94) .. controls (574,253.94) and (584.07,264.02) .. (584.07,276.44) .. controls (584.07,288.87) and (574,298.94) .. (561.57,298.94) .. controls (549.15,298.94) and (539.07,288.87) .. (539.07,276.44) -- cycle ;
+\draw (221.57,64.56) node   {$1$};
+\draw (94.68,105.79) node   {$2$};
+\draw (94.68,239.21) node   {$3$};
+\draw (221.57,280.44) node   {$4$};
+\draw (300,172.5) node   {$5$};
+\draw (198,332) node  [align=left] {Equilibrium network $\displaystyle G$};
+\draw (561.57,60.56) node   {$1$};
+\draw (434.68,101.79) node   {$2$};
+\draw (434.68,235.21) node   {$3$};
+\draw (561.57,276.44) node   {$4$};
+\draw (640,168.5) node   {$5$};
+\draw (538,328) node  [align=left] {Equilibrium network $\displaystyle \hat{G}$};
+\end{tikzpicture}}
+\caption{Equilibrium networks}
+\end{figure}
+\end{frame}
+
+
+\section{Finding the Key Player}
+
+\begin{frame}{Key player}
+\begin{itemize}
+    \item Key player is the agent who has the largest impact on the aggregate behavior of the network
+    \item {\bf{Definition}} : Agent $i$ is the key player in exogenous network $g$ if, given network $g$,
+        \[ i \in \arg \max_{i \in N} \{ x^*(g) - x^*(g^{-i}) \} \]
+        where $x^*(g) = \sum_{i=1}^n x_i^*(g)$ and $g^{-i}$ is the network where agent $i$ is removed from the network $g$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Key player in endogenous network}
+\begin{itemize}
+    \item {\bf{Definition}} : Agent $i$ is the key player in endogenous network if, given potential network $g^p$,
+        \[ i \in \arg \max_{i \in N} \{ x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}))) - x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}^{-i}))) \} \]
+        where ${g^p}^{-i}$ is the network where agent $i$ is removed from the network $g^p$
+    \item However, it is difficult to identify key player due to the complexity of the mapping from cost strcture to realized network
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Endogenous and Exogenous}
+\begin{itemize}
+    \item {\bf{Example}} : Suppose $n=5$, $\bm{\alpha} = (1, 1, 1, 1, 1)$ and $\phi = 1/5$
+    \item $\bm{C} = \left[
+            \begin{array}{ccccc}
+                0 & 3.6 & 0.2 & 0.2 & 0.2 \\
+                0.3 & 0 & 0.2 & 0.5 & 5.5 \\
+                0.2 & 0.2 & 0 & 4.5 & 4.3 \\
+                4.1 & 0.2 & 0.4 & 0 & 6.5 \\
+                3.2 & 4.1 & 0.3 & 1.0 & 0
+            \end{array} \right] \Rightarrow \bm{G}^* = \left[
+            \begin{array}{ccccc}
+                0 & 0 & 1 & 1 & 1 \\
+                1 & 0 & 1 & 1 & 0 \\
+                1 & 1 & 0 & 0 & 0 \\
+                0 & 1 & 1 & 0 & 0 \\
+                0 & 0 & 1 & 0 & 0
+            \end{array} \right]$
+    \item Then,
+        \begin{table}[htb]
+          \begin{center}
+            \begin{tabular}{|l|c|} \hline
+              agent with highest effort & agent $2$ \\ \hline
+              key player in endogenous network & agent $1$ \\ \hline
+              key player in exogenous network & agent $3$ \\ \hline
+            \end{tabular}
+          \end{center}
+        \end{table}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Endogenous and Exogenous}
+\begin{figure}[h]
+\raggedleft
+\tikzset{every picture/.style={line width=0.75pt}}
+\scalebox{0.7}[0.7]{   
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 208; green, 2; blue, 27 }  ,fill opacity=0.5 ] (416.07,67.56) .. controls (416.07,55.13) and (426.15,45.06) .. (438.57,45.06) .. controls (451,45.06) and (461.07,55.13) .. (461.07,67.56) .. controls (461.07,79.98) and (451,90.06) .. (438.57,90.06) .. controls (426.15,90.06) and (416.07,79.98) .. (416.07,67.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (289.18,108.79) .. controls (289.18,96.36) and (299.25,86.29) .. (311.68,86.29) .. controls (324.1,86.29) and (334.18,96.36) .. (334.18,108.79) .. controls (334.18,121.21) and (324.1,131.29) .. (311.68,131.29) .. controls (299.25,131.29) and (289.18,121.21) .. (289.18,108.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (494.5,175.5) .. controls (494.5,163.07) and (504.57,153) .. (517,153) .. controls (529.43,153) and (539.5,163.07) .. (539.5,175.5) .. controls (539.5,187.93) and (529.43,198) .. (517,198) .. controls (504.57,198) and (494.5,187.93) .. (494.5,175.5) -- cycle ;
+\draw  [fill={rgb, 255:red, 115; green, 201; blue, 21 }  ,fill opacity=0.5 ] (289.18,242.21) .. controls (289.18,229.79) and (299.25,219.71) .. (311.68,219.71) .. controls (324.1,219.71) and (334.18,229.79) .. (334.18,242.21) .. controls (334.18,254.64) and (324.1,264.71) .. (311.68,264.71) .. controls (299.25,264.71) and (289.18,254.64) .. (289.18,242.21) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (416.07,283.44) .. controls (416.07,271.02) and (426.15,260.94) .. (438.57,260.94) .. controls (451,260.94) and (461.07,271.02) .. (461.07,283.44) .. controls (461.07,295.87) and (451,305.94) .. (438.57,305.94) .. controls (426.15,305.94) and (416.07,295.87) .. (416.07,283.44) -- cycle ;
+\draw    (438,96) -- (438,253) ;
+\draw [shift={(438,255)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (336,92) -- (410.08,70.56) ;
+\draw [shift={(412,70)}, rotate = 523.86] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (328,133) -- (421.81,259.39) ;
+\draw [shift={(423,261)}, rotate = 233.42000000000002] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (460,86) -- (505.82,148.39) ;
+\draw [shift={(507,150)}, rotate = 233.71] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (423,92) -- (326.21,219.41) ;
+\draw [shift={(325,221)}, rotate = 307.22] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (311.35,136) -- (311.67,215.71) ;
+\draw [shift={(311.68,217.71)}, rotate = 269.77] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (333,224) -- (428.81,94.61) ;
+\draw [shift={(430,93)}, rotate = 486.52] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (305,213) -- (305,137) ;
+\draw [shift={(305,135)}, rotate = 450] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (333.19,128.61) -- (427,255) ;
+\draw [shift={(332,127)}, rotate = 53.42] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (409,273) -- (341.88,248.68) ;
+\draw [shift={(340,248)}, rotate = 379.91999999999996] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (486,180) -- (340.9,226.39) ;
+\draw [shift={(339,227)}, rotate = 342.27] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw   (569,235) -- (766,235) -- (766,300) -- (569,300) -- cycle ;
+\draw  [fill={rgb, 255:red, 208; green, 2; blue, 27 }  ,fill opacity=0.5 ] (577.07,252.03) .. controls (577.07,246.49) and (581.56,242) .. (587.1,242) .. controls (592.64,242) and (597.13,246.49) .. (597.13,252.03) .. controls (597.13,257.57) and (592.64,262.06) .. (587.1,262.06) .. controls (581.56,262.06) and (577.07,257.57) .. (577.07,252.03) -- cycle ;
+\draw  [fill={rgb, 255:red, 115; green, 201; blue, 21 }  ,fill opacity=0.5 ] (576.89,282) .. controls (576.89,276.48) and (581.37,272) .. (586.89,272) .. controls (592.41,272) and (596.89,276.48) .. (596.89,282) .. controls (596.89,287.52) and (592.41,292) .. (586.89,292) .. controls (581.37,292) and (576.89,287.52) .. (576.89,282) -- cycle ;
+\draw (438.57,67.56) node   {$1$};
+\draw (311.68,108.79) node   {$2$};
+\draw (311.68,242.21) node   {$3$};
+\draw (438.57,283.44) node   {$4$};
+\draw (517,175.5) node   {$5$};
+\draw (682,251) node  [align=left] {{\scriptsize Key player in endogenous network}};
+\draw (679,280) node  [align=left] {{\scriptsize Key player in exogenous network}};
+\end{tikzpicture}}
+\caption{Equilibrium network $G^{*}$ and key players}
+\end{figure}
+\end{frame}
+
+
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+\begin{itemize}
+    \item We consider the endogenous network formation with peer effect
+    \item In the model, link formation costs play an important role in determining the network structure and individual and aggregate behaviors
+    \item Due to the supermodularity, we can show the existence of equilibrium network
+    \item We can provide
+    \begin{itemize}
+        \item a kind of uniqueness of the equilibrium
+        \item comparative statics result
+        \item discussion about key player
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Future work}
+\begin{itemize}
+    \item link formation with bilateral agreement
+    \item weighted network
+    \item other form of utility function
+\end{itemize}
+\end{frame}
+
+
+\end{document}

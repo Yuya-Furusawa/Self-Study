@@ -164,9 +164,10 @@ The potential network $g^p$ is represented by adjacency matrix $\bm{G}^p = {(g_{
 		0 \  (\text{otherwise})
 	\end{cases} \]
 Note that $\bm{G}^p$ can be asymetric and $g_{ii}^p = 0$ for all $i$.
-Denote the set of agent $i$'s neighbors in the potential network $N_i(g^p)$.
-In the first stage, each agent $i$ simultaneously chooses the partners from the potential neighbors, $N_i(g^p)$, where $N_i(g^p) = \{ j \in N | g_{ij}^p = 1 \}$.
-This strategy can be represented by its subset $\psi_i \subset N_i(g^p)$, and $\psi_i$ can be empty.
+Denote the set of agent $i$'s neighbors in the potential network $N_i(g^p) = \{ j \in N | g_{ij}^p = 1 \}$.
+In the first stage, each agent $i$ simultaneously chooses the partners from the potential neighbors $N_i(g^p)$.
+This strategy can be represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, $\psi_{ii}=0$ for all $i \in N$, and $\psi_{ij} = 0$ for all $j \in N_i(g^p)$.
+Note that $\psi_i \in \Psi_i = \{0, 1\}^{n}$
 We assume that when forming a link, each agent incurs a cost $c_{ij} \ge 0$, and denote its matrix $\bm{C} = {(c_{ij})}_{ij}$.\footnote{We assume that $c_{ij} = 0$ for $ij$ such that $g_{ij}^p = 0$.}
 The link formation cost represents, for example, geographic distance or psychological barrier.
 Since $\psi_i$ depends on potential network $g^p$ and costs $\bm{C}$, to emphasize it, we denote $\psi_i(g^p, \bm{C})$.
@@ -241,7 +242,7 @@ Only links which exist in the potential network can be realized.
 $g$ is represented by the adjacency matrix $\bm{G} = {(g_{ij})}_{ij}$ such that, for any pair $(i,j)$,
 \[ g_{ij} = 
 	\begin{cases}
-		1 \  (\text{if} \  j \in \psi_i(g^p, {\bm{C}}) ) \\
+		1 \  (\text{if} \  \psi_{ij}(g^p, {\bm{C}}) = 1 ) \\
 		0 \  (\text{otherwise})
 	\end{cases} \]
 We can see the realization of the network depends on agents' choosing strategy $\bm{\psi}(g^p, \bm{C})$.
@@ -316,6 +317,7 @@ In addition, we find that optimal effort levels coincide with the Katz-Bonacich 
 In our model, the spectral radius of the adjacency matrix of realized network may not satisfy that condition.
 Proposition 1 says that we can satisfy the condition under Assumption 1.
 Note that Proposition 1 also provides the Nash equilibrium, which is a first step of backward induction.
+In the rest of this paper, we assume Assumption 1.
 
 Here $\bm{x}^*$ is the optimal effort in the realized network, and so we can find $x_i^*$s' are dependent of $\bm{\psi}$, so optimal effort levels can be written as $x_i^*(\bm{\psi})$.
 From Proposition 1, we can calculate as follows:
@@ -333,7 +335,7 @@ To show the existence of such a equilibrium, we consider the following algorithm
 \ 
 \begin{description}
 	\item[Step 0.]\mbox{}\\
-		Let $g^{(0)}$ be the initial realized network where $g^{(0)} = g^p$, that is $\psi_i^{(0)} = N_i(g^p)$.
+		Let $g^{(0)}$ be the initial realized network where $g^{(0)} = g^p$, that is, chooosing strategy is $\psi_i^{(0)} \in \Psi_i$ such that $\psi_{ij}^{(0)} = 1$ for all $j \in N_i(g^p)$.
 		Compute each players' optimal effort and payoffs.
 		Denote the set of agents who do not take best response as $NB^{(0)}$:
 		\begin{equation*}
@@ -703,7 +705,7 @@ But as discussed above, it is difficult to identify the threshold of the transit
 
 \section{Finding the Key Player}
 
-In this section, we argue the {\it{key player}} in the network.
+In this section, we argue the {\it{key player}} in the network, who has the largest impact on the aggregate behavior of the network.
 In the previous literatures, for example Ballester, Calvo-Armengol, and Zenou(2006, 2010)~\cite{whowho, delinquent} and Liu et.al.(2012)~\cite{criminal}, argue the key player and give necessary and sufficient condition of who becomes it in the context of similar model.
 In these papers, key player is defined as the agent who, once removed from the network, generates the highest possible reduction in aggreate effort level.
 Key player is thought of, for example, the player who supports the criminal activity of his friends in the context of criminal network.

@@ -50,7 +50,7 @@
 
 \begin{document}
 
-\title{Externalities, Equilibrium, and Supermodularity in Games with Endogenous Network Formation}
+\title{Externalities, Supermodularities, and Equilibrium in Games with Endogenous Network Formation}
 
 \author{Yuya Furusawa}
 \affil{U-Tokyo, GSE, 29-186036}
@@ -75,8 +75,12 @@ In criminal network, when the neighbors are highly devoted to criminal activitie
 
 % Importance of network formation
 However, many existing literatures about the networks in economics ignore the mechanism of the network formation.
-It is well known that some networks commonly show the certain structure, for example, financial networks are often core-periphery network, but the reason why such a network arises is still unknown.
-We provide the way to analyze this question by developing a theoretical model of game theoretic network formation model.
+With fixed networks, some papers\footnote{For production networks, Acemoglu, Carvalho, Ozdaglar, and Tahbaz‐Salehi(2012)~\cite{origin} or Carvalho, Nirei, Saito, and Tahbaz-Salehi(2016)~\cite{nirei}. For a network of military alliances, K\"{o}nig, Rohner, Thoenig, and Zilibotti(2017)~\cite{conflict}} consider the effect of economic shocks or policy changing on the aggregate behavior of the network.
+When the economic agents are faced with the alteration of the environment where they are, they respond to them in order to mitigate the shocks.
+Finally, the network structure will be changed.
+Therefore, it is significant to consider the mechanism of network formation to analyze the impact of policy intervaton.
+This problem is related to "Lucas Critique".
+In this paper, we propose the way to overcome this problem by incorporating the endogenous network formation to the model.
 
 % Summary of results
 We develop the two stage dynamic game, where agents form links to other agents in the first stage and agents excert efforts in the second stage.
@@ -177,7 +181,7 @@ The potential network $g^p$ is represented by adjacency matrix $\bm{G}^p = {(g_{
 Note that $\bm{G}^p$ can be asymetric and $g_{ii}^p = 0$ for all $i$.
 Denote the set of agent $i$'s neighbors in the potential network $N_i(g^p) = \{ j \in N | g_{ij}^p = 1 \}$.
 In the first stage, each agent $i$ simultaneously chooses the partners from the potential neighbors $N_i(g^p)$.
-This strategy can be represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, $\psi_{ii}=0$ for all $i \in N$, and $\psi_{ij} = 0$ for all $j \in N_i(g^p)$.
+This strategy can be represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, $\psi_{ii}=0$ for all $i \in N$, and $\psi_{ij} = 0$ for all $j \notin N_i(g^p)$.
 Note that $\psi_i \in \Psi_i = \{0, 1\}^{n}$
 We assume that when forming a link, each agent incurs a cost $c_{ij} \ge 0$, and denote its matrix $\bm{C} = {(c_{ij})}_{ij}$.\footnote{We assume that $c_{ij} = 0$ for $ij$ such that $g_{ij}^p = 0$.}
 The link formation cost represents, for example, geographic distance or psychological barrier.
@@ -845,6 +849,9 @@ All other agents form link to her, so once she is removed from the network, the 
 The key player in the endogenous network is agent 1.
 Once he is removed from the potential network, agents 2 and 3, who have the highest and third highest effort levels, cannot get large benefit from him, so their effort levels decline.
 In addition, in the potential network without agent1, agent 3, who has the most incoming links, has only one link, so the negative impact of small effort level of agent 3 becomes large.
+This example shows that key player in endogenous network and exogenous network may be different, so from the social planner's point of view, it is important to consider the mechanism of network formation.
+For example, in order to identify a key player and reduce the criminal activities like Liu, Patacchini, Zenou, and Lee(2012)~\cite{criminal}, we have to capture not agent 3 but agent 1 because once the agent is removed, the network structure will be changed.
+Therefore, without considering the network formation, we may have wrong policy implications.
 
 Again, due to the complexity of the relationship between link formation costs and realized network, we cannot propose the proposition who is the key player in endogenous network.
 The closed form solution to identify the key player is remaining for future work.
@@ -1062,6 +1069,10 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Acemoglu, D. and Azar, P. (2019),
 	"Endogenous Production Networks",
 	Econometrica, \textit{forthcoming}.
+\bibitem{origin}
+	Acemoglu, D., Carvalho, V. M., Ozdaglar, A., and Tahbaz‐Salehi, A. (2012),
+	"The network origins of aggregate fluctuations",
+	Econometrica, 80(5), 1977-2016.
 \bibitem{acemo2015}
 	Acemoglu, D., Ozdaglar, A. E., and Tahbaz-Salehi, A. (2015),
 	"Systemic Risk in Endogenous Financial Networks",
@@ -1106,6 +1117,10 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Canen, N., Jackson, M. O. and Trebbi, F. (2019),
 	"Endogenous Networks and Legislative Activity",
 	\textit{Working Paper}.
+\bibitem{nirei}
+	Carvalho, V. M., Nirei, M., Saito, Y., and Tahbaz-Salehi, A. (2016),
+	"Supply chain disruptions: Evidence from the great east Japan earthquake",
+	Columbia Business School Research Paper, (17-5).
 \bibitem{cohen}
 	Cohen-Cole, E., Patacchini, E., and Zenou, Y. (2010),
 	"Systemic risk and network formation in the interbank market",
@@ -1160,6 +1175,10 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	K\"{o}nig, M. D., Liu, X., and Zenou, Y. (2019),
 	"R\&D Networks: Theory, Empirics, and Policy Implications",
 	Review of Economics and Statistics, 101(3), 476-491.
+\bibitem{conflict}
+	K\"{o}nig, M. D., Rohner, D., Thoenig, M., and Zilibotti, F. (2017),
+	"Networks in conflict: Theory and evidence from the great war of africa",
+	Econometrica, 85(4), 1093-1132.
 \bibitem{criminal}
 	Liu, X., Patacchini, E., Zenou, Y., and Lee, L. F. (2012),
 	"Criminal networks: Who is the key player?",

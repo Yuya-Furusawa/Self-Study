@@ -18,7 +18,7 @@
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 \usetikzlibrary{patterns}
 
-\title{Externalities, Equilibrium, and Supermodularity in Games with Endogenous Network Formation}
+\title{Externalities, Supermodularities, and Equilibrium in Games with Endogenous Network Formation}
 \subtitle{master thesis}
 \date{\today}
 \author{Yuya Furusawa}
@@ -33,7 +33,7 @@
 
 \begin{frame}{Network with Peer Effect}
 \begin{itemize}
-    \item Network structure and local interactions play an important role in individual and aggregate nehavior
+    \item Network structure and local interactions play an important role in individual and aggregate behavior
     \item Externalities of the individual behavior in the network is a key factor for the aggeregate bahavior
     \item Especially, we can see the importance of positive externalities
     \begin{itemize}
@@ -45,8 +45,9 @@
 
 \begin{frame}{Endogeneity of the network}
 \begin{itemize}
-    \item However, in many works, the network is exogenous
-    \item 
+    \item However, in many works, the network is exogenous and fixed
+    \item When economic agents are faced with some shocks or policy changes, they respond to them and the network will be changed
+    \item Related to "Lucas Critique"
 \end{itemize}
 \end{frame}
 
@@ -105,17 +106,17 @@
 \begin{frame}{Model : 1st stage}
 \begin{itemize}
     \item First, agents simultaneously choose their neighbors from the agents whom they connect in potential network
-    \item This strategy is represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, $\psi_{ii}=0$ for all $i \in N$, and $\psi_{ij} = 0$ for all $j \in N_i(g^p)$
+    \item This strategy is represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, $\psi_{ii}=0$ for all $i \in N$, and $\psi_{ij} = 0$ for all $j \notin N_i(g^p)$
     \item Note that $\psi_i \in \Psi_i = \{0,1\}^n$
     \item When agent form links, he incurs the link-specific costs $c_{ij} \ge 0$
-    \item "Choosing neighbors" strategy is dependent on $g^p$ and $\bm{C} = {c_{ij}}_{ij}$, so sometimes we denote $\psi_i(g^p, \bm{C})$
+    \item "Choosing neighbors" strategy is dependent on $g^p$ and $\bm{C} = {(c_{ij})}_{ij}$, so sometimes we denote $\psi_i(g^p, \bm{C})$
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Model : Realized network}
 \begin{itemize}
     \item At the end of 1st stage, we can see {\it{realized network}} denoted as $g$
-    \item $g$ is represented by tha adjacency matrix $\bm{G}$
+    \item $g$ is represented by the adjacency matrix $\bm{G}$
     \[ g_{ij} = 
         \begin{cases}
             1 \  (\text{if} \  \psi_{ij}(g^p, {\bm{C}}) = 1 ) \\
@@ -216,7 +217,7 @@
 
 \begin{frame}{2nd stage equilibrium}
 \begin{itemize}
-    \item {\bf{Assumption}} : $\phi \rho(\bm{G}^p)$ where $\rho(\cdot)$ is spectral radius
+    \item {\bf{Assumption}} : $\phi \rho(\bm{G}^p) < 1$ where $\rho(\cdot)$ is spectral radius
     \item {\bf{Proposition}} : Under Assumption, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, which is interior and given by
     \[ \bm{x}^* = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \]
     \item We can calculate as
@@ -481,7 +482,7 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Endogenous and Exogenous}
+\begin{frame}{Difference bet. endogenous and exogenous key player}
 \begin{itemize}
     \item {\bf{Example}} : Suppose $n=5$, $\bm{\alpha} = (1, 1, 1, 1, 1)$ and $\phi = 1/5$
     \item $\bm{C} = \left[
@@ -502,21 +503,23 @@
     \item Then,
         \begin{table}[htb]
           \begin{center}
-            \begin{tabular}{|l|c|} \hline
-              agent with highest effort & agent $2$ \\ \hline
-              key player in endogenous network & agent $1$ \\ \hline
-              key player in exogenous network & agent $3$ \\ \hline
+            \begin{tabular}{|l|l|c|} \hline
+              agent $1$ & $x_1^* = 1.99541284$ & key player in endogenous network \\ \hline
+              agent $2$ & $x_2^* = 2.12155963$ & agent with highest effort \\ \hline
+              agent $3$ & $x_3^* = 1.82339450$  & key pplayer in exogenous network \\ \hline
+              agent $4$ & $x_4^* = 1.78899083$ & \  \\ \hline
+              agent $5$ & $x_5^* = 1.36467890$ & \ \\ \hline
             \end{tabular}
           \end{center}
         \end{table}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Endogenous and Exogenous}
+\begin{frame}{Difference bet. endogenous and exogenous key player}
 \begin{figure}[h]
 \raggedleft
 \tikzset{every picture/.style={line width=0.75pt}}
-\scalebox{0.7}[0.7]{   
+\scalebox{0.75}[0.75]{   
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
 \draw  [fill={rgb, 255:red, 208; green, 2; blue, 27 }  ,fill opacity=0.5 ] (416.07,67.56) .. controls (416.07,55.13) and (426.15,45.06) .. (438.57,45.06) .. controls (451,45.06) and (461.07,55.13) .. (461.07,67.56) .. controls (461.07,79.98) and (451,90.06) .. (438.57,90.06) .. controls (426.15,90.06) and (416.07,79.98) .. (416.07,67.56) -- cycle ;
 \draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (289.18,108.79) .. controls (289.18,96.36) and (299.25,86.29) .. (311.68,86.29) .. controls (324.1,86.29) and (334.18,96.36) .. (334.18,108.79) .. controls (334.18,121.21) and (324.1,131.29) .. (311.68,131.29) .. controls (299.25,131.29) and (289.18,121.21) .. (289.18,108.79) -- cycle ;
@@ -572,7 +575,7 @@
     \begin{itemize}
         \item a kind of uniqueness of the equilibrium
         \item comparative statics result
-        \item discussion about key player
+        \item discussion about key player and policy implication
     \end{itemize}
 \end{itemize}
 \end{frame}

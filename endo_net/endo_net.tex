@@ -50,17 +50,24 @@
 
 \begin{document}
 
-\title{Externalities, Supermodularities, and Equilibrium in Games with Endogenous Network Formation}
+\title{Supermodularity and Equilibrium in Games with \\ Peer Effects and Endogenous Network Formation}
 
 \author{Yuya Furusawa}
-\affil{U-Tokyo, GSE, 29-186036}
 
 \date{\today}
 
 \maketitle
 
 \begin{abstract}
-aaaa
+Peer effects in the network play an important role in determining individual and aggregate behavior, and many literature argue their importances theoretically and empirically.
+However, almost all of the papers treat the network structure as given.
+This means that we cannot consider the agents' responses to the economic shocks and alternation of network structure.
+We develop the game-theoretic model with endogenous network formation　where agents first choose who to connect and then excert efforts.
+We show that 1st stage game becomes supermodular game and there exists pure strategy subgame perfect equilibrium.
+Then, we give a discussion about multiplicity of equilibrium and comparative statics.
+In comparative static analysis, we can show the model incorporates phase transition phenomena.
+Finally, we provide a policy implication: key player policy and key link policy.
+With considering the endogeneity of the network, we can see the key player and key link might be different with the ones analyzed in the existing literature.
 \end{abstract}
 
 
@@ -69,6 +76,7 @@ aaaa
 % Network with peer effects
 Network structures and local interactions play an important role in detemining individual and aggregate behavior.
 Individual behavior generates a positive or negative externalities and affects neighbors' behavior, which is referred to as peer effect.
+By considering network structure, we can explain the direct effects and indirect effects, that is, the effects of agent's behavior on agents directly connect and indirectly connect.
 Recently, many literatures in the economics theoretically and emprically point out this significance.
 In these works, it is shown that peer effects are important in many kinds of network, for example, social network, criminal network, firm-to-firm networks where firms invest R\&D activities, networks for labor market participation, educational network, and so on.
 In criminal network, when the neighbors are highly devoted to criminal activities such as drug abuses, the agent are more likely to concentrate on the drug usage due to the information or traffickinf from his neighbors.
@@ -108,6 +116,7 @@ We analyze a key player policy in this endogenous network as in the previous lit
 Key player is the agent in the potential network who makes largest reduction of aggregate effort level once he removed from the potential network.
 However, it is difficult to find key players from the link formation costs because its discontinuity.
 We give a example that key player in the endogenous network and in the exogenous (key player defined in the previous literatures) might be different.
+This example shows that witout considering the mechanism of the network formation, we might have a wrong policy implication.
 
 The existence of the equilibrium and the result of comparative statics are closely related to the supermodularity of this game.
 We can see that 2nd stage game and 1st stage game from the backward induction exihibit the strategic complementarity, or supermodularity.
@@ -355,8 +364,7 @@ To show the existence of such a equilibrium, we consider the following algorithm
 		Denote the set of agents who do not take best response as $NB^{(0)}$:
 		\begin{equation*}
 		\begin{split}
-			NB^{(0)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(0)}), \tilde{\psi}_i, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(0)})), \bm{\psi}^{(0)}, \bm{C}, \phi) \\
-								 &\text{and} \ \tilde{\psi}_i \neq \psi_i^{(0)} \}
+			NB^{(0)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(0)}), \tilde{\psi}_i, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(0)})), \bm{\psi}^{(0)}, \bm{C}, \phi) \}
 		\end{split}
 		\end{equation*}
 		Go into Step 1.
@@ -372,8 +380,7 @@ To show the existence of such a equilibrium, we consider the following algorithm
 		Compute each players' payoffs and define $NB^{(k)}$:
 		\begin{equation*}
 		\begin{split}
-			NB^{(k)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(k)}), \tilde{\psi}_i, \psi_{-i}^{(k)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k)})), \bm{\psi}^{(k)}, \bm{C}, \phi) \\
-								 &\text{and} \ \tilde{\psi}_i \neq \psi_i^{(k)} \}
+			NB^{(k)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(k)}), \tilde{\psi}_i, \psi_{-i}^{(k)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k)})), \bm{\psi}^{(k)}, \bm{C}, \phi) \}
 		\end{split}
 		\end{equation*}
 		Proceed to Step $k+1$.
@@ -475,6 +482,16 @@ By proposition 1, we can compute each player's equilibrium payoffs:
 		\left( \frac{1}{2}, \frac{1}{2}{(1+\phi)}^2 - c_{21} \right) & (g_{12} = 0, g_{21} = 1) \\
 		\left( \frac{1}{2}, \frac{1}{2} \right) & (g_{12} = 0, g_{21} = 0)
 	\end{cases} \]
+Payoff matrix is:
+\begin{table}[htb]
+  \begin{center}
+    \begin{tabular}{|l|l|c|} \hline
+      \            & $g_{21} = 1$         & $g_{21} = 0$ \\ \hline
+      $g_{12} = 1$ & $\left( \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - c_{12}, \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - c_{21} \right)$ & $\left( \frac{1}{2} {(1 + \phi)}^2 - c_{12}, \frac{1}{2} \right)$ \\ \hline
+      $g_{12} = 0$ & $\left( \frac{1}{2}, \frac{1}{2} {(1 + \phi)}^2 - c_{21} \right)$ & $\left( \frac{1}{2}, \frac{1}{2} \right)$ \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 From this calculation, if $c_{12}$ and $c_{21}$ satisfy
 \[ \frac{1}{2}{(1+\phi)}^2 - \frac{1}{2} < c_{12} < \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - \frac{1}{2} \]
 \[ \frac{1}{2}{(1+\phi)}^2 - \frac{1}{2} < c_{21} < \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - \frac{1}{2} \]
@@ -569,6 +586,7 @@ Given $\bm{C}, g^p, \bm{\alpha}, and \phi$, the equilibrium network derived by A
 From this theorem, we can say the order of the agents who take best responses does not matter.
 The set of deleted links is determined only by costs, but not by the other players' links.
 From now on, we only consider the network derived by the algorithm.
+Denote the equilibrium network derived by Algorithm 1 as $g^{**}$
 
 
 \subsection{Comparative Statics}
@@ -583,7 +601,7 @@ Next proposition shows that our conjection is verified.
 Given the potential network $g^p$.
 Consider the cost $\bm{\hat{C}}$ and $\bm{C}$ with $\bm{\hat{C}} \le \bm{C}$.
 Then,
-\[ g(\bm{\psi}^*(g^p, \bm{\hat{C}})) \supseteq g(\bm{\psi}^*(g^p, \bm{C})) \]
+\[ g^{**}(\bm{\psi}^*(g^p, \bm{\hat{C}})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C})) \]
 \end{proposition}
 
 The realized network is a increasing function in the costs of forming links.
@@ -862,14 +880,16 @@ The closed form solution to identify the key player is remaining for future work
 This paper argues the game with externality in the endogenously formed network.
 Contrary to the previous literatures, agents endogenously form the network.
 In the model, agents choose their neighbors in the potential network at first, and then the network is realized.
-When agents form links to neighbors, they incur the link-specific costs.
+When agents form links to neighbors, they incur the link-specific costs and these costs play an important role in the agents' decisions and the formation of network.
 Next, agents decide their effort level in this formed network, and their decisions generates the externality, peer effect, through the network.
 We focus on the subgame perfect equilibrium where agents take pure strategies in each stage.
-We mainly make use of the best response algorithm.
+We mainly make use of the best response dynamics algorithm.
 By this algorithm, we show that there always exists the equilibrium for any potential network and link formation costs.
+Behind this result, there are supermodurality in the 1st stage game given 2nd stage equilibrium.
 In addition, the equilibrium derived by the algorithm is always unique.
 However, the realized network high dimensional discontiunous function in the costs, so it is difficult to identify the structure of the network from the link formation costs.
-We can find the key player in the endogenous network is not necessarily same with the one in the exogenous network.
+We can find the key player in the endogenous network is not necessarily same with the one in the exogenous network, which implies that we might have a wrong policy implication.
+Therefore, it is significant to consider the mechanism of network formation.
 
 Some weaknesses in our model are remaining for the future work.
 First, link formation is accomplished by the unilateral decisions.

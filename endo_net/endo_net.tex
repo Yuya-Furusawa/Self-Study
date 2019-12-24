@@ -87,7 +87,6 @@ With fixed networks, some papers\footnote{For production networks, Acemoglu, Car
 When the economic agents are faced with the alteration of the environment where they are, they respond to them in order to mitigate the shocks.
 Finally, the network structure will be changed.
 Therefore, it is significant to consider the mechanism of network formation to analyze the impact of policy intervaton.
-This problem is related to "Lucas Critique".
 In this paper, we propose the way to overcome this problem by incorporating the endogenous network formation to the model.
 
 % Summary of results
@@ -104,23 +103,20 @@ For example, when we consider the criminal network, links, effort, and formation
 When we apply to the R\&D network, we can think of links as the contract to colaboration, effort as the investment to R\&D, and link formation cost as the negotiation cost or financial cost to sign a constract.
 We consider the subgame perfect equilibrium where all agents take pure starategies in the both stages.
 
-We establish that the equilibrium always exists.
-The existence of an equilibrium can be shown by the best response dynamics algorithm, which always halts in finite steps.
-The algorithm starts from the potential network, the potentially largest network, and the agent who does not take best response is randomly choosen and takes best response, which changes the structure of the network.
-We can also show the equilibrium derived by this algorithm is unique, but equilibrium itself may not be unique.
-This uniqueness enables us to analyze a comparative statics in the link formation costs.
-Reduction in the costs leads to larger network because agents are more likely to connect to other agents.
+We establish that pure strategy subgame perfect equilibrium always exists.
+Due to the result in Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho}, second stage Nash equilibrium always exists and it is unique.
+Given this equilibrium, by backward induction, we show first stage becomes supermodular game.
+Then, by well known properties of supermodurarity, we can see the first stage equilibrium always exists, and we have the greatest and smallest ones, so equilibrium may not be unique.
+We focus on the greatest equilibrium which can be obtained by some best response dynamics algorithm.
+In comparative static analysis in link formation costs, we see that reduction in the costs leads to larger network because agents are more likely to connect to other agents.
 Realized network is discontinuous in the link formation costs, so changes in the costs leads to discontinuous changes in the network.
 We give a example that tiny change in the link formation costs leads to drastic change of the network structure, "phase transition".
-We analyze a key player policy in this endogenous network as in the previous literatures.
+We analyze a key player policy in endogenous networks as in the previous literature.
 Key player is the agent in the potential network who makes largest reduction of aggregate effort level once he removed from the potential network.
 However, it is difficult to find key players from the link formation costs because its discontinuity.
 We give a example that key player in the endogenous network and in the exogenous (key player defined in the previous literatures) might be different.
 This example shows that witout considering the mechanism of the network formation, we might have a wrong policy implication.
-
-The existence of the equilibrium and the result of comparative statics are closely related to the supermodularity of this game.
-We can see that 2nd stage game and 1st stage game from the backward induction exihibit the strategic complementarity, or supermodularity.
-Supermodular game has some nice properties which enables us to have pure strategy equilibrium.
+Similarly, we analyze key link policy which is introduced in this paper for the first time, and we see we may have wrong policy without considering the endogenous network formation.
 
 % Literature Review
 This paper contributes to the growing literatures on the endogenous networks.
@@ -191,7 +187,7 @@ Note that $\bm{G}^p$ can be asymetric and $g_{ii}^p = 0$ for all $i$.
 Denote the set of agent $i$'s neighbors in the potential network $N_i(g^p) = \{ j \in N | g_{ij}^p = 1 \}$.
 In the first stage, each agent $i$ simultaneously chooses the partners from the potential neighbors $N_i(g^p)$.
 This strategy can be represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, $\psi_{ii}=0$ for all $i \in N$, and $\psi_{ij} = 0$ for all $j \notin N_i(g^p)$.
-Note that $\psi_i \in \Psi_i = \{0, 1\}^{n}$
+Note that $\psi_i \in \Psi_i = \{0, 1\}^{n}$ and $\Psi = \prod_{i=1}^n \Psi_i$.
 We assume that when forming a link, each agent incurs a cost $c_{ij} \ge 0$, and denote its matrix $\bm{C} = {(c_{ij})}_{ij}$.\footnote{We assume that $c_{ij} = 0$ for $ij$ such that $g_{ij}^p = 0$.}
 The link formation cost represents, for example, geographic distance or psychological barrier.
 Since $\psi_i$ depends on potential network $g^p$ and costs $\bm{C}$, to emphasize it, we denote $\psi_i(g^p, \bm{C})$.
@@ -333,7 +329,7 @@ We show that, under this assumption, there exists a unique Nash equilibrium in t
 
 \begin{proposition}
 Under Assumption 1, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, which is interior and given by
-\[ \bm{x}^* = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \]
+\[ \bm{x}^* = \bm{b}_{\bm{\alpha}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \]
 \end{proposition}
 
 Ballester, Calvo-Armengol, and Zenou(2006, 2010) show that, given network $g$, there exists a unique interior Nash equilibrium when the spectral radius of the adjacency matrix of the network is small enough.
@@ -350,93 +346,53 @@ From Proposition 1, we can calculate as follows:
 	v_i^*(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) = \frac{1}{2} {[b_{\bm{\alpha}, i}(g(\bm{\psi}), \phi)]}^2 = \frac{1}{2} {x_i^*(g(\bm{\psi}))}^2
 \end{equation}
 
-In order to characterize the subgame perfect equilibrium, next we consider the agents' strategy to choose neighbors.
-In light of Proposition 1, we only need to consider Nash equilibria given the efforts in the second stage Nash equilibrium.
-Since the number of agents and strategies is finite, there exists Nash equilibrium, but as mentioned above, we will consider the pure staretegy equilibrium.
-To show the existence of such a equilibrium, we consider the following algorithm.
+In order to characterize the subgame perfect equilibrium, next we consider the agents' strategy to choose neighbors by backward induction.
+In light of Proposition 1, we only need to consider Nash equilibrium given the efforts in the second stage Nash equilibrium.
+Let us consider the first stage game given equilibrium effort levels as a normal form game $\Gamma = \langle N, \Psi, {(u_i)}_{i \in N} \rangle$.
 
-\begin{algorithm}
-\ 
-\begin{description}
-	\item[Step 0.]\mbox{}\\
-		Let $g^{(0)}$ be the initial realized network where $g^{(0)} = g^p$, that is, chooosing strategy is $\psi_i^{(0)} \in \Psi_i$ such that $\psi_{ij}^{(0)} = 1$ for all $j \in N_i(g^p)$.
-		Compute each players' optimal effort and payoffs.
-		Denote the set of agents who do not take best response as $NB^{(0)}$:
-		\begin{equation*}
-		\begin{split}
-			NB^{(0)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(0)}), \tilde{\psi}_i, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(0)})), \bm{\psi}^{(0)}, \bm{C}, \phi) \}
-		\end{split}
-		\end{equation*}
-		Go into Step 1.
-	\item[Step $k(\ge 1)$.]\mbox{}\\
-		Check whether $NB^{(k-1)}$ is empty or not.
-
-		If $NB^{(k-1)} = \emptyset$, define $g^* = g(\bm{\psi}^{(k-1)})$ and terminate the algorithm.
-
-		Otherwise, choose a agent $i \in NB^{(k-1)}$ randomly.
-		Agent $i$ takes best response, changing links, then new network is emerged.
-		That is, $i$ changes her strategy from $\psi_i^{(k-1)}$ to $\psi_i^{(k)}$ such that $u_i(\bm{x}^*(g(\psi_i^{(k)}, \psi_{-i}^{(k-1)})), \psi_i^{(k)}, \psi_{-i}^{(k-1)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k-1)})), \bm{\psi}^{(k-1)}, \bm{C}, \phi)$, and for any other agents $j (\neq i)$ remain their strategies, $\psi_j^{(k)} = \psi_j^{(k-1)}$.
-		Then, new network $g(\bm{\psi}^{(k)})$ is realized.
-		Compute each players' payoffs and define $NB^{(k)}$:
-		\begin{equation*}
-		\begin{split}
-			NB^{(k)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(k)}), \tilde{\psi}_i, \psi_{-i}^{(k)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k)})), \bm{\psi}^{(k)}, \bm{C}, \phi) \}
-		\end{split}
-		\end{equation*}
-		Proceed to Step $k+1$.
-\end{description}
-\end{algorithm}
-
-Algorithm 1 is one of the {\it{best response dynamics}} algorithms, where agents take their best reponses in each steps.
-You may notice that if the best reponse dynamics halts, it returns a pure strategy Nash equilibrium.\footnote{See Nisan, Noam, et al.~\cite{AGT}}
-Thus, to show the existence of the equilibrium, we need to show this algorithm always terminates.
-To do that, we need some lemmas.
+Before we establish the theorem, we show some preliminary results.
+First, given second stage Nash equilibrium, we can see more links there exist, more values agents get.
 
 \begin{lemma}
-	Given the network $g$ and $\hat{g}$ such that
-	\[  \begin{cases}
-			\hat{g}_{ij} = 1, g_{ij} = 0 \\
-			\hat{g}_{lm} = g_{lm} \ \text{for any} \ lm  \neq ij
-		\end{cases} \]
-	Also consider the $\bm{\hat{\psi}}$ and $\bm{\psi}$  which construct network $\tilde{g}$ and $g$ respectively. 
+	Consider the network $g$ and $\hat{g}$ with $g \subseteq \hat{g}$\footnote{We write $g \subseteq \hat{g}$ to indicate that $\{\{i,j\} \in N | \{i,j\} \in g\} \subset \{\{i,j\} \in N | \{i,j\} \in \hat{g}\}$}.
 	Then,
-	\[ \bm{x}^*(\hat{g}(\bm{\hat{\psi}})) \ge \bm{x}^*(g(\bm{\psi})) \]
-	and
-	\[ x_i^*(\hat{g}(\bm{\hat{\psi}})) > x_i^*(g(\bm{\psi})) \]
+	\[ \bm{x}^*(\hat{g}) \ge \bm{x}^*(g) \]
+	In addition, for all $i \in N$ if, for some $j \in N$, $\hat{g}_{ij} = 1$ and $g_{ij} = 0$, then
+	\[ x_i^*(\hat{g}) > x_i^*(g) \]
 \end{lemma}
 
-Lemma 1 states that function $v_i$ is a increasing function in $\psi_i$.
+This lemma states that function $v_i$ is increasing in $\psi_i$.
 From (\ref{opteff}), we can have 
 \[ v_i^*(x^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) > v_i^*(x^*(g(\bm{\psi})), g(\bm{\psi}), \phi)\]
 and for any $j \neq i$,
 \[ v_j^*(x^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) \ge v_j^*(x^*(g(\bm{\psi})), g(\bm{\psi}), \phi)\]
 These imply that $v_i^*$ is increasing in $\psi$.
 
+In addition to this, we have the following lemma.
+
 \begin{lemma}
-	Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ (its adjacency matrices are $\bm{G}$, $\bm{\hat{G}}$, $\bm{H}$, and $\bm{\hat{H}}$ respectively) such that
-	\[  \begin{cases}
-			\hat{g}_{ij} = 1, g_{ij} = 0 \\
-			\hat{g}_{lm{}} = g_{lm} \ \text{for any} \ lm  \neq ij
-		\end{cases}
-		\ \text{and} \ 
-		\begin{cases}
-			\hat{h}_{ij} = 1, h_{ij} = 0 \\
-			\hat{h}_{lm} = h_{lm} \ \text{for any} \ lm  \neq ij
-		\end{cases} \]
-	and $g$, $\hat{g}$, $h$, and $\hat{h}$ satisfy that $\bm{G} \ge \bm{H}$ and  $\bm{\hat{G}} \ge \bm{\hat{H}}$.
-	Also consider the $\bm{\hat{\psi}}$, $\bm{\psi}$, $\bm{\hat{\varphi}}$, and $\bm{\varphi}$  which construct network $\tilde{g}$, $g$, $\hat{h}$, and $h$ respectively. 
+	Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ (its adjacency matrices are $\bm{G}$, $\bm{\hat{G}}$, $\bm{H}$, and $\bm{\hat{H}}$ respectively).
+	$g$, $\hat{g}$, $h$, and $\hat{h}$ satisfy that $\bm{G} \ge \bm{H}$ and  $\bm{\hat{G}} \ge \bm{\hat{H}}$ with $\bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$.
 	Then, for all $i$,
-	\[ v_i^*(\bm{x}^*(\hat{g}(\bm{\hat{\psi}})), \hat{g}(\bm{\hat{\psi}}), \phi) - v_i^*(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) \ge v_i^*(\bm{x}^*(\hat{h}(\bm{\hat{\varphi}})), \hat{h}(\bm{\hat{\varphi}}), \phi) - v_i^*(\bm{h}^*(g(\bm{\varphi})), h(\bm{\varphi}), \phi)\]
+	\[ v_i^*(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i^*(\bm{x}^*(g), g, \phi) \ge v_i^*(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i^*(\bm{x}^*(h), h, \phi)\]
 \end{lemma}
 
-Lemma 2 states shows the concavity of the function $v$ in the network.
-If the network is more denser, the reduction of the utility without fixed cost by the link deletion becomes larger.
-Using Algorithm 1 and these lemmas, we can show there exists a pure strategy subgame perfect equilibrium.
-The algorithm never fails to converge because the removed links will not be reformed in the later steps.
+Based on these results, we can have next theorem.
 
 \begin{theorem}
-Algorithm 1 terminates in finite steps, and converged network represents the equilibrium network
+	For any $g^p$ and $\bm{C}$, $\Gamma$ is a supermodular game
 \end{theorem}
+
+We can immediately have a following corollary by the properties of supermodular game.
+
+\begin{corollary}
+	For any $g^p$ and $\bm{C}$, there exists equilibrium network, in particular, the greatest and smallest equilibrium exist.
+\end{corollary}
+
+Algorithm 1 is one of the {\it{best response dynamics}} algorithms, where agents take their best reponses in each steps.
+You may notice that if the best reponse dynamics halts, it returns a pure strategy Nash equilibrium.\footnote{See Nisan, Noam, et al.~\cite{AGT}}
+Thus, to show the existence of the equilibrium, we need to show this algorithm always terminates.
+To do that, we need some lemmas.
 
 %supermodular games
 We note that the 1st stage game given the effort level in 2nd stage Nash equilibrium is a supermodular game, the game which exhibits strategic complementarities..
@@ -531,12 +487,12 @@ are both equilibrium networks.
 \draw (95,273) node   {$\frac{1}{2}( 1+\phi )^{2} -\frac{1}{2}$};
 \draw (265,414) node   {$\frac{1}{2}( 1+\phi )^{2} -\frac{1}{2}$};
 \draw (438,117) node   {$G^{*} \ =\ \begin{bmatrix}
-0 & 1\\
-1 & 0
-\end{bmatrix}$};
-\draw (206,352) node   {$G^{*} \ =\ \begin{bmatrix}
 0 & 0\\
 0 & 0
+\end{bmatrix}$};
+\draw (206,352) node   {$G^{*} \ =\ \begin{bmatrix}
+0 & 1\\
+1 & 0
 \end{bmatrix}$};
 \draw (207,125) node   {$G^{*} \ =\ \begin{bmatrix}
 0 & 1\\
@@ -563,30 +519,47 @@ From this perspective, the algorithm can potentially converge multiple equilibri
 In each step, the number of the agents who do not take best responses is generally greater than one.
 Therefore, the order of the agents who delete the links is changed, and the network in each steps is also changed.
 This may lead to the different networks.
-However, we can show that the equilibrium which is derived by the algorithm is unique.
 
-To show the uniquness, we need an additional result.
-Let $BR_i(\bm{\psi}_{-i})$ be the set of $i$'s best responses for $\bm{\psi}_{-i}$, that is
-\[ BR_i(\bm{\psi}_{-i}) = \{ \psi_i \subset N_i(g^p) | u_i(\bm{x}^*(g(\psi_i, \bm{\psi}_{-i})), \psi_i, \bm{\psi}_{-i}, \bm{C}, \phi) \ge u_i(\bm{x}^*(g(\tilde{\psi}_i, \bm{\psi}_{-i})), \tilde{\psi}_i, \bm{\psi}_{-i}, \bm{C}, \phi) \ \forall \tilde{\psi}_i \subset N_i(g^p) \} \]
-We can show that the number of best responses for other playe{}rs' strategies is one.
+We focus on the greatest equilibrium network from now on, and denote it as $g^{**}$.
+The greatest equilibrium can be obtained by designed best response dynamics algorithm.
+Next algorithm returns the greatest equilibrium network.
 
-\begin{lemma}
-In the Algorithm 1, for any step $k$, $|BR_i(\bm{\psi}_{-i}^{(k-1)})| = 1$ for any $i \in NB^{(k-1)}$
-\end{lemma}
+\begin{algorithm}
+\ 
+\begin{description}
+	\item[Step 0.]\mbox{}\\
+		Let $g^{(0)}$ be the initial realized network where $g^{(0)} = g^p$, that is, chooosing strategy is $\psi_i^{(0)} \in \Psi_i$ such that $\psi_{ij}^{(0)} = 1$ for all $j \in N_i(g^p)$.
+		Compute each players' optimal effort and payoffs.
+		Denote the set of agents who do not take best response as $NB^{(0)}$:
+		\begin{equation*}
+		\begin{split}
+			NB^{(0)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(0)}), \tilde{\psi}_i, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(0)})), \bm{\psi}^{(0)}, \bm{C}, \phi) \}
+		\end{split}
+		\end{equation*}
+		Go into Step 1.
+	\item[Step $k(\ge 1)$.]\mbox{}\\
+		Check whether $NB^{(k-1)}$ is empty or not.
 
-Lemma 3 states that when agent $i$ wants to change her neighbors, the way to change them is uniquely determined.
-But, in general, $|BR_i(\bm{\psi}_{-i})|$ may be greater than $1$.
-For example, not changing neighbors and changing them can be both best responses at the same time.
-From this lemma, we can show the uniqueness of the equilibrium network from the algorithm.
+		If $NB^{(k-1)} = \emptyset$, define $g^* = g(\bm{\psi}^{(k-1)})$ and terminate the algorithm.
 
-\begin{theorem}
-Given $\bm{C}, g^p, \bm{\alpha}, and \phi$, the equilibrium network derived by Algorithm 1 is unique.
-\end{theorem}
+		Otherwise, choose a agent $i \in NB^{(k-1)}$ randomly.
+		Agent $i$ takes best response, changing links, then new network is emerged.
+		That is, $i$ changes her strategy from $\psi_i^{(k-1)}$ to $\psi_i^{(k)}$ such that $u_i(\bm{x}^*(g(\psi_i^{(k)}, \psi_{-i}^{(k-1)})), \psi_i^{(k)}, \psi_{-i}^{(k-1)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k-1)})), \bm{\psi}^{(k-1)}, \bm{C}, \phi)$, and for any other agents $j (\neq i)$ remain their strategies, $\psi_j^{(k)} = \psi_j^{(k-1)}$.
+		If agent $i$ has multiple such strategies, choose largest one.
+		Then, new network $g(\bm{\psi}^{(k)})$ is realized.
+		Compute each players' payoffs and define $NB^{(k)}$:
+		\begin{equation*}
+		\begin{split}
+			NB^{(k)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(k)}), \tilde{\psi}_i, \psi_{-i}^{(k)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k)})), \bm{\psi}^{(k)}, \bm{C}, \phi) \}
+		\end{split}
+		\end{equation*}
+		Proceed to Step $k+1$.
+\end{description}
+\end{algorithm}
 
-From this theorem, we can say the order of the agents who take best responses does not matter.
-The set of deleted links is determined only by costs, but not by the other players' links.
-From now on, we only consider the network derived by the algorithm.
-Denote the equilibrium network derived by Algorithm 1 as $g^{**}$
+Algorithm 1 is one of the {\it{best response dynamics}} algorithms, where agents take their best reponses in each steps.
+You may notice that if the best reponse dynamics halts, it returns a pure strategy Nash equilibrium.\footnote{See Nisan, Noam, et al.~\cite{AGT}}
+As in Topkis (1998)~\cite{topkis1998}, returned network is the greatest equilibrium network.
 
 
 \subsection{Comparative Statics}
@@ -596,13 +569,23 @@ When the cost of forming links decrease, we conjecture that the network becomes 
 
 We denote that, for network $g$ and $h$, $g \supseteq h$ if all links in the network $h$ are existed in the network $g$, that is $\bm{G} \ge \bm{H}$.
 Next proposition shows that our conjection is verified.
+This result is based on the supermodularity of 1st stage game.
 
 \begin{proposition}
 Given the potential network $g^p$.
 Consider the cost $\bm{\hat{C}}$ and $\bm{C}$ with $\bm{\hat{C}} \le \bm{C}$.
 Then,
-\[ g^{**}(\bm{\psi}^*(g^p, \bm{\hat{C}})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C})) \]
+\[ g^{**}(\bm{\psi}^*(g^p, \bm{\hat{C}}, \phi, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
 \end{proposition}
+
+By the same argument, we have the following corollary.
+
+\begin{corollary}
+	Given the potential network $g^p$. For $\hat{\phi} \ge \phi$ which satisfy the Assumption,
+        \[ g^{**}(\bm{\psi}^*(g^p, \bm{C}, \hat{\phi}, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
+    For $\bm{\hat{\alpha}} \ge \bm{\alpha}$,
+        \[ g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\hat{\alpha}})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
+\end{corollary}
 
 The realized network is a increasing function in the costs of forming links.
 However, it is obvious that this function is discontiunous.
@@ -621,7 +604,7 @@ Consider the costs $\bm{C}$ such that
 				3 & 3 & 3 & 3 & 0
 			\end{array} \right] \]
 Then, the equilibrium network $g^*$ becomes
-\[\bm{G}^* = \left[
+\[\bm{G}^{**} = \left[
 			\begin{array}{ccccc}
 				0 & 1 & 1 & 1 & 1 \\
 				1 & 0 & 1 & 1 & 1 \\
@@ -640,7 +623,7 @@ On the other hand, when the cost of forming a link from agent $1$ to agent $2$ s
 				3 & 3 & 3 & 3 & 0
 			\end{array} \right] \]
 then, the equilibrium network $\hat{g}^*$ becomes
-\[ \bm{\hat{G}}^* = \left[
+\[ \bm{\hat{G}}^{**} = \left[
 			\begin{array}{ccccc}
 				0 & 0 & 0 & 0 & 0 \\
 				0 & 0 & 0 & 0 & 0 \\
@@ -712,13 +695,13 @@ The equilibrium network is empty network.
 \draw (94.68,239.21) node   {$3$};
 \draw (221.57,280.44) node   {$4$};
 \draw (300,172.5) node   {$5$};
-\draw (198,332) node  [align=left] {Equilibrium network $\displaystyle G$};
+\draw (198,332) node  [align=left] {Equilibrium network $\displaystyle G^{**}$};
 \draw (561.57,60.56) node   {$1$};
 \draw (434.68,101.79) node   {$2$};
 \draw (434.68,235.21) node   {$3$};
 \draw (561.57,276.44) node   {$4$};
 \draw (640,168.5) node   {$5$};
-\draw (538,328) node  [align=left] {Equilibrium network $\displaystyle \hat{G}$};
+\draw (538,328) node  [align=left] {Equilibrium network $\displaystyle \hat{G}^{**}$};
 \end{tikzpicture}
 \caption{Equilibrium networks in Example 2} \label{fig:ex2}
 \end{figure}
@@ -736,9 +719,11 @@ Example 2 shows that our model incorporates the {\it{phase transition}}: the phe
 But as discussed above, it is difficult to identify the threshold of the transition by the discontinuity of the realized network.
 
 
-\section{Finding the Key Player}
+\section{Policy implication}
 
-In this section, we argue the {\it{key player}} in the network, who has the largest impact on the aggregate behavior of the network.
+\subsection{Key player policy}
+
+We first argue the {\it{key player}} in the network, who has the largest impact on the aggregate behavior of the network.
 In the previous literatures, for example Ballester, Calvo-Armengol, and Zenou(2006, 2010)~\cite{whowho, delinquent} and Liu et.al.(2012)~\cite{criminal}, argue the key player and give necessary and sufficient condition of who becomes it in the context of similar model\footnote{Denbee, Julliard, Li, and Yuan(2018)~\cite{denbee} defines the key player in financial network}.
 In these papers, key player is defined as the agent who, once removed from the network, generates the highest possible reduction in aggreate effort level.
 Key player is thought of, for example, the player who supports the criminal activity of his friends in the context of criminal network.
@@ -871,6 +856,237 @@ This example shows that key player in endogenous network and exogenous network m
 For example, in order to identify a key player and reduce the criminal activities like Liu, Patacchini, Zenou, and Lee(2012)~\cite{criminal}, we have to capture not agent 3 but agent 1 because once the agent is removed, the network structure will be changed.
 Therefore, without considering the network formation, we may have wrong policy implications.
 
+\subsection{Key link policy}
+
+Next, we argue the key link policy that is introduced in this paper for the first time.
+First, we define key removing link which is defined as the link that, once removed from the network, generates the highest possible reduction in aggreate effort level.
+
+\begin{definition}
+	Link $ij$ is key removing link in endogenous network if, given potential network $g^p$,
+    \[ ij \in \arg \max_{ij \in E(g^p)} \{ x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) - x^*(g^{**}(\bm{\psi}({g^p}^{-ij}, \bm{C}))) \} \]
+    where $E(g)$ is the set of links in $g^p$ and ${g^p}^{-ij}$ is network obtained by removing link $ij$ from $g^p$
+\end{definition}
+
+\begin{definition}
+	Link $ij$ is key removing link in exogenous network $g$ if, given network $g$,
+    \[ ij \in \arg \max_{ij \in E(g)} \{ x^*(g) - x^*(g^{-ij}) \} \]
+    where $E(g)$ is the set of links in $g$ and $g^{-ij}$ is network obtained by removing link $ij$ from $g$
+\end{definition}
+
+In the example of criminal network,
+Following example shows key removing links in endogenous and exogenous network might be different.
+
+\begin{example}
+Suppose $n=3$, $\bm{\alpha} = (1,1,1)$ and $\phi = 1/3$.
+Potential network is $\bm{G}^p = \left[
+                                    \begin{array}{ccc}
+                                        0 & 1 & 1 \\
+                                        1 & 0 & 1 \\
+                                        1 & 0 & 0
+                                    \end{array} \right]$
+	$\bm{C} = \left[
+                \begin{array}{ccc}
+                    0 & 1 & 1 \\
+                    1 & 0 & 1 \\
+                    1 & 0 & 0
+                \end{array} \right] \Rightarrow
+            \bm{G}^{**} = \left[
+                \begin{array}{ccc}
+                    0 & 1 & 1 \\
+                    1 & 0 & 1 \\
+                    1 & 0 & 0
+                \end{array} \right]$
+\end{example}
+
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}       
+\scalebox{0.75}[0.75]{
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (170.07,34.56) .. controls (170.07,22.13) and (180.15,12.06) .. (192.57,12.06) .. controls (205,12.06) and (215.07,22.13) .. (215.07,34.56) .. controls (215.07,46.98) and (205,57.06) .. (192.57,57.06) .. controls (180.15,57.06) and (170.07,46.98) .. (170.07,34.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (88.18,188.79) .. controls (88.18,176.36) and (98.25,166.29) .. (110.68,166.29) .. controls (123.1,166.29) and (133.18,176.36) .. (133.18,188.79) .. controls (133.18,201.21) and (123.1,211.29) .. (110.68,211.29) .. controls (98.25,211.29) and (88.18,201.21) .. (88.18,188.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (250.18,189.21) .. controls (250.18,176.79) and (260.25,166.71) .. (272.68,166.71) .. controls (285.1,166.71) and (295.18,176.79) .. (295.18,189.21) .. controls (295.18,201.64) and (285.1,211.71) .. (272.68,211.71) .. controls (260.25,211.71) and (250.18,201.64) .. (250.18,189.21) -- cycle ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (171,58) -- (115.94,161.24) ;
+\draw [shift={(115,163)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (184.06,65.76) -- (129,169) ;
+\draw [shift={(185,64)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (200,63) -- (253.09,167.22) ;
+\draw [shift={(254,169)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (213.91,56.78) -- (267,161) ;
+\draw [shift={(213,55)}, rotate = 63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]  [dash pattern={on 2.53pt off 3.02pt}]  (140,192) -- (241,192) ;
+\draw [shift={(245,192)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (169.07,363.56) .. controls (169.07,351.13) and (179.15,341.06) .. (191.57,341.06) .. controls (204,341.06) and (214.07,351.13) .. (214.07,363.56) .. controls (214.07,375.98) and (204,386.06) .. (191.57,386.06) .. controls (179.15,386.06) and (169.07,375.98) .. (169.07,363.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (87.18,517.79) .. controls (87.18,505.36) and (97.25,495.29) .. (109.68,495.29) .. controls (122.1,495.29) and (132.18,505.36) .. (132.18,517.79) .. controls (132.18,530.21) and (122.1,540.29) .. (109.68,540.29) .. controls (97.25,540.29) and (87.18,530.21) .. (87.18,517.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (249.18,518.21) .. controls (249.18,505.79) and (259.25,495.71) .. (271.68,495.71) .. controls (284.1,495.71) and (294.18,505.79) .. (294.18,518.21) .. controls (294.18,530.64) and (284.1,540.71) .. (271.68,540.71) .. controls (259.25,540.71) and (249.18,530.64) .. (249.18,518.21) -- cycle ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (170,387) -- (114.94,490.24) ;
+\draw [shift={(114,492)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (183.06,394.76) -- (128,498) ;
+\draw [shift={(184,393)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (199,392) -- (252.09,496.22) ;
+\draw [shift={(253,498)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (212.91,385.78) -- (266,490) ;
+\draw [shift={(212,384)}, rotate = 63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (554.07,35.56) .. controls (554.07,23.13) and (564.15,13.06) .. (576.57,13.06) .. controls (589,13.06) and (599.07,23.13) .. (599.07,35.56) .. controls (599.07,47.98) and (589,58.06) .. (576.57,58.06) .. controls (564.15,58.06) and (554.07,47.98) .. (554.07,35.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (472.18,189.79) .. controls (472.18,177.36) and (482.25,167.29) .. (494.68,167.29) .. controls (507.1,167.29) and (517.18,177.36) .. (517.18,189.79) .. controls (517.18,202.21) and (507.1,212.29) .. (494.68,212.29) .. controls (482.25,212.29) and (472.18,202.21) .. (472.18,189.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (634.18,190.21) .. controls (634.18,177.79) and (644.25,167.71) .. (656.68,167.71) .. controls (669.1,167.71) and (679.18,177.79) .. (679.18,190.21) .. controls (679.18,202.64) and (669.1,212.71) .. (656.68,212.71) .. controls (644.25,212.71) and (634.18,202.64) .. (634.18,190.21) -- cycle ;
+\draw [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (555,59) -- (500.88,160.47) ;
+\draw [shift={(499,164)}, rotate = 298.07] [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
+\draw    (568.06,66.76) -- (513,170) ;
+\draw [shift={(569,65)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (584,64) -- (637.09,168.22) ;
+\draw [shift={(638,170)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (598.82,59.56) -- (651,162) ;
+\draw [shift={(597,56)}, rotate = 63] [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
+\draw    (524,193) -- (627,193) ;
+\draw [shift={(629,193)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [line width=0.75]    (314.01,108.5) -- (447.01,109.45)(313.99,111.5) -- (446.99,112.45) ;
+\draw [shift={(454,111)}, rotate = 180.41] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (554.07,364.56) .. controls (554.07,352.13) and (564.15,342.06) .. (576.57,342.06) .. controls (589,342.06) and (599.07,352.13) .. (599.07,364.56) .. controls (599.07,376.98) and (589,387.06) .. (576.57,387.06) .. controls (564.15,387.06) and (554.07,376.98) .. (554.07,364.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (472.18,518.79) .. controls (472.18,506.36) and (482.25,496.29) .. (494.68,496.29) .. controls (507.1,496.29) and (517.18,506.36) .. (517.18,518.79) .. controls (517.18,531.21) and (507.1,541.29) .. (494.68,541.29) .. controls (482.25,541.29) and (472.18,531.21) .. (472.18,518.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (634.18,519.21) .. controls (634.18,506.79) and (644.25,496.71) .. (656.68,496.71) .. controls (669.1,496.71) and (679.18,506.79) .. (679.18,519.21) .. controls (679.18,531.64) and (669.1,541.71) .. (656.68,541.71) .. controls (644.25,541.71) and (634.18,531.64) .. (634.18,519.21) -- cycle ;
+\draw [line width=0.75]    (315.01,438.5) -- (448.01,439.45)(314.99,441.5) -- (447.99,442.45) ;
+\draw [shift={(455,441)}, rotate = 180.41] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+\draw    (193.5,222.01) -- (192.58,318.01)(190.5,221.99) -- (189.58,317.99) ;
+\draw [shift={(191,326)}, rotate = 270.55] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw (192.57,34.56) node    {$1$};
+\draw (110.68,188.79) node    {$2$};
+\draw (272.68,189.21) node    {$3$};
+\draw (271.68,518.21) node    {$3$};
+\draw (109.68,517.79) node    {$2$};
+\draw (191.57,363.56) node    {$1$};
+\draw (656.68,190.21) node    {$3$};
+\draw (494.68,189.79) node    {$2$};
+\draw (576.57,35.56) node    {$1$};
+\draw (656.68,519.21) node    {$3$};
+\draw (494.68,518.79) node    {$2$};
+\draw (576.57,364.56) node    {$1$};
+\draw (251,273) node   [align=left] {removing link};
+\draw (309,272) node    {$23$};
+\end{tikzpicture}}
+\caption{Key removing link in endogenous and exogenous network}
+\end{figure}
+
+Next, we introduce key adding link similarly.
+Key adding link is defined as the link which, once added to the network, generates the highest possible increment in aggreate effort level.
+
+\begin{definition}
+	Link $ij$ is key adding link in endogenous network if, given potential network $g^p$,
+    \[ ij \in \arg \max_{ij \notin E(g^p)} \{ x^*(g^{**}(\bm{\psi}({g^p}^{+ij}, \bm{C}))) - x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) \} \]
+    where ${g^p}^{+ij}$ is network obtained by adding link $ij$ to $g^p$
+\end{definition}
+
+\begin{definition}
+	Link $ij$ is key adding link in exogenous network $g$ if, given network $g$,
+    \[ ij \in \arg \max_{ij \notin E(g)} \{ x^*(g^{+ij}) - x^*(g) \} \]
+    where $g^{+ij}$ is network obtained by adding link $ij$ to $g$
+\end{definition}
+
+Following example shows key adding link in endogenous and exogenous network might be different.
+
+\begin{example}
+Suppose $n=3$, $\bm{\alpha} = (1,1,1)$ and $\phi = 1/3$
+Potential network is $\bm{G}^p = \left[
+                                    \begin{array}{ccc}
+                                        0 & 1 & 1 \\
+                                        1 & 0 & 0 \\
+                                        1 & 0 & 0
+                                    \end{array} \right]$
+$\bm{C} = \left[
+                \begin{array}{ccc}
+                    0 & 0.1 & 0.1 \\
+                    1 & 0 & 0 \\
+                    1 & 0 & 0
+                \end{array} \right] \Rightarrow
+            \bm{G}^{**} = \left[
+                \begin{array}{ccc}
+                    0 & 1 & 1 \\
+                    0 & 0 & 0 \\
+                    0 & 0 & 0
+                \end{array} \right]$
+\end{example}
+
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}
+\scalebox{0.75}[0.75]{
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (190.07,54.56) .. controls (190.07,42.13) and (200.15,32.06) .. (212.57,32.06) .. controls (225,32.06) and (235.07,42.13) .. (235.07,54.56) .. controls (235.07,66.98) and (225,77.06) .. (212.57,77.06) .. controls (200.15,77.06) and (190.07,66.98) .. (190.07,54.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (108.18,208.79) .. controls (108.18,196.36) and (118.25,186.29) .. (130.68,186.29) .. controls (143.1,186.29) and (153.18,196.36) .. (153.18,208.79) .. controls (153.18,221.21) and (143.1,231.29) .. (130.68,231.29) .. controls (118.25,231.29) and (108.18,221.21) .. (108.18,208.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (270.18,209.21) .. controls (270.18,196.79) and (280.25,186.71) .. (292.68,186.71) .. controls (305.1,186.71) and (315.18,196.79) .. (315.18,209.21) .. controls (315.18,221.64) and (305.1,231.71) .. (292.68,231.71) .. controls (280.25,231.71) and (270.18,221.64) .. (270.18,209.21) -- cycle ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (191,78) -- (135.94,181.24) ;
+\draw [shift={(135,183)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (204.06,85.76) -- (149,189) ;
+\draw [shift={(205,84)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (220,83) -- (273.09,187.22) ;
+\draw [shift={(274,189)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (233.91,76.78) -- (287,181) ;
+\draw [shift={(233,75)}, rotate = 63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (189.07,383.56) .. controls (189.07,371.13) and (199.15,361.06) .. (211.57,361.06) .. controls (224,361.06) and (234.07,371.13) .. (234.07,383.56) .. controls (234.07,395.98) and (224,406.06) .. (211.57,406.06) .. controls (199.15,406.06) and (189.07,395.98) .. (189.07,383.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (107.18,537.79) .. controls (107.18,525.36) and (117.25,515.29) .. (129.68,515.29) .. controls (142.1,515.29) and (152.18,525.36) .. (152.18,537.79) .. controls (152.18,550.21) and (142.1,560.29) .. (129.68,560.29) .. controls (117.25,560.29) and (107.18,550.21) .. (107.18,537.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (269.18,538.21) .. controls (269.18,525.79) and (279.25,515.71) .. (291.68,515.71) .. controls (304.1,515.71) and (314.18,525.79) .. (314.18,538.21) .. controls (314.18,550.64) and (304.1,560.71) .. (291.68,560.71) .. controls (279.25,560.71) and (269.18,550.64) .. (269.18,538.21) -- cycle ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (190,407) -- (134.94,510.24) ;
+\draw [shift={(134,512)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (203.06,414.76) -- (148,518) ;
+\draw [shift={(204,413)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (219,412) -- (272.09,516.22) ;
+\draw [shift={(273,518)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (232.91,405.78) -- (286,510) ;
+\draw [shift={(232,404)}, rotate = 63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (574.07,55.56) .. controls (574.07,43.13) and (584.15,33.06) .. (596.57,33.06) .. controls (609,33.06) and (619.07,43.13) .. (619.07,55.56) .. controls (619.07,67.98) and (609,78.06) .. (596.57,78.06) .. controls (584.15,78.06) and (574.07,67.98) .. (574.07,55.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (492.18,209.79) .. controls (492.18,197.36) and (502.25,187.29) .. (514.68,187.29) .. controls (527.1,187.29) and (537.18,197.36) .. (537.18,209.79) .. controls (537.18,222.21) and (527.1,232.29) .. (514.68,232.29) .. controls (502.25,232.29) and (492.18,222.21) .. (492.18,209.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (654.18,210.21) .. controls (654.18,197.79) and (664.25,187.71) .. (676.68,187.71) .. controls (689.1,187.71) and (699.18,197.79) .. (699.18,210.21) .. controls (699.18,222.64) and (689.1,232.71) .. (676.68,232.71) .. controls (664.25,232.71) and (654.18,222.64) .. (654.18,210.21) -- cycle ;
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (575,79) -- (519.94,182.24) ;
+\draw [shift={(519,184)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (604,84) -- (657.09,188.22) ;
+\draw [shift={(658,190)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [line width=0.75]    (334.01,128.5) -- (467.01,129.45)(333.99,131.5) -- (466.99,132.45) ;
+\draw [shift={(474,131)}, rotate = 180.41] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+\draw [line width=0.75]    (335.01,458.5) -- (468.01,459.45)(334.99,461.5) -- (467.99,462.45) ;
+\draw [shift={(475,461)}, rotate = 180.41] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+\draw    (213.5,242.01) -- (212.58,338.01)(210.5,241.99) -- (209.58,337.99) ;
+\draw [shift={(211,346)}, rotate = 270.55] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [dash pattern={on 0.84pt off 2.51pt}]  (159,539) -- (260,539) ;
+\draw [shift={(262,539)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (575.07,384.56) .. controls (575.07,372.13) and (585.15,362.06) .. (597.57,362.06) .. controls (610,362.06) and (620.07,372.13) .. (620.07,384.56) .. controls (620.07,396.98) and (610,407.06) .. (597.57,407.06) .. controls (585.15,407.06) and (575.07,396.98) .. (575.07,384.56) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (493.18,538.79) .. controls (493.18,526.36) and (503.25,516.29) .. (515.68,516.29) .. controls (528.1,516.29) and (538.18,526.36) .. (538.18,538.79) .. controls (538.18,551.21) and (528.1,561.29) .. (515.68,561.29) .. controls (503.25,561.29) and (493.18,551.21) .. (493.18,538.79) -- cycle ;
+\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (655.18,539.21) .. controls (655.18,526.79) and (665.25,516.71) .. (677.68,516.71) .. controls (690.1,516.71) and (700.18,526.79) .. (700.18,539.21) .. controls (700.18,551.64) and (690.1,561.71) .. (677.68,561.71) .. controls (665.25,561.71) and (655.18,551.64) .. (655.18,539.21) -- cycle ;
+\draw    (576,408) -- (520.94,511.24) ;
+\draw [shift={(520,513)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (589.06,415.76) -- (534,519) ;
+\draw [shift={(590,414)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (605,413) -- (658.09,517.22) ;
+\draw [shift={(659,519)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (619.91,406.78) -- (673,511) ;
+\draw [shift={(619,405)}, rotate = 63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw    (546,540) -- (647,540) ;
+\draw [shift={(649,540)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (165,201) .. controls (166.68,199.35) and (168.35,199.37) .. (170,201.05) .. controls (171.65,202.74) and (173.31,202.76) .. (175,201.11) .. controls (176.68,199.46) and (178.35,199.48) .. (180,201.16) .. controls (181.65,202.85) and (183.31,202.87) .. (185,201.22) .. controls (186.68,199.57) and (188.35,199.59) .. (190,201.27) .. controls (191.65,202.96) and (193.31,202.98) .. (195,201.33) .. controls (196.68,199.68) and (198.35,199.7) .. (200,201.38) .. controls (201.65,203.06) and (203.32,203.08) .. (205,201.43) .. controls (206.69,199.78) and (208.35,199.8) .. (210,201.49) .. controls (211.65,203.17) and (213.32,203.19) .. (215,201.54) .. controls (216.69,199.89) and (218.35,199.91) .. (220,201.6) .. controls (221.65,203.28) and (223.32,203.3) .. (225,201.65) .. controls (226.69,200) and (228.35,200.02) .. (230,201.71) .. controls (231.65,203.39) and (233.32,203.41) .. (235,201.76) .. controls (236.69,200.11) and (238.35,200.13) .. (240,201.82) .. controls (241.65,203.5) and (243.32,203.52) .. (245,201.87) -- (245,201.87) -- (253,201.96) ;
+\draw [shift={(257,202)}, rotate = 180.62] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
+\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (170,218.04) -- (178,218.13) .. controls (179.68,216.48) and (181.35,216.5) .. (183,218.18) .. controls (184.65,219.87) and (186.31,219.89) .. (188,218.24) .. controls (189.68,216.59) and (191.35,216.61) .. (193,218.29) .. controls (194.65,219.98) and (196.31,220) .. (198,218.35) .. controls (199.68,216.7) and (201.35,216.72) .. (203,218.4) .. controls (204.65,220.09) and (206.31,220.11) .. (208,218.46) .. controls (209.68,216.81) and (211.35,216.83) .. (213,218.51) .. controls (214.65,220.2) and (216.31,220.22) .. (218,218.57) .. controls (219.68,216.92) and (221.35,216.94) .. (223,218.62) .. controls (224.65,220.3) and (226.32,220.32) .. (228,218.67) .. controls (229.69,217.02) and (231.35,217.04) .. (233,218.73) .. controls (234.65,220.41) and (236.32,220.43) .. (238,218.78) .. controls (239.69,217.13) and (241.35,217.15) .. (243,218.84) .. controls (244.65,220.52) and (246.32,220.54) .. (248,218.89) .. controls (249.69,217.24) and (251.35,217.26) .. (252.99,218.95) .. controls (254.64,220.63) and (256.31,220.65) .. (257.99,219) -- (258,219) -- (258,219) ;
+\draw [shift={(166,218)}, rotate = 0.62] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
+\draw [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (585.12,89.53) -- (581.35,96.59) .. controls (582.04,98.84) and (581.25,100.31) .. (579,101) .. controls (576.75,101.69) and (575.96,103.16) .. (576.65,105.41) .. controls (577.33,107.66) and (576.54,109.13) .. (574.29,109.82) .. controls (572.04,110.51) and (571.25,111.99) .. (571.94,114.24) .. controls (572.63,116.49) and (571.84,117.96) .. (569.59,118.65) .. controls (567.34,119.34) and (566.55,120.81) .. (567.24,123.06) .. controls (567.92,125.31) and (567.13,126.78) .. (564.88,127.47) .. controls (562.63,128.16) and (561.84,129.63) .. (562.53,131.88) .. controls (563.22,134.13) and (562.43,135.6) .. (560.18,136.29) .. controls (557.92,136.98) and (557.13,138.45) .. (557.82,140.71) .. controls (558.51,142.96) and (557.72,144.43) .. (555.47,145.12) .. controls (553.22,145.81) and (552.43,147.28) .. (553.12,149.53) .. controls (553.8,151.78) and (553.01,153.25) .. (550.76,153.94) .. controls (548.51,154.63) and (547.72,156.1) .. (548.41,158.35) .. controls (549.1,160.6) and (548.31,162.07) .. (546.06,162.76) .. controls (543.81,163.45) and (543.02,164.93) .. (543.71,167.18) .. controls (544.39,169.43) and (543.6,170.9) .. (541.35,171.59) .. controls (539.1,172.28) and (538.31,173.75) .. (539,176) .. controls (539.69,178.25) and (538.9,179.72) .. (536.65,180.41) .. controls (534.4,181.1) and (533.61,182.57) .. (534.29,184.82) .. controls (534.98,187.07) and (534.19,188.55) .. (531.94,189.24) -- (531,191) -- (531,191) ;
+\draw [shift={(587,86)}, rotate = 118.07] [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
+\draw [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (620.82,81.56) -- (624.45,88.69) .. controls (626.69,89.42) and (627.45,90.91) .. (626.72,93.15) .. controls (625.99,95.39) and (626.75,96.87) .. (628.99,97.6) .. controls (631.23,98.33) and (631.99,99.82) .. (631.26,102.06) .. controls (630.53,104.3) and (631.29,105.78) .. (633.53,106.51) .. controls (635.77,107.24) and (636.53,108.73) .. (635.8,110.97) .. controls (635.07,113.21) and (635.82,114.69) .. (638.06,115.42) .. controls (640.3,116.15) and (641.06,117.64) .. (640.33,119.88) .. controls (639.6,122.12) and (640.36,123.6) .. (642.6,124.33) .. controls (644.84,125.06) and (645.6,126.55) .. (644.87,128.79) .. controls (644.14,131.03) and (644.9,132.51) .. (647.14,133.24) .. controls (649.38,133.97) and (650.14,135.46) .. (649.41,137.7) .. controls (648.68,139.94) and (649.44,141.42) .. (651.68,142.15) .. controls (653.92,142.88) and (654.68,144.37) .. (653.95,146.61) .. controls (653.22,148.85) and (653.98,150.34) .. (656.22,151.07) .. controls (658.46,151.8) and (659.22,153.28) .. (658.49,155.52) .. controls (657.76,157.76) and (658.52,159.25) .. (660.76,159.98) .. controls (663,160.71) and (663.76,162.19) .. (663.03,164.43) .. controls (662.3,166.67) and (663.06,168.16) .. (665.3,168.89) .. controls (667.54,169.62) and (668.3,171.1) .. (667.57,173.34) .. controls (666.84,175.58) and (667.6,177.07) .. (669.84,177.8) .. controls (672.08,178.53) and (672.84,180.01) .. (672.11,182.25) -- (673,184) -- (673,184) ;
+\draw [shift={(619,78)}, rotate = 63] [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
+\draw (260,293) node   [align=left] {adding link};
+\draw (308,292) node    {$23$};
+\draw (676.68,210.21) node    {$3$};
+\draw (514.68,209.79) node    {$2$};
+\draw (596.57,55.56) node    {$1$};
+\draw (291.68,538.21) node    {$3$};
+\draw (129.68,537.79) node    {$2$};
+\draw (211.57,383.56) node    {$1$};
+\draw (292.68,209.21) node    {$3$};
+\draw (130.68,208.79) node    {$2$};
+\draw (212.57,54.56) node    {$1$};
+\draw (677.68,539.21) node    {$3$};
+\draw (515.68,538.79) node    {$2$};
+\draw (597.57,384.56) node    {$1$};
+\end{tikzpicture}}
+\caption{Key adding link in endogenous and exogenous network}
+\end{figure}
+
 Again, due to the complexity of the relationship between link formation costs and realized network, we cannot propose the proposition who is the key player in endogenous network.
 The closed form solution to identify the key player is remaining for future work.
 
@@ -883,10 +1099,8 @@ In the model, agents choose their neighbors in the potential network at first, a
 When agents form links to neighbors, they incur the link-specific costs and these costs play an important role in the agents' decisions and the formation of network.
 Next, agents decide their effort level in this formed network, and their decisions generates the externality, peer effect, through the network.
 We focus on the subgame perfect equilibrium where agents take pure strategies in each stage.
-We mainly make use of the best response dynamics algorithm.
-By this algorithm, we show that there always exists the equilibrium for any potential network and link formation costs.
+We show that there always exists the equilibrium for any potential network and link formation costs.
 Behind this result, there are supermodurality in the 1st stage game given 2nd stage equilibrium.
-In addition, the equilibrium derived by the algorithm is always unique.
 However, the realized network high dimensional discontiunous function in the costs, so it is difficult to identify the structure of the network from the link formation costs.
 We can find the key player in the endogenous network is not necessarily same with the one in the exogenous network, which implies that we might have a wrong policy implication.
 Therefore, it is significant to consider the mechanism of network formation.
@@ -934,7 +1148,7 @@ Analyzing various kinds of network formation opens the way to the "network desig
 										&=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{G}}^p - \bm{G}^p) \bm{\alpha} \notag \\
 										&=& \phi (\bm{\hat{G}} - \bm{G}) \bm{\alpha} + \phi^2 (\bm{\hat{G}}^2 - \bm{G}^2) \bm{\alpha} + \cdots
 	\end{eqnarray}
-	By construction, we can write $\bm{\hat{G}} = \bm{G} + \bm{D}$ where $d_{ij} = 1$ and $d_{lm} = 0$ for any $lm \neq ij$.
+	By construction, we can write $\bm{\hat{G}} = \bm{G} + \bm{D}$ where $d_{ij} \in \{0,1\}$.
 	Then, the right hand side of (\ref{lemma1-1}) can be written as
 	\[ \phi \bm{D} \bm{\alpha} + \phi (\bm{G} \bm{D} + \bm{D} \bm{G} + \bm{D}^2) \bm{\alpha} + \cdots \]
 	Since $\bm{G}$ and $\bm{D}$ are both nonnegative matrices, their combinations are also nonnegative.
@@ -943,7 +1157,7 @@ Analyzing various kinds of network formation opens the way to the "network desig
 		\phi \bm{D} \bm{\alpha} + \phi (\bm{G} \bm{D} + \bm{D} \bm{G} + \bm{D}^2) \bm{\alpha} + \cdots &\ge& \bm{0} \\
 		\Leftrightarrow \bm{x}^*(\hat{g}) - \bm{x}^*(g) &\ge& \bm{0}
 	\end{eqnarray*}
-	In addition, since $\hat{g}_{ij} - g_{ij} = 1$, $\alpha_j > 0$, and $\phi > 0$, $i$-th element of $\phi \bm{D} \bm{\alpha}$ is strictly greater than $0$.
+	In addition, since, for some $j$, $\hat{g}_{ij} - g_{ij} = 1$, $\alpha_j > 0$, and $\phi > 0$, $i$-th element of $\phi \bm{D} \bm{\alpha}$ is strictly greater than $0$.
 	That is, $i$-th element of $\bm{x}^*(\hat{g}) - \bm{x}^*(g)$ is strictly greater than $0$.
 	Thus, we have
 	\[ x_i^*(\hat{g}) > x_i^*(g) \]
@@ -951,7 +1165,7 @@ Analyzing various kinds of network formation opens the way to the "network desig
 
 \begin{proof}[Proof of Lemma 2.]
 	Here, we abbreviate the strategies $\bm{\psi}$.
-	Let $\bm{D}$ be the matrix such that $d_{ij} = 1$ and $d_{lm} = 0$ for any $lm \neq ij$.
+	Let $\bm{D}$ be the matrix such that $d_{ij} \in \{0,1\}$.
 	Then, we can write $\bm{\hat{G}} = \bm{G} + \bm{D}$ and $\bm{\hat{H}} = \bm{H} + \bm{D}$.
 	We can have
 	\begin{eqnarray*}
@@ -975,48 +1189,59 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	Since $\bm{D}$ is nonnegative, the combination of $\bm{G} - \bm{H}$ and $\bm{D}$ is also nonnegative.
 	The right hand side of (\ref{lemma2}) is greater than or equal to zero.
 	Thus,
-	\[ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) - \bm{x}^*(h) \]
-	Therefore, from (\ref{opteff}),
+	\begin{equation}
+		\label{lemma2-1}
+		\bm{x}^*(\hat{g}) - \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) - \bm{x}^*(h)
+	\end{equation}
+	In addition, since $\hat{g} \supseteq \hat{h}$ and $g \supseteq h$, by Lemma 1, we have
+	\begin{equation}
+		\label{lemma2-2}
+		\bm{x}^*(\hat{g}) + \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) + \bm{x}^*(h)
+	\end{equation}
+	Therefore, from (\ref{opteff}), (\ref{lemma2-1}) and (\ref{lemma2-2}),
 	\[ v_i^*(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i^*(\bm{x}^*(g), g, \phi) \ge v_i^*(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i^*(\bm{x}^*(h), h, \phi)\]
 \end{proof}
 
 \begin{proof}[Proof of Theorem 1.]
-	Here, we abbreviate the strategies $\bm{\psi}$.
-	Suppose link $ij$ is removed at step $\tau(\ge0)$ in Algorithm 1.
-	Assume link $ij$ is reformed at step $\tau + t (t \ge 1)$.
-	Denote $g \setminus \{ ij \}$ as the network obtained by removing link $ij$ from network $g$.
-	Denote $g \cup \{ ij \}$ as the network obtained by adding link $ij$ to netwotk $g$.
-	At step $\tau$,
-	\begin{align}
-		\label{thm1-1}
-		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - c_{ij} - \sum_{k \neq j} g_{ik}^{(\tau - 1)} c_{ik} \notag \\
-			& < v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) - \sum_{k \neq j} {g_{ik} \setminus \{ ij \}}^{(\tau - 1)} c_{ik}
-	\end{align}
-	At step $\tau + t$,
-	\begin{align}
-		\label{thm1-2}
-		& v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi) - \sum_{k \neq j} g_{ik}^{(\tau + t-1)} c_{ik} \notag \\
-			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - c_{ij} - \sum_{k \neq j} {g_{ik} \cup \{ ij \}}^{(\tau + t-1)} c_{ik}
-	\end{align}
-	From (\ref{thm1-1}),
-	\[ c_{ij} > v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \]
-	From (\ref{thm1-2}),
-	\[ c_{ij} < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi) \]
-	Therefore,
-	\begin{align}
-		\label{thm1-3}
-		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \notag \\
-			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi)
-	\end{align}
-	Note that, from Lemma 2,
-	\begin{align*}
-		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \\
-			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi)
-	\end{align*}
-	This contradicts to (\ref{thm1-3}), and link $ij$ will never be reformed once it is removed.
+	First, we note the definition of supermodular game.
 
-	Since the number of links is finite, the algorithm terminates in finite steps.
-	By the construction of the algorithm, the converged network represents Nash equilibrium.
+	\begin{definition}\footnote{This definition depends on Topkis (1998)~\cite{topkis1998}.}
+		A normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$ is supermodular game if
+		\begin{enumerate}
+			\item $\bm{\Psi}$ is a sublattice of $\prod_{i=1}^n \mathbb{R}^n$
+			\item $u_i(\psi_i, \psi_{-i})$ is supermodular in $\psi_i$ on $\Psi_i$ for each $\psi_{-i}$ on $\Psi_{-i}$ for each $i$
+			\item $u_i(\psi_i, \psi_{-i})$ has increasing differences in $(\psi_i, \psi_{-i})$ on $\Psi_i \times \Psi_{-i}$
+		\end{enumerate}
+	\end{definition}
+
+	$\bm{\Psi}$ is sublattice of $\prod_{i=1}^n \mathbb{R}^n$ since, for any nonempty subset $\bm{\tilde{\Psi}} \subseteq \bm{\Psi}$, $\inf(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$ and $\sup(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$.
+
+	Next, we show that $u_i$ is supermodular in $\psi_i$ for fixed $\psi_{-i}$.
+	Fix any $\psi_{-i} \in \Psi_{-i}$ and take $\psi_i, \psi_i' \in \Psi_i$ arbitrarily.
+	Denote $g = g(\psi_i, \psi_{-i})$ and $\bm{G}$ as its adjacency matrix.
+	Denote $h = g(\psi_i \wedge \psi_i', \psi_{-i})$ and $\bm{H}$ as its adjacency matrix.
+	Consider the matrix $\bm{D}$ where, for any $ij$,
+	\[ d_{ij} = \begin{cases}
+					1 & (\text{if} \ g_{ij} = 1 \ \text{and} \ h_{ij} = 0) \\
+					0 & (\text{otherwise})
+				\end{cases} \]
+	Then, the adjacency matrix of $g(\psi_i \vee \psi_i', \psi_{-i})$ is $\bm{G} + \bm{D}$ and the adjacency matrix of $g(\psi_i', \psi_{-i})$ is $\bm{H} + \bm{D}$.
+	By Lemma 2, we have
+	\[ v_i(g(\psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) \le v_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}), \phi) \]
+	Thus, we have
+	\begin{align*}
+	& u_i(g(\psi_i', \psi_{-i}), \phi) - u_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) \le u_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) - u_i(g(\psi_i, \psi_{-i}), \phi) \\
+		& \Leftrightarrow u_i(g(\psi_i, \psi_{-i}), \phi) + u_i(g(\psi_i', \psi_{-i}), \phi) \le u_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) + u_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) 
+	\end{align*}
+	Therefore, $u_i$ is supermodular in $\psi$
+
+	Take any $\psi_i \ge \psi_i'$ and $\psi_{-i} \ge \psi_{-i}'$.
+	By Lemma 2,
+	\[ v_i(g(\psi_i, \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}'),\phi) \ge v_i(g(\psi_i, \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}'),\phi) \]
+	Therefore,
+	\[ u_i(g(\psi_i, \psi_{-i}), \phi) - u_i(g(\psi_i, \psi_{-i}'),\phi) \ge u_i(g(\psi_i, \psi_{-i}), \phi) - u_i(g(\psi_i, \psi_{-i}'),\phi) \]
+	$u_i(\psi_i, \psi_{-i})$ has increasing differences in $(\psi_i, \psi_{-i})$.
+	From all these above, we can say $\Gamma$ is supermodular game.
 \end{proof}
 
 \begin{proof}[Proof of Lemma 3.]
@@ -1056,31 +1281,7 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	This is contradiction, and deleting $ij$ and deleting $ik$ cannot be best responses at the same time.
 \end{proof}
 
-\begin{proof}[Proof of Theorem 2.]
-	Fix $\bm{C}$, $g^p$, $\bm{\alpha}$, and $\phi$.
-	Assume Algorithm 1 can return multiple equilibrium networks.
-	In light of Lemma 3, there have to be some agents who have strategy which brings strictly higher payoffs at some step in the algorithm.
-	Without loss of generality, we can assume player $i$ and $j$ ($i \neq j$ have strategies which give strictly higher payoffs at step $\tau$.
-	Let $g^{* [i]}$ ($g^{* [j]}$) be the converged network where player $i$ ($j$) take the best response at step $\tau$.
-	Also, let $D^{[i]}$ ($D^{[j]}$) be the set of deleted links in the steps from $g^{(\tau-1)}$ to $g^{* [i]}$ ($g^{* [j]}$).
-	Suppose the number of steps from $g^{(\tau-1)}$ to $g^{* [i]}$ ($g^{* [j]}$) is $m \in \mathbb{N}$ ($n \in \mathbb{N}$).
-	Consider the function $\iota^{[i]} : \{1, \cdots, m\} \rightarrow D^{[i]}$ and $\iota^{[j]} : \{1, \cdots, n\} \rightarrow D^{[j]}$, which indicate the deleted links in step $\tau - 1 + \iota^{[i]}(k)$ (, respectively step $\tau - 1 + \iota^{[j]}(k)$).
-
-	We will show $\iota^{[i]}(1) \subset D^{[j]}$ and $\iota^{[j]}(1) \subset D^{[i]}$.
-	By construction, $u_j(g^{(\tau-1)} \setminus \{ \iota^{[j]}(1) \}) > u_j(g^{(\tau-1)})$.
-	That is, we have
-	\[ v_j^*(g^{(\tau-1)} \setminus \{ \iota^{[j]}(1) \}) - (C - c_{\iota^{[j]}(1)}) > v_j^*(g^{(\tau-1)}) - C \]
-	where $C = \sum_{k=1}^n g^{(\tau-1)}_{jk} c_{jk}$.
-	In the steps after removing link $\iota^{[i]}(1)$, the network is now proper subset of $g^{(\tau-1)} \setminus \{\iota^{[i]}(1)\}$ and let $\tilde{g}$ be such a network.
-	By Lemma 1, we have
-	\[ v_j^*(g^{(\tau-1)} \setminus \{ \iota^{[j]}(1) \}) > v_j^*(\tilde{g} \setminus \{ \iota^{[j]}(1) \}) \]
-	and
-	\[ v_j^*(g^{(\tau-1)}) > v_j(\tilde{g})\]
-\end{proof}
-
 \begin{proof}[Proof of Proposition 2.]
-	Consider the sequence of deleted links to converge to $g(\bm{\psi}^*(g^p, \bm{C})$.
-	Suppose this sequence is unique.
 \end{proof}
 
 

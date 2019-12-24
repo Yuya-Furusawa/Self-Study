@@ -48,7 +48,6 @@
 \begin{itemize}
     \item However, in many works, the network is exogenous and fixed
     \item When economic agents are faced with some shocks or policy changes, they respond to them and the network will be changed
-    \item Related to "Lucas Critique"
 \end{itemize}
 \end{frame}
 
@@ -64,7 +63,7 @@
     \begin{itemize}
         \item the existence of subgame perfect equilibrium where all agents take pure strategies at each stage
         \item the argument about the uniqueness of the equilibrium
-        \item the discussion for policy implication (key player policy)
+        \item the discussion for policy implication (key player and key link policy)
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -235,23 +234,24 @@
     \item {\bf{Assumption}} : $\phi \rho(\bm{G}^p) < 1$ where $\rho(\cdot)$ is spectral radius
     \item {\bf{Proposition}} : Under Assumption, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, which is interior and given by
     \[ \bm{x}^*(g, \phi, \bm{\alpha}) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \]
+    \item This is based on Ballester, Calv\'{o}-Armengol, and Zenou(2006)
     \item By backward induction, strategies in 1st stage also depends on $\phi$ and $\bm{\alpha}$, so we can write $\bm{\psi}(g^p, \bm{C}, \phi, \bm{\alpha})$
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Supermodularity and equilibrium existence}
+\begin{frame}[label=theorem]{Supermodularity and equilibrium existence}
 \begin{itemize}
     \item By backward induction, given 2nd stage Nash equilibrium, consider the 1st stage game as normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$
     \item {\bf{Theorem}} : $\Gamma$ is a supermodular game
-    \item {\bf{Corollary}} : Equilibrium network always exists, in particular a greatest and a smallest equilibrium network exists
+    \begin{itemize}
+        \item \hyperlink{proof}{[Proof]}
+    \end{itemize}
+    \item {\bf{Corollary}} : Equilibrium network always exists, in particular the greatest and smallest equilibrium network exists
     \item We focus on the greatest equilibrium network and denote $g^{**}$
     \begin{itemize}
-        \item The greatest equilibrium can be obtained by {\it{best response dynamics}}
+        \item The greatest equilibrium can be obtained by well designed {\it{best response dynamics}}
     \end{itemize}
 \end{itemize}
-\end{frame}
-
-\begin{frame}{Proof}
 \end{frame}
 
 \begin{frame}{Intuition}
@@ -263,12 +263,12 @@
 
 \begin{frame}{Toward undirected network}
 \begin{itemize}
-    \item {\bf{Proposition}} : If $\bm{G}^p$ and $\bm{C}$ are symmetric, then $\bm{G}^*$, adjacency matrix of equilibrium network $g^*$, is symmetric
+    \item {\bf{Proposition}} : If $\bm{G}^p$ and $\bm{C}$ are symmetric and $\alpha_i = \alpha > 0$ for all $i$, then $\bm{G}^*$, adjacency matrix of equilibrium network $g^*$, is symmetric
     \item We can deal with undirected network, but lack the bilateral agreement
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Uniqueness of the equilibrium}
+\begin{frame}{Uniqueness/Multiplicity of the equilibrium}
 \begin{itemize}
     \item Equilibrium network may not be unique
     \item {\bf{Example}} : Consider $n = 2$, $\bm{\alpha} = (1, 1)$, and $\bm{G}^p = \left[
@@ -299,7 +299,7 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Uniqueness of the equilibrium}
+\begin{frame}{Uniqueness/Multiplicity of the equilibrium}
 \begin{figure}[h]
 \centering
 \tikzset{every picture/.style={line width=0.75pt}}  
@@ -571,14 +571,14 @@
 \end{figure}
 \end{frame}
 
-\begin{frame}{Key removing link and key adding link in exogenous network}
+\begin{frame}{Key removing link in endogenous and exogenous network}
 \begin{itemize}
     \item {\bf{Definition}} : Link $ij$ is key removing link in endogenous network if, given potential network $g^p$,
         \[ ij \in \arg \max_{ij \in E(g^p)} \{ x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) - x^*(g^{**}(\bm{\psi}({g^p}^{-ij}, \bm{C}))) \} \]
         where $E(g)$ is the set of links in $g^p$ and ${g^p}^{-ij}$ is network obtained by removing link $ij$ from $g^p$
-    \item {\bf{Definition}} : Link $ij$ is key adding link in endogenous network if, given potential network $g^p$,
-        \[ ij \in \arg \max_{ij \notin E(g^p)} \{ x^*(g^{**}(\bm{\psi}({g^p}^{+ij}, \bm{C}))) - x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) \} \]
-        where ${g^p}^{+ij}$ is network obtained by adding link $ij$ to $g^p$
+    \item {\bf{Definition}} : Link $ij$ is key removing link in exogenous network $g$ if, given network $g$,
+        \[ ij \in \arg \max_{ij \in E(g)} \{ x^*(g) - x^*(g^{-ij}) \} \]
+        where $E(g)$ is the set of links in $g$ and $g^{-ij}$ is network obtained by removing link $ij$ from $g$
 \end{itemize}
 \end{frame}
 
@@ -682,12 +682,12 @@
 \end{figure}
 \end{frame}
 
-\begin{frame}{Key removing link and key adding link in endogenous network}
+\begin{frame}{Key adding link in endogenous and exogenous network}
 \begin{itemize}
-    \item {\bf{Definition}} : Link $ij$ is key removing link in endogenous network $g$ if, given network $g$,
-        \[ ij \in \arg \max_{ij \in E(g)} \{ x^*(g) - x^*(g^{-ij}) \} \]
-        where $E(g)$ is the set of links in $g$ and $g^{-ij}$ is network obtained by removing link $ij$ from $g$
-    \item {\bf{Definition}} : Link $ij$ is key adding link in endogenous network $g$ if, given network $g$,
+    \item {\bf{Definition}} : Link $ij$ is key adding link in endogenous network if, given potential network $g^p$,
+        \[ ij \in \arg \max_{ij \notin E(g^p)} \{ x^*(g^{**}(\bm{\psi}({g^p}^{+ij}, \bm{C}))) - x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) \} \]
+        where ${g^p}^{+ij}$ is network obtained by adding link $ij$ to $g^p$
+    \item {\bf{Definition}} : Link $ij$ is key adding link in exogenous network $g$ if, given network $g$,
         \[ ij \in \arg \max_{ij \notin E(g)} \{ x^*(g^{+ij}) - x^*(g) \} \]
         where $g^{+ij}$ is network obtained by adding link $ij$ to $g$
 \end{itemize}
@@ -816,7 +816,7 @@
     \item We can provide
     \begin{itemize}
         \item comparative statics result
-        \item discussion about key player and policy implication
+        \item discussion about policy implication
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -826,6 +826,68 @@
     \item link formation with bilateral agreement
     \item weighted network
     \item other form of utility function
+\end{itemize}
+\end{frame}
+
+
+\section{Appendix}
+
+\begin{frame}[label=proof]{Proof of the theorem}
+\begin{itemize}
+    \item {\bf{Lemma 1}} : Consider the network $g$ and $\hat{g}$ with $g \subseteq \hat{g}$. Then,
+            \[ \bm{x}^*(\hat{g}) \ge \bm{x}^*(g) \]
+    \item {\bf{Lemma 2}} : Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ ($\bm{G}$, $\bm{\hat{G}}$, $\bm{H}$, and $\bm{\hat{H}}$) such that $\bm{G} \ge \bm{H}$ and  $\bm{\hat{G}} \ge \bm{\hat{H}}$ with $\bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$. Then,
+            \[ v_i^*(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i^*(\bm{x}^*(g), g, \phi) \ge v_i^*(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i^*(\bm{x}^*(h), h, \phi)\]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Proof of Lemma 2}
+\begin{itemize}
+    \item Let $\bm{D} = \bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$
+    \item Then,
+        \begin{eqnarray*}
+            \bm{x}^*(\hat{g}) - \bm{x}^*(g) &=& {(\bm{I} - \phi \bm{\hat{G}})}^{-1} \bm{\alpha} - {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \\
+                                            &=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{G}}^p - \bm{G}^p) \bm{\alpha} \\
+                                            &=& \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{GD} + \bm{DG} + \bm{D}^2 \} \bm{\alpha} + \cdots
+        \end{eqnarray*}
+    \item Similarly,
+        \[ \bm{x}^*(\hat{h}) - \bm{x}^*(h) = \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{HD} + \bm{DH} + \bm{D}^2 \} \bm{\alpha} + \cdots \]
+    \item Therefore,
+        \[ \{ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \} - \{ \bm{x}^*(\hat{h}) - \bm{x}^*(h) \} = \phi^2 \{(\bm{G} - \bm{H}) \bm{D} + \bm{D} (\bm{G} - \bm{H})\} \bm{\alpha} + \cdots \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Proof of Lemma 2}
+\begin{itemize}
+    \item Since $\bm{G} - \bm{H}$ and $\bm{D}$ is nonnegative matrix, we have
+        \[ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) - \bm{x}^*(h) \]
+    \item By Lemma 1, we have
+        \[ \bm{x}^*(\hat{g}) + \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) + \bm{x}^*(h) \]
+    \item Therefore,
+        \[ v_i^*(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i^*(\bm{x}^*(g), g, \phi) \ge v_i^*(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i^*(\bm{x}^*(h), h, \phi)\]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Proof of the theorem}
+\begin{itemize}
+    \item $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$ $\rightarrow$ $\bm{\Psi}$ is sublattice of $\prod_{i=1}^n \mathbb{R}^n$
+    \item increasing differences $\rightarrow$ Lemma 2
+    \item supermodularity of $u_i(\psi_i, \psi_{-i})$ in $\psi_i$
+    \begin{itemize}
+        \item Take any $\psi_i, \psi_i' \in \Psi_i$
+        \item Consider $g=g(\psi_i,\psi_{-i})$ and $h=g(\psi_i \wedge \psi_i',\psi_{-i})$ ($\bm{G}$ and $\bm{H}$)
+        \item Consider the nonnegative matrix $\bm{D}$ with
+            \[ d_{ij} = \begin{cases}
+                    1 & (\text{if} \ g_{ij} = 1 \ \text{and} \ h_{ij} = 0) \\
+                    0 & (\text{otherwise})
+                \end{cases} \]
+        \item Then,the adjacency matrix of $g(\psi_i \vee \psi_i', \psi_{-i})$ and $g(\psi_i, \psi_{-i})$ are $\bm{G} + \bm{D}$ and $\bm{H} + \bm{D}$ respectively
+        \item By Lemma 2,
+            {\footnotesize
+            \[ v_i(g(\psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) \le v_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}), \phi) \]
+            }
+    \end{itemize}
+    \hyperlink{theorem}{[Back]}
 \end{itemize}
 \end{frame}
 

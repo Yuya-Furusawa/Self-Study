@@ -12,10 +12,11 @@
 \usepackage{geometry}
 \usepackage{pgfplots}
 \usepackage{dsfont}
-\usepackage{bm}
 \usetikzlibrary{patterns}
 
-\usepackage{mathptmx} % rm & math
+% \usepackage{natbib}
+
+\usepackage{newtxmath, newtxtext}
 \usepackage[scaled=0.90]{helvet} % ss
 \usepackage{courier} % tt
 \normalfont
@@ -45,7 +46,7 @@
 \newtheorem{algorithm}{Algorithm}
 \newtheorem*{algorithm*}{Algorithm}
 
-\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
 
 
 \begin{document}
@@ -62,7 +63,7 @@
 Peer effects in the network play an important role in determining individual and aggregate behavior, and many literature argue their importances theoretically and empirically.
 However, almost all of the papers treat the network structure as given.
 This means that we cannot consider the agents' responses to the economic shocks and alternation of network structure.
-We develop the game-theoretic model with endogenous network formation　where agents first choose who to connect and then excert efforts.
+We develop the game-theoretic model with endogenous network formation where agents first choose who to connect and then excert efforts.
 We show that 1st stage game becomes supermodular game and there exists pure strategy subgame perfect equilibrium.
 Then, we give a discussion about multiplicity of equilibrium and comparative statics.
 In comparative static analysis, we can show the model incorporates phase transition phenomena.
@@ -89,7 +90,7 @@ Finally, the network structure will be changed.
 Therefore, it is significant to consider the mechanism of network formation to analyze the impact of policy intervaton.
 In this paper, we propose the way to overcome this problem by incorporating the endogenous network formation to the model.
 
-% Summary of results
+% Summary of model
 We develop the two stage dynamic game, where agents form links to other agents in the first stage and agents excert efforts in the second stage.
 Second stage game is eccensially same with the model in Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho}.
 Agents simultaneously choose a nonnegative effort level and the agents' payoffs depend on not only their own effort but also neighbors' effort.
@@ -103,6 +104,19 @@ For example, when we consider the criminal network, links, effort, and formation
 When we apply to the R\&D network, we can think of links as the contract to colaboration, effort as the investment to R\&D, and link formation cost as the negotiation cost or financial cost to sign a constract.
 We consider the subgame perfect equilibrium where all agents take pure starategies in the both stages.
 
+% Interpretation
+We can interpret the model in some different ways.
+First, we can think of this model as the web advertisement network.
+Node, link, link formation cost, and effort represent web sites, advertisement on other sites, fee, and investment on the web contents respectively.
+If connected sites invest on the site and the number of viewers increase, more viewers visit the site and there exists a incentive to invest more.
+In another interpretation, we can regard this model as the drug trafficking network.
+Municipalities, drug trafficking, and the amount of drug used are represented by nodes, links and efforts respectively.
+Link formation cost means the probability of capture during trafficking.
+In Dell(2015)~\cite{Dell}, drug are trafficked across municiparities in Mexico, and exported to U.S.
+Probabilty of capture, which is represented by  link formation cost, depends on the policy of the city and government.
+Moreover, Dell(2015)~\cite{Dell} indicates that there exists spillover effects when the policy maker leads one location to become less active to illicit activities, and this coincides with our model where peer effects in effort levels and choosing neighbor strategy exist.
+
+% Summary of results
 We establish that pure strategy subgame perfect equilibrium always exists.
 Due to the result in Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho}, second stage Nash equilibrium always exists and it is unique.
 Given this equilibrium, by backward induction, we show first stage becomes supermodular game.
@@ -290,7 +304,7 @@ Consider the $n$-square adjacency matrix $\bm{G}$ of a network $g$ where $g_{ij}
 We introduce a following definition from Katz(1953)~\cite{katz} and Bonacich(1987)~\cite{bonacich}.
 
 \begin{definition}
-Given a vector $\bm{u} \in \mathbb{R}_+^n$, and a small enough $\phi \ge 0$, the vector of Katz-Bonacich centralities of parameter $\phi$ in network $g$ is defined as:
+Given a vector $\bm{u} \in \mathbb{R}_+^n$, and a small enough $\phi \ge 0$, the {\it{vector of Katz-Bonacich centralities}} of parameter $\phi$ in network $g$ is defined as:
 
 \[ \bm{b}_{\bm{u}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{u} = \sum_{p=0}^{\infty} \phi^p \bm{G}^p \bm{u} \]
 
@@ -312,7 +326,7 @@ If agents take mixed actions in the first stage, the realized network can be sto
 We call the network emerged in the pure-strategy subgame perfect equilibrium as {\it{equilibrium network}}.
 
 \begin{definition}
-Given $g^p$ and $\bm{C}$, the network $g^*$ is equilibrium network if $g^* = g(\bm{\psi}^*)$ where $\bm{\psi}^*$ is the strategies in the pure-strategy subgame perfect equilibrium.
+Given $g^p$ and $\bm{C}$, the network $g^*$ is {\it{equilibrium network}} if $g^* = g(\bm{\psi}^*)$ where $\bm{\psi}^*$ is the strategies in the pure-strategy subgame perfect equilibrium.
 \end{definition}
 
 We characterize the equilibrium network by a standard way: backward induction.
@@ -389,11 +403,6 @@ We can immediately have a following corollary by the properties of supermodular 
 	For any $g^p$ and $\bm{C}$, there exists equilibrium network, in particular, the greatest and smallest equilibrium exist.
 \end{corollary}
 
-Algorithm 1 is one of the {\it{best response dynamics}} algorithms, where agents take their best reponses in each steps.
-You may notice that if the best reponse dynamics halts, it returns a pure strategy Nash equilibrium.\footnote{See Nisan, Noam, et al.~\cite{AGT}}
-Thus, to show the existence of the equilibrium, we need to show this algorithm always terminates.
-To do that, we need some lemmas.
-
 %supermodular games
 We note that the 1st stage game given the effort level in 2nd stage Nash equilibrium is a supermodular game, the game which exhibits strategic complementarities..
 This game can satisfy some conditions of supermodularity: continuity and increasing-differences of utility function by lemma 2.
@@ -408,7 +417,7 @@ In addition, from Topkis (1979)~\cite{topkis1979}, Algorithm 1 returns the large
 However, this does not dilectly imply the equilibrium that Algorithm 1 brings is unique, so next we argue the uniqueness of the equilibrium.
 
 
-\subsection{Uniqueness of the equilibrium}
+\subsection{Uniqueness and multiplicity of equilibrium}
 
 Previous subsection shows the existence of the equilibrium, and we argue the uniqueness of the equilibrium in this subsection.
 Since the equilibrium in the second stage is unique from Proposition 1, we focus on the first stage strategies.
@@ -559,7 +568,16 @@ Next algorithm returns the greatest equilibrium network.
 \end{algorithm}
 
 Algorithm 1 is one of the {\it{best response dynamics}} algorithms, where agents take their best reponses in each steps.
-You may notice that if the best reponse dynamics halts, it returns a pure strategy Nash equilibrium.\footnote{See Nisan, Noam, et al.~\cite{AGT}}
+In the algorithm, agent choose largest strategy if she has multiple best responses.
+We have to show that there always exists the largest best response.
+Next lemma shows its existence.
+
+\begin{lemma}
+In Algorithm 1, for any step $k$, $|BR_i(\psi_{-i}^{(k-1)})| = 1$ for any $i \in NB^{(k-1)}$
+\end{lemma}
+
+By this lemma, we can see Algotihm 1 works well.
+You notice that if the best reponse dynamics halts, it returns a pure strategy Nash equilibrium.\footnote{See Nisan, Noam, et al.~\cite{AGT}}
 As in Topkis (1998)~\cite{topkis1998}, returned network is the greatest equilibrium network.
 
 
@@ -731,7 +749,7 @@ Key player is thought of, for example, the player who supports the criminal acti
 The formal definition of key player is given as follows:
 
 \begin{definition}
-Agent $i$ is the key player in exogenous network $g$ if, given network $g$,
+Agent $i$ is the {\it{key player in exogenous network}} if, given network $g$,
 \[ i \in \arg \max_{i \in N} \{ x^*(g) - x^*(g^{-i}) \} \]
 \end{definition}
 
@@ -743,7 +761,7 @@ In this paper, the definition of key player might be different from the previous
 Since the network is endogenous in our model, the key player is the agent who generates the largest reduction in the total effort level once she is removed from the potential network.
 
 \begin{definition}
-Agent $i$ is the key player in endogenous network if, given potential network $g^p$,
+Agent $i$ is the {\it{key player in endogenous network}} if, given potential network $g^p$,
 \[ i \in \arg \max_{i \in N} \{ x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}))) - x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}^{-i}))) \} \]
 \end{definition}
 Here we denote ${g^p}^{-i}$ is the network where agent $i$ is removed from the network $g^p$ as before.
@@ -863,21 +881,21 @@ Next, we argue the key link policy that is introduced in this paper for the firs
 First, we define key removing link which is defined as the link that, once removed from the network, generates the highest possible reduction in aggreate effort level.
 
 \begin{definition}
-	Link $ij$ is key removing link in endogenous network if, given potential network $g^p$,
+	Link $ij$ is {\it{key removing link in endogenous network}} if, given potential network $g^p$,
     \[ ij \in \arg \max_{ij \in E(g^p)} \{ x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) - x^*(g^{**}(\bm{\psi}({g^p}^{-ij}, \bm{C}))) \} \]
     where $E(g)$ is the set of links in $g^p$ and ${g^p}^{-ij}$ is network obtained by removing link $ij$ from $g^p$
 \end{definition}
 
 \begin{definition}
-	Link $ij$ is key removing link in exogenous network $g$ if, given network $g$,
+	Link $ij$ is {\it{key removing link in exogenous network}} if, given network $g$,
     \[ ij \in \arg \max_{ij \in E(g)} \{ x^*(g) - x^*(g^{-ij}) \} \]
     where $E(g)$ is the set of links in $g$ and $g^{-ij}$ is network obtained by removing link $ij$ from $g$
 \end{definition}
 
 % interpretation of key removing link : NEED TO BE MODIFYING
-In the example of criminal network, key removing link is the connection between delinquents which reduces the aggregate level of criminal activities once removed.
-Removing the connection from the criminal network means that a policy maker or police shutdowns the connection between them.
-By doing so, policy maker can maximally reduce the aggregate criminal activities.
+In the example of drug trafficking network, key removing link is the traddicking route between cities which reduces the aggregate level of criminal activities once removed.
+Removing the connection from the criminal network means that a policy maker physically shutdowns the route between them, for example creating a wall between mexican and U.S. city, or heavily cracks down the criminal activity.
+By doing so, policy maker can maximally reduce the aggregate criminal activities or drug usage.
 Following example shows key removing links in endogenous and exogenous network might be different.
 
 \begin{example}
@@ -898,13 +916,13 @@ Consider potential network $g^p$ and link formation costs are
                 1 & 0 & 0
             \end{array} \right]\]
 Then, the equilibrium network $g^{**}$ is
-            $\bm{G}^{**} = \left[
-                \begin{array}{ccc}
-                    0 & 1 & 1 \\
-                    1 & 0 & 1 \\
-                    1 & 0 & 0
-                \end{array} \right]$
 
+\[ \bm{G}^{**} = \left[
+    \begin{array}{ccc}
+        0 & 1 & 1 \\
+        1 & 0 & 1 \\
+        1 & 0 & 0
+    \end{array} \right] \]
 By considering $g^{**}$ as exogenous network, key removing link in exogenoous network is link $12$ and $31$.
 But, in this example, key removing in endogenous network is link $23$.
 We can reduce the aggregate level of efforts by removing link $23$ from the potential network $g^p$.
@@ -984,18 +1002,18 @@ Next, we introduce key adding link in endogenous and exogenous network similarly
 Key adding link is defined as the link which, once added to the network, generates the highest possible increment in aggreate effort level.
 
 \begin{definition}
-	Link $ij$ is key adding link in endogenous network if, given potential network $g^p$,
+	Link $ij$ is {\it{key adding link in endogenous network}} if, given potential network $g^p$,
     \[ ij \in \arg \max_{ij \notin E(g^p)} \{ x^*(g^{**}(\bm{\psi}({g^p}^{+ij}, \bm{C}))) - x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) \} \]
     where ${g^p}^{+ij}$ is network obtained by adding link $ij$ to $g^p$
 \end{definition}
 
 \begin{definition}
-	Link $ij$ is key adding link in exogenous network $g$ if, given network $g$,
+	Link $ij$ is {\it{key adding link in exogenous network}} if, given network $g$,
     \[ ij \in \arg \max_{ij \notin E(g)} \{ x^*(g^{+ij}) - x^*(g) \} \]
     where $g^{+ij}$ is network obtained by adding link $ij$ to $g$
 \end{definition}
 
-In the context of web advetisement network, key adding link is the advertisement on the page which brings the highest increment in aggregate effort level.
+In the context of web advertisement network, key adding link is the advertisement on the page which brings the highest increment in aggregate effort level.
 For a policy maker, key adding link is the connection which he should recommend the web page owner to make.
 By encouraging to connect and putting the advertisement, a policy maker can raise the level of investment on the web page.
 Following example shows key adding link in endogenous and exogenous network might be different.
@@ -1018,12 +1036,12 @@ Consider potential network $g^p$ and link formation costs are
                     1 & 0 & 0
                 \end{array} \right] \]
 Then, the greatest equilibrium network $g^{**}$ becomes
-$\bm{G}^{**} = \left[
+\[ \bm{G}^{**} = \left[
     \begin{array}{ccc}
         0 & 1 & 1 \\
         0 & 0 & 0 \\
         0 & 0 & 0
-    \end{array} \right]$.
+    \end{array} \right]\]
 By considering $g^{**}$ as exogenous network, key adding link in exogenoous network is link $21$ and $31$.
 But, in this example, key removing in endogenous network is link $23$ and $32$.
 We can increase the aggregate level of efforts by adding link $23$ or link $32$ to the potential network $g^p$.
@@ -1149,8 +1167,9 @@ Currently, we can only explore the model with positive peer effects in the netwo
 For example, our model is not suitable for analyzing the production network because we cannot incorporate the price of goods or production functions and the peer effect is not significant.
 The analizing mechanism of network formation is important for policy implication.
 It enables us to analyze the effect of intervention to the network on the allocation of goods or the social welfare.
-Analyzing various kinds of network formation opens the way to the "network design" field.
+Analyzing various kinds of network formation opens the way to "network design" field.
 
+\appendix
 
 \section{Appendix}
 
@@ -1234,8 +1253,8 @@ Analyzing various kinds of network formation opens the way to the "network desig
 	\begin{definition}\footnote{This definition depends on Topkis (1998)~\cite{topkis1998}.}
 		A normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$ is supermodular game if
 		\begin{enumerate}
-			\item $\bm{\Psi}$ is a sublattice of $\prod_{i=1}^n \mathbb{R}^n$
-			\item $u_i(\psi_i, \psi_{-i})$ is supermodular in $\psi_i$ on $\Psi_i$ for each $\psi_{-i}$ on $\Psi_{-i}$ for each $i$
+			\item $\bm{\Psi}$ is a sublattice of $\prod_{i=1}^n \mathbb{R}^n$, 
+			\item $u_i(\psi_i, \psi_{-i})$ is supermodular in $\psi_i$ on $\Psi_i$ for each $\psi_{-i}$ on $\Psi_{-i}$ for each $i$, and
 			\item $u_i(\psi_i, \psi_{-i})$ has increasing differences in $(\psi_i, \psi_{-i})$ on $\Psi_i \times \Psi_{-i}$
 		\end{enumerate}
 	\end{definition}
@@ -1308,6 +1327,26 @@ Analyzing various kinds of network formation opens the way to the "network desig
 \end{proof}
 
 \begin{proof}[Proof of Proposition 2.]
+	 Consider the normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$, which is first stage game given Nash equilibrium in second stage.
+	 To compare the utility with different $\bm{C}$, we write utility function as $u_i(\psi_i, \psi_{-i}, \bm{C})$ for all $i \in N$.
+	 We first show that for all $i \in N$, $u_i(\psi_i, \psi_{-i}, \bm{C})$ has increasing differences in $(\psi_i, \bm{C})$.
+	 Take any $\psi_i, \hat{\psi}_i \in \Psi_i$ with $\hat{\psi}_i \ge \psi_i$, and any $\bm{\hat{C}}$ and $\bm{C}$ with $\bm{\hat{C}} \le \bm{C}$.
+	 Fix any $\psi_{-i} \in \Psi_{-i}$
+	 Consider the adjacency matrix of network $g = g(\psi_i, \psi_{-i})$ and $\hat{g} = g(\hat{\psi}_i, \psi_{-i})$ as $\bm{G}$ and $\bm{\hat{G}}$ respectively.
+	 Then,
+	 \begin{align*}
+	 	\label{prop2-1}
+	 	& \{ u_i(\hat{\psi}_i, \psi_{-i}, \bm{\hat{C}}) - u_i(\psi_i, \psi_{-i}, \bm{\hat{C}}) \} - \{ u_i(\hat{\psi}_i, \psi_{-i}, \bm{C}) - u_i(\psi_i, \psi_{-i}, \bm{C}) \} \\
+	 		& = \left[ \{ v_i(\hat{g}, \phi) - \sum_{j=1}^n \hat{g}_{ij} \hat{c}_{ij} \} -  \{ v_i(g, \phi) - \sum_{j=1}^n g_{ij} \hat{c}_{ij} \} \right] - \left[ \{ v_i(\hat{g}, \phi) - \sum_{j=1}^n \hat{g}_{ij} c_{ij} \} - \{ v_i(g, \phi) - \sum_{j=1}^n g_{ij} c_{ij} \} \right] \\
+	 		& = \sum_{j=1}^n \hat{g}_{ij} (c_{ij} - \hat{c}_{ij}) - \sum_{j=1}^n g_{ij} (c_{ij} - \hat{c}_{ij}) \\
+	 		& = \sum_{j=1}^n (\hat{g}_{ij} - g_{ij}) (c_{ij} - \hat{c}_{ij}) \ge 0
+	 \end{align*}
+	 Last inequalty comes from $\bm{\hat{C}} \le \bm{C}$ and ${\bm{\hat{G}}}^p \ge {\bm{G}}^p$ and $\bm{\hat{G}} \ge \bm{G}$.
+	 Thus, we see that for all $i \in N$, $u_i(\psi_i, \psi_{-i}, \bm{C})$ has increasing differences in $(\psi_i, \bm{C})$.
+
+	 By Theorem 6 in Milgrom and Roberts (1990)~\cite{milgromroberts}, the greatest equilibrium network $g^{**}$ is increasing in $\bm{\alpha}$.
+	 Therefore, we have
+	 \[ g^{**}(\bm{\psi}^*(g^p, \bm{\hat{C}}, \phi, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
 \end{proof}
 
 

@@ -82,7 +82,7 @@ Individual behavior generates a positive or negative externalities and affects n
 By considering network structure, we can explain the direct effects and indirect effects, that is, the effects of agent's behavior on agents directly connect and indirectly connect.
 Recently, many literatures in the economics theoretically and emprically point out this significance.
 In these works, it is shown that peer effects are important in many kinds of network, for example, social network, criminal network, firm-to-firm networks where firms invest R\&D activities, networks for labor market participation, educational network, and so on.
-In criminal network, when the neighbors are highly devoted to criminal activities such as drug abuses, the agent are more likely to concentrate on the drug usage due to the information or traffickinf from his neighbors.
+For example, in criminal network, when friends are highly devoted to criminal activities such as drug abuses, the agent is more likely to engage in the drug abuse due to the criminal information or drug trafficking from his friends.
 
 % Importance of network formation
 However, many existing literatures about the networks in economics ignore the mechanism of the network formation.
@@ -102,7 +102,7 @@ In the first stage, agents simultaneously choose their neighbors from the neighb
 When agents decide who to connect, they incur the link-specific costs, which is a key factor for determining the network.
 The link formation costs (and benefits of efforts) make the heterogeneity across the agents, which leads to the various types of networks.
 The interpretion of links, effort, and link formation cost depend on the application we consider.
-For example, when we consider the criminal network, links, effort, and formation cost represent the flow of criminal informtion or trafficking weapons, the intension of criminal acrivity, and the geographical distance or the probability of capture, respectively.
+In the context of criminal network, for example, links, effort, and formation cost represent the flow of criminal informtion or weapon trafficking, the intension of criminal acrivity, and the geographical distance or the probability of capture, respectively.
 When we apply to the R\&D network, we can think of links as the contract to colaboration, effort as the investment to R\&D, and link formation cost as the negotiation cost or financial cost to sign a constract.
 We consider subgame perfect equilibria where all agents take pure starategies in the both stages.
 
@@ -185,7 +185,14 @@ In section 4, we comment on the key player and Section 5 concludes.
 All proofs used to show the reults in this paper are attached in Appendix.
 
 \begin{notation*}
+For any vector $\bm{a}, \bm{b} \in \mathbb{R}^n$, we write $\bm{a} \ge(>) \bm{b}$ if $a_i \ge(>) b_i$ for any $i=1, \ldots, n$.
 For matrix $\bm{A}$ and $\bm{B}$, we write $\bm{A} \ge \bm{B}$ if $a_{ij} \ge b_{ij}$ for any entry $ij$.
+A link from $i$ to $j$ is denoted as link $ij$.
+For network $g$, if link $ij$ is in $g$, we denote $ij \in g$.
+Let $E(g)$ denote the set of links in network $g$.
+For network $g$ and $\hat{g}$, we write $g \subseteq \hat{g}$ to indicate that $\{ij \in N \mid ij \in E(g)\} \subset \{ij \in N \mid ij \in E(\hat{g})\}$, that is, $g \subseteq \hat{g}$ means all links in $g$ are also contained in $\hat{g}$.
+Denote $g \setminus \{ ij \}$ as the network obtained by removing link $ij$ from network $g$.
+Denote $g \cup \{ ij \}$ as the network obtained by adding link $ij$ to netwotk $g$.
 \end{notation*}
 
 \section{Model}
@@ -193,9 +200,9 @@ For matrix $\bm{A}$ and $\bm{B}$, we write $\bm{A} \ge \bm{B}$ if $a_{ij} \ge b_
 There are $n$ agents in the economy, and denote the set of agents $N = \{ 1, \ldots, n\}$.
 We assume $n$ is finite and $n \ge 2$.
 
-The game consists of two stages game: {\it{choosing neighbors}} and {\it{choosing an effort level}}.
+The game consists of two stages: {\it{choosing neighbors}} and {\it{choosing an effort level}}.
 Initially, agents are connected in the potential network $g^p$.
-We consider the network $g^p$ is connected, directed and unweighted.
+We consider the network $g^p$ is directed\footnote{The network $g$ is {\it{directed}} when link $ij$ exists does not mean link $ji$ exists. Conversely, if the existence of link $ij$ always imply that of link $ji$, we call $g$ is {\it{undirected}}.} and unweighted\footnote{The network $g$ is {\it{unweighted}} when any $g_{ij}$, entry of $g$'s adjacency matrix, takes value either $0$ or $1$. Conversely, the network $g$ is {\it{weighted}} if the value of $g_{ij}$ may be neither $0$ nor $1$.}.
 The potential network $g^p$ is represented by adjacency matrix $\bm{G}^p = {(g_{ij}^p)}_{ij}$ where, for any $i \neq j$,
 \[ g_{ij}^p =
 	\begin{cases}
@@ -337,18 +344,19 @@ Given $g^p$ and $\bm{C}$, a network $g^*$ is an {\it{equilibrium network}} if $g
 We characterize the equilibrium network by a standard way: backward induction.
 First, given realized network $g$, consider the second stage, choosing an effort level.
 To characterize the equilibrium in this subgame, we require a new assumption.
-Denote $\rho (\bm{G})$ as the spectral radius of the matrix $\bm{G}$.
+Denote $\rho (\bm{G})$ as the spectral radius of the matrix $\bm{G}$\footnote{The {\it{spectral radius}} of a matrix is the largest absolute value of its eigenvalues.}.
 
 \begin{assumption}
 $\phi \rho(\bm{G}^p) < 1$
 \end{assumption}
 
-This assumption ensures that the peer effect is bounded in the potential network which is the possiblly largest network.
+This assumption gives the upper bound of $\phi$.
+Under Assumption 1, the peer effect is bounded in the potential network which is the possiblly largest network.
 We show that, under this assumption, there exists a unique Nash equilibrium in the second stage for any realized network.
 
 \begin{proposition}
-Under Assumption 1, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, which is interior and given by
-\[ \bm{x}^* = \bm{b}_{\bm{\alpha}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \]
+Under Assumption 1, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, and given by
+\[ \bm{x}^* = \bm{b}_{\bm{\alpha}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} > \bm{0} \]
 \end{proposition}
 
 Ballester, Calvo-Armengol, and Zenou(2006, 2010) show that, given network $g$, there exists a unique interior Nash equilibrium when the spectral radius of the adjacency matrix of the network is small enough.
@@ -359,7 +367,7 @@ Note that Proposition 1 also provides the Nash equilibrium, which is a first ste
 In the rest of this paper, we assume Assumption 1.
 
 Here $\bm{x}^*$ is the optimal effort in the realized network, and so we can find $x_i^*$s' are dependent of $\bm{\psi}$, so optimal effort levels can be written as $x_i^*(\bm{\psi})$.
-From Proposition 1, we can calculate as follows:
+From Proposition 1, we can calculate (\ref{function_v}) as follows:
 \begin{equation}
 	\label{opteff}
 	v_i(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) = \frac{1}{2} {[b_{\bm{\alpha}, i}(g(\bm{\psi}), \phi)]}^2 = \frac{1}{2} {x_i^*(g(\bm{\psi}))}^2
@@ -367,13 +375,14 @@ From Proposition 1, we can calculate as follows:
 
 In order to characterize a subgame perfect equilibrium, next we consider the agents' strategy to choose neighbors by backward induction.
 In light of Proposition 1, we only need to consider Nash equilibrium given the efforts in the second stage Nash equilibrium.
-Let us consider the first stage game given equilibrium effort levels as a normal form game $\Gamma = \langle N, \Psi, {(u_i)}_{i \in N} \rangle$.
+Let us consider the reduced first stage game given second stage Nash equilibrium as a normal form game $\Gamma = \langle N, \Psi, {(u_i)}_{i \in N} \rangle$ where for all $i$, $u_i : \bm{\Psi} \rightarrow \mathbb{R}$ and
+\[ u_i(\psi) = u_i(\bm{x}^*(g(\psi)), g(\psi), \bm{C}, \phi). \]
 
 Before we establish the theorem, we show some preliminary results.
 First, given the second stage Nash equilibrium, we can see the more links there exist, the more values agents get.
 
 \begin{lemma}
-	Consider the networks $g$ and $\hat{g}$ with $g \subseteq \hat{g}$\footnote{We write $g \subseteq \hat{g}$ to indicate that $\{\{i,j\} \in N | \{i,j\} \in g\} \subset \{\{i,j\} \in N | \{i,j\} \in \hat{g}\}$}.
+	Consider the networks $g$ and $\hat{g}$ with $g \subseteq \hat{g}$.
 	Then,
 	\[ \bm{x}^*(\hat{g}) \ge \bm{x}^*(g). \]
 	In addition, for all $i \in N$ if, for some $j \in N$, $\hat{g}_{ij} = 1$ and $g_{ij} = 0$, then
@@ -393,24 +402,26 @@ In addition to this, we have the following lemma.
 	Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ (its adjacency matrices are $\bm{G}$, $\bm{\hat{G}}$, $\bm{H}$, and $\bm{\hat{H}}$ respectively).
 	$g$, $\hat{g}$, $h$, and $\hat{h}$ satisfy that $\bm{G} \ge \bm{H}$ and  $\bm{\hat{G}} \ge \bm{\hat{H}}$ with $\bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$.
 	Then, for all $i$,
-	\[ v_i^*(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i^*(\bm{x}^*(g), g, \phi) \ge v_i^*(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i^*(\bm{x}^*(h), h, \phi)\]
+	\[ v_i(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i(\bm{x}^*(g), g, \phi) \ge v_i(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i(\bm{x}^*(h), h, \phi)\]
 \end{lemma}
 
-Based on these results, we can have next theorem.
+Lemma 2 states that $v_i$ has the increasing properties in $g$.
+Based on Lemma 1 and 2, we can have next theorem.
 
 \begin{theorem}
-	For any $g^p$ and $\bm{C}$, $\Gamma$ is a supermodular game
+	For any $g^p$ and $\bm{C}$, $\Gamma$ is a supermodular game.
 \end{theorem}
 
 We can immediately have a following corollary by the properties of supermodular game.
 
 \begin{corollary}
-	For any $g^p$ and $\bm{C}$, there exists equilibrium network, in particular, the greatest and smallest equilibrium exist.
+	For any $g^p$ and $\bm{C}$, there exists equilibrium network.
+	Moreover, the set of equilibrium strategies in reduced game $\Gamma$ has the greatest and the least element.
 \end{corollary}
 
 %supermodular games
 We note that the 1st stage game given the effort level in 2nd stage Nash equilibrium is a supermodular game, the game which exhibits strategic complementarities.
-This game can satisfy some conditions of supermodularity: continuity and increasing-differences of utility function by Lemma 2.
+This game can satisfy some conditions of supermodularity: continuity and increasing-differences of utility function.
 From the result of some papers \footnote{For example, Topkis (1979)~\cite{topkis1979}, Milgrom and Roberts (1990)~\cite{milgromroberts}, Vives(1990)~\cite{vives} and Topkis (1998)~\cite{topkis1998}}, we can find a pure strategy Nash equilibrium in this game.
 We can easily see that 2nd stage game is with strategic complementarity, that is when the neighbors excerts high level effort, we also increase the level of effort.
 Lemma 2 shows 1st game also exhibit strategic complementarity and it is supermodular game.
@@ -418,8 +429,6 @@ When not only neighbors we chooose but also the agents whom we do not connect di
 When agent $i$ forms more links, he can get more peer effect, so he excert more effort by the strategic complementarity in 2nd stage.
 Agent $i$'s increased effort makes agents who have a link to him excert more effort, so all agents' level of effort weakly increases, which is shown by Lemma 1.
 Provided the link formation costs, increasing level of efforts makes the agents to connect more agents, so if some agents have more connections, best response for it is the connecting to other agents, which is strategic complementarity.
-In addition, from Topkis (1979)~\cite{topkis1979}, Algorithm 1 returns the largest equilibrium point, that is, the equilibrium network where agents maximally chooses neighbors.
-However, this does not dilectly imply the equilibrium that Algorithm 1 brings is unique, so next we argue the uniqueness of the equilibrium.
 
 
 \subsection{Uniqueness and multiplicity of equilibrium}
@@ -427,7 +436,7 @@ However, this does not dilectly imply the equilibrium that Algorithm 1 brings is
 Previous subsection shows the existence of the equilibrium.
 We argue the uniqueness of the equilibrium in this subsection.
 Since the equilibrium in the second stage is unique from Proposition 1, we focus on the first stage strategies.
-However, the equilibrium network is not necessarily unique.
+We can see that the equilibrium network is not necessarily unique.
 The following example shows that equilibrium network is not unique.
 
 \begin{example}
@@ -530,15 +539,15 @@ are both equilibrium networks.
 \end{figure}
 
 Example 1 shows the equilibrium network may not be unique and Figure \ref{fig:eq} shows that the region of costs which brings the respective equilibrium network.
-We can see the region which returns complete equilibrium network and empty equilibrium network overlap.
+We can see the region which returns complete equilibrium network\footnote{The network is complete if each node has links to all other nodes. In adjacency matrix, every off-diagonal entries are equal to $1$.} and empty equilibrium network\footnote{The network is empty if there is no link in the network. In adjacency matrix, all entries are equal to $0$.} overlap.
 From this perspective, the algorithm can potentially converge multiple equilibria.
 In each step, the number of the agents who do not take best responses is generally greater than one.
 Therefore, the order of the agents who delete the links is changed, and the network in each steps is also changed.
 This may lead to the different networks.
 
-We focus on the greatest equilibrium network from now on, and denote it as $g^{**}$.
-The greatest equilibrium can be obtained by designed best response dynamics algorithm.
-Next algorithm returns the greatest equilibrium network.
+To avoid the problem of equilibrium multiplicity, we want to focus on the greatest equilibrium.
+However, how can we obtain the largest equilibrium network?
+Consider the next algorithm.
 
 \begin{algorithm}
 \ 
@@ -549,7 +558,7 @@ Next algorithm returns the greatest equilibrium network.
 		Denote the set of agents who do not take best response as $NB^{(0)}$:
 		\begin{equation*}
 		\begin{split}
-			NB^{(0)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(0)}), \tilde{\psi}_i, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(0)})), \bm{\psi}^{(0)}, \bm{C}, \phi) \}
+			NB^{(0)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_i, \psi_{-i}^{(0)}), \tilde{\psi}_i, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(0)})), \bm{\psi}^{(0)}, \bm{C}, \phi) \}
 		\end{split}
 		\end{equation*}
 		Go into Step 1.
@@ -559,14 +568,16 @@ Next algorithm returns the greatest equilibrium network.
 		If $NB^{(k-1)} = \emptyset$, define $g^* = g(\bm{\psi}^{(k-1)})$ and terminate the algorithm.
 
 		Otherwise, choose a agent $i \in NB^{(k-1)}$ randomly.
-		Agent $i$ takes best response, changing links, then new network is emerged.
-		That is, $i$ changes her strategy from $\psi_i^{(k-1)}$ to $\psi_i^{(k)}$ such that $u_i(\bm{x}^*(g(\psi_i^{(k)}, \psi_{-i}^{(k-1)})), \psi_i^{(k)}, \psi_{-i}^{(k-1)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k-1)})), \bm{\psi}^{(k-1)}, \bm{C}, \phi)$, and for any other agents $j (\neq i)$ remain their strategies, $\psi_j^{(k)} = \psi_j^{(k-1)}$.
-		If agent $i$ has multiple such strategies, choose largest one.
+		Define
+		\[ \overline{BR}_i(\psi_{-i}^{(k-1)}) = \{ \psi_i \in \Psi_i \mid u_i(\bm{x}^*(g(\psi_i, \psi_{-i}^{(k-1)})), \psi_i, \psi_{-i}^{(k-1)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k-1)})), \bm{\psi}^{(k-1)}, \bm{C}, \phi) \} \]
+		$i$ changes her strategy from $\psi_i^{(k-1)}$ to $\psi_i \in \overline{BR}_i(\psi_{-i}^{(k-1)})$\footnote{Note $\overline{BR}_i(\psi_{-i}^{(k-1)}) \neq \emptyset$ by construction of $NB^{(k-1)}$.}, and set $\psi_i^{(k)} = \psi_i$.
+		For any other agents $j (\neq i)$ remain their strategies, $\psi_j^{(k)} = \psi_j^{(k-1)}$.
+		If $|\overline{BR}_i(\psi_{-i}^{(k-1)})| > 1$, choose the largest one in $\overline{BR}_i(\psi_{-i}^{(k-1)})$.
 		Then, new network $g(\bm{\psi}^{(k)})$ is realized.
 		Compute each players' payoffs and define $NB^{(k)}$:
 		\begin{equation*}
 		\begin{split}
-			NB^{(k)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_1, \psi_{-i}^{(k)}), \tilde{\psi}_i, \psi_{-i}^{(k)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k)})), \bm{\psi}^{(k)}, \bm{C}, \phi) \}
+			NB^{(k)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_i, \psi_{-i}^{(k)}), \tilde{\psi}_i, \psi_{-i}^{(k)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k)})), \bm{\psi}^{(k)}, \bm{C}, \phi) \}
 		\end{split}
 		\end{equation*}
 		Proceed to Step $k+1$.
@@ -574,8 +585,10 @@ Next algorithm returns the greatest equilibrium network.
 \end{algorithm}
 
 Algorithm 1 is one of the {\it{best response dynamics}} algorithms, where agents take their best reponses in each steps.
-In the algorithm, agent choose largest strategy if she has multiple best responses.
-We have to show that there always exists the largest best response.
+We can interpret this algorithm as the learning procedure.
+Agents initially does not take best responses, but as seeing others' strategies, agents adopt best responses.
+In the algorithm, agent choose the largest strategy in $\overline{BR}_i(\psi_{-i}^{(k-1)})$.
+We have to show that there always exists the largest best response in order to define this .
 Next lemma shows its existence.
 
 \begin{lemma}
@@ -585,6 +598,14 @@ In Algorithm 1, for any step $k$, $|BR_i(\psi_{-i}^{(k-1)})| = 1$ for any $i \in
 By this lemma, we can see Algotihm 1 works well.
 You notice that if the best reponse dynamics halts, it returns a pure strategy Nash equilibrium.\footnote{See Nisan, Noam, et al.~\cite{AGT}}
 As in Topkis (1998)~\cite{topkis1998}, returned network is the greatest equilibrium network.
+We can show Algorithm 1 terminates in finite steps, and we can have the largest equilibrium network.
+
+\begin{proposition}
+Algorithm 1 terminates in finite steps.
+\end{proposition}
+
+The greatest ewuilibrium network is obtained by Algorithm 1.
+We focus on the greatest equilibrium network from now on, and denote it as $g^{**}$.
 
 
 \subsection{Comparative Statics}
@@ -592,9 +613,8 @@ As in Topkis (1998)~\cite{topkis1998}, returned network is the greatest equilibr
 In this section, we argue the comparative statics by changing the parameter $\bm{C}$.
 When the cost of forming links decrease, we conjecture that the network becomes denser because agents are more likely to form the links.
 
-We denote that, for network $g$ and $h$, $g \supseteq h$ if all links in the network $h$ are existed in the network $g$, that is $\bm{G} \ge \bm{H}$.
 Next proposition shows that our conjection is verified.
-This result is based on the supermodularity of 1st stage game.
+This result is based on the supermodularity of the 1st stage game.
 
 \begin{proposition}
 Given the potential network $g^p$.
@@ -603,6 +623,7 @@ Then,
 \[ g^{**}(\bm{\psi}^*(g^p, \bm{\hat{C}}, \phi, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
 \end{proposition}
 
+This propopsition is based on the property of supermodular game: changes in key parameters monotonically shift the equilibria of a supermodular game.
 By the same argument, we have the following corollary.
 
 \begin{corollary}
@@ -1146,7 +1167,8 @@ The closed form solution to identify the key player is remaining for future work
 This paper argues the game with externality in the endogenously formed network.
 Contrary to the previous literatures, agents endogenously form the network.
 In the model, agents choose their neighbors in the potential network at first, and then the network is realized.
-When agents form links to neighbors, they incur the link-specific costs and these costs play an important role in the agents' decisions and the formation of network.
+When agents form links to others, they incur the link-specific costs and their decisions depend on these costs.
+Link formation costs play an important role in determining the realized network structure.
 Next, agents decide their effort level in this formed network, and their decisions generates the externality, peer effect, through the network.
 We focus on the subgame perfect equilibrium where agents take pure strategies in each stage.
 We show that there always exists the equilibrium for any potential network and link formation costs.
@@ -1267,7 +1289,7 @@ Analyzing various kinds of network formation opens the way to "network design" f
 		\end{enumerate}
 	\end{definition}
 
-	$\bm{\Psi}$ is sublattice of $\prod_{i=1}^n \mathbb{R}^n$ since, for any nonempty subset $\bm{\tilde{\Psi}} \subseteq \bm{\Psi}$, $\inf(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$ and $\sup(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$.
+	$\bm{\Psi}$ is sublattice of $\prod_{i=1}^n \mathbb{R}^n$ since, for any nonempty subset $\bm{\tilde{\Psi}} \subseteq \bm{\Psi}$, $\inf(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$ and $\sup(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$ by the construction of $\bm{\Psi}$.
 
 	Next, we show that $u_i$ is supermodular in $\psi_i$ for fixed $\psi_{-i}$.
 	Fix any $\psi_{-i} \in \Psi_{-i}$ and take $\psi_i, \psi_i' \in \Psi_i$ arbitrarily.
@@ -1335,6 +1357,40 @@ Analyzing various kinds of network formation opens the way to "network design" f
 \end{proof}
 
 \begin{proof}[Proof of Proposition 2.]
+	Suppose link $ij$ is removed at step $\tau(\ge0)$ in Algorithm 1.
+	Assume link $ij$ is reformed at step $\tau + t (t \ge 1)$.
+	At step $\tau$,
+	\begin{align}
+		\label{thm1-1}
+		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - c_{ij} - \sum_{k \neq j} g_{ik}^{(\tau - 1)} c_{ik} \notag \\
+			& < v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) - \sum_{k \neq j} {g_{ik} \setminus \{ ij \}}^{(\tau - 1)} c_{ik}
+	\end{align}
+	At step $\tau + t$,
+	\begin{align}
+		\label{thm1-2}
+		& v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi) - \sum_{k \neq j} g_{ik}^{(\tau + t-1)} c_{ik} \notag \\
+			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - c_{ij} - \sum_{k \neq j} {g_{ik} \cup \{ ij \}}^{(\tau + t-1)} c_{ik}
+	\end{align}
+	From (\ref{thm1-1}),
+	\[ c_{ij} > v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \]
+	From (\ref{thm1-2}),
+	\[ c_{ij} < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi) \]
+	Therefore,
+	\begin{align}
+		\label{thm1-3}
+		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \notag \\
+			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi)
+	\end{align}
+	Note that, from Lemma 2,
+	\begin{align*}
+		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \\
+			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi)
+	\end{align*}
+	This contradicts to (\ref{thm1-3}), and link $ij$ will never be reformed once it is removed.
+	Since the number of links is finite, the algorithm terminates in finite steps.
+\end{proof}
+
+\begin{proof}[Proof of Proposition 3.]
 	 Consider the normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$, which is first stage game given Nash equilibrium in second stage.
 	 To compare the utility with different $\bm{C}$, we write utility function as $u_i(\psi_i, \psi_{-i}, \bm{C})$ for all $i \in N$.
 	 We first show that for all $i \in N$, $u_i(\psi_i, \psi_{-i}, \bm{C})$ has increasing differences in $(\psi_i, \bm{C})$.

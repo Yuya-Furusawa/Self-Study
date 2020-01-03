@@ -200,27 +200,31 @@ Denote $g \cup \{ ij \}$ as the network obtained by adding link $ij$ to netwotk 
 There are $n$ agents in the economy, and denote the set of agents $N = \{ 1, \ldots, n\}$.
 We assume $n$ is finite and $n \ge 2$.
 
-The game consists of two stages: {\it{choosing neighbors}} and {\it{choosing an effort level}}.
+The game consists of two stages: choosing neighbors in the first stage and choosing an effort level in the second stage.
 Initially, agents are connected in the potential network $g^p$.
-We consider the network $g^p$ is directed\footnote{The network $g$ is {\it{directed}} when link $ij$ exists does not mean link $ji$ exists. Conversely, if the existence of link $ij$ always imply that of link $ji$, we call $g$ is {\it{undirected}}.} and unweighted\footnote{The network $g$ is {\it{unweighted}} when any $g_{ij}$, entry of $g$'s adjacency matrix, takes value either $0$ or $1$. Conversely, the network $g$ is {\it{weighted}} if the value of $g_{ij}$ may be neither $0$ nor $1$.}.
+We consider the potential network $g^p$ is directed\footnote{The network $g$ is {\it{directed}} when link $ij$ exists does not mean link $ji$ exists. Conversely, if the existence of link $ij$ always imply that of link $ji$, we call $g$ is {\it{undirected}}.} and unweighted\footnote{The network $g$ is {\it{unweighted}} when any $g_{ij}$, entry of $g$'s adjacency matrix, takes value either $0$ or $1$. Conversely, the network $g$ is {\it{weighted}} if the value of $g_{ij}$ may be neither $0$ nor $1$.}.
 The potential network $g^p$ is represented by adjacency matrix $\bm{G}^p = {(g_{ij}^p)}_{ij}$ where, for any $i \neq j$,
 \[ g_{ij}^p =
 	\begin{cases}
 		1 \  (\text{if $i$ has a link to $j$ in $g^p $}) \\
 		0 \  (\text{otherwise})
 	\end{cases} \]
-Note that $\bm{G}^p$ can be asymetric and $g_{ii}^p = 0$ for all $i \in N$.
+Note that $\bm{G}^p$ might be asymmetric, that is it is not necessarily $g_{ij}^p = g_{ji}^p$.
+We set $g_{ii}^p = 0$ for all $i \in N$.
 Denote the set of agent $i$'s neighbors in the potential network $N_i(g^p) = \{ j \in N \mid g_{ij}^p = 1 \}$.
+
 In the first stage, each agent $i$ simultaneously chooses the partners from the potential neighbors $N_i(g^p)$.
-This strategy can be represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, $\psi_{ii}=0$ for all $i \in N$, and $\psi_{ij} = 0$ for all $j \notin N_i(g^p)$.
-Note that $\psi_i \in \Psi_i = \{0, 1\}^{n}$ and $\Psi = \prod_{i=1}^n \Psi_i$.
-We assume that when forming a link, each agent incurs a cost $c_{ij} \ge 0$, and denote its matrix $\bm{C} = {(c_{ij})}_{ij}$.\footnote{We set $c_{ij} = 0$ for $ij$ such that $g_{ij}^p = 0$.}
-The link formation cost represents, for example, geographic distance or psychological barrier.
-Since $\psi_i$ depends on potential network $g^p$ and costs $\bm{C}$, to emphasize it, we denote $\psi_i(g^p, \bm{C})$.
-We denote its profile $\bm{\psi}(g^p, \bm{C}) = \prod_{i=1}^n \psi_i(g^p, \bm{C})$.
-After forming links, the network $g$ is realized.
+The action is represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ with (i) $\psi_{ij} \in \{0, 1\}$ for all $j \in N$ and (ii) $\psi_{ij} = 0$ for all $j \notin N_i(g^p)$.
+First, $g_{ij} = 1(g_{ij} = 0)$ respresents agent $i$ (does not) form a link to $j$.
+Second, (ii) means that only links existed in the potential network can be realized.
+We assume $\psi_{ii}=0$ for all $i \in N$.
+Let $\Psi_i = \{0, 1\}^{n}$ denote the set of agent $i$'s actions, and $\Psi = \prod_{i=1}^n \Psi_i$ denote its profile.
+Here, we allow mixed actions.
+When forming a link, each agent $i$ incurs a cost $c_{ij} \ge 0$.
+Denote its matrix $\bm{C} = {(c_{ij})}_{ij}$.\footnote{We set $c_{ij} = 0$ for $ij$ such that $g_{ij}^p = 0$.}
+Since choosed pure action $\psi_i$ depends on potential network $g^p$ and costs $\bm{C}$, to emphasize it, we denote $\psi_i(g^p, \bm{C})$ and $\bm{\psi}(g^p, \bm{C}) = \prod_{i=1}^n \psi_i(g^p, \bm{C})$.
+After decided pure action profile $\bm{\psi}(g^p, \bm{C})$, the network $g$ is realized.
 Figure \ref{fig:dif} represents the difference between potential network and realized network.
-Only links which exist in the potential network can be realized.
 
 %% Figure of the difference between potential network and realized network
 \begin{figure}[h]
@@ -291,8 +295,7 @@ The realized network $g$ is represented by the adjacency matrix $\bm{G} = {(g_{i
 		1 \  (\text{if} \  \psi_{ij}(g^p, {\bm{C}}) = 1 ) \\
 		0 \  (\text{otherwise})
 	\end{cases} \]
-We can see the realization of the network depends on agents' choosing strategy $\bm{\psi}(g^p, \bm{C})$.
-To represent this dependency, we write the realized network $g$ as $g(\bm{\psi}(g^p, \bm{C}))$.
+To represent the dependency of realized network $g$ on $\bm{\psi}(g^p, \bm{C})$, we write $g(\bm{\psi}(g^p, \bm{C}))$.
 We sometimes denote the network $g(\bm{\psi}(g^p, \bm{C}))$ as $g(\bm{\psi})$ to avoid redundant representation unless $g^p$ and $\bm{C}$ are key variables.
 
 In the second stage, each agent $i \in N$ simultaneously excerts an effort $x_i \ge 0$, and gets a payoff which depends on the agents' efforts and realized network.
@@ -303,11 +306,9 @@ where
 \label{function_v}
 	v_i(\bm{x}, g(\bm{\psi}), \phi) = \alpha_i x_i - \frac{1}{2} x_i^2 + \phi \sum_{j=1}^n g_{ij}(\bm{\psi}) x_i x_j
 \end{equation}
-Here, we focus on bilinear payoff functions.
 First term of (\ref{function_v}) represents the individual benefit of effort, and second term is the disutility of effort.
 Third cross term represents the peer effect of the effort.
 If the neighbor excerts high effort, agent $i$ receives large benefit with decay factor $\phi$.
-Peer effect is derived by the externalities of the effort.
 We assume $\alpha_i > 0$ for all $i$, and $\phi > 0$.
 Denote $\bm{\alpha} = (\alpha_1, \cdots, \alpha_n)$.
 
@@ -316,7 +317,7 @@ Consider the $n$-square adjacency matrix $\bm{G}$ of a network $g$ where $g_{ij}
 We introduce a following definition from Katz(1953)~\cite{katz} and Bonacich(1987)~\cite{bonacich}.
 
 \begin{definition}
-Given a vector $\bm{u} \in \mathbb{R}_+^n$, and a small enough $\phi \ge 0$, the {\it{vector of Katz-Bonacich centralities}} of parameter $\phi$ in network $g$ is defined as:
+Given a vector $\bm{u} \in \mathbb{R}_+^n$, and a small enough $\phi \ge 0$, the vector of {\it{Katz-Bonacich centralities}} of parameter $\phi$ in network $g$ is defined as:
 
 \[ \bm{b}_{\bm{u}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{u} = \sum_{p=0}^{\infty} \phi^p \bm{G}^p \bm{u} \]
 
@@ -324,7 +325,6 @@ Given a vector $\bm{u} \in \mathbb{R}_+^n$, and a small enough $\phi \ge 0$, the
 
 Katz-Bonacich centrality can be thought of a centrality measure which considers the discounted sum of the walks.
 The $i$-th entry of the vector $\bm{b}_{\bm{u}}(g, \phi)$ is denoted by $b_{\bm{u}, i}(g, \phi)$.
-We write the sum of Katz-Bonacich centrarities as $b_{\bm{u}}(g, \phi) = \sum_{i=1}^n b_{\bm{u}, i}(g, \phi)$
 
 
 \section{Equilibrium and Characterization}
@@ -338,11 +338,11 @@ If agents take mixed actions in the first stage, the realized network can be sto
 We call the network emerged in a pure strategy subgame perfect equilibrium as an equilibrium network.
 
 \begin{definition}
-Given $g^p$ and $\bm{C}$, a network $g^*$ is an {\it{equilibrium network}} if $g^* = g(\bm{\psi}^*)$ where $\bm{\psi}^*$ is the strategies in the pure-strategy subgame perfect equilibrium.
+Given $g^p$ and $\bm{C}$, a network $g^*$ is an {\it{equilibrium network}} if $g^* = g(\bm{\psi}^*)$ where $\bm{\psi}^*$ is an action profile in a pure strategy subgame perfect equilibrium.
 \end{definition}
 
 We characterize the equilibrium network by a standard way: backward induction.
-First, given realized network $g$, consider the second stage, choosing an effort level.
+First, given realized network $g$, consider the second stage game.
 To characterize the equilibrium in this subgame, we require a new assumption.
 Denote $\rho (\bm{G})$ as the spectral radius of the matrix $\bm{G}$\footnote{The {\it{spectral radius}} of a matrix is the largest absolute value of its eigenvalues.}.
 
@@ -356,7 +356,7 @@ We show that, under this assumption, there exists a unique Nash equilibrium in t
 
 \begin{proposition}
 Under Assumption 1, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, and given by
-\[ \bm{x}^* = \bm{b}_{\bm{\alpha}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} > \bm{0} \]
+\[ \bm{x}^*(g) = \bm{b}_{\bm{\alpha}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} > \bm{0} \]
 \end{proposition}
 
 Ballester, Calvo-Armengol, and Zenou(2006, 2010) show that, given network $g$, there exists a unique interior Nash equilibrium when the spectral radius of the adjacency matrix of the network is small enough.
@@ -376,7 +376,7 @@ From Proposition 1, we can calculate (\ref{function_v}) as follows:
 In order to characterize a subgame perfect equilibrium, next we consider the agents' strategy to choose neighbors by backward induction.
 In light of Proposition 1, we only need to consider Nash equilibrium given the efforts in the second stage Nash equilibrium.
 Let us consider the reduced first stage game given second stage Nash equilibrium as a normal form game $\Gamma = \langle N, \Psi, {(u_i)}_{i \in N} \rangle$ where for all $i$, $u_i : \bm{\Psi} \rightarrow \mathbb{R}$ and
-\[ u_i(\psi) = u_i(\bm{x}^*(g(\psi)), g(\psi), \bm{C}, \phi). \]
+\[ u_i(\psi) = u_i(\bm{x}^*(g(\psi)), \psi, \bm{C}, \phi). \]
 
 Before we establish the theorem, we show some preliminary results.
 First, given the second stage Nash equilibrium, we can see the more links there exist, the more values agents get.
@@ -539,7 +539,7 @@ are both equilibrium networks.
 \end{figure}
 
 Example 1 shows the equilibrium network may not be unique and Figure \ref{fig:eq} shows that the region of costs which brings the respective equilibrium network.
-We can see the region which returns complete equilibrium network\footnote{The network is complete if each node has links to all other nodes. In adjacency matrix, every off-diagonal entries are equal to $1$.} and empty equilibrium network\footnote{The network is empty if there is no link in the network. In adjacency matrix, all entries are equal to $0$.} overlap.
+We can see the region which returns complete equilibrium network\footnote{The network is {\it{complete}} if each node has links to all other nodes. In adjacency matrix, every off-diagonal entries are equal to $1$.} and empty equilibrium network\footnote{The network is {\it{empty}} if there is no link in the network. In adjacency matrix, all entries are equal to $0$.} overlap.
 From this perspective, the algorithm can potentially converge multiple equilibria.
 In each step, the number of the agents who do not take best responses is generally greater than one.
 Therefore, the order of the agents who delete the links is changed, and the network in each steps is also changed.

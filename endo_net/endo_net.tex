@@ -62,13 +62,13 @@
 \maketitle
 
 \begin{abstract}
-Peer effects in the network play an important role in determining individual and aggregate behavior, and many literature argue their importances theoretically and empirically.
+Peer effects in the network play an important role in determining individual and aggregate behaviors, and many literature argue their importances theoretically and empirically.
 However, almost all of the papers treat the network structure as given.
-This means that we cannot consider the agents' responses to the economic shocks and alternation of network structure.
+This means that we cannot consider the agents' responses to economic shocks and an alternation of network structure.
 We develop the game-theoretic model with endogenous network formation where agents first choose who to connect and then excert efforts.
 We show that 1st stage game becomes supermodular game and there exists pure strategy subgame perfect equilibrium.
 Then, we give a discussion about multiplicity of equilibrium and comparative statics.
-In comparative static analysis, we can show the model incorporates phase transition phenomena.
+In comparative static analysis, we can show our model incorporates phase transition phenomena.
 Finally, we provide a policy implication: key player policy and key link policy.
 With considering the endogeneity of the network, we can see the key player and key link might be different with the ones analyzed in the existing literature.
 \end{abstract}
@@ -78,86 +78,81 @@ With considering the endogeneity of the network, we can see the key player and k
 
 % Network with peer effects
 Network structures and local interactions play an important role in determining individual and aggregate behavior.
-Individual behavior generates a positive or negative externalities and affects neighbors' behavior, which is referred to as peer effect.
-By considering network structure, we can explain the direct effects and indirect effects, that is, the effects of agent's behavior on agents directly connect and indirectly connect.
-Recently, many literatures in the economics theoretically and emprically point out this significance.
-In these works, it is shown that peer effects are important in many kinds of network, for example, social network, criminal network, firm-to-firm networks where firms invest R\&D activities, networks for labor market participation, educational network, and so on.
-For example, in criminal network, when friends are highly devoted to criminal activities such as drug abuses, the agent is more likely to engage in the drug abuse due to the criminal information or drug trafficking from his friends.
+Individual behavior generates externalities and affect neighbors' behavior, which is referred to as peer effect.
+By considering network structure, we can explain the effects of agent's behavior on agents whom directly connect and indirectly connect.
+Recently, many literature in economics theoretically and emprically point out the significance of the externalities or peer effects.
+It is shown that peer effects are important in many kinds of network, for example, social network, criminal network, firm-to-firm networks where firms invest R\&D activities, networks for labor market participation, educational network, and so on.
+One example of peer effects in networks is that, in criminal network, when friends are highly devoted to criminal activities such as drug abuses, the agent is more likely to engage in the drug abuse due to the criminal information or drug trafficking from his friends.
 
 % Importance of network formation
-However, many existing literatures about the networks in economics ignore the mechanism of the network formation.
-With fixed networks, some papers\footnote{For production networks, Acemoglu, Carvalho, Ozdaglar, and Tahbaz‐Salehi(2012)~\cite{origin} or Carvalho, Nirei, Saito, and Tahbaz-Salehi(2016)~\cite{nirei}. For a network of military alliances, K\"{o}nig, Rohner, Thoenig, and Zilibotti(2017)~\cite{conflict}} consider the effect of economic shocks or policy changing on the aggregate behavior of the network.
-When the economic agents are faced with the alteration of the environment where they are, they respond to them in order to mitigate the shocks.
-Finally, the network structure will be changed.
-Therefore, it is significant to consider the mechanism of network formation to analyze the impact of policy intervaton.
-In this paper, we propose the way to overcome this problem by incorporating the endogenous network formation to the model.
+However, many existing literature about the economic networks ignore the mechanism of the network formation.
+With fixed networks, some papers\footnote{For production networks, Acemoglu, Carvalho, Ozdaglar, and Tahbaz‐Salehi(2012)~\cite{origin} or Carvalho, Nirei, Saito, and Tahbaz-Salehi(2016)~\cite{nirei}. For a network of military alliances, K\"{o}nig, Rohner, Thoenig, and Zilibotti(2017)~\cite{conflict}} consider the effect of economic shocks or policy changing on the individual and aggregate behaviors in the network.
+When the economic agents are faced with the alteration of the environment where they are, they respond to them in order to mitigate the shocks and the network structure will be changed.
+Therefore, it is significant to consider the mechanism of network formation to analyze the impact of policy intervention.
+In this paper, we propose the way to overcome this problem by incorporating the endogenous network formation to the game theoretic model\footnote{Games in networks are analyzed in many papers, such as Jackson, and Wolinsky(1996), Galeotti, Goyal, Jackson, Vega-Redondo, and Yariv(2010)~\cite{galeo} and Bramoull\'{e}, Kranton, and D'Amours(2014).}.
 
 % Summary of model
 We develop a two stage dynamic game, where agents form links to other agents in the first stage and agents excert efforts in the second stage.
 The second stage game is eccensially same with the model in Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho}.
-Agents simultaneously choose a nonnegative effort level and the agents' payoffs depend on not only their own effort but also neighbors' effort.
-The agents' efforts generates the positive externalities, so called "peer effects", to the connected agents in the network.
+Agents simultaneously choose a nonnegative effort level and the agents' payoffs depend on not only their own effort but also neighbors' efforts.
+The agent' effort generates the positive externalities, so called "peer effects", to the agents who has a link to her in the network.
 We extend the model of Ballester, Calvo-Armengol, and Zenou(2006)~\cite{whowho} to the endogenous network by introducing first stage game, choosing neighbors.
-In the first stage, agents simultaneously choose their neighbors from the neighbors in the potential network, which represents the maximal possible conncetion without any limitations.
-When agents decide who to connect, they incur the link-specific costs, which is a key factor for determining the network.
-The link formation costs (and benefits of efforts) make the heterogeneity across the agents, which leads to the various types of networks.
+In the first stage, agents simultaneously choose their neighbors from the neighbors in the potential network which represents the possiblly maximal network without any limitations.
+When agents decide who to connect, they incur the link-specific costs, which is a key factor in determining the realized network.
+The link formation costs make the heterogeneity across the agents, which leads to the various types of network structures.
 The interpretion of links, effort, and link formation cost depend on the application we consider.
-In the context of criminal network, for example, links, effort, and formation cost represent the flow of criminal informtion or weapon trafficking, the intension of criminal acrivity, and the geographical distance or the probability of capture, respectively.
-When we apply to the R\&D network, we can think of links as the contract to colaboration, effort as the investment to R\&D, and link formation cost as the negotiation cost or financial cost to sign a constract.
 We consider subgame perfect equilibria where all agents take pure starategies in the both stages.
 
 % Interpretation
 We can interpret the model in some different ways.
-First, we can think of this model as the web advertisement network.
+First, we can think of our model as the web advertisement network.
 Node, link, link formation cost, and effort represent web sites, advertisement on other sites, fee, and investment on the web contents, respectively.
-If connected sites invest on the site and the number of viewers increase, more viewers visit the site and there exists a incentive to invest more.
-In another interpretation, we can regard this model as the drug trafficking network.
+If connected sites invest on the site and the number of viewers increase, more viewers visit the site and there exists an incentive to invest more.
+In another interpretation, we can regard our model as the drug trafficking network.
 Municipalities, drug trafficking, and the amount of drug used are represented by nodes, links and efforts respectively.
 Link formation cost means the probability of capture during trafficking.
 In Dell(2015)~\cite{Dell}, drug are trafficked across municiparities in Mexico, and exported to U.S.
 Probabilty of capture, which is represented by  link formation cost, depends on the policy of the city and government.
-Moreover, Dell(2015)~\cite{Dell} indicates that there exists spillover effects when the policy maker leads one location to become less active to illicit activities, and this coincides with our model where peer effects in effort levels and choosing neighbor strategy exist.
+Moreover, Dell(2015)~\cite{Dell} indicates that there exist spillover effects when the policy maker leads one location to become less active to illicit activities, and this coincides with our model where peer effects in effort levels and choosing neighbor strategy exist.
 
 % Summary of results
 We establish that a pure strategy subgame perfect equilibrium always exists.
 Due to the result in Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho}, a second stage Nash equilibrium always exists and it is unique.
 Given this equilibrium, by backward induction, we show the first stage becomes supermodular game.
-Then, by well known properties of supermodurarity, we can see the first stage equilibrium always exists, and we have the greatest and smallest ones, so equilibria may not be unique.
+Then, by well known properties of supermodurarity, we can see the first stage equilibrium always exists.
+However, equilibria may not be unique.
 We focus on the greatest equilibrium which can be obtained by some best response dynamics algorithm.
 In comparative static analysis in link formation costs, we see that reduction in the costs leads to larger network because agents are more likely to connect to other agents.
 Realized network is discontinuous in the link formation costs, so changes in the costs leads to discontinuous changes in the network.
-We give a example that tiny change in the link formation costs leads to a drastic change of the network structure, "phase transition".
-We analyze a key player policy in endogenous networks as in the previous literature.
+We give a example that tiny change in the link formation costs leads to a drastic change in the network structure, "phase transition".
+We analyze a key player policy in endogenous networks, contrary to the former works which analyze a key player in exogenous networks.
 A key player is the agent in the potential network who makes largest reduction of aggregate effort level once he removed from the potential network.
 However, it is difficult to find key players from the link formation costs because of its discontinuity.
-We give an example that a key player in the endogenous network and in the exogenous (key player defined in the previous literatures) might be different.
+We give an example that a key player in the endogenous network and in the exogenous might be different.
 This example shows that without considering the mechanism of the network formation, we might have a wrong policy implication.
 Similarly, we analyze a key link policy which is introduced in this paper for the first time, and we see we may have wrong policy without considering the endogenous network formation.
 
 % Literature Review
-This paper contributes to the growing literatures on the endogenous networks.
+This paper contributes to the growing literature on the endogenous networks.
 Endogeneity of the network is one of the hottest topics in the field of economic networks.
 Oberfield(2018)~\cite{ober}, and Acemoglu and Azar(2019)~\cite{endo_net} argue the endogenous production networks.
 In their model, the productivity of the firms is determined by the input supplier, customer who use its output as input, and final consumers who generates the firms' profit.
-This productivity is the key factor for network formation, and, in an equilibrium, input-output architecture endogenously emerge.
+This productivity is the key factor for network formation, and, in an equilibrium, input-output architecture endogenously emerges.
 Farboodi(2014)~\cite{farboodi} and other papers\footnote{For examples, Cohen-Cole, Patacchini, and Zenou(2010)~\cite{cohen}, Acemoglu, Ozdaglar, and Tahbaz-Salehi(2015)~\cite{acemo2015} and Babus(2016)~\cite{babus}} argue the endogenous formation of financial networks.
 Recently, many papers theoretically and empirically work for other networks\footnote{Canen, Jackson, and Trebbi(2019)~\cite{canen}, Marco, Eleonora, and Edoardo(2019)~\cite{Marco2019}, Margherita, and Mariapia(2015)~\cite{marg}, Tintelnot, Kikkawa, Mogstad, and Dhyne(2018)~\cite{Tin}}.
-Our model is one of the models in network game, such as Jackson, and Wolinsky(1996), Galeotti, Goyal, Jackson, Vega-Redondo, and Yariv(2010)~\cite{galeo} and Bramoull\'{e}, Kranton, and D'Amours(2014).
 
-This paper also related to the peer effect in the networks.
-The importance of peer effect is often pointed out originally in Rees(1966)~\cite{Rees} or recently Banerjee, Chandrasekhar, Duflo, and Jackson(2013)~\cite{ban}.
+This paper is also related to peer effects in the networks.
+The importance of peer effects is often pointed out originally in Rees(1966)~\cite{Rees} or recently Banerjee, Chandrasekhar, Duflo, and Jackson(2013)~\cite{ban}.
 Many papers develop the analysis of peer effects in the network.
-Calv\'{o}-Armengol, Patacchini, and Zenou(2009)~\cite{edu} theoretically and empirically analyzes the peer effect for the educational achivement.
+Calv\'{o}-Armengol, Patacchini, and Zenou(2009)~\cite{edu} theoretically and empirically analyzes the peer effect in the educational achivement.
 Liu, Patacchini, Zenou, and Lee(2012)~\cite{criminal} and Dell(2015)~\cite{Dell} argue the positive externalities in the criminal network.
-Bramoull\'{e}, Djebbari, and Fortin(2009)~\cite{identificationpeer} and Liu, Patacchini, and Zenou(2014)~\cite{endopeer} propose the conditions we can identify the peer effect in the network and analyze social network empirically.
-K\"{o}nig, Liu, and Zenou(2019)~\cite {RandD} provide theoretical and empirical discussion about R\&D network where peer effects exist.
-This paper also considers the peer effect in the network.
-As discusses below, due to this positive externality, we can theoretically extend these models to the endogenous network formation.
+Bramoull\'{e}, Djebbari, and Fortin(2009)~\cite{identificationpeer} and Liu, Patacchini, and Zenou(2014)~\cite{endopeer} propose the conditions we can identify the peer effects in the network and analyze social network empirically.
+K\"{o}nig, Liu, and Zenou(2019)~\cite {RandD} provides theoretical and empirical discussions about R\&D network where peer effects exist.
 
 % Closely Related Literature
 This paper is closely related to Kim, Patacchini, Picard, and Zenou(2017)~\cite{Urban} which considers the social relationship formation in the urban geographical space.
-They consider the model where a contiuum of agents distributes over the line segment and decides the intensity of interactions to the agents who lives in the other point of the segment.
-The agents' payoff and the positive externalities of the interactions are eccentially same with our model and Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho} (and other literatures).
+They consider the model where a continuum of agents distributes over the line segment and decides the intensity of interactions to the agents who live in the other point of the segment.
+The agents' payoff functions and the positive externalities of the interactions are eccentially same with our model and Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho} (and other literatures).
 Although the number of agents is infinite, we can treat their model as a network formation model.\footnote{In empirical part, they discritize the agents and consider the adjacency matrix as our model.}
 The key factor of network formation in their paper is the distribution of agents and the cost of interations which is measured by geographic distance.
 There are two differences in this paper and ours.
@@ -166,7 +161,7 @@ In many cases, interactions are affected by various kinds of obstacles, such as 
 In contrast, our model can incorporate any kinds of interaction costs, and it enables us to consider any kinds of economic situations in our framework.
 Second, they consider the weighted relationships and agents decide the intensity of interaction to all other agents.
 Due to this feature, we can remove the any kinds of discontinuity and compute the network structure and the weights of links analytically.
-However, analytical solution always shows that every equilibrium network is complete network, that is every agent connects all other agents in the network.
+However, analytical solution always shows that in every equilibrium network, every agent connects all other agents in the network.
 Our model can explain the formation of any structure of the networks.
 
 Hiller(2017)~\cite{hiller} is also related to our paper.
@@ -293,7 +288,7 @@ The realized network $g$ is represented by the adjacency matrix $\bm{G} = {(g_{i
 \[ g_{ij} = 
 	\begin{cases}
 		1 \  (\text{if} \  \psi_{ij}(g^p, {\bm{C}}) = 1 ) \\
-		0 \  (\text{otherwise})
+		0 \  (\text{otherwise}).
 	\end{cases} \]
 To represent the dependency of realized network $g$ on $\bm{\psi}(g^p, \bm{C})$, we write $g(\bm{\psi}(g^p, \bm{C}))$.
 We sometimes denote the network $g(\bm{\psi}(g^p, \bm{C}))$ as $g(\bm{\psi})$ to avoid redundant representation unless $g^p$ and $\bm{C}$ are key variables.
@@ -304,7 +299,7 @@ Denote $\bm{x} = (x_1, \cdots, x_n)$.
 where
 \begin{equation}
 \label{function_v}
-	v_i(\bm{x}, g(\bm{\psi}), \phi) = \alpha_i x_i - \frac{1}{2} x_i^2 + \phi \sum_{j=1}^n g_{ij}(\bm{\psi}) x_i x_j
+	v_i(\bm{x}, g(\bm{\psi}), \phi) = \alpha_i x_i - \frac{1}{2} x_i^2 + \phi \sum_{j=1}^n g_{ij}(\bm{\psi}) x_i x_j.
 \end{equation}
 First term of (\ref{function_v}) represents the individual benefit of effort, and second term is the disutility of effort.
 Third cross term represents the peer effect of the effort.
@@ -319,11 +314,11 @@ We introduce a following definition from Katz(1953)~\cite{katz} and Bonacich(198
 \begin{definition}
 Given a vector $\bm{u} \in \mathbb{R}_+^n$, and a small enough $\phi \ge 0$, the vector of {\it{Katz-Bonacich centralities}} of parameter $\phi$ in network $g$ is defined as:
 
-\[ \bm{b}_{\bm{u}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{u} = \sum_{p=0}^{\infty} \phi^p \bm{G}^p \bm{u} \]
+\[ \bm{b}_{\bm{u}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{u} = \sum_{p=0}^{\infty} \phi^p \bm{G}^p \bm{u}. \]
 
 \end{definition}
 
-Katz-Bonacich centrality can be thought of a centrality measure which considers the discounted sum of the walks.
+Katz-Bonacich centrality can be thought of a centrality measure which considers the discounted sum of the paths.
 The $i$-th entry of the vector $\bm{b}_{\bm{u}}(g, \phi)$ is denoted by $b_{\bm{u}, i}(g, \phi)$.
 
 
@@ -333,44 +328,44 @@ The $i$-th entry of the vector $\bm{b}_{\bm{u}}(g, \phi)$ is denoted by $b_{\bm{
 \subsection{Equilibrium definition and its existence}
 
 In this paper, we consider a pure strategy subgame perfect equilibrium.
-The reason why we consider such an equilibrium is that pure strategies in choosing neighbors makes network deterministic.
+The reason why we consider such an equilibrium is that pure strategies in choosing neighbors make the realized network deterministic.
 If agents take mixed actions in the first stage, the realized network can be stochastic and we cannot directly compare the realized network.
-We call the network emerged in a pure strategy subgame perfect equilibrium as an equilibrium network.
+We call a network emerged in a pure strategy subgame perfect equilibrium as an equilibrium network.
 
 \begin{definition}
 Given $g^p$ and $\bm{C}$, a network $g^*$ is an {\it{equilibrium network}} if $g^* = g(\bm{\psi}^*)$ where $\bm{\psi}^*$ is an action profile in a pure strategy subgame perfect equilibrium.
 \end{definition}
 
-We characterize the equilibrium network by a standard way: backward induction.
+We characterize an equilibrium network by a standard way: backward induction.
 First, given realized network $g$, consider the second stage game.
-To characterize the equilibrium in this subgame, we require a new assumption.
+To characterize an equilibrium in this subgame, we require a new assumption.
 Denote $\rho (\bm{G})$ as the spectral radius of the matrix $\bm{G}$\footnote{The {\it{spectral radius}} of a matrix is the largest absolute value of its eigenvalues.}.
 
 \begin{assumption}
-$\phi \rho(\bm{G}^p) < 1$
+$\phi \rho(\bm{G}^p) < 1.$
 \end{assumption}
 
-This assumption gives the upper bound of $\phi$.
-Under Assumption 1, the peer effect is bounded in the potential network which is the possiblly largest network.
+This assumption gives an upper bound of $\phi$.
+Under Assumption 1, a peer effect is bounded in the potential network which is the possiblly largest network.
 We show that, under this assumption, there exists a unique Nash equilibrium in the second stage for any realized network.
 
 \begin{proposition}
 Under Assumption 1, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, and given by
-\[ \bm{x}^*(g) = \bm{b}_{\bm{\alpha}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} > \bm{0} \]
+\[ \bm{x}^*(g) = \bm{b}_{\bm{\alpha}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} > \bm{0}. \]
 \end{proposition}
 
 Ballester, Calvo-Armengol, and Zenou(2006, 2010) show that, given network $g$, there exists a unique interior Nash equilibrium when the spectral radius of the adjacency matrix of the network is small enough.
 In addition, we find that optimal effort levels coincide with the Katz-Bonacich centrarity of parameter $\phi$ given realized network $g$.
-In our model, the spectral radius of the adjacency matrix of realized network may not satisfy that condition.
+In our model, the spectral radius of the adjacency matrix of realized network may not satisfy the condition.
 Proposition 1 says that we can satisfy the condition under Assumption 1.
 Note that Proposition 1 also provides the Nash equilibrium, which is a first step of backward induction.
 In the rest of this paper, we assume Assumption 1.
 
-Here $\bm{x}^*$ is the optimal effort in the realized network, and so we can find $x_i^*$s' are dependent of $\bm{\psi}$, so optimal effort levels can be written as $x_i^*(\bm{\psi})$.
+Here $\bm{x}^*$ is the optimal effort levels in the realized network, and so we can find $x_i^*$s' are dependent of $\bm{\psi}$, so optimal effort levels can be written as $x_i^*(\bm{\psi})$.
 From Proposition 1, we can calculate (\ref{function_v}) as follows:
 \begin{equation}
 	\label{opteff}
-	v_i(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) = \frac{1}{2} {[b_{\bm{\alpha}, i}(g(\bm{\psi}), \phi)]}^2 = \frac{1}{2} {x_i^*(g(\bm{\psi}))}^2
+	v_i(\bm{x}^*(g(\bm{\psi})), g(\bm{\psi}), \phi) = \frac{1}{2} {[b_{\bm{\alpha}, i}(g(\bm{\psi}), \phi)]}^2 = \frac{1}{2} {x_i^*(g(\bm{\psi}))}^2.
 \end{equation}
 
 In order to characterize a subgame perfect equilibrium, next we consider the agents' strategy to choose neighbors by backward induction.
@@ -379,7 +374,7 @@ Let us consider the reduced first stage game given second stage Nash equilibrium
 \[ u_i(\psi) = u_i(\bm{x}^*(g(\psi)), \psi, \bm{C}, \phi). \]
 
 Before we establish the theorem, we show some preliminary results.
-First, given the second stage Nash equilibrium, we can see the more links there exist, the more values agents get.
+First, given the second stage Nash equilibrium, we can see the more links there exist, the more efforts agents excert.
 
 \begin{lemma}
 	Consider the networks $g$ and $\hat{g}$ with $g \subseteq \hat{g}$.
@@ -391,9 +386,9 @@ First, given the second stage Nash equilibrium, we can see the more links there 
 
 This lemma states that function $v_i$ is increasing in $\psi_i$.
 From (\ref{opteff}), we can have 
-\[ v_i(x^*(\hat{g}), \hat{g}, \phi) > v_i(x^*(g), g, \phi)\]
+\[ v_i(x^*(\hat{g}), \hat{g}, \phi) > v_i(x^*(g), g, \phi),\]
 and for any $j \neq i$,
-\[ v_j(x^*(\hat{g}), \hat{g}, \phi) \ge v_j(x^*(g), g, \phi)\]
+\[ v_j(x^*(\hat{g}), \hat{g}, \phi) \ge v_j(x^*(g), g, \phi).\]
 These imply that $v_i^*$ is increasing in $g$.
 
 In addition to this, we have the following lemma.
@@ -402,7 +397,7 @@ In addition to this, we have the following lemma.
 	Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ (its adjacency matrices are $\bm{G}$, $\bm{\hat{G}}$, $\bm{H}$, and $\bm{\hat{H}}$ respectively).
 	$g$, $\hat{g}$, $h$, and $\hat{h}$ satisfy that $\bm{G} \ge \bm{H}$ and  $\bm{\hat{G}} \ge \bm{\hat{H}}$ with $\bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$.
 	Then, for all $i$,
-	\[ v_i(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i(\bm{x}^*(g), g, \phi) \ge v_i(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i(\bm{x}^*(h), h, \phi)\]
+	\[ v_i(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i(\bm{x}^*(g), g, \phi) \ge v_i(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i(\bm{x}^*(h), h, \phi).\]
 \end{lemma}
 
 Lemma 2 states that $v_i$ has the increasing properties in $g$.
@@ -422,11 +417,11 @@ We can immediately have a following corollary by the properties of supermodular 
 %supermodular games
 We note that the 1st stage game given the effort level in 2nd stage Nash equilibrium is a supermodular game, the game which exhibits strategic complementarities.
 This game can satisfy some conditions of supermodularity: continuity and increasing-differences of utility function.
-From the result of some papers \footnote{For example, Topkis (1979)~\cite{topkis1979}, Milgrom and Roberts (1990)~\cite{milgromroberts}, Vives(1990)~\cite{vives} and Topkis (1998)~\cite{topkis1998}}, we can find a pure strategy Nash equilibrium in this game.
-We can easily see that 2nd stage game is with strategic complementarity, that is when the neighbors excerts high level effort, we also increase the level of effort.
+From the results of some papers \footnote{For example, Topkis (1979)~\cite{topkis1979}, Milgrom and Roberts (1990)~\cite{milgromroberts}, Vives(1990)~\cite{vives} and Topkis (1998)~\cite{topkis1998}}, we can find a pure strategy Nash equilibrium in this game.
+We can easily see that 2nd stage game is with strategic complementarity, that is when the neighbors excert high level effort, we also increase the level of effort.
 Lemma 2 shows 1st game also exhibit strategic complementarity and it is supermodular game.
 When not only neighbors we chooose but also the agents whom we do not connect directly form many links, it is more likely to have more neighbors.
-When agent $i$ forms more links, he can get more peer effect, so he excert more effort by the strategic complementarity in 2nd stage.
+When agent $i$ forms more links, he can get more peer effects, so he excerts more effort by the strategic complementarity in 2nd stage.
 Agent $i$'s increased effort makes agents who have a link to him excert more effort, so all agents' level of effort weakly increases, which is shown by Lemma 1.
 Provided the link formation costs, increasing level of efforts makes the agents to connect more agents, so if some agents have more connections, best response for it is the connecting to other agents, which is strategic complementarity.
 
@@ -437,7 +432,7 @@ Previous subsection shows the existence of the equilibrium.
 We argue the uniqueness of the equilibrium in this subsection.
 Since the equilibrium in the second stage is unique from Proposition 1, we focus on the first stage strategies.
 We can see that the equilibrium network is not necessarily unique.
-The following example shows that equilibrium network is not unique.
+The following example shows that equilibrium network may not unique with some cost parameters.
 
 \begin{example}
 Consider the network with $n=2$, and the potential network $g^p$ such that,
@@ -445,7 +440,7 @@ Consider the network with $n=2$, and the potential network $g^p$ such that,
 	\begin{array}{cc}
 		0 & 1 \\
 		1 & 0
-	\end{array} \right] \]
+	\end{array} \right]. \]
 Assume $\bm{\alpha} = (1, 1)$ and $\phi$ satisfies Assumption 1.
 Denote the realized network $g$ as
 \[ \bm{G} = \left[
@@ -460,7 +455,7 @@ By proposition 1, we can compute each player's equilibrium payoffs:
 		\left( \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - c_{12}, \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - c_{21} \right) & (g_{12} = 1, g_{21} = 1) \\
 		\left( \frac{1}{2}{(1+\phi)}^2 - c_{12}, \frac{1}{2} \right) & (g_{12} = 1, g_{21} = 0) \\
 		\left( \frac{1}{2}, \frac{1}{2}{(1+\phi)}^2 - c_{21} \right) & (g_{12} = 0, g_{21} = 1) \\
-		\left( \frac{1}{2}, \frac{1}{2} \right) & (g_{12} = 0, g_{21} = 0)
+		\left( \frac{1}{2}, \frac{1}{2} \right) & (g_{12} = 0, g_{21} = 0).
 	\end{cases} \]
 Payoff matrix is:
 \begin{table}[htb]
@@ -475,7 +470,7 @@ Payoff matrix is:
 
 From this calculation, if $c_{12}$ and $c_{21}$ satisfy
 \[ \frac{1}{2}{(1+\phi)}^2 - \frac{1}{2} < c_{12} < \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - \frac{1}{2} \]
-\[ \frac{1}{2}{(1+\phi)}^2 - \frac{1}{2} < c_{21} < \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - \frac{1}{2} \]
+\[ \frac{1}{2}{(1+\phi)}^2 - \frac{1}{2} < c_{21} < \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - \frac{1}{2}, \]
 then $(g_{12}, g_{21}) = (1,1)$ and $(g_{12}, g_{21}) = (0,0)$ are both Nash equilibria.
 Thus, complete network $\bm{G} = \left[
 	\begin{array}{cc}
@@ -540,10 +535,7 @@ are both equilibrium networks.
 
 Example 1 shows the equilibrium network may not be unique and Figure \ref{fig:eq} shows that the region of costs which brings the respective equilibrium network.
 We can see the region which returns complete equilibrium network\footnote{The network is {\it{complete}} if each node has links to all other nodes. In adjacency matrix, every off-diagonal entries are equal to $1$.} and empty equilibrium network\footnote{The network is {\it{empty}} if there is no link in the network. In adjacency matrix, all entries are equal to $0$.} overlap.
-From this perspective, the algorithm can potentially converge multiple equilibria.
-In each step, the number of the agents who do not take best responses is generally greater than one.
-Therefore, the order of the agents who delete the links is changed, and the network in each steps is also changed.
-This may lead to the different networks.
+When the link formation costsare in some ranges, there exist multiple networks.
 
 To avoid the problem of equilibrium multiplicity, we want to focus on the greatest equilibrium.
 However, how can we obtain the largest equilibrium network?
@@ -558,7 +550,7 @@ Consider the next algorithm.
 		Denote the set of agents who do not take best response as $NB^{(0)}$:
 		\begin{equation*}
 		\begin{split}
-			NB^{(0)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_i, \psi_{-i}^{(0)}), \tilde{\psi}_i, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(0)})), \bm{\psi}^{(0)}, \bm{C}, \phi) \}
+			NB^{(0)} = \{i \in N &\mid \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_i, \psi_{-i}^{(0)}), \tilde{\psi}_i, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(0)})), \bm{\psi}^{(0)}, \bm{C}, \phi) \}.
 		\end{split}
 		\end{equation*}
 		Go into Step 1.
@@ -569,7 +561,7 @@ Consider the next algorithm.
 
 		Otherwise, choose a agent $i \in NB^{(k-1)}$ randomly.
 		Define
-		\[ \overline{BR}_i(\psi_{-i}^{(k-1)}) = \{ \psi_i \in \Psi_i \mid u_i(\bm{x}^*(g(\psi_i, \psi_{-i}^{(k-1)})), \psi_i, \psi_{-i}^{(k-1)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k-1)})), \bm{\psi}^{(k-1)}, \bm{C}, \phi) \} \]
+		\[ \overline{BR}_i(\psi_{-i}^{(k-1)}) = \{ \psi_i \in \Psi_i \mid u_i(\bm{x}^*(g(\psi_i, \psi_{-i}^{(k-1)})), \psi_i, \psi_{-i}^{(k-1)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k-1)})), \bm{\psi}^{(k-1)}, \bm{C}, \phi) \}. \]
 		$i$ changes her strategy from $\psi_i^{(k-1)}$ to $\psi_i \in \overline{BR}_i(\psi_{-i}^{(k-1)})$\footnote{Note $\overline{BR}_i(\psi_{-i}^{(k-1)}) \neq \emptyset$ by construction of $NB^{(k-1)}$.}, and set $\psi_i^{(k)} = \psi_i$.
 		For any other agents $j (\neq i)$ remain their strategies, $\psi_j^{(k)} = \psi_j^{(k-1)}$.
 		If $|\overline{BR}_i(\psi_{-i}^{(k-1)})| > 1$, choose the largest one in $\overline{BR}_i(\psi_{-i}^{(k-1)})$.
@@ -577,7 +569,7 @@ Consider the next algorithm.
 		Compute each players' payoffs and define $NB^{(k)}$:
 		\begin{equation*}
 		\begin{split}
-			NB^{(k)} = \{i \in N &| \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_i, \psi_{-i}^{(k)}), \tilde{\psi}_i, \psi_{-i}^{(k)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k)})), \bm{\psi}^{(k)}, \bm{C}, \phi) \}
+			NB^{(k)} = \{i \in N &\mid \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_i, \psi_{-i}^{(k)}), \tilde{\psi}_i, \psi_{-i}^{(k)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k)})), \bm{\psi}^{(k)}, \bm{C}, \phi) \}.
 		\end{split}
 		\end{equation*}
 		Proceed to Step $k+1$.
@@ -592,7 +584,7 @@ We have to show that there always exists the largest best response in order to d
 Next lemma shows its existence.
 
 \begin{lemma}
-In Algorithm 1, for any step $k$, $|BR_i(\psi_{-i}^{(k-1)})| = 1$ for any $i \in NB^{(k-1)}$
+In Algorithm 1, for any step $k(\ge 1)$, $|BR_i(\psi_{-i}^{(k-1)})| = 1$ for any $i \in NB^{(k-1)}$
 \end{lemma}
 
 By this lemma, we can see Algotihm 1 works well.
@@ -620,7 +612,7 @@ This result is based on the supermodularity of the 1st stage game.
 Given the potential network $g^p$.
 Consider the cost $\bm{\hat{C}}$ and $\bm{C}$ with $\bm{\hat{C}} \le \bm{C}$.
 Then,
-\[ g^{**}(\bm{\psi}^*(g^p, \bm{\hat{C}}, \phi, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
+\[ g^{**}(\bm{\psi}^*(g^p, \bm{\hat{C}}, \phi, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})). \]
 \end{proposition}
 
 This propopsition is based on the property of supermodular game: changes in key parameters monotonically shift the equilibria of a supermodular game.
@@ -628,12 +620,12 @@ By the same argument, we have the following corollary.
 
 \begin{corollary}
 	Given the potential network $g^p$. For $\hat{\phi} \ge \phi$ which satisfy the Assumption,
-        \[ g^{**}(\bm{\psi}^*(g^p, \bm{C}, \hat{\phi}, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
+        \[ g^{**}(\bm{\psi}^*(g^p, \bm{C}, \hat{\phi}, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})). \]
     For $\bm{\hat{\alpha}} \ge \bm{\alpha}$,
-        \[ g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\hat{\alpha}})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
+        \[ g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\hat{\alpha}})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})). \]
 \end{corollary}
 
-The realized network is a increasing function in the costs of forming links.
+The realized network is decreasing in the costs of forming links, and increasing in the benefit of effort and intensity of peer effects.
 However, it is obvious that this function is discontiunous.
 The next example shows that small changes in the costs makes the network entirely changed.
 
@@ -648,7 +640,7 @@ Consider the costs $\bm{C}$ such that
 				3 & 3 & 0 & 3 & 3 \\
 				3 & 3 & 3 & 0 & 3  \\
 				3 & 3 & 3 & 3 & 0
-			\end{array} \right] \]
+			\end{array} \right]. \]
 Then, the equilibrium network $g^*$ becomes
 \[\bm{G}^{**} = \left[
 			\begin{array}{ccccc}
@@ -657,7 +649,7 @@ Then, the equilibrium network $g^*$ becomes
 				1 & 1 & 0 & 1 & 1 \\
 				1 & 1 & 1 & 0 & 1 \\
 				1 & 1 & 1 & 1 & 0
-			\end{array} \right] \]
+			\end{array} \right]. \]
 The equilibrium network becomes complete network.
 On the other hand, when the cost of forming a link from agent $1$ to agent $2$ slightly increases, for any $\epsilon > 0$,
 \[ \bm{\hat{C}} = \left[
@@ -676,7 +668,7 @@ then, the equilibrium network $\hat{g}^*$ becomes
 				0 & 0 & 0 & 0 & 0 \\
 				0 & 0 & 0 & 0 & 0 \\
 				0 & 0 & 0 & 0 & 0
-			\end{array} \right] \]
+			\end{array} \right]. \]
 The equilibrium network is empty network.
 \end{example}
 
@@ -762,44 +754,43 @@ Therefore, the benefit of forming links cannot compensate the cost of keeping li
 
 We can see tiny changes in the costs generates large discontinuity in the structure of the network.
 Example 2 shows that our model incorporates the {\it{phase transition}}: the phenomenon that the feature of the network is totally changed\footnote{see Jackson(2010)~\cite{social}}.
-But as discussed above, it is difficult to identify the threshold of the transition by the discontinuity of the realized network.
 
 
 \section{Policy implication}
 
 \subsection{Key player policy}
 
-We first argue the {\it{key player}} in the network, who has the largest impact on the aggregate behavior of the network.
-In the previous literatures, for example Ballester, Calvo-Armengol, and Zenou(2006, 2010)~\cite{whowho, delinquent} and Liu et.al.(2012)~\cite{criminal}, argue the key player and give necessary and sufficient condition of who becomes it in the context of similar model\footnote{Denbee, Julliard, Li, and Yuan(2018)~\cite{denbee} defines the key player in financial network}.
+We first argue a {\it{key player}} in the network who has the largest impact on the aggregate behavior of the network.
+In the previous literature, for example Ballester, Calvo-Armengol, and Zenou(2006, 2010)~\cite{whowho, delinquent} and Liu et.al.(2012)~\cite{criminal}, argue a key player and give necessary and sufficient condition of who becomes it in the context of similar model\footnote{Denbee, Julliard, Li, and Yuan(2018)~\cite{denbee} defines a key player in financial network}.
 In these papers, key player is defined as the agent who, once removed from the network, generates the highest possible reduction in aggreate effort level.
 Key player is thought of, for example, the player who supports the criminal activity of his friends in the context of criminal network.
 The formal definition of key player is given as follows:
 
 \begin{definition}
 Agent $i$ is the {\it{key player in exogenous network}} if, given network $g$,
-\[ i \in \argmax_{i \in N} \{ x^*(g) - x^*(g^{-i}) \} \]
+\[ i \in \argmax_{i \in N} \{ x^*(g) - x^*(g^{-i}) \}. \]
 \end{definition}
 
 Here we denote $x^*(g) = \sum_{i=1}^n x_i^*(g)$ and $g^{-i}$ is the network where agent $i$ is removed from the network $g$.
 The adjecency matrix of $g^{-i}$, $\bm{G}^{-i}$, is obtained from $\bm{G}$ by setting to zero all of its $i$th row and column entries.
-Previous literatures show the key player in exogenous network does not always coincide with the most active player who excerts highest effort.
+Previous literature shows the key player in exogenous network does not always coincide with the most active player who excerts highest effort.
 
-In this paper, the definition of key player might be different from the previous ones.
-Since the network is endogenous in our model, the key player is the agent who generates the largest reduction in the total effort level once she is removed from the potential network.
+In this paper, the definition of a key player might be different from the previous one.
+Since the network is endogenous in our model, a key player is the agent who generates the largest reduction in the total effort level once she is removed from the potential network.
 
 \begin{definition}
 Agent $i$ is the {\it{key player in endogenous network}} if, given potential network $g^p$,
-\[ i \in \argmax_{i \in N} \{ x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}))) - x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}^{-i}))) \} \]
+\[ i \in \argmax_{i \in N} \{ x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}))) - x^*(g(\bm{\psi}({g^p}^{-i}, \bm{C}^{-i}))) \}. \]
 \end{definition}
 Here we denote ${g^p}^{-i}$ is the network where agent $i$ is removed from the network $g^p$ as before.
 $\bm{C}^{-i}$ is obtained from $\bm{C}$ by setting to zero all of its $i$th row and column entries.
 
-As discussed in the previous section, there exists a discontinuity of the network realization in the link formation costs, so it is very difficult to identify the condition to be a key player\footnote{Similar to Elliott, Golub, and Jackson(2014)~\cite{contagion}, we cannot identify which banks will be in default by the discontinuity of banks' values}.
-The realization of the network is a key factor to be a key player in the endogenous network.
-We know that denser network leads higher effort level by the network externality, so, in order to become a key player in endogenous network, the realized network after removing should be sparse.
+As noted in the previous section, there exists a discontinuity of the network realization in the link formation costs, so it is very difficult to identify the condition to be a key player\footnote{Similar to Elliott, Golub, and Jackson(2014)~\cite{contagion}, we cannot identify which banks will be in default by the discontinuity of banks' values}.
+The realized network is a key factor to be a key player in the endogenous network.
+We know that denser network leads higher effort level by the network externality(see Lemma 1), so, in order to become a key player in endogenous network, the realized network after removing should be sparse.
 
-Although it is difficult to identify who becomes key player, we can find that the most active player, key player in endogenous network, and key player in exogenous network can be different each other.
-To compare the kay player in endogenous network and exogenous network, we treat realized network from the potential network and costs as given, then compute the key player in exogenous network.
+Although it is difficult to identify who becomes key player, we can see that the player with the highest effort, key player in endogenous network, and key player in exogenous network can be different each other.
+To compare a kay player in endogenous network and exogenous network, we treat realized network from the potential network and costs as given, then compute the key player in exogenous network.
 Endogenous one is computed by the definition.
 
 \begin{example}
@@ -814,7 +805,7 @@ Consider the link formation costs as follows:
 				0.2 & 0.2 & 0 & 4.5 & 4.3 \\
 				4.1 & 0.2 & 0.4 & 0 & 6.5 \\
 				3.2 & 4.1 & 0.3 & 1.0 & 0
-			\end{array} \right] \]
+			\end{array} \right]. \]
 Then, the realized equilibrium network $g^*$ is:
 \[\bm{G}^* = \left[
 			\begin{array}{ccccc}
@@ -823,9 +814,9 @@ Then, the realized equilibrium network $g^*$ is:
 				1 & 1 & 0 & 0 & 0 \\
 				0 & 1 & 1 & 0 & 0 \\
 				0 & 0 & 1 & 0 & 0
-			\end{array} \right] \]
+			\end{array} \right]. \]
 In this network, we can compute the equilibrium effort levels by computer.
-\[ (x_1^*, x_2^*, x_3^*, x_4^*, x_5^*) \approx (1.99, 2.12, 1.82, 1.78, 1.36) \]
+\[ (x_1^*, x_2^*, x_3^*, x_4^*, x_5^*) \approx (1.99, 2.12, 1.82, 1.78, 1.36). \]
 As you see, the agent who excerts highest effort is agent $2$.
 However, the key player in endogenous network $g^*$ is agent $1$.
 On the other hand, when we treat the network $g^*$ as given, the key player in exogenous network is agent $3$.
@@ -892,7 +883,7 @@ Figure \ref{fig:ex3} shows the key player in endogenous and exogenous network in
 \caption{Equilibrium network $G^{*}$ and key players in Example 3} \label{fig:ex3}
 \end{figure}
 
-Agent 2 is the most active player (with highest effort) in both endogenous and exogenous network because he connects to the agent 1 and 3 who excert second and third highest effort and strategic complementarity let him excert high level effort.
+Agent 2 is the player with the highest effort in both endogenous and exogenous network because he connects to the agent 1 and 3 who excert second and third highest effort and strategic complementarity let him excert high level effort.
 Agent 3 is the key player in the exogenous network.
 All other agents form link to her, so once she is removed from the network, the others cannot get benefit from her amd aggregate negative impact is large.
 The key player in the endogenous network is agent 1.
@@ -910,13 +901,13 @@ First, we define key removing link which is defined as the link that, once remov
 \begin{definition}
 	Link $ij$ is {\it{key removing link in endogenous network}} if, given potential network $g^p$,
     \[ ij \in \argmax_{ij \in E(g^p)} \{ x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) - x^*(g^{**}(\bm{\psi}({g^p}^{-ij}, \bm{C}))) \} \]
-    where $E(g)$ is the set of links in $g^p$ and ${g^p}^{-ij}$ is network obtained by removing link $ij$ from $g^p$
+    where $E(g)$ is the set of links in $g^p$ and ${g^p}^{-ij}$ is network obtained by removing link $ij$ from $g^p$.
 \end{definition}
 
 \begin{definition}
 	Link $ij$ is {\it{key removing link in exogenous network}} if, given network $g$,
     \[ ij \in \argmax_{ij \in E(g)} \{ x^*(g) - x^*(g^{-ij}) \} \]
-    where $E(g)$ is the set of links in $g$ and $g^{-ij}$ is network obtained by removing link $ij$ from $g$
+    where $E(g)$ is the set of links in $g$ and $g^{-ij}$ is network obtained by removing link $ij$ from $g$.
 \end{definition}
 
 % interpretation of key removing link : NEED TO BE MODIFYING
@@ -941,7 +932,7 @@ Consider potential network $g^p$ and link formation costs are
                 0 & 1 & 1 \\
                 1 & 0 & 1 \\
                 1 & 0 & 0
-            \end{array} \right]\]
+            \end{array} \right].\]
 Then, the equilibrium network $g^{**}$ is
 
 \[ \bm{G}^{**} = \left[
@@ -949,7 +940,7 @@ Then, the equilibrium network $g^{**}$ is
         0 & 1 & 1 \\
         1 & 0 & 1 \\
         1 & 0 & 0
-    \end{array} \right] \]
+    \end{array} \right]. \]
 By considering $g^{**}$ as exogenous network, key removing link in exogenoous network is link $12$ and $31$.
 But, in this example, key removing in endogenous network is link $23$.
 We can reduce the aggregate level of efforts by removing link $23$ from the potential network $g^p$.
@@ -1031,13 +1022,13 @@ Key adding link is defined as the link which, once added to the network, generat
 \begin{definition}
 	Link $ij$ is {\it{key adding link in endogenous network}} if, given potential network $g^p$,
     \[ ij \in \argmax_{ij \notin E(g^p)} \{ x^*(g^{**}(\bm{\psi}({g^p}^{+ij}, \bm{C}))) - x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) \} \]
-    where ${g^p}^{+ij}$ is network obtained by adding link $ij$ to $g^p$
+    where ${g^p}^{+ij}$ is network obtained by adding link $ij$ to $g^p$.
 \end{definition}
 
 \begin{definition}
 	Link $ij$ is {\it{key adding link in exogenous network}} if, given network $g$,
     \[ ij \in \argmax_{ij \notin E(g)} \{ x^*(g^{+ij}) - x^*(g) \} \]
-    where $g^{+ij}$ is network obtained by adding link $ij$ to $g$
+    where $g^{+ij}$ is network obtained by adding link $ij$ to $g$.
 \end{definition}
 
 In the context of web advertisement network, key adding link is the advertisement on the page which brings the highest increment in aggregate effort level.
@@ -1061,14 +1052,14 @@ Consider potential network $g^p$ and link formation costs are
                     0 & 0.1 & 0.1 \\
                     1 & 0 & 0 \\
                     1 & 0 & 0
-                \end{array} \right] \]
+                \end{array} \right]. \]
 Then, the greatest equilibrium network $g^{**}$ becomes
 \[ \bm{G}^{**} = \left[
     \begin{array}{ccc}
         0 & 1 & 1 \\
         0 & 0 & 0 \\
         0 & 0 & 0
-    \end{array} \right]\]
+    \end{array} \right].\]
 By considering $g^{**}$ as exogenous network, key adding link in exogenoous network is link $21$ and $31$.
 But, in this example, key removing in endogenous network is link $23$ and $32$.
 We can increase the aggregate level of efforts by adding link $23$ or link $32$ to the potential network $g^p$.
@@ -1165,11 +1156,11 @@ The closed form solution to identify the key player is remaining for future work
 \section{Conclusion}
 
 This paper argues the game with externality in the endogenously formed network.
-Contrary to the previous literatures, agents endogenously form the network.
+Contrary to the previous literature, agents endogenously form the network.
 In the model, agents choose their neighbors in the potential network at first, and then the network is realized.
 When agents form links to others, they incur the link-specific costs and their decisions depend on these costs.
 Link formation costs play an important role in determining the realized network structure.
-Next, agents decide their effort level in this formed network, and their decisions generates the externality, peer effect, through the network.
+Next, agents decide their effort levels in this formed network, and their decisions generate the externalities, peer effects, through the network.
 We focus on the subgame perfect equilibrium where agents take pure strategies in each stage.
 We show that there always exists the equilibrium for any potential network and link formation costs.
 Behind this result, there are supermodurality in the 1st stage game given 2nd stage equilibrium.
@@ -1180,11 +1171,11 @@ Therefore, it is significant to consider the mechanism of network formation.
 Some weaknesses in our model are remaining for the future work.
 First, link formation is accomplished by the unilateral decisions.
 This is mainly due to the simplification of the analysis.
-In reality, the relationships are made by the bilateral agreement, such as friendship network and firm-to-firm relationship.
-In such a model, the network is treated as undirected network.
+In reality, the relationships are often made by the bilateral agreement, such as friendship network and firm-to-firm relationship.
+In such a model, the network should be treated as undirected network theoretically.
 To incorporate the bilateral decisions, in the model similar to ours, we have to consider the complex belief system: when I offer the relationship, will she accept my offer?
 The beliefs depend on other agents' decisions and beliefs, so it is not easy to bilateral link formation.
-Second, links don't have any weights, unweighted network.
+Second, in our models, links don't have any weights, unweighted network.
 In many situations, relationships have unequal importances, for example, the closeness of friends are not equal in the social network.
 In order to make the links weighted, agents have to deecide the link weights when they form relationships.
 Our model can be extened to the unweighted network when agents choose the intensity of each forming links like Kim, J., Patacchini, E., Picard, P.M. and Y. Zenou (2017)~\cite{Urban}.
@@ -1202,12 +1193,14 @@ Analyzing various kinds of network formation opens the way to "network design" f
 \section{Appendix}
 
 \begin{proof}[Proof of Proposition 1.]
-	For all pair $ij$, from the definition of $g$ and $g^p$, $g_{ij} \ge 0$, $g_{ij}^p \ge 0$, and $g_{ij}^p \ge g_{ij}$.
+	From the definition of $g$ and $g^p$, we have $\bm{G}^p \ge \bm{G}$.
 	By the theorem $\text{I}^*$ of Debreu and Herstein (1952)~\cite{debreu}, we can have
-	\[ \rho(\bm{G}^p) \ge \rho(\bm{G})  \]
+	\begin{equation*}
+		\rho(\bm{G}^p) \ge \rho(\bm{G}).
+	\end{equation*}
 	Since $\phi > 0$, by Assumption 1, $\phi \rho(\bm{G}) < 1$.
 	By Theorem 1 of Ballester, Calv\'{o}-Armengol and Zenou (2005)~\cite{whowho}, we can have a unique Nash equilibrium $\bm{x}^*$, which is interior and given by
-	\[ \bm{x}^* = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \] 
+	\[ \bm{x}^* = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha}. \] 
 \end{proof}
 
 \begin{proof}[Proof of Lemma 1.]
@@ -1225,17 +1218,17 @@ Analyzing various kinds of network formation opens the way to "network design" f
 	\begin{eqnarray*}
 		\bm{x}^*(\hat{g}) - \bm{x}^*(g) &\ge& \bm{0}
 	\end{eqnarray*}
-	By construction, we can write $\bm{\hat{G}} = \bm{G} + \bm{D}$ for nonnegative matrix $\bm{D}$.
+	By construction, we can write $\bm{\hat{G}} = \bm{G} + \bm{D}$ for nonnegative matrix $\bm{D}$ such that any entry of $\bm{D}$ is either $0$ or $1$.
 	We can rewrite (\ref{lemma1-1}) as
 	\begin{eqnarray*}
 		\bm{x}^*(\hat{g}) - \bm{x}^*(g) &=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{G}}^p - \bm{G}^p) \bm{\alpha} \\
 										&=& \sum_{p=0}^{\infty} \phi^p ((\bm{G} + \bm{D})^p - \bm{G}^p) \bm{\alpha} \\
-										&=& \phi \bm{D} \bm{\alpha} + \phi^2 (\bm{G} \bm{D} + \bm{D} \bm{G}) \bm{\alpha} + \cdots
+										&=& \phi \bm{D} \bm{\alpha} + \phi^2 (\bm{G} \bm{D} + \bm{D} \bm{G}) \bm{\alpha} + \cdots .
 	\end{eqnarray*}
 	Since, for some $j$, $\hat{g}_{ij} - g_{ij} = 1$, $\alpha_j > 0$, and $\phi > 0$, $i$-th element of $\phi \bm{D} \bm{\alpha}$ is strictly greater than $0$.
 	Because any combinations of nonnegative matrices $\bm{G}$ and $\bm{D}$ are nonnegative, $i$-th element of $\bm{x}^*(\hat{g}) - \bm{x}^*(g)$ is strictly greater than $0$.
 	Thus, we have
-	\[ x_i^*(\hat{g}) > x_i^*(g) \]
+	\[ x_i^*(\hat{g}) > x_i^*(g). \]
 \end{proof}
 
 \begin{proof}[Proof of Lemma 2.]
@@ -1248,17 +1241,20 @@ Analyzing various kinds of network formation opens the way to "network design" f
 			&=& \sum_{p=0}^{\infty} \phi^p \bm{\hat{G}}^p \bm{\alpha} - \sum_{p=0}^{\infty} \phi^p \bm{G}^p \bm{\alpha} \\
 			&=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{G}}^p - \bm{G}^p) \bm{\alpha} \\
 			&=& \sum_{p=0}^{\infty} \phi^p ({(\bm{G} + \bm{D})}^p - \bm{G}^p) \\
-			&=& \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{G} \bm{D} + \bm{D} \bm{G} + \bm{D}^2 \} \bm{\alpha} + \cdots \\
+			&=& \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{G} \bm{D} + \bm{D} \bm{G} + \bm{D}^2 \} \bm{\alpha} + \cdots .
+	\end{eqnarray*}
+	Similarly,
+	\begin{eqnarray*}
 		\bm{x}^*(\hat{h}) - \bm{x}^*(h)
 			&=& \sum_{p=0}^{\infty} \phi^p \bm{\hat{H}}^p \bm{\alpha} - \sum_{p=0}^{\infty} \phi^p \bm{H}^p \bm{\alpha} \\
 			&=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{H}}^p - \bm{H}^p) \bm{\alpha} \\
 			&=& \sum_{p=0}^{\infty} \phi^p ({(\bm{H} + \bm{D})}^p - \bm{H}^p) \\
-			&=& \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{H} \bm{D} + \bm{D} \bm{H} + \bm{D}^2 \} \bm{\alpha} + \cdots
+			&=& \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{H} \bm{D} + \bm{D} \bm{H} + \bm{D}^2 \} \bm{\alpha} + \cdots .
 	\end{eqnarray*}
 	Therefore,
 	\begin{equation}
 		\label{lemma2}
-		\{ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \} - \{ \bm{x}^*(\hat{h}) - \bm{x}^*(h) \} = \phi^2 ((\bm{G} - \bm{H}) \bm{D} + \bm{D} (\bm{G} - \bm{H})) \bm{\alpha} + \cdots
+		\{ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \} - \{ \bm{x}^*(\hat{h}) - \bm{x}^*(h) \} = \phi^2 ((\bm{G} - \bm{H}) \bm{D} + \bm{D} (\bm{G} - \bm{H})) \bm{\alpha} + \cdots .
 	\end{equation}
 	By construction, $\bm{G} - \bm{H}$ is nonnegative matrix.
 	Since $\bm{D}$ is nonnegative, the combination of $\bm{G} - \bm{H}$ and $\bm{D}$ is also nonnegative.
@@ -1266,15 +1262,15 @@ Analyzing various kinds of network formation opens the way to "network design" f
 	Thus,
 	\begin{equation}
 		\label{lemma2-1}
-		\bm{x}^*(\hat{g}) - \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) - \bm{x}^*(h)
+		\bm{x}^*(\hat{g}) - \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) - \bm{x}^*(h).
 	\end{equation}
 	In addition, since $\hat{g} \supseteq \hat{h}$ and $g \supseteq h$, by Lemma 1, we have
 	\begin{equation}
 		\label{lemma2-2}
-		\bm{x}^*(\hat{g}) + \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) + \bm{x}^*(h)
+		\bm{x}^*(\hat{g}) + \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) + \bm{x}^*(h).
 	\end{equation}
 	Therefore, from (\ref{opteff}), (\ref{lemma2-1}) and (\ref{lemma2-2}),
-	\[ v_i^*(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i^*(\bm{x}^*(g), g, \phi) \ge v_i^*(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i^*(\bm{x}^*(h), h, \phi)\]
+	\[ v_i^*(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i^*(\bm{x}^*(g), g, \phi) \ge v_i^*(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i^*(\bm{x}^*(h), h, \phi).\]
 \end{proof}
 
 \begin{proof}[Proof of Theorem 1.]
@@ -1285,11 +1281,11 @@ Analyzing various kinds of network formation opens the way to "network design" f
 		\begin{enumerate}
 			\item $\bm{\Psi}$ is a sublattice of $\prod_{i=1}^n \mathbb{R}^n$, 
 			\item $u_i(\psi_i, \psi_{-i})$ is supermodular in $\psi_i$ on $\Psi_i$ for each $\psi_{-i}$ on $\Psi_{-i}$ for each $i$, and
-			\item $u_i(\psi_i, \psi_{-i})$ has increasing differences in $(\psi_i, \psi_{-i})$ on $\Psi_i \times \Psi_{-i}$
+			\item $u_i(\psi_i, \psi_{-i})$ has increasing differences in $(\psi_i, \psi_{-i})$ on $\Psi_i \times \Psi_{-i}$.
 		\end{enumerate}
 	\end{definition}
 
-	$\bm{\Psi}$ is sublattice of $\prod_{i=1}^n \mathbb{R}^n$ since, for any nonempty subset $\bm{\tilde{\Psi}} \subseteq \bm{\Psi}$, $\inf(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$ and $\sup(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$ by the construction of $\bm{\Psi}$.
+	$\bm{\Psi}$ is a sublattice of $\prod_{i=1}^n \mathbb{R}^n$ since, for any nonempty subset $\bm{\tilde{\Psi}} \subseteq \bm{\Psi}$, $\inf(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$ and $\sup(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$ by the construction of $\bm{\Psi}$.
 
 	Next, we show that $u_i$ is supermodular in $\psi_i$ for fixed $\psi_{-i}$.
 	Fix any $\psi_{-i} \in \Psi_{-i}$ and take $\psi_i, \psi_i' \in \Psi_i$ arbitrarily.
@@ -1298,23 +1294,23 @@ Analyzing various kinds of network formation opens the way to "network design" f
 	Consider the matrix $\bm{D}$ where, for any $ij$,
 	\[ d_{ij} = \begin{cases}
 					1 & (\text{if} \ g_{ij} = 1 \ \text{and} \ h_{ij} = 0) \\
-					0 & (\text{otherwise})
+					0 & (\text{otherwise}).
 				\end{cases} \]
 	Then, the adjacency matrix of $g(\psi_i \vee \psi_i', \psi_{-i})$ is $\bm{G} + \bm{D}$ and the adjacency matrix of $g(\psi_i', \psi_{-i})$ is $\bm{H} + \bm{D}$.
 	By Lemma 2, we have
-	\[ v_i(g(\psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) \le v_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}), \phi) \]
+	\[ v_i(g(\psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) \le v_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}), \phi). \]
 	Thus, we have
 	\begin{align*}
 	& u_i(g(\psi_i', \psi_{-i}), \phi) - u_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) \le u_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) - u_i(g(\psi_i, \psi_{-i}), \phi) \\
-		& \Leftrightarrow u_i(g(\psi_i, \psi_{-i}), \phi) + u_i(g(\psi_i', \psi_{-i}), \phi) \le u_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) + u_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) 
+		& \Leftrightarrow u_i(g(\psi_i, \psi_{-i}), \phi) + u_i(g(\psi_i', \psi_{-i}), \phi) \le u_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) + u_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) .
 	\end{align*}
 	Therefore, $u_i$ is supermodular in $\psi$
 
 	Take any $\psi_i \ge \psi_i'$ and $\psi_{-i} \ge \psi_{-i}'$.
 	By Lemma 2,
-	\[ v_i(g(\psi_i, \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}'),\phi) \ge v_i(g(\psi_i, \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}'),\phi) \]
+	\[ v_i(g(\psi_i, \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}'),\phi) \ge v_i(g(\psi_i, \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}'),\phi). \]
 	Therefore,
-	\[ u_i(g(\psi_i, \psi_{-i}), \phi) - u_i(g(\psi_i, \psi_{-i}'),\phi) \ge u_i(g(\psi_i, \psi_{-i}), \phi) - u_i(g(\psi_i, \psi_{-i}'),\phi) \]
+	\[ u_i(g(\psi_i, \psi_{-i}), \phi) - u_i(g(\psi_i, \psi_{-i}'),\phi) \ge u_i(g(\psi_i, \psi_{-i}), \phi) - u_i(g(\psi_i, \psi_{-i}'),\phi). \]
 	$u_i(\psi_i, \psi_{-i})$ has increasing differences in $(\psi_i, \psi_{-i})$.
 	From all these above, we can say $\Gamma$ is supermodular game.
 \end{proof}
@@ -1363,28 +1359,28 @@ Analyzing various kinds of network formation opens the way to "network design" f
 	\begin{align}
 		\label{thm1-1}
 		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - c_{ij} - \sum_{k \neq j} g_{ik}^{(\tau - 1)} c_{ik} \notag \\
-			& < v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) - \sum_{k \neq j} {g_{ik} \setminus \{ ij \}}^{(\tau - 1)} c_{ik}
+			& < v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) - \sum_{k \neq j} {g_{ik} \setminus \{ ij \}}^{(\tau - 1)} c_{ik}.
 	\end{align}
 	At step $\tau + t$,
 	\begin{align}
 		\label{thm1-2}
 		& v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi) - \sum_{k \neq j} g_{ik}^{(\tau + t-1)} c_{ik} \notag \\
-			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - c_{ij} - \sum_{k \neq j} {g_{ik} \cup \{ ij \}}^{(\tau + t-1)} c_{ik}
+			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - c_{ij} - \sum_{k \neq j} {g_{ik} \cup \{ ij \}}^{(\tau + t-1)} c_{ik}.
 	\end{align}
 	From (\ref{thm1-1}),
-	\[ c_{ij} > v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \]
+	\[ c_{ij} > v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi). \]
 	From (\ref{thm1-2}),
-	\[ c_{ij} < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi) \]
+	\[ c_{ij} < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi). \]
 	Therefore,
 	\begin{align}
 		\label{thm1-3}
 		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \notag \\
-			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi)
+			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi).
 	\end{align}
 	Note that, from Lemma 2,
 	\begin{align*}
 		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) \\
-			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi)
+			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi).
 	\end{align*}
 	This contradicts to (\ref{thm1-3}), and link $ij$ will never be reformed once it is removed.
 	Since the number of links is finite, the algorithm terminates in finite steps.
@@ -1392,7 +1388,7 @@ Analyzing various kinds of network formation opens the way to "network design" f
 
 \begin{proof}[Proof of Proposition 3.]
 	 Consider the normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$, which is first stage game given Nash equilibrium in second stage.
-	 To compare the utility with different $\bm{C}$, we write utility function as $u_i(\psi_i, \psi_{-i}, \bm{C})$ for all $i \in N$.
+	 To compare the utility with different $\bm{C}$s, we write utility function as $u_i(\psi_i, \psi_{-i}, \bm{C})$ for all $i \in N$.
 	 We first show that for all $i \in N$, $u_i(\psi_i, \psi_{-i}, \bm{C})$ has increasing differences in $(\psi_i, \bm{C})$.
 	 Take any $\psi_i, \hat{\psi}_i \in \Psi_i$ with $\hat{\psi}_i \ge \psi_i$, and any $\bm{\hat{C}}$ and $\bm{C}$ with $\bm{\hat{C}} \le \bm{C}$.
 	 Fix any $\psi_{-i} \in \Psi_{-i}$
@@ -1403,14 +1399,14 @@ Analyzing various kinds of network formation opens the way to "network design" f
 	 	& \{ u_i(\hat{\psi}_i, \psi_{-i}, \bm{\hat{C}}) - u_i(\psi_i, \psi_{-i}, \bm{\hat{C}}) \} - \{ u_i(\hat{\psi}_i, \psi_{-i}, \bm{C}) - u_i(\psi_i, \psi_{-i}, \bm{C}) \} \\
 	 		& = \left[ \{ v_i(\hat{g}, \phi) - \sum_{j=1}^n \hat{g}_{ij} \hat{c}_{ij} \} -  \{ v_i(g, \phi) - \sum_{j=1}^n g_{ij} \hat{c}_{ij} \} \right] - \left[ \{ v_i(\hat{g}, \phi) - \sum_{j=1}^n \hat{g}_{ij} c_{ij} \} - \{ v_i(g, \phi) - \sum_{j=1}^n g_{ij} c_{ij} \} \right] \\
 	 		& = \sum_{j=1}^n \hat{g}_{ij} (c_{ij} - \hat{c}_{ij}) - \sum_{j=1}^n g_{ij} (c_{ij} - \hat{c}_{ij}) \\
-	 		& = \sum_{j=1}^n (\hat{g}_{ij} - g_{ij}) (c_{ij} - \hat{c}_{ij}) \ge 0
+	 		& = \sum_{j=1}^n (\hat{g}_{ij} - g_{ij}) (c_{ij} - \hat{c}_{ij}) \ge 0.
 	 \end{align*}
 	 Last inequalty comes from $\bm{\hat{C}} \le \bm{C}$ and ${\bm{\hat{G}}}^p \ge {\bm{G}}^p$ and $\bm{\hat{G}} \ge \bm{G}$.
 	 Thus, we see that for all $i \in N$, $u_i(\psi_i, \psi_{-i}, \bm{C})$ has increasing differences in $(\psi_i, \bm{C})$.
 
 	 By Theorem 6 in Milgrom and Roberts (1990)~\cite{milgromroberts}, the greatest equilibrium network $g^{**}$ is increasing in $\bm{\alpha}$.
 	 Therefore, we have
-	 \[ g^{**}(\bm{\psi}^*(g^p, \bm{\hat{C}}, \phi, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
+	 \[ g^{**}(\bm{\psi}^*(g^p, \bm{\hat{C}}, \phi, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})). \]
 \end{proof}
 
 

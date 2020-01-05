@@ -550,7 +550,7 @@ Consider the next algorithm.
 		Denote the set of agents who do not take best response as $NB^{(0)}$:
 		\begin{equation*}
 		\begin{split}
-			NB^{(0)} = \{i \in N &\mid \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_i, \psi_{-i}^{(0)}), \tilde{\psi}_i, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(0)})), \bm{\psi}^{(0)}, \bm{C}, \phi) \}.
+			NB^{(0)} = \{i \in N &\mid \exists \tilde{\psi}_i \in \Psi_i \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_i, \psi_{-i}^{(0)}), \tilde{\psi}_i, \psi_{-i}^{(0)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(0)})), \bm{\psi}^{(0)}, \bm{C}, \phi) \}.
 		\end{split}
 		\end{equation*}
 		Go into Step 1.
@@ -569,7 +569,7 @@ Consider the next algorithm.
 		Compute each players' payoffs and define $NB^{(k)}$:
 		\begin{equation*}
 		\begin{split}
-			NB^{(k)} = \{i \in N &\mid \exists \tilde{\psi}_i \subset N_i(g^p) \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_i, \psi_{-i}^{(k)}), \tilde{\psi}_i, \psi_{-i}^{(k)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k)})), \bm{\psi}^{(k)}, \bm{C}, \phi) \}.
+			NB^{(k)} = \{i \in N &\mid \exists \tilde{\psi}_i \in \Psi \ \text{s.t.} \ u_i(\bm{x}^*(g(\tilde{\psi}_i, \psi_{-i}^{(k)}), \tilde{\psi}_i, \psi_{-i}^{(k)}, \bm{C}, \phi) > u_i(\bm{x}^*(g(\bm{\psi}^{(k)})), \bm{\psi}^{(k)}, \bm{C}, \phi) \}.
 		\end{split}
 		\end{equation*}
 		Proceed to Step $k+1$.
@@ -580,14 +580,7 @@ Algorithm 1 is one of the {\it{best response dynamics}} algorithms, where agents
 We can interpret this algorithm as the learning procedure.
 Agents initially does not take best responses, but as seeing others' strategies, agents adopt best responses.
 In the algorithm, agent choose the largest strategy in $\overline{BR}_i(\psi_{-i}^{(k-1)})$.
-We have to show that there always exists the largest best response in order to define this .
-Next lemma shows its existence.
-
-\begin{lemma}
-In Algorithm 1, for any step $k(\ge 1)$, $|BR_i(\psi_{-i}^{(k-1)})| = 1$ for any $i \in NB^{(k-1)}$
-\end{lemma}
-
-By this lemma, we can see Algotihm 1 works well.
+By the property of supermodurarity\footnote{See Topkis (1979)~\cite{topkis1979}.}, $\overline{BR}_i(\psi_{-i}^{(k-1)})$ is a sublattice which has a greatest element.
 You notice that if the best reponse dynamics halts, it returns a pure strategy Nash equilibrium.\footnote{See Nisan, Noam, et al.~\cite{AGT}}
 As in Topkis (1998)~\cite{topkis1998}, returned network is the greatest equilibrium network.
 We can show Algorithm 1 terminates in finite steps, and we can have the largest equilibrium network.
@@ -1247,8 +1240,6 @@ Analyzing various kinds of network formation opens the way to "network design" f
 	\begin{eqnarray*}
 		\bm{x}^*(\hat{h}) - \bm{x}^*(h)
 			&=& \sum_{p=0}^{\infty} \phi^p \bm{\hat{H}}^p \bm{\alpha} - \sum_{p=0}^{\infty} \phi^p \bm{H}^p \bm{\alpha} \\
-			&=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{H}}^p - \bm{H}^p) \bm{\alpha} \\
-			&=& \sum_{p=0}^{\infty} \phi^p ({(\bm{H} + \bm{D})}^p - \bm{H}^p) \\
 			&=& \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{H} \bm{D} + \bm{D} \bm{H} + \bm{D}^2 \} \bm{\alpha} + \cdots .
 	\end{eqnarray*}
 	Therefore,
@@ -1276,8 +1267,8 @@ Analyzing various kinds of network formation opens the way to "network design" f
 \begin{proof}[Proof of Theorem 1.]
 	First, we note the definition of supermodular game.
 
-	\begin{definition}\footnote{This definition depends on Topkis (1998)~\cite{topkis1998}.}
-		A normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$ is supermodular game if
+	\begin{definition}
+		A normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$ is a {\it{supermodular game}}\footnote{This definition depends on Topkis (1998)~\cite{topkis1998}.} if
 		\begin{enumerate}
 			\item $\bm{\Psi}$ is a sublattice of $\prod_{i=1}^n \mathbb{R}^n$, 
 			\item $u_i(\psi_i, \psi_{-i})$ is supermodular in $\psi_i$ on $\Psi_i$ for each $\psi_{-i}$ on $\Psi_{-i}$ for each $i$, and
@@ -1304,52 +1295,16 @@ Analyzing various kinds of network formation opens the way to "network design" f
 	& u_i(g(\psi_i', \psi_{-i}), \phi) - u_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) \le u_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) - u_i(g(\psi_i, \psi_{-i}), \phi) \\
 		& \Leftrightarrow u_i(g(\psi_i, \psi_{-i}), \phi) + u_i(g(\psi_i', \psi_{-i}), \phi) \le u_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) + u_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) .
 	\end{align*}
-	Therefore, $u_i$ is supermodular in $\psi$
+	Hence, $u_i$ is supermodular in $\psi$.
 
-	Take any $\psi_i \ge \psi_i'$ and $\psi_{-i} \ge \psi_{-i}'$.
+	Take any $\psi_i, \psi_i' \in \Psi_i$ with $\psi_i \ge \psi_i'$ and $\psi_{-i}, \psi_{-i}' \in \Psi_{-i}$ with $\psi_{-i} \ge \psi_{-i}'$.
+	Note that $g(\psi_i, \psi_{-i}) \supseteq g(\psi_i', \psi_{-i})$ and $g(\psi_i, \psi_{-i}') \supseteq g(\psi_i', \psi_{-i}')$.
+	Also, we have $E(g(\psi_i, \psi_{-i})) \setminus E(g(\psi_i', \psi_{-i})) = E(g(\psi_i, \psi_{-i}')) \setminus E(g(\psi_i', \psi_{-i}'))$.
 	By Lemma 2,
-	\[ v_i(g(\psi_i, \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}'),\phi) \ge v_i(g(\psi_i, \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}'),\phi). \]
-	Therefore,
-	\[ u_i(g(\psi_i, \psi_{-i}), \phi) - u_i(g(\psi_i, \psi_{-i}'),\phi) \ge u_i(g(\psi_i, \psi_{-i}), \phi) - u_i(g(\psi_i, \psi_{-i}'),\phi). \]
+	\[ v_i(g(\psi_i, \psi_{-i}), \phi) - v_i(g(\psi_i', \psi_{-i}),\phi) \ge v_i(g(\psi_i, \psi_{-i}'), \phi) - v_i(g(\psi_i', \psi_{-i}'),\phi) \]
+	\[ \Leftrightarrow u_i(g(\psi_i, \psi_{-i}), \phi) - u_i(g(\psi_i', \psi_{-i}),\phi) \ge u_i(g(\psi_i, \psi_{-i}'), \phi) - u_i(g(\psi_i', \psi_{-i}'),\phi). \]
 	$u_i(\psi_i, \psi_{-i})$ has increasing differences in $(\psi_i, \psi_{-i})$.
 	From all these above, we can say $\Gamma$ is supermodular game.
-\end{proof}
-
-\begin{proof}[Proof of Lemma 3.]
-	Take any $i \in N$.
-	Consider the network $g$ with $g_{ij} = g_{ik} = 1$.
-	Suppose $i$ has multiple strategies which are best responses and bring strictly higher payoffs given other agents' strategies fixed.
-	Without loss of generarity, we can assume such strategies are removing link $ij$ and removing link $ik$.
-	Therefore,
-	\begin{align}
-		\label{lemma3-1}
-		& u_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) = u_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) \notag \\
-			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - (\sum_{l=1}^n g_{il} c_{il} - c_{ij}) = v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) - (\sum_{l=1}^n g_{il} c_{il} - c_{ik}) \notag \\
-			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) + c_{ij} = v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) + c_{ik} \notag \\
-			& \Leftrightarrow c_{ij} = v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) - v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) + c_{ik}
-	\end{align}
-	Also, we have
-	\begin{align}
-		\label{lemma3-2}
-		& u_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) > u_i^*(\bm{x}^*(g), g, \phi) \notag \\
-			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - (\sum_{l=1}^n g_{il} c_{il} - c_{ij}) > v_i^*(\bm{x}^*(g), g, \phi) - \sum_{l=1}^n g_{il} c_{il} \notag \\
-			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) + c_{ij} > v_i^*(\bm{x}^*(g), g, \phi) \notag \\
-			& \Leftrightarrow c_{ik} > v_i^*(\bm{x}^*(g), g, \phi) - v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi)
-	\end{align}
-	Inequality (\ref{lemma3-2}) is obtained from equation (\ref{lemma3-1}).
-	Consider the strategy removing $ij$ and $ik$, which is not best reponse.
-	Hence, we can have
-	\begin{align}
-		\label{lemma3-3}
-		& u_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) > u_i^*(\bm{x}^*(g \setminus \{ij,ik\}), g \setminus \{ij,ik\}, \phi) \notag \\
-			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - (\sum_{l=1}^n g_{il} c_{il} - c_{ij}) > v_i^*(\bm{x}^*(g \setminus \{ij,ik\}), g \setminus \{ij,ik\}, \phi) - (\sum_{l=1}^n g_{il} c_{il} - c_{ij} - c_{ik}) \notag \\
-			& \Leftrightarrow v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - v_i^*(\bm{x}^*(g \setminus \{ij,ik\}), g \setminus \{ij,ik\}, \phi) > c_{ik}
-	\end{align}
-	By (\ref{lemma3-2}) and (\ref{lemma3-3}),
-	\[ v_i^*(\bm{x}^*(g), g, \phi) - v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) < v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - v_i^*(\bm{x}^*(g \setminus \{ij,ik\}), g \setminus \{ij,ik\}, \phi) \]
-	However, by Lemma 2,
-	\[ v_i^*(\bm{x}^*(g), g, \phi) - v_i^*(\bm{x}^*(g \setminus \{ik\}), g \setminus \{ik\}, \phi) \ge v_i^*(\bm{x}^*(g \setminus \{ij\}), g \setminus \{ij\}, \phi) - v_i^*(\bm{x}^*(g \setminus \{ij,ik\}), g \setminus \{ij,ik\}, \phi) \]
-	This is contradiction, and deleting $ij$ and deleting $ik$ cannot be best responses at the same time.
 \end{proof}
 
 \begin{proof}[Proof of Proposition 2.]
@@ -1359,13 +1314,13 @@ Analyzing various kinds of network formation opens the way to "network design" f
 	\begin{align}
 		\label{thm1-1}
 		& v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - c_{ij} - \sum_{k \neq j} g_{ik}^{(\tau - 1)} c_{ik} \notag \\
-			& < v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) - \sum_{k \neq j} {g_{ik} \setminus \{ ij \}}^{(\tau - 1)} c_{ik}.
+			& < v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi) - \sum_{k \neq j} {(g^{(\tau - 1)} \setminus \{ij\})}_{ik} c_{ik}.
 	\end{align}
 	At step $\tau + t$,
 	\begin{align}
 		\label{thm1-2}
 		& v_i(\bm{x}^*(g^{(\tau + t-1)}), g^{(\tau + t-1)}, \phi) - \sum_{k \neq j} g_{ik}^{(\tau + t-1)} c_{ik} \notag \\
-			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - c_{ij} - \sum_{k \neq j} {g_{ik} \cup \{ ij \}}^{(\tau + t-1)} c_{ik}.
+			& < v_i(\bm{x}^*(g^{(\tau + t-1)} \cup \{ ij \}), g^{(\tau + t-1)} \cup \{ ij \}, \phi) - c_{ij} - \sum_{k \neq j} {(g^{(\tau + t-1)} \cup \{ij\})}_{ik} c_{ik}.
 	\end{align}
 	From (\ref{thm1-1}),
 	\[ c_{ij} > v_i(\bm{x}^*(g^{(\tau - 1)}), g^{(\tau - 1)}, \phi) - v_i(\bm{x}^*(g^{(\tau - 1)} \setminus \{ ij \}), g^{(\tau - 1)} \setminus \{ ij \}, \phi). \]
@@ -1388,7 +1343,7 @@ Analyzing various kinds of network formation opens the way to "network design" f
 
 \begin{proof}[Proof of Proposition 3.]
 	 Consider the normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$, which is first stage game given Nash equilibrium in second stage.
-	 To compare the utility with different $\bm{C}$s, we write utility function as $u_i(\psi_i, \psi_{-i}, \bm{C})$ for all $i \in N$.
+	 To compare the utility with different $\bm{C}$'s, we write utility function as $u_i(\psi_i, \psi_{-i}, \bm{C})$ for all $i \in N$.
 	 We first show that for all $i \in N$, $u_i(\psi_i, \psi_{-i}, \bm{C})$ has increasing differences in $(\psi_i, \bm{C})$.
 	 Take any $\psi_i, \hat{\psi}_i \in \Psi_i$ with $\hat{\psi}_i \ge \psi_i$, and any $\bm{\hat{C}}$ and $\bm{C}$ with $\bm{\hat{C}} \le \bm{C}$.
 	 Fix any $\psi_{-i} \in \Psi_{-i}$

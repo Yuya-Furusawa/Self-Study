@@ -40,7 +40,7 @@
     \begin{itemize}
         \item R\&D network, criminal network, educational network
     \end{itemize}
-    \item Many literatures argue the importance of "peer effects" both theoretically and empirically
+    \item Many literatures argue the importance of "peer effects" theoretically and empirically
 \end{itemize}
 \end{frame}
 
@@ -62,15 +62,15 @@
     \item We provide
     \begin{itemize}
         \item the existence of subgame perfect equilibrium where all agents take pure strategies at each stage
-        \item the argument about the uniqueness of the equilibrium
-        \item the discussion for policy implication (key player and key link policy)
+        \item the argument about the equilibrium uniqueness and multiplicity
+        \item the discussion about policy implication (key player and key link policy)
     \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Related Literature}
 \begin{itemize}
-    \item Network with peer effect
+    \item Peer effect in networks
     \begin{itemize}
         \item Ballester et.al.(2006), Calv\'{o}-Armengol et.al.(2009), Liu et.al.(2012)
     \end{itemize}
@@ -78,7 +78,7 @@
     \begin{itemize}
         \item Acemoglu and Azar(2019), Oberfield(2018), Farboodi(2014)
     \end{itemize}
-    \item Closely related paper
+    \item Closely related paper(peer effect + endogeneity)
     \begin{itemize}
         \item Kim et.al.(2017), Hiller(2017)
     \end{itemize}
@@ -90,7 +90,7 @@
 
 \begin{frame}{Model : Setup}
 \begin{itemize}
-    \item the set of agents : $N = \{ 1, \cdots, n \}$ with $n \ge 2$ and $n < \infty$
+    \item the set of agents : $N = \{ 1, \ldots, n \}$ with $n \ge 2$ and $n < \infty$
     \item Agents are initially connected in {\it{potential network}} $g^p$
     \item $g^p$ is represented by adjacency matrix $\bm{G}^p = {(g_{ij}^p)}_{ij}$ where
     \[ g_{ij}^p =
@@ -106,28 +106,28 @@
 
 \begin{frame}{Model : 1st stage}
 \begin{itemize}
-    \item First, agents simultaneously choose their neighbors from the agents whom they connect in potential network
-    \item This strategy is represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, and $\psi_{ij} = 0$ for all $j \notin N_i(g^p)$
-    \item Note that $\psi_i \in \Psi_i = \{0,1\}^n$
-    \item When agent form links, he incurs the link-specific costs $c_{ij} \ge 0$
+    \item First, agents simultaneously choose their neighbors from the agents whom they connect in the potential network
+    \item This action is represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, and $\psi_{ij} = 0$ for all $j \notin N_i(g^p)$
+    \item Denote $\psi_i \in \Psi_i = \{0,1\}^n$
+    \item When an agent $i$ form link to $j$, he incurs the link-specific costs $c_{ij} \ge 0$
     \begin{itemize}
-        \item We denote $\bm{C} = {(c_{ij})}_{ij}$ and $c_i = (c_{i1}, \cdots, c_{in})$
+        \item We denote $\bm{C} = {(c_{ij})}_{ij}$
         \item $\bm{C}$ is not necessarily symmetric
     \end{itemize}
-    \item "Choosing neighbors" strategy is dependent on $g^p$ and $c_i$, so sometimes we denote $\psi_i(g^p, c_i)$
+    \item The action in the 1st stage is dependent on $g^p$ and $\bm{C}$, so sometimes we denote $\psi_i(g^p, \bm{C})$
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Model : Realized network}
 \begin{itemize}
-    \item At the end of 1st stage, we can see {\it{realized network}} denoted as $g$
+    \item At the end of the 1st stage, we can see {\it{realized network}} denoted as $g$
     \item $g$ is represented by the adjacency matrix $\bm{G}$
-    \[ g_{ij}(\psi_{ij}(g^p, c_i)) = 
+    \[ g_{ij}(\psi_{ij}(g^p, \bm{C})) = 
         \begin{cases}
-            1 \  (\text{if} \  \psi_{ij}(g^p, c_i) = 1 ) \\
+            1 \  (\text{if} \  \psi_{ij}(g^p, \bm{C}) = 1 ) \\
             0 \  (\text{otherwise})
         \end{cases} \]
-    \item $g$ depends on $\bm{\psi}(g^p, \bm{C}) = \times_{i=1}^n \psi_i(g^p, c_i)$, so we can denote $g(\bm{\psi}(g^p, \bm{C}))$
+    \item $g$ depends on $\bm{\psi}(g^p, \bm{C}) = \times_{i=1}^n \psi_i(g^p, \bm{C})$, so we can denote $g(\bm{\psi}(g^p, \bm{C}))$
     \item To avoid redundant expression, we denote $g(\bm{\psi})$
 \end{itemize}
 \end{frame}
@@ -199,23 +199,23 @@
 
 \begin{frame}{Model : 2nd stage}
 \begin{itemize}
-    \item Given realized network, each agent $i = 1, \cdots, n$ simultaneously excerts an effort $x_i \ge 0$
+    \item Given realized network, each agent $i \in N$ simultaneously exerts an effort $x_i \ge 0$
     \item Denote $\bm{x} = (x_1, \cdots, x_n)$
     \item Payoff function is
         \[ u_i(\bm{x}, \bm{\psi}, \bm{C}, \phi) = v_i(\bm{x}, g(\bm{\psi}), \phi) - \sum_{j=1}^n g_{ij}(\bm{\psi}) c_{ij} \]
         where
         \[ v_i(\bm{x}, g(\bm{\psi}), \phi) = \alpha_i x_i - \frac{1}{2} x_i^2 + \phi \sum_{j=1}^n g_{ij}(\bm{\psi}) x_i x_j \]
     \item $\phi > 0$ and cross term represent the peer effect
-    \item Optimal level of effort depends on the realized network
+    \item $\alpha_i > 0$ and denote $\bm{\alpha} = (\alpha_1, \cdots, \alpha_n)$
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Interpretation : Examples}
 \begin{itemize}
-    \item node : web sites, students
-    \item link : ad on other sites, teacher-student relationship
-    \item link formation cost : ad fee, psychological barrier
-    \item effort : investments on web contents, effort on study
+    \item node : web sites, municaiparities in Mexico and U.S.
+    \item link : ad on other sites, drug traffick
+    \item link formation cost : ad fee, prob of capture during trafficking
+    \item effort : investments on web contents, drug demand
 \end{itemize}
 \end{frame}
 
@@ -224,7 +224,7 @@
 
 \begin{frame}{Equilibrium}
 \begin{itemize}
-    \item {\bf{Definition}} : Given $g^p$ and $\bm{C}$, the network $g^*$ is equilibrium network if $g^* = g(\bm{\psi}^*)$ where $\bm{\psi}^*$ is the strategies in the pure-strategy subgame perfect equilibrium.
+    \item {\bf{Definition}} : Given $g^p$ and $\bm{C}$, a network $g^*$ is an {\it{equilibrium network}} if $g^* = g(\bm{\psi}^*)$ where $\bm{\psi}^*$ is an action profile in a pure strategy subgame perfect equilibrium.
     \item We focus on pure strategy equilibrium to consider the non-stochastic network
 \end{itemize}
 \end{frame}
@@ -235,36 +235,27 @@
     \item {\bf{Proposition}} : Under Assumption, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, which is interior and given by
     \[ \bm{x}^*(g, \phi, \bm{\alpha}) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \]
     \item This is based on Ballester, Calv\'{o}-Armengol, and Zenou(2006)
-    \item By backward induction, strategies in 1st stage also depends on $\phi$ and $\bm{\alpha}$, so we can write $\bm{\psi}(g^p, \bm{C}, \phi, \bm{\alpha})$
+    \item We have
+    \[ v_i(\bm{x}^*(g), g, \phi) = \frac{1}{2} {x_i^*(g)}^2 \]
 \end{itemize}
 \end{frame}
 
 \begin{frame}[label=theorem]{Supermodularity and equilibrium existence}
 \begin{itemize}
-    \item By backward induction, given 2nd stage Nash equilibrium, consider the 1st stage game as normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$
-    \item {\bf{Theorem}} : $\Gamma$ is a supermodular game
-    \begin{itemize}
-        \item \hyperlink{proof}{[Proof]}
-    \end{itemize}
+    \item By backward induction, given 2nd stage Nash equilibrium, consider the 1st stage game as a normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$
+    \item {\bf{Theorem}} : For any $g^p$ and $\bm{C}$, $\Gamma$ is a supermodular game \hyperlink{proof}{[Proof]}
     \item {\bf{Corollary}} : Equilibrium network always exists, in particular the greatest and smallest equilibrium network exists
     \item We focus on the greatest equilibrium network and denote $g^{**}$
     \begin{itemize}
-        \item The greatest equilibrium can be obtained by well designed {\it{best response dynamics}}
+        \item The greatest equilibrium can be obtained by designed {\it{best response dynamics}} algorithm
     \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Intuition}
 \begin{itemize}
-    \item {\bf{Strategic complementarity in 2nd stage}} : Given the realized network, if the neighbors excert more efforts, the agent has a incentive to excert more effort by peer effects.
-    \item {\bf{Strategic complementarity in 1nd stage}} : When agent $i$ forms more links, he excert more effort by the strategic complementarity in 2nd stage. Agent $i$'s increased effort makes agents who have a link to him excert more effort, so all agents' level of effort weakly increases. Increasing level of efforts makes the agents to connect more agents.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Toward undirected network}
-\begin{itemize}
-    \item {\bf{Proposition}} : If $\bm{G}^p$ and $\bm{C}$ are symmetric and $\alpha_i = \alpha > 0$ for all $i$, then $\bm{G}^*$, adjacency matrix of equilibrium network $g^*$, is symmetric
-    \item We can deal with undirected network, but lack the bilateral agreement
+    \item {\bf{Strategic complementarity in 2nd stage}} : Given the realized network, if the neighbors exert more efforts, the agent has an incentive to exert more effort by peer effects.
+    \item {\bf{Strategic complementarity in 1st stage}} : When agent $i$ forms more links, he exerts more effort by the strategic complementarity in 2nd stage. Agent $i$'s increased effort makes agents who have a link to him exert more efforts, so all agents' level of effort weakly increases. Increasing level of efforts makes the agents to connect more agents.
 \end{itemize}
 \end{frame}
 
@@ -475,7 +466,7 @@
 \begin{frame}{Key player}
 \begin{itemize}
     \item Key player is the agent who has the largest impact on the aggregate behavior of the network
-    \item {\bf{Definition}} : Agent $i$ is key player in exogenous network $g$ if, given network $g$,
+    \item {\bf{Definition}} : Agent $i$ is a {\it{key player in exogenous network }} if, given network $g$,
         \[ i \in \arg \max_{i \in N} \{ x^*(g) - x^*(g^{-i}) \} \]
         where $x^*(g) = \sum_{i=1}^n x_i^*(g)$ and $g^{-i}$ is the network where agent $i$ is removed from the network $g$
 \end{itemize}
@@ -483,10 +474,10 @@
 
 \begin{frame}{Key player in endogenous network}
 \begin{itemize}
-    \item {\bf{Definition}} : Agent $i$ is key player in endogenous network if, given potential network $g^p$,
+    \item {\bf{Definition}} : Agent $i$ is a {\it{key player in endogenous network}} if, given potential network $g^p$,
         \[ i \in \arg \max_{i \in N} \{ x^*(g^{**}(\bm{\psi}({g^p}, \bm{C}))) - x^*(g^{**}(\bm{\psi}({g^p}^{-i}, \bm{C}^{-i}))) \} \]
         where ${g^p}^{-i}$ is the network where agent $i$ is removed from the network $g^p$
-    \item However, it is difficult to identify key player due to the complexity of the mapping from cost structure to realized network
+    \item However, it is difficult to identify a key player due to the complexity of the mapping from cost structure to realized network
 \end{itemize}
 \end{frame}
 
@@ -573,10 +564,10 @@
 
 \begin{frame}{Key removing link in endogenous and exogenous network}
 \begin{itemize}
-    \item {\bf{Definition}} : Link $ij$ is key removing link in endogenous network if, given potential network $g^p$,
+    \item {\bf{Definition}} : Link $ij$ is a {\it{key removing link in endogenous network}} if, given potential network $g^p$,
         \[ ij \in \arg \max_{ij \in E(g^p)} \{ x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) - x^*(g^{**}(\bm{\psi}({g^p}^{-ij}, \bm{C}))) \} \]
         where $E(g)$ is the set of links in $g^p$ and ${g^p}^{-ij}$ is network obtained by removing link $ij$ from $g^p$
-    \item {\bf{Definition}} : Link $ij$ is key removing link in exogenous network $g$ if, given network $g$,
+    \item {\bf{Definition}} : Link $ij$ is a {\it{key removing link in exogenous network}} $g$ if, given network $g$,
         \[ ij \in \arg \max_{ij \in E(g)} \{ x^*(g) - x^*(g^{-ij}) \} \]
         where $E(g)$ is the set of links in $g$ and $g^{-ij}$ is network obtained by removing link $ij$ from $g$
 \end{itemize}
@@ -684,10 +675,10 @@
 
 \begin{frame}{Key adding link in endogenous and exogenous network}
 \begin{itemize}
-    \item {\bf{Definition}} : Link $ij$ is key adding link in endogenous network if, given potential network $g^p$,
+    \item {\bf{Definition}} : Link $ij$ is a {\it{key adding link in endogenous network}} if, given potential network $g^p$,
         \[ ij \in \arg \max_{ij \notin E(g^p)} \{ x^*(g^{**}(\bm{\psi}({g^p}^{+ij}, \bm{C}))) - x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) \} \]
         where ${g^p}^{+ij}$ is network obtained by adding link $ij$ to $g^p$
-    \item {\bf{Definition}} : Link $ij$ is key adding link in exogenous network $g$ if, given network $g$,
+    \item {\bf{Definition}} : Link $ij$ is a {\it{key adding link in exogenous network}} $g$ if, given network $g$,
         \[ ij \in \arg \max_{ij \notin E(g)} \{ x^*(g^{+ij}) - x^*(g) \} \]
         where $g^{+ij}$ is network obtained by adding link $ij$ to $g$
 \end{itemize}
@@ -810,22 +801,14 @@
 
 \begin{frame}{Conclusion}
 \begin{itemize}
-    \item We consider the endogenous network formation with peer effect
+    \item We consider the endogenous network formation with peer effects
     \item In the model, link formation costs play an important role in determining the network structure and individual and aggregate behaviors
     \item Due to the supermodularity, we can show the existence of equilibrium network
     \item We can provide
     \begin{itemize}
-        \item comparative statics result
-        \item discussion about policy implication
+        \item comparative statics results
+        \item discussion about policy implication : key player and key link
     \end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Future work}
-\begin{itemize}
-    \item link formation with bilateral agreement
-    \item weighted network
-    \item other form of utility function
 \end{itemize}
 \end{frame}
 
@@ -836,35 +819,40 @@
 \begin{itemize}
     \item {\bf{Lemma 1}} : Consider the network $g$ and $\hat{g}$ with $g \subseteq \hat{g}$. Then,
             \[ \bm{x}^*(\hat{g}) \ge \bm{x}^*(g) \]
-    \item {\bf{Lemma 2}} : Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ ($\bm{G}$, $\bm{\hat{G}}$, $\bm{H}$, and $\bm{\hat{H}}$) such that $\bm{G} \ge \bm{H}$ and  $\bm{\hat{G}} \ge \bm{\hat{H}}$ with $\bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$. Then,
-            \[ v_i^*(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i^*(\bm{x}^*(g), g, \phi) \ge v_i^*(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i^*(\bm{x}^*(h), h, \phi)\]
+    \item {\bf{Lemma 2}} : Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ ($\bm{G}$, $\bm{\hat{G}}$, $\bm{H}$, and $\bm{\hat{H}}$) such that $\bm{G} \ge \bm{H}$, $\bm{\hat{G}} \ge \bm{\hat{H}}$, $\bm{\hat{G}} \ge \bm{G}$ and $\bm{\hat{H}} \ge \bm{H}$ with $\bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$. Then, for all $i \in N$,
+            \[ v_i(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i(\bm{x}^*(g), g, \phi) \ge v_i(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i(\bm{x}^*(h), h, \phi)\]
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Proof of Lemma 2}
 \begin{itemize}
-    \item Let $\bm{D} = \bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$
-    \item Then,
+    \item Let $\bm{D} = \bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$ and $\bm{\hat{D}} = \bm{G} - \bm{H}$.
+    \item We have,
         \begin{eqnarray*}
             \bm{x}^*(\hat{g}) - \bm{x}^*(g) &=& {(\bm{I} - \phi \bm{\hat{G}})}^{-1} \bm{\alpha} - {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \\
                                             &=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{G}}^p - \bm{G}^p) \bm{\alpha} \\
-                                            &=& \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{GD} + \bm{DG} + \bm{D}^2 \} \bm{\alpha} + \cdots
+            \bm{x}^*(\hat{h}) - \bm{x}^*(h) &=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{H}}^p - \bm{H}^p) \bm{\alpha}
         \end{eqnarray*}
-    \item Similarly,
-        \[ \bm{x}^*(\hat{h}) - \bm{x}^*(h) = \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{HD} + \bm{DH} + \bm{D}^2 \} \bm{\alpha} + \cdots \]
-    \item Therefore,
-        \[ \{ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \} - \{ \bm{x}^*(\hat{h}) - \bm{x}^*(h) \} = \phi^2 \{(\bm{G} - \bm{H}) \bm{D} + \bm{D} (\bm{G} - \bm{H})\} \bm{\alpha} + \cdots \]
+    \item Then,
+        \[ \{ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \} - \{ \bm{x}^*(\hat{h}) - \bm{x}^*(h) \} = \sum_{p=0}^{\infty} \phi^p \{(\bm{\hat{G}}^p - \bm{G}^p) - (\bm{\hat{H}}^p - \bm{H}^p)\} \bm{\alpha} \]
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Proof of Lemma 2}
 \begin{itemize}
-    \item Since $\bm{G} - \bm{H}$ and $\bm{D}$ is nonnegative matrix, we have
+    \item Assume $(\bm{\hat{G}}^p - \bm{G}^p) - (\bm{\hat{H}}^p - \bm{H}^p) \ge \bm{0}$. Then,
+        \begin{align*}
+            & (\bm{\hat{G}}^{p+1} - \bm{G}^{p+1}) - (\bm{\hat{H}}^{p+1} - \bm{H}^{p+1}) \\
+                &= ((\bm{G} + \bm{D}) \bm{\hat{G}}^p - \bm{G} \bm{G}^p) - ((\bm{H} + \bm{D}) \bm{\hat{H}}^p - \bm{H} \bm{H}^p) \\
+                &= \{\bm{G}(\bm{\hat{G}}^p - \bm{G}^p) - \bm{H}(\bm{\hat{H}}^p - \bm{H}^p) \} + \bm{D} (\bm{\hat{G}}^p - \bm{\hat{H}}^p) \\
+                &= \bm{H}\{(\bm{\hat{G}}^p - \bm{G}^p) - (\bm{\hat{H}}^p - \bm{H}^p)\} + \bm{\hat{D}} (\bm{\hat{G}}^p - \bm{G}^p) + \bm{D} (\bm{\hat{G}}^p - \bm{\hat{H}}^p) \ge \bm{0}
+        \end{align*}
+    \item By induction,
         \[ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) - \bm{x}^*(h) \]
     \item By Lemma 1, we have
         \[ \bm{x}^*(\hat{g}) + \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) + \bm{x}^*(h) \]
     \item Therefore,
-        \[ v_i^*(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i^*(\bm{x}^*(g), g, \phi) \ge v_i^*(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i^*(\bm{x}^*(h), h, \phi)\]
+        \[ v_i(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i(\bm{x}^*(g), g, \phi) \ge v_i(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i(\bm{x}^*(h), h, \phi)\]
 \end{itemize}
 \end{frame}
 
@@ -874,14 +862,14 @@
     \item increasing differences $\rightarrow$ Lemma 2
     \item supermodularity of $u_i(\psi_i, \psi_{-i})$ in $\psi_i$
     \begin{itemize}
-        \item Take any $\psi_i, \psi_i' \in \Psi_i$
+        \item Take any $\psi_i, \psi_i' \in \Psi_i, \psi_{-i} \in \Psi_{-i}$
         \item Consider $g=g(\psi_i,\psi_{-i})$ and $h=g(\psi_i \wedge \psi_i',\psi_{-i})$ ($\bm{G}$ and $\bm{H}$)
         \item Consider the nonnegative matrix $\bm{D}$ with
             \[ d_{ij} = \begin{cases}
                     1 & (\text{if} \ g_{ij} = 1 \ \text{and} \ h_{ij} = 0) \\
                     0 & (\text{otherwise})
                 \end{cases} \]
-        \item Then,the adjacency matrix of $g(\psi_i \vee \psi_i', \psi_{-i})$ and $g(\psi_i, \psi_{-i})$ are $\bm{G} + \bm{D}$ and $\bm{H} + \bm{D}$ respectively
+        \item Then,the adjacency matrix of $g(\psi_i \vee \psi_i', \psi_{-i})$ and $g(\psi_i', \psi_{-i})$ are $\bm{G} + \bm{D}$ and $\bm{H} + \bm{D}$ respectively
         \item By Lemma 2,
             {\footnotesize
             \[ v_i(g(\psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) \le v_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}), \phi) \]

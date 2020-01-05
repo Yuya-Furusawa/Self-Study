@@ -339,7 +339,7 @@ Given $g^p$ and $\bm{C}$, a network $g^*$ is an {\it{equilibrium network}} if $g
 We characterize an equilibrium network by a standard way: backward induction.
 First, given realized network $g$, consider the second stage game.
 To characterize an equilibrium in this subgame, we require a new assumption.
-Denote $\rho (\bm{G})$ as the spectral radius of the matrix $\bm{G}$\footnote{The {\it{spectral radius}} of a matrix is the largest absolute value of its eigenvalues.}.
+Denote $\rho (\bm{G})$ as the spectral radius\footnote{The {\it{spectral radius}} of a matrix is the largest absolute value of its eigenvalues.} of the matrix $\bm{G}$.
 
 \begin{assumption}
 $\phi \rho(\bm{G}^p) < 1.$
@@ -1225,37 +1225,44 @@ Analyzing various kinds of network formation opens the way to "network design" f
 \end{proof}
 
 \begin{proof}[Proof of Lemma 2.]
-	Here, we abbreviate the strategies $\bm{\psi}$.
-	Let $\bm{D}$ be the matrix such that $d_{ij} \in \{0,1\}$.
-	Then, we can write $\bm{\hat{G}} = \bm{G} + \bm{D}$ and $\bm{\hat{H}} = \bm{H} + \bm{D}$.
+	Let $\bm{D}$ be the nonnegative matrix such that $\bm{D} = \bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$.
 	We can have
 	\begin{eqnarray*}
 		\bm{x}^*(\hat{g}) - \bm{x}^*(g)
 			&=& \sum_{p=0}^{\infty} \phi^p \bm{\hat{G}}^p \bm{\alpha} - \sum_{p=0}^{\infty} \phi^p \bm{G}^p \bm{\alpha} \\
-			&=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{G}}^p - \bm{G}^p) \bm{\alpha} \\
-			&=& \sum_{p=0}^{\infty} \phi^p ({(\bm{G} + \bm{D})}^p - \bm{G}^p) \\
-			&=& \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{G} \bm{D} + \bm{D} \bm{G} + \bm{D}^2 \} \bm{\alpha} + \cdots .
+			&=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{G}}^p - \bm{G}^p) \bm{\alpha}.
 	\end{eqnarray*}
 	Similarly,
 	\begin{eqnarray*}
 		\bm{x}^*(\hat{h}) - \bm{x}^*(h)
 			&=& \sum_{p=0}^{\infty} \phi^p \bm{\hat{H}}^p \bm{\alpha} - \sum_{p=0}^{\infty} \phi^p \bm{H}^p \bm{\alpha} \\
-			&=& \phi \bm{D} \bm{\alpha} + \phi^2 \{ \bm{H} \bm{D} + \bm{D} \bm{H} + \bm{D}^2 \} \bm{\alpha} + \cdots .
+			&=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{H}}^p - \bm{H}^p) \bm{\alpha}.
 	\end{eqnarray*}
-	Therefore,
+	Then,
 	\begin{equation}
 		\label{lemma2}
-		\{ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \} - \{ \bm{x}^*(\hat{h}) - \bm{x}^*(h) \} = \phi^2 ((\bm{G} - \bm{H}) \bm{D} + \bm{D} (\bm{G} - \bm{H})) \bm{\alpha} + \cdots .
+		\{ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \} - \{ \bm{x}^*(\hat{h}) - \bm{x}^*(h) \} = \sum_{p=0}^{\infty} \phi^p \{(\bm{\hat{G}}^p - \bm{G}^p) - (\bm{\hat{H}}^p - \bm{H}^p)\} \bm{\alpha}
 	\end{equation}
-	By construction, $\bm{G} - \bm{H}$ is nonnegative matrix.
-	Since $\bm{D}$ is nonnegative, the combination of $\bm{G} - \bm{H}$ and $\bm{D}$ is also nonnegative.
-	The right hand side of (\ref{lemma2}) is greater than or equal to zero.
-	Thus,
+	Denote $\bm{\hat{D}} = \bm{G} - \bm{H}$.
+	Note that $\bm{\hat{D}}$ is nonnegative matrix.
+	Assume $\bm{\hat{G}}^{p} - \bm{G}^{p}) - (\bm{\hat{H}}^{p} - \bm{H}^{p}) \ge \bm{0}$ for $p (\ge 0)$.
+	For $p + 1$,
+	\begin{eqnarray*}
+		(\bm{\hat{G}}^{p+1} - \bm{G}^{p+1}) - (\bm{\hat{H}}^{p+1} - \bm{H}^{p+1}) &=& (\bm{\hat{G}} \bm{\hat{G}}^p - \bm{G} \bm{G}^p) - (\bm{\hat{H}} \bm{\hat{H}}^p - \bm{H} \bm{H}^p) \\
+				&=& ((\bm{G} + \bm{D}) \bm{\hat{G}}^p - \bm{G} \bm{G}^p) - ((\bm{H} + \bm{D}) \bm{\hat{H}}^p - \bm{H} \bm{H}^p) \\
+				&=& (\bm{G}(\bm{\hat{G}}^p - \bm{G}^p) + \bm{D} \bm{\hat{G}}^p) - (\bm{H}(\bm{\hat{H}}^p - \bm{H}^p) + \bm{D} \bm{\hat{H}}^p) \\
+				&=& \{\bm{G}(\bm{\hat{G}}^p - \bm{G}^p) - \bm{H}(\bm{\hat{H}}^p - \bm{H}^p) \} + \bm{D} (\bm{\hat{G}}^p - \bm{\hat{H}}^p) \\
+				&=& \{(\bm{H}+\bm{\hat{D}})(\bm{\hat{G}}^p - \bm{G}^p) - \bm{H}(\bm{\hat{H}}^p - \bm{H}^p) \} + \bm{D} (\bm{\hat{G}}^p - \bm{\hat{H}}^p) \\
+				&=& \bm{H}\{(\bm{\hat{G}}^p - \bm{G}^p) - (\bm{\hat{H}}^p - \bm{H}^p)\} + \bm{\hat{D}} (\bm{\hat{G}}^p - \bm{G}^p) + \bm{D} (\bm{\hat{G}}^p - \bm{\hat{H}}^p) \ge \bm{0}.
+	\end{eqnarray*}
+	Last inequality holds by the assumption and nonegativities of $\bm{G}, \bm{H}, \bm{\hat{G}}, \bm{\hat{H}}, \bm{D}, \bm{\hat{D}}$.
+	Obviously, for $p=0$, $\bm{\hat{G}}^{p} - \bm{G}^{p}) - (\bm{\hat{H}}^{p} - \bm{H}^{p}) \ge \bm{0}$.
+	Thus, by induction, right hand side of equation (\ref{lemma2}) is greater than zeros, and we have
 	\begin{equation}
 		\label{lemma2-1}
 		\bm{x}^*(\hat{g}) - \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) - \bm{x}^*(h).
 	\end{equation}
-	In addition, since $\hat{g} \supseteq \hat{h}$ and $g \supseteq h$, by Lemma 1, we have
+	In addition, since $\hat{g} \supseteq \hat{h} (\bm{\hat{G}} \ge \bm{\hat{H}})$ and $g \supseteq h (\bm{G} \ge \bm{H})$, by Lemma 1, we have
 	\begin{equation}
 		\label{lemma2-2}
 		\bm{x}^*(\hat{g}) + \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) + \bm{x}^*(h).

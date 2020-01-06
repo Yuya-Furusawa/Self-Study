@@ -91,30 +91,30 @@
 \begin{frame}{Model : Setup}
 \begin{itemize}
     \item the set of agents : $N = \{ 1, \ldots, n \}$ with $n \ge 2$ and $n < \infty$
-    \item Agents are initially connected in {\it{potential network}} $g^p$
-    \item $g^p$ is represented by adjacency matrix $\bm{G}^p = {(g_{ij}^p)}_{ij}$ where
-    \[ g_{ij}^p =
+    \item Agents are initially connected in {\it{potential network}} $\overline{g}$
+    \item $\overline{g}$ is represented by adjacency matrix $\bm{\overline{G}} = {(\overline{g}_{ij})}_{ij}$ where
+    \[ \overline{g}_{ij} =
         \begin{cases}
-            1 \  (\text{if $i$ has a link to $j$ in $g^p $}) \\
+            1 \  (\text{if $i$ has a link to $j$ in $\overline{g}$}) \\
             0 \  (\text{otherwise})
         \end{cases} \]
-    \item $\bm{G}^p$ may not be symmetric : directed network
-    \item Self-loop is not allowed : $g_{ii}^p = 0$ for all $i \in N$
-    \item Agent $i$'s neighbors in $g^p$ : $N_i(g^p) = \{ j \in N | g_{ij}^p = 1 \}$
+    \item $\bm{\overline{G}}$ need not be symmetric : directed network
+    \item Self-loop is not allowed : $\overline{g}_{ii} = 0$ for all $i \in N$
+    \item Agent $i$'s neighbors in $\overline{g}$ : $N_i(\overline{g}) = \{ j \in N \mid \overline{g}_{ij} = 1 \}$
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Model : 1st stage}
 \begin{itemize}
     \item First, agents simultaneously choose their neighbors from the agents whom they connect in the potential network
-    \item This action is represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, and $\psi_{ij} = 0$ for all $j \notin N_i(g^p)$
-    \item Denote $\psi_i \in \Psi_i = \{0,1\}^n$
+    \item This action is represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, and $\psi_{ij} = 0$ for all $j \notin N_i(\overline{g})$
+    \item Denote the agent $i$'s set of actions as $\Psi_i$
     \item When an agent $i$ form link to $j$, he incurs the link-specific costs $c_{ij} \ge 0$
     \begin{itemize}
         \item We denote $\bm{C} = {(c_{ij})}_{ij}$
         \item $\bm{C}$ is not necessarily symmetric
     \end{itemize}
-    \item The action in the 1st stage is dependent on $g^p$ and $\bm{C}$, so sometimes we denote $\psi_i(g^p, \bm{C})$
+    \item The action in the 1st stage is dependent on $\overline{g}$, sometimes we denote $\psi_i(\overline{g})$
 \end{itemize}
 \end{frame}
 
@@ -122,13 +122,13 @@
 \begin{itemize}
     \item At the end of the 1st stage, we can see {\it{realized network}} denoted as $g$
     \item $g$ is represented by the adjacency matrix $\bm{G}$
-    \[ g_{ij}(\psi_{ij}(g^p, \bm{C})) = 
+    \[ g_{ij}(\psi_{ij}(\overline{g})) = 
         \begin{cases}
-            1 \  (\text{if} \  \psi_{ij}(g^p, \bm{C}) = 1 ) \\
+            1 \  (\text{if} \  \psi_{ij}(\overline{g}) = 1 ) \\
             0 \  (\text{otherwise})
         \end{cases} \]
-    \item $g$ depends on $\bm{\psi}(g^p, \bm{C}) = \times_{i=1}^n \psi_i(g^p, \bm{C})$, so we can denote $g(\bm{\psi}(g^p, \bm{C}))$
-    \item To avoid redundant expression, we denote $g(\bm{\psi})$
+    \item $g$ depends on $\bm{\psi}(\overline{g}) = (\psi_1(\overline{g}), \cdots, \psi_n(\overline{g}))$, so we can denote $g(\bm{\psi}(\overline{g}))$
+    \item To avoid redundant expressions, we denote $g(\bm{\psi})$
 \end{itemize}
 \end{frame}
 
@@ -199,7 +199,7 @@
 
 \begin{frame}{Model : 2nd stage}
 \begin{itemize}
-    \item Given realized network, each agent $i \in N$ simultaneously exerts an effort $x_i \ge 0$
+    \item Given the realized network, each agent $i \in N$ simultaneously exerts an effort $x_i \ge 0$
     \item Denote $\bm{x} = (x_1, \cdots, x_n)$
     \item Payoff function is
         \[ u_i(\bm{x}, \bm{\psi}, \bm{C}, \phi) = v_i(\bm{x}, g(\bm{\psi}), \phi) - \sum_{j=1}^n g_{ij}(\bm{\psi}) c_{ij} \]
@@ -224,14 +224,14 @@
 
 \begin{frame}{Equilibrium}
 \begin{itemize}
-    \item {\bf{Definition}} : Given $g^p$ and $\bm{C}$, a network $g^*$ is an {\it{equilibrium network}} if $g^* = g(\bm{\psi}^*)$ where $\bm{\psi}^*$ is an action profile in a pure strategy subgame perfect equilibrium.
-    \item We focus on pure strategy equilibrium to consider the non-stochastic network
+    \item {\bf{Definition}} : Given $\overline{g}$ and $\bm{C}$, a network $g^*$ is an {\it{equilibrium network}} if $g^* = g(\bm{\psi}^*)$ where $\bm{\psi}^*$ is an action profile in a pure strategy subgame perfect equilibrium.
+    \item We focus on a pure strategy equilibrium to consider non-stochastic networks
 \end{itemize}
 \end{frame}
 
 \begin{frame}{2nd stage equilibrium}
 \begin{itemize}
-    \item {\bf{Assumption}} : $\phi \rho(\bm{G}^p) < 1$ where $\rho(\cdot)$ is spectral radius
+    \item {\bf{Assumption}} : $\phi \rho(\bm{\overline{G}}) < 1$ where $\rho(\cdot)$ is spectral radius
     \item {\bf{Proposition}} : Under Assumption, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, which is interior and given by
     \[ \bm{x}^*(g, \phi, \bm{\alpha}) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \]
     \item This is based on Ballester, Calv\'{o}-Armengol, and Zenou(2006)
@@ -240,14 +240,25 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label=theorem]{Supermodularity and equilibrium existence}
+\begin{frame}[label=theorem]{Supermodularity of the reduced game}
 \begin{itemize}
     \item By backward induction, given 2nd stage Nash equilibrium, consider the 1st stage game as a normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$
-    \item {\bf{Theorem}} : For any $g^p$ and $\bm{C}$, $\Gamma$ is a supermodular game \hyperlink{proof}{[Proof]}
+    \item {\bf{Theorem}} : For any $\overline{g}$ and $\bm{C}$, $\Gamma$ is a supermodular game, that is,
+        \begin{itemize}
+            \item $\bm{\Psi}$ is a sublattice of $\prod_{i=1}^n \mathbb{R}^n$, 
+            \item $u_i(\psi_i, \psi_{-i})$ is supermodular in $\psi_i$ on $\Psi_i$ for each $\psi_{-i}$ on $\Psi_{-i}$ for each $i$, and
+            \item $u_i(\psi_i, \psi_{-i})$ has increasing differences in $(\psi_i, \psi_{-i})$ on $\Psi_i \times \Psi_{-i}$.
+        \end{itemize}
+        \hyperlink{proof}{[Proof]}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Equilibrium existence}
+\begin{itemize}
     \item {\bf{Corollary}} : Equilibrium network always exists, in particular the greatest and smallest equilibrium network exists
     \item We focus on the greatest equilibrium network and denote $g^{**}$
     \begin{itemize}
-        \item The greatest equilibrium can be obtained by designed {\it{best response dynamics}} algorithm
+        \item The greatest equilibrium can be obtained by sequential {\it{best response dynamics}} which starts from the potential network
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -261,8 +272,8 @@
 
 \begin{frame}{Uniqueness/Multiplicity of the equilibrium}
 \begin{itemize}
-    \item Equilibrium network may not be unique
-    \item {\bf{Example}} : Consider $n = 2$, $\bm{\alpha} = (1, 1)$, and $\bm{G}^p = \left[
+    \item Equilibrium network is sometimes not unique
+    \item {\bf{Example}} : Consider $n = 2$, $\bm{\alpha} = (1, 1)$, and $\bm{\overline{G}} = \left[
     \begin{array}{cc}
         0 & 1 \\
         1 & 0
@@ -342,12 +353,12 @@
 
 \begin{frame}{Comparative Statics}
 \begin{itemize}
-    \item {\bf{Proposition}} : Given the potential network $g^p$. Consider the cost $\bm{\hat{C}}$ and $\bm{C}$ with $\bm{\hat{C}} \le \bm{C}$. Then,
-        \[ g^{**}(\bm{\psi}^*(g^p, \bm{\hat{C}}, \phi, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
+    \item {\bf{Proposition}} : Given the potential network $\overline{g}$. Consider the cost $\bm{\hat{C}}$ and $\bm{C}$ with $\bm{\hat{C}} \le \bm{C}$. Then,
+        \[ g^{**}(\bm{\psi}^*(\overline{g}, \bm{\hat{C}}, \phi, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(\overline{g}, \bm{C}, \phi, \bm{\alpha})) \]
     \item {\bf{Corollary}} : Given the potential network $g^p$. For $\hat{\phi} \ge \phi$ which satisfy the Assumption,
-        \[ g^{**}(\bm{\psi}^*(g^p, \bm{C}, \hat{\phi}, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
+        \[ g^{**}(\bm{\psi}^*(\overline{g}, \bm{C}, \hat{\phi}, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(\overline{g}, \bm{C}, \phi, \bm{\alpha})) \]
         For $\bm{\hat{\alpha}} \ge \bm{\alpha}$,
-        \[ g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\hat{\alpha}})) \supseteq g^{**}(\bm{\psi}^*(g^p, \bm{C}, \phi, \bm{\alpha})) \]
+        \[ g^{**}(\bm{\psi}^*(\overline{g}, \bm{C}, \phi, \bm{\hat{\alpha}})) \supseteq g^{**}(\bm{\psi}^*(\overline{g}, \bm{C}, \phi, \bm{\alpha})) \]
 \end{itemize}
 \end{frame}
 
@@ -474,9 +485,9 @@
 
 \begin{frame}{Key player in endogenous network}
 \begin{itemize}
-    \item {\bf{Definition}} : Agent $i$ is a {\it{key player in endogenous network}} if, given potential network $g^p$,
-        \[ i \in \arg \max_{i \in N} \{ x^*(g^{**}(\bm{\psi}({g^p}, \bm{C}))) - x^*(g^{**}(\bm{\psi}({g^p}^{-i}, \bm{C}^{-i}))) \} \]
-        where ${g^p}^{-i}$ is the network where agent $i$ is removed from the network $g^p$
+    \item {\bf{Definition}} : Agent $i$ is a {\it{key player in endogenous network}} if, given potential network $\overline{g}$,
+        \[ i \in \arg \max_{i \in N} \{ x^*(g^{**}(\bm{\psi}(\overline{g}, \bm{C}))) - x^*(g^{**}(\bm{\psi}(\overline{g}^{-i}, \bm{C}^{-i}))) \} \]
+        where ${\overline{g}}^{-i}$ is the network where agent $i$ is removed from the network $\overline{g}$
     \item However, it is difficult to identify a key player due to the complexity of the mapping from cost structure to realized network
 \end{itemize}
 \end{frame}
@@ -564,10 +575,10 @@
 
 \begin{frame}{Key removing link in endogenous and exogenous network}
 \begin{itemize}
-    \item {\bf{Definition}} : Link $ij$ is a {\it{key removing link in endogenous network}} if, given potential network $g^p$,
-        \[ ij \in \arg \max_{ij \in E(g^p)} \{ x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) - x^*(g^{**}(\bm{\psi}({g^p}^{-ij}, \bm{C}))) \} \]
-        where $E(g)$ is the set of links in $g^p$ and ${g^p}^{-ij}$ is network obtained by removing link $ij$ from $g^p$
-    \item {\bf{Definition}} : Link $ij$ is a {\it{key removing link in exogenous network}} $g$ if, given network $g$,
+    \item {\bf{Definition}} : Link $ij$ is a {\it{key removing link in endogenous network}} if, given potential network $\overline{g}$,
+        \[ ij \in \arg \max_{ij \in E(\overline{g})} \{ x^*(g^{**}(\bm{\psi}(\overline{g}, \bm{C}))) - x^*(g^{**}(\bm{\psi}({\overline{g}}^{-ij}, \bm{C}))) \} \]
+        where $E(\overline{g})$ is the set of links in $\overline{g}$ and ${\overline{g}}^{-ij}$ is network obtained by removing link $ij$ from $\overline{g}$
+    \item {\bf{Definition}} : Link $ij$ is a {\it{key removing link in exogenous network}} if, given network $g$,
         \[ ij \in \arg \max_{ij \in E(g)} \{ x^*(g) - x^*(g^{-ij}) \} \]
         where $E(g)$ is the set of links in $g$ and $g^{-ij}$ is network obtained by removing link $ij$ from $g$
 \end{itemize}
@@ -576,7 +587,7 @@
 \begin{frame}{Diff bet. endogenous and exogenous key removing link}
 \begin{itemize}
     \item {\bf{Example}} : Suppose $n=3$, $\bm{\alpha} = (1,1,1)$ and $\phi = 1/3$
-    \item Potential network is $\bm{G}^p = \left[
+    \item Potential network is $\bm{\overline{G}} = \left[
                                     \begin{array}{ccc}
                                         0 & 1 & 1 \\
                                         1 & 0 & 1 \\
@@ -675,10 +686,10 @@
 
 \begin{frame}{Key adding link in endogenous and exogenous network}
 \begin{itemize}
-    \item {\bf{Definition}} : Link $ij$ is a {\it{key adding link in endogenous network}} if, given potential network $g^p$,
-        \[ ij \in \arg \max_{ij \notin E(g^p)} \{ x^*(g^{**}(\bm{\psi}({g^p}^{+ij}, \bm{C}))) - x^*(g^{**}(\bm{\psi}(g^p, \bm{C}))) \} \]
-        where ${g^p}^{+ij}$ is network obtained by adding link $ij$ to $g^p$
-    \item {\bf{Definition}} : Link $ij$ is a {\it{key adding link in exogenous network}} $g$ if, given network $g$,
+    \item {\bf{Definition}} : Link $ij$ is a {\it{key adding link in endogenous network}} if, given potential network $\overline{g}$,
+        \[ ij \in \arg \max_{ij \notin E(\overline{g})} \{ x^*(g^{**}(\bm{\psi}({\overline{g}}^{+ij}, \bm{C}))) - x^*(g^{**}(\bm{\psi}(\overline{g}, \bm{C}))) \} \]
+        where ${\overline{g}}^{+ij}$ is network obtained by adding link $ij$ to $\overline{g}$
+    \item {\bf{Definition}} : Link $ij$ is a {\it{key adding link in exogenous network}} if, given network $g$,
         \[ ij \in \arg \max_{ij \notin E(g)} \{ x^*(g^{+ij}) - x^*(g) \} \]
         where $g^{+ij}$ is network obtained by adding link $ij$ to $g$
 \end{itemize}
@@ -687,7 +698,7 @@
 \begin{frame}{Diff bet. endogenous and exogenous key adding link}
 \begin{itemize}
     \item {\bf{Example}} : Suppose $n=3$, $\bm{\alpha} = (1,1,1)$ and $\phi = 1/3$
-    \item Potential network is $\bm{G}^p = \left[
+    \item Potential network is $\bm{\overline{G}} = \left[
                                     \begin{array}{ccc}
                                         0 & 1 & 1 \\
                                         1 & 0 & 0 \\
@@ -808,6 +819,9 @@
     \begin{itemize}
         \item comparative statics results
         \item discussion about policy implication : key player and key link
+        \begin{itemize}
+            \item Without considering the endogenity of networks, we sometimes have wrong policy implications
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -819,62 +833,66 @@
 \begin{itemize}
     \item {\bf{Lemma 1}} : Consider the network $g$ and $\hat{g}$ with $g \subseteq \hat{g}$. Then,
             \[ \bm{x}^*(\hat{g}) \ge \bm{x}^*(g) \]
-    \item {\bf{Lemma 2}} : Consider the network $g$, $\hat{g}$, $h$, and $\hat{h}$ ($\bm{G}$, $\bm{\hat{G}}$, $\bm{H}$, and $\bm{\hat{H}}$) such that $\bm{G} \ge \bm{H}$, $\bm{\hat{G}} \ge \bm{\hat{H}}$, $\bm{\hat{G}} \ge \bm{G}$ and $\bm{\hat{H}} \ge \bm{H}$ with $\bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$. Then, for all $i \in N$,
-            \[ v_i(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i(\bm{x}^*(g), g, \phi) \ge v_i(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i(\bm{x}^*(h), h, \phi)\]
+    \item {\bf{Lemma 2}} : Consider the network $g$ and $h$ ($\bm{G}$ and $\bm{H}$). Consider the network $g \vee h$ and $g \wedge h$ ($\bm{G} \vee \bm{H}$ and $\bm{G} \wedge \bm{H}$).  Then, for all $i \in N$,
+        {\small{
+            \[ v_i(\bm{x}^*(g \vee h), g \vee h, \phi) + v_i(\bm{x}^*(g \wedge h), g \wedge h, \phi) \ge v_i(\bm{x}^*(g), g, \phi) + v_i(\bm{x}^*(h), h, \phi)\]
+        }}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Proof of Lemma 2}
 \begin{itemize}
-    \item Let $\bm{D} = \bm{\hat{G}} - \bm{G} = \bm{\hat{H}} - \bm{H}$ and $\bm{\hat{D}} = \bm{G} - \bm{H}$.
+    \item Let $\bm{D} = (\bm{G} \vee \bm{H}) - \bm{G} = \bm{H} - (\bm{G} \wedge \bm{H})$ and $\bm{\hat{D}} = \bm{G} - \bm{H}$.
     \item We have,
         \begin{eqnarray*}
-            \bm{x}^*(\hat{g}) - \bm{x}^*(g) &=& {(\bm{I} - \phi \bm{\hat{G}})}^{-1} \bm{\alpha} - {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \\
-                                            &=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{G}}^p - \bm{G}^p) \bm{\alpha} \\
-            \bm{x}^*(\hat{h}) - \bm{x}^*(h) &=& \sum_{p=0}^{\infty} \phi^p (\bm{\hat{H}}^p - \bm{H}^p) \bm{\alpha}
+            \bm{x}^*(g \vee h) - \bm{x}^*(g) &=& {(\bm{I} - \phi (\bm{G} \vee \bm{H}))}^{-1} \bm{\alpha} - {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \\
+                                            &=& \sum_{p=0}^{\infty} \phi^p ((\bm{G} \vee \bm{H})^p - \bm{G}^p) \bm{\alpha} \\
+            \bm{x}^*(h) - \bm{x}^*(g \wedge h) &=& \sum_{p=0}^{\infty} \phi^p (\bm{H}^p - (\bm{G} \wedge \bm{H})^p) \bm{\alpha}
         \end{eqnarray*}
     \item Then,
-        \[ \{ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \} - \{ \bm{x}^*(\hat{h}) - \bm{x}^*(h) \} = \sum_{p=0}^{\infty} \phi^p \{(\bm{\hat{G}}^p - \bm{G}^p) - (\bm{\hat{H}}^p - \bm{H}^p)\} \bm{\alpha} \]
+        \begin{align*}
+            & \{ \bm{x}^*(g \vee h) - \bm{x}^*(g) \} - \{ \bm{x}^*(h) - \bm{x}^*(g \wedge h) \} \\
+                & = \sum_{p=0}^{\infty} \phi^p \{((\bm{G} \vee \bm{H})^p - \bm{G}^p) - (\bm{H}^p - (\bm{G} \wedge \bm{H})^p)\} \bm{\alpha}
+        \end{align*}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Proof of Lemma 2}
 \begin{itemize}
-    \item Assume $(\bm{\hat{G}}^p - \bm{G}^p) - (\bm{\hat{H}}^p - \bm{H}^p) \ge \bm{0}$. Then,
+    \item Assume $((\bm{G} \vee \bm{H})^p - \bm{G}^p) - (\bm{H}^p - (\bm{G} \wedge \bm{H})^p) \ge \bm{0}$. Then,
+        {\small{
         \begin{align*}
-            & (\bm{\hat{G}}^{p+1} - \bm{G}^{p+1}) - (\bm{\hat{H}}^{p+1} - \bm{H}^{p+1}) \\
-                &= ((\bm{G} + \bm{D}) \bm{\hat{G}}^p - \bm{G} \bm{G}^p) - ((\bm{H} + \bm{D}) \bm{\hat{H}}^p - \bm{H} \bm{H}^p) \\
-                &= \{\bm{G}(\bm{\hat{G}}^p - \bm{G}^p) - \bm{H}(\bm{\hat{H}}^p - \bm{H}^p) \} + \bm{D} (\bm{\hat{G}}^p - \bm{\hat{H}}^p) \\
-                &= \bm{H}\{(\bm{\hat{G}}^p - \bm{G}^p) - (\bm{\hat{H}}^p - \bm{H}^p)\} + \bm{\hat{D}} (\bm{\hat{G}}^p - \bm{G}^p) + \bm{D} (\bm{\hat{G}}^p - \bm{\hat{H}}^p) \ge \bm{0}
+            & (\bm{\hat{G}}^{p+1} - \bm{G}^{p+1}) - (\bm{H}^{p+1} - (\bm{G} \wedge \bm{H})^{p+1}) \\
+                &= ((\bm{G} + \bm{D}) (\bm{G} \vee \bm{H})^p - \bm{G} \bm{G}^p) - (((\bm{G} \wedge \bm{H}) + \bm{D}) \bm{H}^p - (\bm{G} \wedge \bm{H}) (\bm{G} \wedge \bm{H})^p) \\
+                &= \{\bm{G}((\bm{G} \vee \bm{H})^p - \bm{G}^p) - (\bm{G} \wedge \bm{H})(\bm{H}^p - (\bm{G} \wedge \bm{H})^p) \} + \bm{D} ((\bm{G} \vee \bm{H})^p - \bm{H}^p) \\
+                &= \bm{H}\{((\bm{G} \vee \bm{H})^p - \bm{G}^p) - (\bm{H}^p - (\bm{G} \wedge \bm{H})^p)\} \\
+                &\  \  + \bm{\hat{D}} ((\bm{G} \vee \bm{H})^p - \bm{G}^p) + \bm{D} ((\bm{G} \vee \bm{H})^p - \bm{H}^p) \ge \bm{0}
         \end{align*}
+        }}
     \item By induction,
-        \[ \bm{x}^*(\hat{g}) - \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) - \bm{x}^*(h) \]
+        \[ \bm{x}^*(g \vee h) - \bm{x}^*(g) \ge \bm{x}^*(h) - \bm{x}^*(g \wedge h) \]
     \item By Lemma 1, we have
-        \[ \bm{x}^*(\hat{g}) + \bm{x}^*(g) \ge \bm{x}^*(\hat{h}) + \bm{x}^*(h) \]
+        \[ \bm{x}^*(g \vee h) + \bm{x}^*(g) \ge \bm{x}^*(h) + \bm{x}^*(g \wedge h) \]
     \item Therefore,
-        \[ v_i(\bm{x}^*(\hat{g}), \hat{g}, \phi) - v_i(\bm{x}^*(g), g, \phi) \ge v_i(\bm{x}^*(\hat{h}), \hat{h}, \phi) - v_i(\bm{x}^*(h), h, \phi)\]
+        {\small{
+        \[ v_i(\bm{x}^*(g \vee h), g \vee h, \phi) - v_i(\bm{x}^*(g), g, \phi) \ge v_i(\bm{x}^*(h), h, \phi) - v_i(\bm{x}^*(g \wedge h), g \wedge h, \phi)\]
+        }}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Proof of the theorem}
 \begin{itemize}
-    \item $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$ $\rightarrow$ $\bm{\Psi}$ is sublattice of $\prod_{i=1}^n \mathbb{R}^n$
-    \item increasing differences $\rightarrow$ Lemma 2
-    \item supermodularity of $u_i(\psi_i, \psi_{-i})$ in $\psi_i$
-    \begin{itemize}
-        \item Take any $\psi_i, \psi_i' \in \Psi_i, \psi_{-i} \in \Psi_{-i}$
-        \item Consider $g=g(\psi_i,\psi_{-i})$ and $h=g(\psi_i \wedge \psi_i',\psi_{-i})$ ($\bm{G}$ and $\bm{H}$)
-        \item Consider the nonnegative matrix $\bm{D}$ with
-            \[ d_{ij} = \begin{cases}
-                    1 & (\text{if} \ g_{ij} = 1 \ \text{and} \ h_{ij} = 0) \\
-                    0 & (\text{otherwise})
-                \end{cases} \]
-        \item Then,the adjacency matrix of $g(\psi_i \vee \psi_i', \psi_{-i})$ and $g(\psi_i', \psi_{-i})$ are $\bm{G} + \bm{D}$ and $\bm{H} + \bm{D}$ respectively
-        \item By Lemma 2,
-            {\footnotesize
-            \[ v_i(g(\psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) \le v_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) - v_i(g(\psi_i, \psi_{-i}), \phi) \]
-            }
-    \end{itemize}
+    \item $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$ $\rightarrow$ $\bm{\Psi}$ is a sublattice of $\times_{i=1}^n \mathbb{R}^n$
+    \item By Lemma 2, supermodularity of $u_i$ in $\psi_i$, for each $\psi_{-i} \in \Psi_{-i}$
+        {\small{
+        \[ u_i(g(\psi_i \vee \psi_i', \psi_{-i}), \phi) + u_i(g(\psi_i \wedge \psi_i', \psi_{-i}), \phi) \ge u_i(g(\psi_i, \psi_{-i}), \phi) + u_i(g(\psi_i', \psi_{-i}), \phi) \]
+        }}
+        for any $\psi_i, \psi_i' \in \Psi_i$
+    \item By Lemma 2, increasing differences of $u_i(\psi_i, \psi_{-i})$ in $(\psi_i, \psi_{-i})$
+        {\small{
+        \[ u_i(g(\psi_i, \psi_{-i}), \phi) - u_i(g(\psi_i', \psi_{-i}),\phi) \ge u_i(g(\psi_i, \psi_{-i}'), \phi) - u_i(g(\psi_i', \psi_{-i}'), \phi) \]
+        }}
+        for $\psi_i, \psi_i' \in \Psi_i$ with $\psi_i \ge \psi_i'$ and $\psi_{-i}, \psi_{-i}' \in \Psi_{-i}$ with $\psi_{-i} \ge \psi_{-i}'$
     \hyperlink{theorem}{[Back]}
 \end{itemize}
 \end{frame}

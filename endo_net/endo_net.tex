@@ -57,7 +57,7 @@
 
 \author{Yuya Furusawa}
 
-\date{\today}
+\date{January 8, 2020}
 
 \maketitle
 
@@ -119,18 +119,19 @@ Moreover, Dell(2015)~\cite{Dell} indicates that there exist spillover effects wh
 We establish that a pure strategy subgame perfect equilibrium always exists.
 Due to the result in Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho}, a second stage Nash equilibrium always exists and it is unique.
 Given this equilibrium, by backward induction, we show the first stage becomes supermodular game.
-Then, by well known properties of supermodurarity, we can see the first stage equilibrium always exists.
+Then, by well known properties of supermodurarity, we can see the first stage pure strategy equilibrium always exists.
 However, equilibria may not be unique.
-We focus on the greatest equilibrium which can be obtained by some best response dynamics algorithm.
+We focus on the greatest equilibrium which can be obtained by sequential best response dynamics algorithm.
 In comparative static analysis in link formation costs, we see that reduction in the costs leads to larger network because agents are more likely to connect to other agents.
-Realized network is discontinuous in the link formation costs, so changes in the costs leads to discontinuous changes in the network.
-We give a example that tiny change in the link formation costs leads to a drastic change in the network structure, "phase transition".
+Realized network is discontinuous in the link formation costs, so changes in the costs leads to discontinuous changes in the realized network.
+We give a example that a tiny change in the link formation costs leads to a drastic change in the network structure, "phase transition".
 We analyze a key player policy in endogenous networks, contrary to the former works which analyze a key player in exogenous networks.
 A key player is the agent in the potential network who makes largest reduction of aggregate effort level once he removed from the potential network.
 However, it is difficult to find key players from the link formation costs because of its discontinuity.
 We give an example that a key player in the endogenous network and in the exogenous might be different.
 This example shows that without considering the mechanism of the network formation, we might have a wrong policy implication.
 Similarly, we analyze a key link policy which is introduced in this paper for the first time, and we see we may have wrong policy without considering the endogenous network formation.
+Finally, we provide an example that our model can be used as a method to find negligible links between agents.
 
 % Literature Review
 This paper contributes to the growing literature on the endogenous networks.
@@ -152,31 +153,31 @@ K\"{o}nig, Liu, and Zenou(2019)~\cite {RandD} provides theoretical and empirical
 % Closely Related Literature
 This paper is closely related to Kim, Patacchini, Picard, and Zenou(2017)~\cite{Urban} which considers the social relationship formation in the urban geographical space.
 They consider the model where a continuum of agents distributes over the line segment and decides the intensity of interactions to the agents who live in the other point of the segment.
-The agents' payoff functions and the positive externalities of the interactions are eccentially same with our model and Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho} (and other literatures).
+The agents' payoff functions and the positive externalities of the interactions are eccentially same with our model and Ballester, Calv\'{o}-Armengol, and Zenou(2006)~\cite{whowho} (and other literature).
 Although the number of agents is infinite, we can treat their model as a network formation model.\footnote{In empirical part, they discritize the agents and consider the adjacency matrix as our model.}
-The key factor of network formation in their paper is the distribution of agents and the cost of interations which is measured by geographic distance.
+The key factor of the network formation in their paper is the distribution of agents and the cost of interations which is measured by geographic distance.
 There are two differences in this paper and ours.
 First, in their model, the cost of interactions is only determined by the distance of two agents.
-In many cases, interactions are affected by various kinds of obstacles, such as psychological barrier and financial cost.
-In contrast, our model can incorporate any kinds of interaction costs, and it enables us to consider any kinds of economic situations in our framework.
+In many cases, interactions are affected by various kinds of obstacles, such as psychological barriers and financial costs.
+In contrast, our model can incorporate any kinds of interaction costs, and it enables us to consider many kinds of economic situations in our framework.
 Second, they consider the weighted relationships and agents decide the intensity of interaction to all other agents.
 Due to this feature, we can remove the any kinds of discontinuity and compute the network structure and the weights of links analytically.
-However, analytical solution always shows that in every equilibrium network, every agent connects all other agents in the network.
+However, analytical solution always shows that in every equilibrium, every agent connects all other agents in the network.
 Our model can explain the formation of any structure of the networks.
 
 Hiller(2017)~\cite{hiller} is also related to our paper.
 He develops the very similar model with ours: agents choose their neighbors and decide the level of efforts.
 He considers the general payoff function which includes the payoff function in our model.
 But he considers the static game where all agents choose neighbors and effort levels simultaneously.
-In addition, the costs of link formation is determined by the number of links.
-This construction of the model lacks the uniqueness of the equilibrium, Nash equilibrium.
-Our model can have a kind of uniqueness of equilibria by setting the game dynamic.
+In addition, the costs of link formation is determined by the number of links which agent has.
+This construction of the model lacks the uniqueness of the equilibrium.
+Our model enables us to focus on the unique or largest equilibrium by setting the game dynamic.
 
 The rest of the paper is organized as follows.
 Section 2 describes the model.
 In section 3, we first give the definition of the equilibrium and present the result on its existence and uniqueness.
 We also present the result on comparative statics in this section.
-In section 4, we comment on the key player and Section 5 concludes.
+In section 4, we comment on the policy implications and Section 5 concludes.
 All proofs used to show the reults in this paper are attached in Appendix.
 
 \begin{notation*}
@@ -288,14 +289,14 @@ Figure \ref{fig:dif} represents the difference between potential network and rea
 \caption{Difference between potential network and realized network} \label{fig:dif}
 \end{figure}
 
-The realized network $g$ is represented by the adjacency matrix $\bm{G} = {(g_{ij})}_{ij}$ such that, for any pair $(i,j)$,
+The realized network $g$ is represented by the adjacency matrix $\bm{G} = {(g_{ij})}_{ij}$ such that, for any $ij$,
 \[ g_{ij} = 
 	\begin{cases}
 		1 \  (\text{if} \  \psi_{ij}(\overline{g}) = 1 ) \\
 		0 \  (\text{otherwise}).
 	\end{cases} \]
 To represent the dependency of realized network $g$ on $\bm{\psi}(\overline{g})$, we write $g(\bm{\psi}(\overline{g}))$.
-We sometimes denote the network $g(\bm{\psi}(\overline{g}))$ as $g(\bm{\psi})$ to avoid redundant representation unless $\overline{g}$ is a key variable.
+We sometimes denote the network $g(\bm{\psi}(\overline{g}))$ as $g(\bm{\psi})$ to avoid redundant representations unless $\overline{g}$ is a key variable.
 
 In the second stage, each agent $i \in N$ simultaneously exerts an effort $x_i \ge 0$, and gets a payoff which depends on the agents' efforts and realized network.
 Denote $\bm{x} = (x_1, \cdots, x_n)$.
@@ -322,7 +323,7 @@ Consider a network $g$ with adjacency matrix $\bm{G}$ and a small enough $\phi \
 
 \end{definition}
 
-Katz-Bonacich centrality can be thought of a centrality measure which considers the discounted sum of the paths.
+Katz-Bonacich centrality can be thought of a centrality measure which considers the discounted sum of the paths\footnote{A {\it{path}} in a network is a finite or infinite sequence of links that joins a sequence of nodes.}.
 The $i$-th entry of the vector $\bm{b}_{\bm{u}}(g, \phi)$ is denoted by $b_{\bm{u}, i}(g, \phi)$.
 
 
@@ -354,7 +355,7 @@ Under Assumption 1, a peer effect is bounded in the potential network which is t
 We show that, under this assumption, there exists a unique Nash equilibrium in the second stage for any realized network.
 
 \begin{proposition}
-Under Assumption 1, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, and given by
+Under Assumption 1, for any realized network $g$, ${(\bm{I} - \phi \bm{G})}^{-1}$ exists, and the subgame has a unique Nash equilibrium $\bm{x}^*$ which is given by
 \[ \bm{x}^*(g) = \bm{b}_{\bm{\alpha}}(g, \phi) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} > \bm{0}. \]
 \end{proposition}
 
@@ -365,7 +366,7 @@ Proposition 1 says that we can satisfy the condition under Assumption 1.
 Note that Proposition 1 also provides the Nash equilibrium, which is a first step of backward induction.
 In the rest of this paper, we assume Assumption 1.
 
-Here $\bm{x}^*$ is the optimal effort levels in the realized network, and so we can find $x_i^*$s' are dependent of $\bm{\psi}$, so optimal effort levels can be written as $x_i^*(\bm{\psi})$.
+Here $\bm{x}^*$ is the optimal effort levels in the realized network, and so we can find $x_i^*$s' are dependent of $g(\bm{\psi})$, so optimal effort levels can be written as $x_i^*(g(\bm{\psi}))$.
 From Proposition 1, we can calculate (\ref{function_v}) as follows:
 \begin{equation}
 	\label{opteff}
@@ -373,7 +374,7 @@ From Proposition 1, we can calculate (\ref{function_v}) as follows:
 \end{equation}
 
 In order to characterize a subgame perfect equilibrium, next we consider the agents' strategy to choose neighbors by backward induction.
-In light of Proposition 1, we only need to consider Nash equilibrium given the efforts in the second stage Nash equilibrium.
+In light of Proposition 1, we only need to consider Nash equilibrium in the first stage given the efforts in the second stage Nash equilibrium.
 Let us consider the reduced first stage game given second stage Nash equilibrium as a normal form game $\Gamma = \langle N, \Psi, {(u_i)}_{i \in N} \rangle$ where for all $i$, $u_i : \bm{\Psi} \rightarrow \mathbb{R}$ and
 \[ u_i(\psi) = u_i(\bm{x}^*(g(\psi)), \psi, \bm{C}, \phi). \]
 
@@ -418,12 +419,12 @@ We can immediately have a following corollary by the properties of supermodular 
 \end{corollary}
 
 %supermodular games
-We note that the 1st stage game given the effort level in 2nd stage Nash equilibrium is a supermodular game, the game which exhibits strategic complementarities.
+We note that the reduced game, the 1st stage game given the effort level in 2nd stage Nash equilibrium, is a supermodular game, the game which exhibits strategic complementarities.
 This game can satisfy some conditions of supermodularity: continuity and increasing-differences of utility function.
 From the results of some papers \footnote{For example, Topkis (1979)~\cite{topkis1979}, Milgrom and Roberts (1990)~\cite{milgromroberts}, Vives(1990)~\cite{vives} and Topkis (1998)~\cite{topkis1998}}, we can find a pure strategy Nash equilibrium in this game.
+The intuition behind the supermodularity is as follows.
 We can easily see that 2nd stage game is with strategic complementarity, that is when the neighbors exert high level effort, we also increase the level of effort.
-Lemma 2 shows 1st game also exhibit strategic complementarity and it is supermodular game.
-When not only neighbors we chooose but also the agents whom we do not connect directly form many links, it is more likely to have more neighbors.
+Lemma 2 shows the reduced game also exhibits strategic complementarity and it is supermodular game.
 When agent $i$ forms more links, he can get more peer effects, so he exerts more effort by the strategic complementarity in 2nd stage.
 Agent $i$'s increased effort makes agents who have a link to him exert more effort, so all agents' level of effort weakly increases, which is shown by Lemma 1.
 Provided the link formation costs, increasing level of efforts makes the agents to connect more agents, so if some agents have more connections, best response for it is the connecting to other agents, which is strategic complementarity.
@@ -433,7 +434,7 @@ Provided the link formation costs, increasing level of efforts makes the agents 
 
 Previous subsection shows the existence of the equilibrium.
 We argue the uniqueness of the equilibrium in this subsection.
-Since the equilibrium in the second stage is unique from Proposition 1, we focus on the first stage strategies.
+Since the equilibrium in the second stage is unique from Proposition 1, we focus on the first stage actions.
 We can see that the equilibrium network is not necessarily unique.
 The following example shows that equilibrium network may not unique with some cost parameters.
 
@@ -538,7 +539,7 @@ are both equilibrium networks.
 
 Example 1 shows the equilibrium network may not be unique and Figure \ref{fig:eq} shows that the region of costs which brings the respective equilibrium network.
 We can see the region which returns complete equilibrium network\footnote{The network is {\it{complete}} if each node has links to all other nodes. In adjacency matrix, every off-diagonal entries are equal to $1$.} and empty equilibrium network\footnote{The network is {\it{empty}} if there is no link in the network. In adjacency matrix, all entries are equal to $0$.} overlap.
-When the link formation costsare in some ranges, there exist multiple networks.
+When the link formation costs are in some ranges, there exist multiple equilibrium networks.
 
 To avoid the problem of equilibrium multiplicity, we want to focus on the greatest equilibrium.
 However, how can we obtain the largest equilibrium network?
@@ -598,8 +599,8 @@ We focus on the greatest equilibrium network from now on, and denote it as $g^{*
 
 \subsection{Comparative Statics}
 
-In this section, we argue the comparative statics by changing the parameter $\bm{C}$.
-When the cost of forming links decrease, we conjecture that the network becomes denser because agents are more likely to form the links.
+In this section, we argue the comparative statics in the parameter $\bm{C}$ by focusing on the greatest equilibrium.
+When the costs of forming links decrease, we conjecture that the network becomes denser because agents are more likely to form the links.
 
 Next proposition shows that our conjection is verified.
 This result is based on the supermodularity of the 1st stage game.
@@ -612,10 +613,10 @@ Then,
 \end{proposition}
 
 This propopsition is based on the property of supermodular game: changes in key parameters monotonically shift the equilibria of a supermodular game.
-By the same argument, we have the following corollary.
+By the similar argument, we have the following corollary.
 
 \begin{corollary}
-	Given the potential network $\overline{g}$. For $\hat{\phi} \ge \phi$ which satisfy the Assumption,
+	Given the potential network $\overline{g}$. For $\hat{\phi} \ge \phi$ which satisfy Assumption 1,
         \[ g^{**}(\bm{\psi}^*(\overline{g}, \bm{C}, \hat{\phi}, \bm{\alpha})) \supseteq g^{**}(\bm{\psi}^*(\overline{g}, \bm{C}, \phi, \bm{\alpha})). \]
     For $\bm{\hat{\alpha}} \ge \bm{\alpha}$,
         \[ g^{**}(\bm{\psi}^*(\overline{g}, \bm{C}, \phi, \bm{\hat{\alpha}})) \supseteq g^{**}(\bm{\psi}^*(\overline{g}, \bm{C}, \phi, \bm{\alpha})). \]
@@ -744,7 +745,7 @@ With the cost structure $\bm{C}$, all agents keep connected to all other agents,
 In fact, all agents are indifference between them, keeping all links and removing all links give the exactly same payoff.
 Algorithm 1 returns the complete networks by its construction.
 When the cost of forming link from agent 1 to agent 2 slightly increases, agent 1 does not keep links to the others because agent 1's gain from agent 2 cannot compensate its cost.
-Since agent 1 removes all links, agent 1's level of effort drastically diclines.
+Since agent 1 removes all links, agent 1's level of effort drastically decreases.
 The gain from agent 1 also declines, and the levels of effort of agents declines.
 Therefore, the benefit of forming links cannot compensate the cost of keeping links, and all agents remove all links.
 
@@ -763,7 +764,7 @@ Key player is thought of, for example, the player who supports the criminal acti
 The formal definition of key player is given as follows:
 
 \begin{definition}
-Agent $i$ is the {\it{key player in exogenous network}} if, given network $g$,
+Agent $i$ is a {\it{key player in exogenous network}} if, given network $g$,
 \[ i \in \argmax_{i \in N} \{ x^*(g) - x^*(g^{-i}) \}. \]
 \end{definition}
 
@@ -775,15 +776,15 @@ In this paper, the definition of a key player might be different from the previo
 Since the network is endogenous in our model, a key player is the agent who generates the largest reduction in the total effort level once she is removed from the potential network.
 
 \begin{definition}
-Agent $i$ is the {\it{key player in endogenous network}} if, given potential network $\overline{g}$,
+Agent $i$ is a {\it{key player in endogenous network}} if, given potential network $\overline{g}$,
 \[ i \in \argmax_{i \in N} \{ x^*(g(\bm{\psi}({\overline{g}}^{-i}, \bm{C}))) - x^*(g(\bm{\psi}({\overline{g}}^{-i}, \bm{C}^{-i}))) \}. \]
 \end{definition}
 Here we denote ${\overline{g}}^{-i}$ is the network where agent $i$ is removed from the network $\overline{g}$ as before.
 $\bm{C}^{-i}$ is obtained from $\bm{C}$ by setting to zero all of its $i$th row and column entries.
 
-As noted in the previous section, there exists a discontinuity of the network realization in the link formation costs, so it is very difficult to identify the condition to be a key player\footnote{Similar to Elliott, Golub, and Jackson(2014)~\cite{contagion}, we cannot identify which banks will be in default by the discontinuity of banks' values}.
 The realized network is a key factor to be a key player in the endogenous network.
 We know that denser network leads higher effort level by the network externality(see Lemma 1), so, in order to become a key player in endogenous network, the realized network after removing should be sparse.
+However, as noted in the previous section, there exists a discontinuity of the network realization in the link formation costs, so it is very difficult to identify the equilibrium networks and the condition to be a key player from the link formation costs and the potential network\footnote{Similar to Elliott, Golub, and Jackson(2014)~\cite{contagion}, we cannot identify which banks will be in default by the discontinuity of banks' values.}.
 
 Although it is difficult to identify who becomes key player, we can see that the player with the highest effort, key player in endogenous network, and key player in exogenous network can be different each other.
 To compare a kay player in endogenous network and exogenous network, we treat realized network from the potential network and costs as given, then compute the key player in exogenous network.
@@ -885,6 +886,7 @@ All other agents form link to her, so once she is removed from the network, the 
 The key player in the endogenous network is agent 1.
 Once he is removed from the potential network, agents 2 and 3, who have the highest and third highest effort levels, cannot get large benefit from him, so their effort levels decline.
 In addition, in the potential network without agent1, agent 3, who has the most incoming links, has only one link, so the negative impact of small effort level of agent 3 becomes large.
+
 This example shows that key player in endogenous network and exogenous network may be different, so from the social planner's point of view, it is important to consider the mechanism of network formation.
 For example, in order to identify a key player and reduce the criminal activities like Liu, Patacchini, Zenou, and Lee(2012)~\cite{criminal}, we have to capture not agent 3 but agent 1 because once the agent is removed, the network structure will be changed.
 Therefore, without considering the network formation, we may have wrong policy implications.
@@ -895,22 +897,22 @@ Next, we argue the key link policy that is introduced in this paper for the firs
 First, we define key removing link which is defined as the link that, once removed from the network, generates the highest possible reduction in aggreate effort level.
 
 \begin{definition}
-	Link $ij$ is {\it{key removing link in endogenous network}} if, given potential network $\overline{g}$,
+	Link $ij$ is a {\it{key removing link in endogenous network}} if, given potential network $\overline{g}$,
     \[ ij \in \argmax_{ij \in E(\overline{g})} \{ x^*(g^{**}(\bm{\psi}(\overline{g}, \bm{C}))) - x^*(g^{**}(\bm{\psi}({\overline{g}}^{-ij}, \bm{C}))) \} \]
-    where $E(\overline{g})$ is the set of links in $\overline{g}$ and ${\overline{g}}^{-ij}$ is network obtained by removing link $ij$ from $\overline{g}$.
+    where $E(\overline{g})$ is the set of links in $\overline{g}$ and ${\overline{g}}^{-ij}$ is a network obtained by removing link $ij$ from $\overline{g}$.
 \end{definition}
 
 \begin{definition}
-	Link $ij$ is {\it{key removing link in exogenous network}} if, given network $g$,
+	Link $ij$ is a {\it{key removing link in exogenous network}} if, given network $g$,
     \[ ij \in \argmax_{ij \in E(g)} \{ x^*(g) - x^*(g^{-ij}) \} \]
-    where $E(g)$ is the set of links in $g$ and $g^{-ij}$ is network obtained by removing link $ij$ from $g$.
+    where $E(g)$ is the set of links in $g$ and $g^{-ij}$ is a network obtained by removing link $ij$ from $g$.
 \end{definition}
 
 % interpretation of key removing link : NEED TO BE MODIFYING
 In the example of drug trafficking network, key removing link is the traddicking route between cities which reduces the aggregate level of criminal activities once removed.
-Removing the connection from the criminal network means that a policy maker physically shutdowns the route between them, for example creating a wall between Mexican and U.S. city, or heavily cracks down the criminal activity.
+Removing the connection from the criminal network means that a policy maker physically shutdowns the route between them, for example creating a wall between Mexican and U.S. city.
 By doing so, policy maker can maximally reduce the aggregate criminal activities or drug usage.
-Following example shows key removing links in endogenous and exogenous network might be different.
+Example 4 shows key removing links in endogenous and exogenous network might be different.
 
 \begin{example}
 Suppose $n=3$, $\bm{\alpha} = (1,1,1)$ and $\phi = 1/3$.
@@ -1012,25 +1014,26 @@ See Figure \ref{fig:ex4} (red arrow and blue arrow represent key removing link i
 \caption{Key removing link in endogenous and exogenous network in Example 4} \label{fig:ex4}
 \end{figure}
 
-Next, we introduce key adding link in endogenous and exogenous network similarly.
+Next, we introduce key adding link in endogenous and exogenous networks similarly.
 Key adding link is defined as the link which, once added to the network, generates the highest possible increment in aggreate effort level.
 
 \begin{definition}
-	Link $ij$ is {\it{key adding link in endogenous network}} if, given potential network $\overline{g}$,
+	Link $ij$ is a {\it{key adding link in endogenous network}} if, given potential network $\overline{g}$,
     \[ ij \in \argmax_{ij \notin E(\overline{g})} \{ x^*(g^{**}(\bm{\psi}({\overline{g}}^{+ij}, \bm{C}))) - x^*(g^{**}(\bm{\psi}(\overline{g}, \bm{C}))) \} \]
-    where ${\overline{g}}^{+ij}$ is network obtained by adding link $ij$ to $\overline{g}$.
+    where ${\overline{g}}^{+ij}$ is a network obtained by adding link $ij$ to $\overline{g}$.
 \end{definition}
 
 \begin{definition}
-	Link $ij$ is {\it{key adding link in exogenous network}} if, given network $g$,
+	Link $ij$ is a {\it{key adding link in exogenous network}} if, given network $g$,
     \[ ij \in \argmax_{ij \notin E(g)} \{ x^*(g^{+ij}) - x^*(g) \} \]
-    where $g^{+ij}$ is network obtained by adding link $ij$ to $g$.
+    where $g^{+ij}$ is a network obtained by adding link $ij$ to $g$.
 \end{definition}
 
+Note that $c_{ij} = 0$ for $ij$ with $\overline{g}_{ij} = 0$, so the formation cost of an adding link in endogenous network is $0$ here.
 In the context of web advertisement network, key adding link is the advertisement on the page which brings the highest increment in aggregate effort level.
 For a policy maker, key adding link is the connection which he should recommend the web page owner to make.
 By encouraging to connect and putting the advertisement, a policy maker can raise the level of investment on the web page.
-Following example shows key adding link in endogenous and exogenous network might be different.
+Example 5 shows key adding link in endogenous and exogenous network might be different.
 
 \begin{example}
 Suppose $n=3$, $\bm{\alpha} = (1,1,1)$ and $\phi = 1/3$.
@@ -1143,10 +1146,127 @@ See Figure \ref{fig:ex5} (red arrow and blue arrow represent key adding link in 
 \caption{Key adding link in endogenous and exogenous network} \label{fig:ex5}
 \end{figure}
 
-From all these example, we can see that key link policy can be different between endogenous and exogenous network.
+From all these example, we can see that the key link policy can be different between endogenous and exogenous network.
 Therefore, we have to incorporate the endogeneity of the network to consider the policy implications.
 Again, due to the complexity of the relationship between link formation costs and realized network, we cannot propose the proposition who is the key player in endogenous network.
-The closed form solution to identify the key player is remaining for future work.
+The closed form solution to identify the key player and key link is remaining for future works.
+
+
+\subsection{Finding weak connection}
+
+In this subsection, we argue that our model can be used to find weak connections between agents.
+In our model, without any costs, all agents form links to the other agents who is connected in the potential network.
+We can interpret the links which can be realized with high costs as the strong tie, for example, the connection between core members in the criminal group.
+The agent want to keep important links even with high costs.
+Conversely, if the agent cannot retain links with low costs, these links are not important, that is, he does not stick to these links.
+
+To see this idea, we consider the example using florentine family network in 15th century Florence, well known social network.
+The florentine family network is the network where each node denote a key Florentine family and each link denote a connection by marriage.
+Figure (\ref{fig:ex6}) shows the structure of this network.
+In this figure, the links are undirected, that is, agent $i$ has a link to $j$ if and only if agent $j$ has a link to $i$.
+
+\begin{figure}[h]
+\centering
+\tikzset{every picture/.style={line width=0.75pt}}
+\scalebox{0.75}[0.75]{    
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (92,386.94) .. controls (92,376.93) and (100.63,368.81) .. (111.28,368.81) .. controls (121.92,368.81) and (130.55,376.93) .. (130.55,386.94) .. controls (130.55,396.95) and (121.92,405.07) .. (111.28,405.07) .. controls (100.63,405.07) and (92,396.95) .. (92,386.94) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (264.11,331.26) .. controls (264.11,321.24) and (272.74,313.13) .. (283.39,313.13) .. controls (294.03,313.13) and (302.66,321.24) .. (302.66,331.26) .. controls (302.66,341.27) and (294.03,349.38) .. (283.39,349.38) .. controls (272.74,349.38) and (264.11,341.27) .. (264.11,331.26) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (299.91,73.55) .. controls (299.91,63.54) and (308.54,55.42) .. (319.19,55.42) .. controls (329.83,55.42) and (338.46,63.54) .. (338.46,73.55) .. controls (338.46,83.57) and (329.83,91.68) .. (319.19,91.68) .. controls (308.54,91.68) and (299.91,83.57) .. (299.91,73.55) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (473.4,54.13) .. controls (473.4,44.12) and (482.03,36) .. (492.67,36) .. controls (503.32,36) and (511.95,44.12) .. (511.95,54.13) .. controls (511.95,64.14) and (503.32,72.26) .. (492.67,72.26) .. controls (482.03,72.26) and (473.4,64.14) .. (473.4,54.13) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (448.61,170.68) .. controls (448.61,160.67) and (457.24,152.55) .. (467.89,152.55) .. controls (478.54,152.55) and (487.17,160.67) .. (487.17,170.68) .. controls (487.17,180.69) and (478.54,188.81) .. (467.89,188.81) .. controls (457.24,188.81) and (448.61,180.69) .. (448.61,170.68) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (213.17,205.64) .. controls (213.17,195.63) and (221.8,187.51) .. (232.44,187.51) .. controls (243.09,187.51) and (251.72,195.63) .. (251.72,205.64) .. controls (251.72,215.66) and (243.09,223.77) .. (232.44,223.77) .. controls (221.8,223.77) and (213.17,215.66) .. (213.17,205.64) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (394.91,257.44) .. controls (394.91,247.43) and (403.54,239.31) .. (414.19,239.31) .. controls (424.84,239.31) and (433.47,247.43) .. (433.47,257.44) .. controls (433.47,267.45) and (424.84,275.57) .. (414.19,275.57) .. controls (403.54,275.57) and (394.91,267.45) .. (394.91,257.44) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (422.45,349.38) .. controls (422.45,339.37) and (431.08,331.26) .. (441.73,331.26) .. controls (452.37,331.26) and (461.01,339.37) .. (461.01,349.38) .. controls (461.01,359.4) and (452.37,367.51) .. (441.73,367.51) .. controls (431.08,367.51) and (422.45,359.4) .. (422.45,349.38) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (346.72,428.38) .. controls (346.72,418.37) and (355.35,410.25) .. (366,410.25) .. controls (376.65,410.25) and (385.28,418.37) .. (385.28,428.38) .. controls (385.28,438.39) and (376.65,446.51) .. (366,446.51) .. controls (355.35,446.51) and (346.72,438.39) .. (346.72,428.38) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (72.46,269.9) .. controls (72.46,259.88) and (81.09,251.77) .. (91.73,251.77) .. controls (102.38,251.77) and (111.01,259.88) .. (111.01,269.9) .. controls (111.01,279.91) and (102.38,288.03) .. (91.73,288.03) .. controls (81.09,288.03) and (72.46,279.91) .. (72.46,269.9) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (66.59,134.87) .. controls (66.59,124.86) and (75.22,116.74) .. (85.86,116.74) .. controls (96.51,116.74) and (105.14,124.86) .. (105.14,134.87) .. controls (105.14,144.88) and (96.51,153) .. (85.86,153) .. controls (75.22,153) and (66.59,144.88) .. (66.59,134.87) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (534.32,248.82) .. controls (534.32,238.81) and (542.95,230.69) .. (553.59,230.69) .. controls (564.24,230.69) and (572.87,238.81) .. (572.87,248.82) .. controls (572.87,258.83) and (564.24,266.95) .. (553.59,266.95) .. controls (542.95,266.95) and (534.32,258.83) .. (534.32,248.82) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (601.45,423.2) .. controls (601.45,413.19) and (610.08,405.07) .. (620.72,405.07) .. controls (631.37,405.07) and (640,413.19) .. (640,423.2) .. controls (640,433.21) and (631.37,441.33) .. (620.72,441.33) .. controls (610.08,441.33) and (601.45,433.21) .. (601.45,423.2) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (171.62,482.19) .. controls (171.62,472.17) and (180.25,464.06) .. (190.9,464.06) .. controls (201.55,464.06) and (210.18,472.17) .. (210.18,482.19) .. controls (210.18,492.2) and (201.55,500.32) .. (190.9,500.32) .. controls (180.25,500.32) and (171.62,492.2) .. (171.62,482.19) -- cycle ;
+\draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.52 ] (656.06,281.52) .. controls (656.06,271.5) and (664.69,263.39) .. (675.34,263.39) .. controls (685.98,263.39) and (694.61,271.5) .. (694.61,281.52) .. controls (694.61,291.53) and (685.98,299.64) .. (675.34,299.64) .. controls (664.69,299.64) and (656.06,291.53) .. (656.06,281.52) -- cycle ;
+\draw [line width=1.5]    (130.55,386.94) -- (265.49,340.32) ;
+\draw [line width=1.5]    (232.44,223.77) -- (274.41,314.17) ;
+\draw [line width=1.5]    (265.39,325.38) -- (109,277) ;
+\draw [line width=1.5]    (307.81,87.37) -- (232.44,187.51) ;
+\draw [line width=1.5]    (338.46,73.55) -- (473.4,54.13) ;
+\draw [line width=1.5]    (295,346) -- (352,415) ;
+\draw [line width=1.5]    (346.72,428.38) -- (208,473) ;
+\draw [line width=1.5]    (385.28,428.38) -- (601.45,423.2) ;
+\draw [line width=1.5]    (87.6,152.05) -- (91.73,251.77) ;
+\draw [line width=1.5]    (303,338) -- (422.45,349.38) ;
+\draw [line width=1.5]    (458.1,359.28) -- (601.45,423.2) ;
+\draw [line width=1.5]    (629.97,406.96) -- (672,299) ;
+\draw [line width=1.5]    (564,265) -- (620.72,405.07) ;
+\draw [line width=1.5]    (492.67,72.26) -- (476.08,153.79) ;
+\draw [line width=1.5]    (332.21,87.37) -- (450.39,161.3) ;
+\draw [line width=1.5]    (482.17,183.68) -- (538,237) ;
+\draw [line width=1.5]    (459.39,187.62) -- (423.42,242.75) ;
+\draw [line width=1.5]    (422.13,275.33) -- (441.73,331.26) ;
+\draw [line width=1.5]    (399.01,267.81) -- (301,322) ;
+\draw [line width=1.5]    (503,70) -- (553.59,230.69) ;
+\draw (111.28,386.94) node    {$1$};
+\draw (319.19,73.55) node    {$3$};
+\draw (492.67,54.13) node    {$4$};
+\draw (467.89,170.68) node    {$5$};
+\draw (232.44,205.64) node    {$6$};
+\draw (414.19,257.44) node    {$7$};
+\draw (441.73,349.38) node    {$8$};
+\draw (366,428.38) node    {$9$};
+\draw (91.73,269.9) node    {$10$};
+\draw (85.86,134.87) node    {$11$};
+\draw (553.59,248.82) node    {$12$};
+\draw (620.72,423.2) node    {$13$};
+\draw (190.9,482.19) node    {$14$};
+\draw (675.34,281.52) node    {$15$};
+\draw (283.39,331.26) node    {$2$};
+\draw (277,362) node   [align=left] {Medici};
+\draw (92,300) node   [align=left] {Salviati};
+\draw (84,107) node   [align=left] {Pazzi};
+\draw (111,418) node   [align=left] {Acciaiuol};
+\draw (367,460) node   [align=left] {Albizzi};
+\draw (192,453) node   [align=left] {Ginori};
+\draw (441,376) node   [align=left] {Tornabuon};
+\draw (624,450) node   [align=left] {Guadagni};
+\draw (675,253) node   [align=left] {Lambertes};
+\draw (594,226) node   [align=left] {Bischeri};
+\draw (389,232) node   [align=left] {Ridolfi};
+\draw (196,178) node   [align=left] {Barbadori};
+\draw (319,43) node   [align=left] {Castellan};
+\draw (424,177) node   [align=left] {Strozzi};
+\draw (494,26) node   [align=left] {Peruzzi};
+\end{tikzpicture}}
+\caption{Florentine Family network} \label{fig:ex6}
+\end{figure}
+
+Consider the potential network $\overline{g}$ is equal to the network depicted in Figure (\ref{fig:ex6}).
+Link formation costs are all same: $c_{ij} = c$ for all $ij \in E(\overline{g})$.
+Assume $\alpha_i = 1$ for all $i$.
+In light of Proposition 3, some links are removed in the greatest equilibrium network as $c$ increases.
+Table \ref{tab:removed links} shows the value of cost $c$ and removed links with its cost structure.
+
+\begin{table}[htb]
+  \begin{center}
+    \begin{tabular}{|l|l|} \hline
+      cost & removed links \\ \hline \hline
+      $c = 0.081$ & none \\ \hline
+      $c = 0.082$ & Salviati-Pazzi \\ \hline
+      $c = 0.088$ & Salviati-Pazzi, Albizzi-Ginori \\ \hline
+      $c = 0.092$ & Salviati-Pazzi, Albizzi-Ginori, Guadagni-Lambertes \\ \hline
+      $c = 0.093$ & \begin{tabular}{l}Salviati-Pazzi, Albizzi-Ginori, Guadagni-Lambertes, \\ Guadagni-Tornabuon, Guadagni-Albizzi, Guadagni-Bischeri \end{tabular} \\ \hline
+      $c = 0.094$ & all links \\ \hline
+    \end{tabular}
+    \caption{Removed links}
+    \label{tab:removed links}
+  \end{center}
+\end{table}
+
+From this table, we see the links between Salviati and Pazzi are removed first.
+We can guess this connection is the weakest or negligible one.
+In fact, using the algorithm proposed by Jiang, Y., and Hu, A. (2010)~\cite{link}, where the importance of the link is computed by the freauency used in the shortest path, the connection between Salviati and Pazzi has the least importance.
+Intuitively, the connection between Salviati and Pazzi is located in the fringe of the network.
+As $c$ increases, the links with small importances are removed in order.
+This example shows our model can be used as a method to find the links with low importances.
 
 
 \section{Conclusion}
@@ -1163,6 +1283,7 @@ Behind this result, there are supermodurality in the 1st stage game given 2nd st
 However, the realized network is high dimensional discontiunous function in the costs, so it is difficult to identify the structure of the network from the link formation costs.
 We can find the key player in the endogenous network is not necessarily same with the one in the exogenous network, which implies that we might have a wrong policy implication from the results in previous literature.
 Therefore, it is significant to consider the mechanism of network formation.
+Finally, we provide an example that our model can be used as a method to find the links with low importances.
 
 Some weaknesses in our model are remaining for the future work.
 First, link formation is accomplished by the unilateral decisions.
@@ -1248,7 +1369,8 @@ Analyzing various kinds of network formation opens the way to "network design" f
 	\end{equation}
 	Denote $\bm{\hat{D}} = \bm{G} - (\bm{G} \wedge \bm{H})$.
 	Note that $\bm{\hat{D}}$ is nonnegative matrix.
-	Assume $(\bm{G} \vee \bm{H})^{p} - \bm{G}^{p}) - (\bm{H}^{p} - (\bm{G} \wedge \bm{H})^{p}) \ge \bm{0}$ for $p (\ge 0)$.
+	Assume, for $p (\ge 0)$,
+		\[(\bm{G} \vee \bm{H})^{p} - \bm{G}^{p}) - (\bm{H}^{p} - (\bm{G} \wedge \bm{H})^{p}) \ge \bm{0} \]
 	For $p + 1$,
 	\begin{align*}
 		& ((\bm{G} \vee \bm{H})^{p+1} - \bm{G}^{p+1}) - (\bm{H}^{p+1} - (\bm{G} \wedge \bm{H})^{p+1}) \\
@@ -1276,7 +1398,7 @@ Analyzing various kinds of network formation opens the way to "network design" f
 \end{proof}
 
 \begin{proof}[Proof of Theorem 1.]
-	First, we note the definition of supermodular game.
+	First, we note the definition of a supermodular game.
 
 	\begin{definition}
 		A normal form game $\Gamma = \langle N, \bm{\Psi}, {(u_i)}_{i \in N} \rangle$ is a {\it{supermodular game}}\footnote{This definition depends on Topkis (1998)~\cite{topkis1998}.} if
@@ -1287,7 +1409,10 @@ Analyzing various kinds of network formation opens the way to "network design" f
 		\end{enumerate}
 	\end{definition}
 
-	$\bm{\Psi}$ is a sublattice of $\prod_{i=1}^n \mathbb{R}^n$ since, for any nonempty subset $\bm{\tilde{\Psi}} \subseteq \bm{\Psi}$, $\inf(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$ and $\sup(\bm{\tilde{\Psi}}) \subseteq \bm{\Psi}$ by the construction of $\bm{\Psi}$.
+	Take any $\psi, \psi' \in \bm{\Psi}$.
+	Since $\psi_{ij}$ is either $0$ or $1$, we see $\psi_{ij} \vee \psi'_{ij} \in \{0, 1\}$ and $\psi_{ij} \wedge \psi'_{ij} \in \{0, 1\}$.
+	Also, $\psi_{ij} = 0$ for $ij$ with $\overline{g}_{ij} = 0$, and we see $\psi_{ij} \vee \psi'_{ij} = 0$ and $\psi_{ij} \wedge \psi'_{ij} = 0$.
+	Therefore, we have $\psi \vee \psi' \in \bm{\Psi}$ and $\psi \wedge \psi' \in \bm{\Psi}$, and $\bm{\Psi}$ is a sublattice of $\prod_{i=1}^n \mathbb{R}^n$.
 
 	Next, we show that $u_i$ is supermodular in $\psi_i$ for fixed $\psi_{-i}$.
 	Fix any $\psi_{-i} \in \Psi_{-i}$ and take $\psi_i, \psi_i' \in \Psi_i$ arbitrarily.
@@ -1324,7 +1449,7 @@ Analyzing various kinds of network formation opens the way to "network design" f
 			& \ge u_i(\bm{x}^*(g(\psi_i, \psi_{-i}')), \psi_i, \psi_{-i}', \bm{C}, \phi) - u_i(\bm{x}^*(g(\psi_i', \psi_{-i}')), \psi_i', \psi_{-i}', \bm{C}, \phi).
 	\end{align*}
 	$u_i(\psi_i, \psi_{-i})$ has increasing differences in $(\psi_i, \psi_{-i})$.
-	From all these above, we can say $\Gamma$ is supermodular game.
+	From all these above, we have $\Gamma$ is a supermodular game.
 \end{proof}
 
 \begin{proof}[Proof of Proposition 2.]
@@ -1485,6 +1610,10 @@ Analyzing various kinds of network formation opens the way to "network design" f
 	Jackson, M. O., and Wolinsky, A. (1996),
 	"A strategic model of social and economic networks",
 	Journal of economic theory, 71(1), 44-74.
+\bibitem{link}
+	Jiang, Y., and Hu, A. (2010),
+	"A Link Importance Evaluation Method Based on the Characteristic of Network Communication,"
+	2010 Second International Conference on Networks Security, Wireless Communications and Trusted Computing, Wuhan, Hubei, pp. 122-125.
 \bibitem{katz}
 	Katz, L. (1953),
 	"A new status index derived from sociometric analysis",

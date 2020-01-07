@@ -21,6 +21,13 @@ This repository is for my self-study.
 ### deep-learning
 - Deep Learning(Python)
   - Chapter3 (Neural Network)
+  - Chapter4
+  - Chapter5
+  - Chapter6
+  - Chapter7
+- GAN
+- Keras
+- CNN with Keras
 
 ### Industrial-Organization
 - Industrial Organization(Python, R, Matlab)
@@ -29,6 +36,11 @@ This repository is for my self-study.
 ### oyamasemi
 - wald_friedman
 - uncertainty_traps
+- repeated game
+
+### endo_net
+- My master's thesis
+  - Supermodularity and Equilibrium in Games with Peer Effects and Endogenous Network Formation
 
 ### Others
 - Notes on Julia

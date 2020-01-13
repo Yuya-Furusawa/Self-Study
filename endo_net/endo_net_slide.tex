@@ -34,13 +34,15 @@
 \begin{frame}{Network with Peer Effect}
 \begin{itemize}
     \item Network structure and local interactions play an important role in individual and aggregate behaviors
-    \item By considering network structure, we can consider direct effect and indirect effect.
-    \item Externalities of the individual behavior in the network is a key factor for the aggeregate bahavior
-    \item Especially, we can see the importance of positive externalities
     \begin{itemize}
-        \item R\&D network, criminal network, educational network
+        \item Externalities of the individual behavior in the network is a key factor for the aggeregate bahavior
+        \item By considering network structure, we can consider direct effect and indirect effect
     \end{itemize}
-    \item Many literatures argue the importance of "peer effects" theoretically and empirically
+    \item Especially, we can see the importance of externalities
+    \begin{itemize}
+        \item Criminal network, R\&D network, educational network
+    \end{itemize}
+    \item Many literature argue the importance of "peer effects" theoretically and empirically
 \end{itemize}
 \end{frame}
 
@@ -109,26 +111,12 @@
     \item First, agents simultaneously choose their neighbors from the agents whom they connect in the potential network
     \item This action is represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, and $\psi_{ij} = 0$ for all $j \notin N_i(\overline{g})$
     \item Denote the agent $i$'s set of actions as $\Psi_i$
+    \item The action in the 1st stage is dependent on $\overline{g}$, sometimes we denote $\psi_i(\overline{g})$
     \item When an agent $i$ form link to $j$, he incurs the link-specific costs $c_{ij} \ge 0$
     \begin{itemize}
         \item We denote $\bm{C} = {(c_{ij})}_{ij}$
         \item $\bm{C}$ is not necessarily symmetric
     \end{itemize}
-    \item The action in the 1st stage is dependent on $\overline{g}$, sometimes we denote $\psi_i(\overline{g})$
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Model : Realized network}
-\begin{itemize}
-    \item At the end of the 1st stage, we can see {\it{realized network}} denoted as $g$
-    \item $g$ is represented by the adjacency matrix $\bm{G}$
-    \[ g_{ij}(\psi_{ij}(\overline{g})) = 
-        \begin{cases}
-            1 \  (\text{if} \  \psi_{ij}(\overline{g}) = 1 ) \\
-            0 \  (\text{otherwise})
-        \end{cases} \]
-    \item $g$ depends on $\bm{\psi}(\overline{g}) = (\psi_1(\overline{g}), \cdots, \psi_n(\overline{g}))$, so we can denote $g(\bm{\psi}(\overline{g}))$
-    \item To avoid redundant expressions, we denote $g(\bm{\psi})$
 \end{itemize}
 \end{frame}
 
@@ -197,6 +185,20 @@
 \end{figure}
 \end{frame}
 
+\begin{frame}{Model : Realized network}
+\begin{itemize}
+    \item At the end of the 1st stage, we can see {\it{realized network}} denoted as $g$
+    \item $g$ is represented by the adjacency matrix $\bm{G}$
+    \[ g_{ij}(\psi_{ij}(\overline{g})) = 
+        \begin{cases}
+            1 \  (\text{if} \  \psi_{ij}(\overline{g}) = 1 ) \\
+            0 \  (\text{otherwise})
+        \end{cases} \]
+    \item $g$ depends on $\bm{\psi}(\overline{g}) = (\psi_1(\overline{g}), \cdots, \psi_n(\overline{g}))$, so we can denote $g(\bm{\psi}(\overline{g}))$
+    \item To avoid redundant expressions, we denote $g(\bm{\psi})$
+\end{itemize}
+\end{frame}
+
 \begin{frame}{Model : 2nd stage}
 \begin{itemize}
     \item Given the realized network, each agent $i \in N$ simultaneously exerts an effort $x_i \ge 0$
@@ -212,7 +214,7 @@
 
 \begin{frame}{Interpretation : Examples}
 \begin{itemize}
-    \item node : web sites, municaiparities in Mexico and U.S.
+    \item agent : web sites, municaiparities in Mexico and U.S.
     \item link : ad on other sites, drug traffick
     \item link formation cost : ad fee, prob of capture during trafficking
     \item effort : investments on web contents, drug demand
@@ -250,16 +252,7 @@
             \item $u_i(\psi_i, \psi_{-i})$ has increasing differences in $(\psi_i, \psi_{-i})$ on $\Psi_i \times \Psi_{-i}$.
         \end{itemize}
         \hyperlink{proof}{[Proof]}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Equilibrium existence}
-\begin{itemize}
-    \item {\bf{Corollary}} : Equilibrium network always exists, in particular the greatest and smallest equilibrium network exists
-    \item We focus on the greatest equilibrium network and denote $g^{**}$
-    \begin{itemize}
-        \item The greatest equilibrium can be obtained by sequential {\it{best response dynamics}} which starts from the potential network
-    \end{itemize}
+    \item {\bf{Corollary}} : Equilibrium network always exists
 \end{itemize}
 \end{frame}
 
@@ -349,6 +342,16 @@
 \end{tikzpicture}}
 \caption{Equilibrium network region}
 \end{figure}
+\end{frame}
+
+\begin{frame}{Greatest equilibrium}
+\begin{itemize}
+    \item By the supermodularity, the greatest and smallest equilibrium network exists
+    \item We focus on the greatest equilibrium network and denote $g^{**}$
+    \begin{itemize}
+        \item The greatest equilibrium can be obtained by sequential {\it{best response dynamics}} which starts from the potential network
+    \end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Comparative Statics}
@@ -573,240 +576,6 @@
 \end{figure}
 \end{frame}
 
-\begin{frame}{Key removing link in endogenous and exogenous network}
-\begin{itemize}
-    \item {\bf{Definition}} : Link $ij$ is a {\it{key removing link in endogenous network}} if, given potential network $\overline{g}$,
-        \[ ij \in \arg \max_{ij \in E(\overline{g})} \{ x^*(g^{**}(\bm{\psi}(\overline{g}, \bm{C}))) - x^*(g^{**}(\bm{\psi}({\overline{g}}^{-ij}, \bm{C}))) \} \]
-        where $E(\overline{g})$ is the set of links in $\overline{g}$ and ${\overline{g}}^{-ij}$ is network obtained by removing link $ij$ from $\overline{g}$
-    \item {\bf{Definition}} : Link $ij$ is a {\it{key removing link in exogenous network}} if, given network $g$,
-        \[ ij \in \arg \max_{ij \in E(g)} \{ x^*(g) - x^*(g^{-ij}) \} \]
-        where $E(g)$ is the set of links in $g$ and $g^{-ij}$ is network obtained by removing link $ij$ from $g$
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Diff bet. endogenous and exogenous key removing link}
-\begin{itemize}
-    \item {\bf{Example}} : Suppose $n=3$, $\bm{\alpha} = (1,1,1)$ and $\phi = 1/3$
-    \item Potential network is $\bm{\overline{G}} = \left[
-                                    \begin{array}{ccc}
-                                        0 & 1 & 1 \\
-                                        1 & 0 & 1 \\
-                                        1 & 0 & 0
-                                    \end{array} \right]$
-    \item $\bm{C} = \left[
-                \begin{array}{ccc}
-                    0 & 1 & 1 \\
-                    1 & 0 & 1 \\
-                    1 & 0 & 0
-                \end{array} \right] \Rightarrow
-            \bm{G}^{**} = \left[
-                \begin{array}{ccc}
-                    0 & 1 & 1 \\
-                    1 & 0 & 1 \\
-                    1 & 0 & 0
-                \end{array} \right]$
-    \item Then,
-        \begin{itemize}
-            \item Key removing link in endogenous network is $\bm{23}$
-            \item Key removing link in exogenous network is $\bm{12}$ and $\bm{31}$
-        \end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Diff bet. endogenous and exogenous key removing link}
-\begin{figure}[h]
-\centering
-\tikzset{every picture/.style={line width=0.75pt}}       
-\scalebox{0.5}[0.5]{
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (170.07,34.56) .. controls (170.07,22.13) and (180.15,12.06) .. (192.57,12.06) .. controls (205,12.06) and (215.07,22.13) .. (215.07,34.56) .. controls (215.07,46.98) and (205,57.06) .. (192.57,57.06) .. controls (180.15,57.06) and (170.07,46.98) .. (170.07,34.56) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (88.18,188.79) .. controls (88.18,176.36) and (98.25,166.29) .. (110.68,166.29) .. controls (123.1,166.29) and (133.18,176.36) .. (133.18,188.79) .. controls (133.18,201.21) and (123.1,211.29) .. (110.68,211.29) .. controls (98.25,211.29) and (88.18,201.21) .. (88.18,188.79) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (250.18,189.21) .. controls (250.18,176.79) and (260.25,166.71) .. (272.68,166.71) .. controls (285.1,166.71) and (295.18,176.79) .. (295.18,189.21) .. controls (295.18,201.64) and (285.1,211.71) .. (272.68,211.71) .. controls (260.25,211.71) and (250.18,201.64) .. (250.18,189.21) -- cycle ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (171,58) -- (115.94,161.24) ;
-\draw [shift={(115,163)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (184.06,65.76) -- (129,169) ;
-\draw [shift={(185,64)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (200,63) -- (253.09,167.22) ;
-\draw [shift={(254,169)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (213.91,56.78) -- (267,161) ;
-\draw [shift={(213,55)}, rotate = 63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]  [dash pattern={on 2.53pt off 3.02pt}]  (140,192) -- (241,192) ;
-\draw [shift={(245,192)}, rotate = 180] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (169.07,363.56) .. controls (169.07,351.13) and (179.15,341.06) .. (191.57,341.06) .. controls (204,341.06) and (214.07,351.13) .. (214.07,363.56) .. controls (214.07,375.98) and (204,386.06) .. (191.57,386.06) .. controls (179.15,386.06) and (169.07,375.98) .. (169.07,363.56) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (87.18,517.79) .. controls (87.18,505.36) and (97.25,495.29) .. (109.68,495.29) .. controls (122.1,495.29) and (132.18,505.36) .. (132.18,517.79) .. controls (132.18,530.21) and (122.1,540.29) .. (109.68,540.29) .. controls (97.25,540.29) and (87.18,530.21) .. (87.18,517.79) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (249.18,518.21) .. controls (249.18,505.79) and (259.25,495.71) .. (271.68,495.71) .. controls (284.1,495.71) and (294.18,505.79) .. (294.18,518.21) .. controls (294.18,530.64) and (284.1,540.71) .. (271.68,540.71) .. controls (259.25,540.71) and (249.18,530.64) .. (249.18,518.21) -- cycle ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (170,387) -- (114.94,490.24) ;
-\draw [shift={(114,492)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (183.06,394.76) -- (128,498) ;
-\draw [shift={(184,393)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (199,392) -- (252.09,496.22) ;
-\draw [shift={(253,498)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (212.91,385.78) -- (266,490) ;
-\draw [shift={(212,384)}, rotate = 63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (554.07,35.56) .. controls (554.07,23.13) and (564.15,13.06) .. (576.57,13.06) .. controls (589,13.06) and (599.07,23.13) .. (599.07,35.56) .. controls (599.07,47.98) and (589,58.06) .. (576.57,58.06) .. controls (564.15,58.06) and (554.07,47.98) .. (554.07,35.56) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (472.18,189.79) .. controls (472.18,177.36) and (482.25,167.29) .. (494.68,167.29) .. controls (507.1,167.29) and (517.18,177.36) .. (517.18,189.79) .. controls (517.18,202.21) and (507.1,212.29) .. (494.68,212.29) .. controls (482.25,212.29) and (472.18,202.21) .. (472.18,189.79) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (634.18,190.21) .. controls (634.18,177.79) and (644.25,167.71) .. (656.68,167.71) .. controls (669.1,167.71) and (679.18,177.79) .. (679.18,190.21) .. controls (679.18,202.64) and (669.1,212.71) .. (656.68,212.71) .. controls (644.25,212.71) and (634.18,202.64) .. (634.18,190.21) -- cycle ;
-\draw [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (555,59) -- (500.88,160.47) ;
-\draw [shift={(499,164)}, rotate = 298.07] [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
-\draw    (568.06,66.76) -- (513,170) ;
-\draw [shift={(569,65)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw    (584,64) -- (637.09,168.22) ;
-\draw [shift={(638,170)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (598.82,59.56) -- (651,162) ;
-\draw [shift={(597,56)}, rotate = 63] [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
-\draw    (524,193) -- (627,193) ;
-\draw [shift={(629,193)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw [line width=0.75]    (314.01,108.5) -- (447.01,109.45)(313.99,111.5) -- (446.99,112.45) ;
-\draw [shift={(454,111)}, rotate = 180.41] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (554.07,364.56) .. controls (554.07,352.13) and (564.15,342.06) .. (576.57,342.06) .. controls (589,342.06) and (599.07,352.13) .. (599.07,364.56) .. controls (599.07,376.98) and (589,387.06) .. (576.57,387.06) .. controls (564.15,387.06) and (554.07,376.98) .. (554.07,364.56) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (472.18,518.79) .. controls (472.18,506.36) and (482.25,496.29) .. (494.68,496.29) .. controls (507.1,496.29) and (517.18,506.36) .. (517.18,518.79) .. controls (517.18,531.21) and (507.1,541.29) .. (494.68,541.29) .. controls (482.25,541.29) and (472.18,531.21) .. (472.18,518.79) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (634.18,519.21) .. controls (634.18,506.79) and (644.25,496.71) .. (656.68,496.71) .. controls (669.1,496.71) and (679.18,506.79) .. (679.18,519.21) .. controls (679.18,531.64) and (669.1,541.71) .. (656.68,541.71) .. controls (644.25,541.71) and (634.18,531.64) .. (634.18,519.21) -- cycle ;
-\draw [line width=0.75]    (315.01,438.5) -- (448.01,439.45)(314.99,441.5) -- (447.99,442.45) ;
-\draw [shift={(455,441)}, rotate = 180.41] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
-\draw    (193.5,222.01) -- (192.58,318.01)(190.5,221.99) -- (189.58,317.99) ;
-\draw [shift={(191,326)}, rotate = 270.55] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw (192.57,34.56) node    {$1$};
-\draw (110.68,188.79) node    {$2$};
-\draw (272.68,189.21) node    {$3$};
-\draw (271.68,518.21) node    {$3$};
-\draw (109.68,517.79) node    {$2$};
-\draw (191.57,363.56) node    {$1$};
-\draw (656.68,190.21) node    {$3$};
-\draw (494.68,189.79) node    {$2$};
-\draw (576.57,35.56) node    {$1$};
-\draw (656.68,519.21) node    {$3$};
-\draw (494.68,518.79) node    {$2$};
-\draw (576.57,364.56) node    {$1$};
-\draw (251,273) node   [align=left] {removing link};
-\draw (309,272) node    {$23$};
-\end{tikzpicture}}
-\caption{Key removing link in endogenous and exogenous network}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Key adding link in endogenous and exogenous network}
-\begin{itemize}
-    \item {\bf{Definition}} : Link $ij$ is a {\it{key adding link in endogenous network}} if, given potential network $\overline{g}$,
-        \[ ij \in \arg \max_{ij \notin E(\overline{g})} \{ x^*(g^{**}(\bm{\psi}({\overline{g}}^{+ij}, \bm{C}))) - x^*(g^{**}(\bm{\psi}(\overline{g}, \bm{C}))) \} \]
-        where ${\overline{g}}^{+ij}$ is network obtained by adding link $ij$ to $\overline{g}$
-    \item {\bf{Definition}} : Link $ij$ is a {\it{key adding link in exogenous network}} if, given network $g$,
-        \[ ij \in \arg \max_{ij \notin E(g)} \{ x^*(g^{+ij}) - x^*(g) \} \]
-        where $g^{+ij}$ is network obtained by adding link $ij$ to $g$
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Diff bet. endogenous and exogenous key adding link}
-\begin{itemize}
-    \item {\bf{Example}} : Suppose $n=3$, $\bm{\alpha} = (1,1,1)$ and $\phi = 1/3$
-    \item Potential network is $\bm{\overline{G}} = \left[
-                                    \begin{array}{ccc}
-                                        0 & 1 & 1 \\
-                                        1 & 0 & 0 \\
-                                        1 & 0 & 0
-                                    \end{array} \right]$
-    \item $\bm{C} = \left[
-                \begin{array}{ccc}
-                    0 & 0.1 & 0.1 \\
-                    1 & 0 & 0 \\
-                    1 & 0 & 0
-                \end{array} \right] \Rightarrow
-            \bm{G}^{**} = \left[
-                \begin{array}{ccc}
-                    0 & 1 & 1 \\
-                    0 & 0 & 0 \\
-                    0 & 0 & 0
-                \end{array} \right]$
-    \item Then,
-        \begin{itemize}
-            \item Key adding link in endogenous network is $\bm{23}$ and $\bm{32}$
-            \item Key adding link in exogenous network is $\bm{21}$ and $\bm{31}$
-        \end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Diff bet. endogenous and exogenous key adding link}
-\begin{figure}[h]
-\centering
-\tikzset{every picture/.style={line width=0.75pt}}
-\scalebox{0.5}[0.5]{
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (190.07,54.56) .. controls (190.07,42.13) and (200.15,32.06) .. (212.57,32.06) .. controls (225,32.06) and (235.07,42.13) .. (235.07,54.56) .. controls (235.07,66.98) and (225,77.06) .. (212.57,77.06) .. controls (200.15,77.06) and (190.07,66.98) .. (190.07,54.56) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (108.18,208.79) .. controls (108.18,196.36) and (118.25,186.29) .. (130.68,186.29) .. controls (143.1,186.29) and (153.18,196.36) .. (153.18,208.79) .. controls (153.18,221.21) and (143.1,231.29) .. (130.68,231.29) .. controls (118.25,231.29) and (108.18,221.21) .. (108.18,208.79) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (270.18,209.21) .. controls (270.18,196.79) and (280.25,186.71) .. (292.68,186.71) .. controls (305.1,186.71) and (315.18,196.79) .. (315.18,209.21) .. controls (315.18,221.64) and (305.1,231.71) .. (292.68,231.71) .. controls (280.25,231.71) and (270.18,221.64) .. (270.18,209.21) -- cycle ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (191,78) -- (135.94,181.24) ;
-\draw [shift={(135,183)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (204.06,85.76) -- (149,189) ;
-\draw [shift={(205,84)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (220,83) -- (273.09,187.22) ;
-\draw [shift={(274,189)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (233.91,76.78) -- (287,181) ;
-\draw [shift={(233,75)}, rotate = 63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (189.07,383.56) .. controls (189.07,371.13) and (199.15,361.06) .. (211.57,361.06) .. controls (224,361.06) and (234.07,371.13) .. (234.07,383.56) .. controls (234.07,395.98) and (224,406.06) .. (211.57,406.06) .. controls (199.15,406.06) and (189.07,395.98) .. (189.07,383.56) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (107.18,537.79) .. controls (107.18,525.36) and (117.25,515.29) .. (129.68,515.29) .. controls (142.1,515.29) and (152.18,525.36) .. (152.18,537.79) .. controls (152.18,550.21) and (142.1,560.29) .. (129.68,560.29) .. controls (117.25,560.29) and (107.18,550.21) .. (107.18,537.79) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (269.18,538.21) .. controls (269.18,525.79) and (279.25,515.71) .. (291.68,515.71) .. controls (304.1,515.71) and (314.18,525.79) .. (314.18,538.21) .. controls (314.18,550.64) and (304.1,560.71) .. (291.68,560.71) .. controls (279.25,560.71) and (269.18,550.64) .. (269.18,538.21) -- cycle ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (190,407) -- (134.94,510.24) ;
-\draw [shift={(134,512)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (203.06,414.76) -- (148,518) ;
-\draw [shift={(204,413)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (219,412) -- (272.09,516.22) ;
-\draw [shift={(273,518)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (232.91,405.78) -- (286,510) ;
-\draw [shift={(232,404)}, rotate = 63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (574.07,55.56) .. controls (574.07,43.13) and (584.15,33.06) .. (596.57,33.06) .. controls (609,33.06) and (619.07,43.13) .. (619.07,55.56) .. controls (619.07,67.98) and (609,78.06) .. (596.57,78.06) .. controls (584.15,78.06) and (574.07,67.98) .. (574.07,55.56) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (492.18,209.79) .. controls (492.18,197.36) and (502.25,187.29) .. (514.68,187.29) .. controls (527.1,187.29) and (537.18,197.36) .. (537.18,209.79) .. controls (537.18,222.21) and (527.1,232.29) .. (514.68,232.29) .. controls (502.25,232.29) and (492.18,222.21) .. (492.18,209.79) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (654.18,210.21) .. controls (654.18,197.79) and (664.25,187.71) .. (676.68,187.71) .. controls (689.1,187.71) and (699.18,197.79) .. (699.18,210.21) .. controls (699.18,222.64) and (689.1,232.71) .. (676.68,232.71) .. controls (664.25,232.71) and (654.18,222.64) .. (654.18,210.21) -- cycle ;
-\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (575,79) -- (519.94,182.24) ;
-\draw [shift={(519,184)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw    (604,84) -- (657.09,188.22) ;
-\draw [shift={(658,190)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw [line width=0.75]    (334.01,128.5) -- (467.01,129.45)(333.99,131.5) -- (466.99,132.45) ;
-\draw [shift={(474,131)}, rotate = 180.41] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
-\draw [line width=0.75]    (335.01,458.5) -- (468.01,459.45)(334.99,461.5) -- (467.99,462.45) ;
-\draw [shift={(475,461)}, rotate = 180.41] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
-\draw    (213.5,242.01) -- (212.58,338.01)(210.5,241.99) -- (209.58,337.99) ;
-\draw [shift={(211,346)}, rotate = 270.55] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [dash pattern={on 0.84pt off 2.51pt}]  (159,539) -- (260,539) ;
-\draw [shift={(262,539)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (575.07,384.56) .. controls (575.07,372.13) and (585.15,362.06) .. (597.57,362.06) .. controls (610,362.06) and (620.07,372.13) .. (620.07,384.56) .. controls (620.07,396.98) and (610,407.06) .. (597.57,407.06) .. controls (585.15,407.06) and (575.07,396.98) .. (575.07,384.56) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (493.18,538.79) .. controls (493.18,526.36) and (503.25,516.29) .. (515.68,516.29) .. controls (528.1,516.29) and (538.18,526.36) .. (538.18,538.79) .. controls (538.18,551.21) and (528.1,561.29) .. (515.68,561.29) .. controls (503.25,561.29) and (493.18,551.21) .. (493.18,538.79) -- cycle ;
-\draw  [fill={rgb, 255:red, 103; green, 174; blue, 255 }  ,fill opacity=0.52 ] (655.18,539.21) .. controls (655.18,526.79) and (665.25,516.71) .. (677.68,516.71) .. controls (690.1,516.71) and (700.18,526.79) .. (700.18,539.21) .. controls (700.18,551.64) and (690.1,561.71) .. (677.68,561.71) .. controls (665.25,561.71) and (655.18,551.64) .. (655.18,539.21) -- cycle ;
-\draw    (576,408) -- (520.94,511.24) ;
-\draw [shift={(520,513)}, rotate = 298.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw    (589.06,415.76) -- (534,519) ;
-\draw [shift={(590,414)}, rotate = 118.07] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw    (605,413) -- (658.09,517.22) ;
-\draw [shift={(659,519)}, rotate = 243] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw    (619.91,406.78) -- (673,511) ;
-\draw [shift={(619,405)}, rotate = 63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw    (546,540) -- (647,540) ;
-\draw [shift={(649,540)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (165,201) .. controls (166.68,199.35) and (168.35,199.37) .. (170,201.05) .. controls (171.65,202.74) and (173.31,202.76) .. (175,201.11) .. controls (176.68,199.46) and (178.35,199.48) .. (180,201.16) .. controls (181.65,202.85) and (183.31,202.87) .. (185,201.22) .. controls (186.68,199.57) and (188.35,199.59) .. (190,201.27) .. controls (191.65,202.96) and (193.31,202.98) .. (195,201.33) .. controls (196.68,199.68) and (198.35,199.7) .. (200,201.38) .. controls (201.65,203.06) and (203.32,203.08) .. (205,201.43) .. controls (206.69,199.78) and (208.35,199.8) .. (210,201.49) .. controls (211.65,203.17) and (213.32,203.19) .. (215,201.54) .. controls (216.69,199.89) and (218.35,199.91) .. (220,201.6) .. controls (221.65,203.28) and (223.32,203.3) .. (225,201.65) .. controls (226.69,200) and (228.35,200.02) .. (230,201.71) .. controls (231.65,203.39) and (233.32,203.41) .. (235,201.76) .. controls (236.69,200.11) and (238.35,200.13) .. (240,201.82) .. controls (241.65,203.5) and (243.32,203.52) .. (245,201.87) -- (245,201.87) -- (253,201.96) ;
-\draw [shift={(257,202)}, rotate = 180.62] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
-\draw [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (170,218.04) -- (178,218.13) .. controls (179.68,216.48) and (181.35,216.5) .. (183,218.18) .. controls (184.65,219.87) and (186.31,219.89) .. (188,218.24) .. controls (189.68,216.59) and (191.35,216.61) .. (193,218.29) .. controls (194.65,219.98) and (196.31,220) .. (198,218.35) .. controls (199.68,216.7) and (201.35,216.72) .. (203,218.4) .. controls (204.65,220.09) and (206.31,220.11) .. (208,218.46) .. controls (209.68,216.81) and (211.35,216.83) .. (213,218.51) .. controls (214.65,220.2) and (216.31,220.22) .. (218,218.57) .. controls (219.68,216.92) and (221.35,216.94) .. (223,218.62) .. controls (224.65,220.3) and (226.32,220.32) .. (228,218.67) .. controls (229.69,217.02) and (231.35,217.04) .. (233,218.73) .. controls (234.65,220.41) and (236.32,220.43) .. (238,218.78) .. controls (239.69,217.13) and (241.35,217.15) .. (243,218.84) .. controls (244.65,220.52) and (246.32,220.54) .. (248,218.89) .. controls (249.69,217.24) and (251.35,217.26) .. (252.99,218.95) .. controls (254.64,220.63) and (256.31,220.65) .. (257.99,219) -- (258,219) -- (258,219) ;
-\draw [shift={(166,218)}, rotate = 0.62] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
-\draw [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (585.12,89.53) -- (581.35,96.59) .. controls (582.04,98.84) and (581.25,100.31) .. (579,101) .. controls (576.75,101.69) and (575.96,103.16) .. (576.65,105.41) .. controls (577.33,107.66) and (576.54,109.13) .. (574.29,109.82) .. controls (572.04,110.51) and (571.25,111.99) .. (571.94,114.24) .. controls (572.63,116.49) and (571.84,117.96) .. (569.59,118.65) .. controls (567.34,119.34) and (566.55,120.81) .. (567.24,123.06) .. controls (567.92,125.31) and (567.13,126.78) .. (564.88,127.47) .. controls (562.63,128.16) and (561.84,129.63) .. (562.53,131.88) .. controls (563.22,134.13) and (562.43,135.6) .. (560.18,136.29) .. controls (557.92,136.98) and (557.13,138.45) .. (557.82,140.71) .. controls (558.51,142.96) and (557.72,144.43) .. (555.47,145.12) .. controls (553.22,145.81) and (552.43,147.28) .. (553.12,149.53) .. controls (553.8,151.78) and (553.01,153.25) .. (550.76,153.94) .. controls (548.51,154.63) and (547.72,156.1) .. (548.41,158.35) .. controls (549.1,160.6) and (548.31,162.07) .. (546.06,162.76) .. controls (543.81,163.45) and (543.02,164.93) .. (543.71,167.18) .. controls (544.39,169.43) and (543.6,170.9) .. (541.35,171.59) .. controls (539.1,172.28) and (538.31,173.75) .. (539,176) .. controls (539.69,178.25) and (538.9,179.72) .. (536.65,180.41) .. controls (534.4,181.1) and (533.61,182.57) .. (534.29,184.82) .. controls (534.98,187.07) and (534.19,188.55) .. (531.94,189.24) -- (531,191) -- (531,191) ;
-\draw [shift={(587,86)}, rotate = 118.07] [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
-\draw [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (620.82,81.56) -- (624.45,88.69) .. controls (626.69,89.42) and (627.45,90.91) .. (626.72,93.15) .. controls (625.99,95.39) and (626.75,96.87) .. (628.99,97.6) .. controls (631.23,98.33) and (631.99,99.82) .. (631.26,102.06) .. controls (630.53,104.3) and (631.29,105.78) .. (633.53,106.51) .. controls (635.77,107.24) and (636.53,108.73) .. (635.8,110.97) .. controls (635.07,113.21) and (635.82,114.69) .. (638.06,115.42) .. controls (640.3,116.15) and (641.06,117.64) .. (640.33,119.88) .. controls (639.6,122.12) and (640.36,123.6) .. (642.6,124.33) .. controls (644.84,125.06) and (645.6,126.55) .. (644.87,128.79) .. controls (644.14,131.03) and (644.9,132.51) .. (647.14,133.24) .. controls (649.38,133.97) and (650.14,135.46) .. (649.41,137.7) .. controls (648.68,139.94) and (649.44,141.42) .. (651.68,142.15) .. controls (653.92,142.88) and (654.68,144.37) .. (653.95,146.61) .. controls (653.22,148.85) and (653.98,150.34) .. (656.22,151.07) .. controls (658.46,151.8) and (659.22,153.28) .. (658.49,155.52) .. controls (657.76,157.76) and (658.52,159.25) .. (660.76,159.98) .. controls (663,160.71) and (663.76,162.19) .. (663.03,164.43) .. controls (662.3,166.67) and (663.06,168.16) .. (665.3,168.89) .. controls (667.54,169.62) and (668.3,171.1) .. (667.57,173.34) .. controls (666.84,175.58) and (667.6,177.07) .. (669.84,177.8) .. controls (672.08,178.53) and (672.84,180.01) .. (672.11,182.25) -- (673,184) -- (673,184) ;
-\draw [shift={(619,78)}, rotate = 63] [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ][line width=2.25]    (17.49,-5.26) .. controls (11.12,-2.23) and (5.29,-0.48) .. (0,0) .. controls (5.29,0.48) and (11.12,2.23) .. (17.49,5.26)   ;
-\draw (260,293) node   [align=left] {adding link};
-\draw (308,292) node    {$23$};
-\draw (676.68,210.21) node    {$3$};
-\draw (514.68,209.79) node    {$2$};
-\draw (596.57,55.56) node    {$1$};
-\draw (291.68,538.21) node    {$3$};
-\draw (129.68,537.79) node    {$2$};
-\draw (211.57,383.56) node    {$1$};
-\draw (292.68,209.21) node    {$3$};
-\draw (130.68,208.79) node    {$2$};
-\draw (212.57,54.56) node    {$1$};
-\draw (677.68,539.21) node    {$3$};
-\draw (515.68,538.79) node    {$2$};
-\draw (597.57,384.56) node    {$1$};
-\end{tikzpicture}}
-\caption{Key adding link in endogenous and exogenous network}
-\end{figure}
-\end{frame}
-
 
 \section{Conclusion}
 
@@ -818,7 +587,7 @@
     \item We can provide
     \begin{itemize}
         \item comparative statics results
-        \item discussion about policy implication : key player and key link
+        \item discussion about policy implication : key player and key link policy
         \begin{itemize}
             \item Without considering the endogenity of networks, we sometimes have wrong policy implications
         \end{itemize}

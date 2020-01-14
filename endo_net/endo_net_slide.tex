@@ -38,11 +38,10 @@
         \item Externalities of the individual behavior in the network is a key factor for the aggeregate bahavior
         \item By considering network structure, we can consider direct effect and indirect effect
     \end{itemize}
-    \item Especially, we can see the importance of externalities
-    \begin{itemize}
-        \item Criminal network, R\&D network, educational network
-    \end{itemize}
     \item Many literature argue the importance of "peer effects" theoretically and empirically
+    \begin{itemize}
+        \item Criminal network, educational network, R\&D network, etc
+    \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -64,8 +63,10 @@
     \item We provide
     \begin{itemize}
         \item the existence of subgame perfect equilibrium where all agents take pure strategies at each stage
-        \item the argument about the equilibrium uniqueness and multiplicity
         \item the discussion about policy implication (key player and key link policy)
+        \begin{itemize}
+            \item The importance of endogenous network formation
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -80,9 +81,9 @@
     \begin{itemize}
         \item Acemoglu and Azar(2019), Oberfield(2018), Farboodi(2014)
     \end{itemize}
-    \item Closely related paper(peer effect + endogeneity)
+    \item Closely related
     \begin{itemize}
-        \item Kim et.al.(2017), Hiller(2017)
+        \item Lim et.al.(2017), Hiller(2017)
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -110,7 +111,6 @@
 \begin{itemize}
     \item First, agents simultaneously choose their neighbors from the agents whom they connect in the potential network
     \item This action is represented by $\psi_i = (\psi_{i1}, \cdots, \psi_{in})$ such that $\psi_{ij} \in \{0, 1\}$ for all $j \in N$, and $\psi_{ij} = 0$ for all $j \notin N_i(\overline{g})$
-    \item Denote the agent $i$'s set of actions as $\Psi_i$
     \item The action in the 1st stage is dependent on $\overline{g}$, sometimes we denote $\psi_i(\overline{g})$
     \item When an agent $i$ form link to $j$, he incurs the link-specific costs $c_{ij} \ge 0$
     \begin{itemize}
@@ -202,7 +202,6 @@
 \begin{frame}{Model : 2nd stage}
 \begin{itemize}
     \item Given the realized network, each agent $i \in N$ simultaneously exerts an effort $x_i \ge 0$
-    \item Denote $\bm{x} = (x_1, \cdots, x_n)$
     \item Payoff function is
         \[ u_i(\bm{x}, \bm{\psi}, \bm{C}, \phi) = v_i(\bm{x}, g(\bm{\psi}), \phi) - \sum_{j=1}^n g_{ij}(\bm{\psi}) c_{ij} \]
         where
@@ -237,8 +236,6 @@
     \item {\bf{Proposition}} : Under Assumption, for any realized network $g$, the subgame has a unique Nash equilibrium $\bm{x}^*$, which is interior and given by
     \[ \bm{x}^*(g, \phi, \bm{\alpha}) = {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \]
     \item This is based on Ballester, Calv\'{o}-Armengol, and Zenou(2006)
-    \item We have
-    \[ v_i(\bm{x}^*(g), g, \phi) = \frac{1}{2} {x_i^*(g)}^2 \]
 \end{itemize}
 \end{frame}
 
@@ -265,29 +262,19 @@
 
 \begin{frame}{Uniqueness/Multiplicity of the equilibrium}
 \begin{itemize}
-    \item Equilibrium network is sometimes not unique
+    \item Equilibrium network is not always unique
     \item {\bf{Example}} : Consider $n = 2$, $\bm{\alpha} = (1, 1)$, and $\bm{\overline{G}} = \left[
     \begin{array}{cc}
         0 & 1 \\
         1 & 0
     \end{array} \right]$.
-
-        Then $\left[
-    \begin{array}{cc}
-        0 & 1 \\
-        1 & 0
-    \end{array} \right]$ and $\left[
-    \begin{array}{cc}
-        0 & 0 \\
-        0 & 0
-    \end{array} \right]$ can be both equilibrium network for some $c_{12}$ and $c_{21}$.
     \item Payoff matrix is:
         \begin{table}[htb]
           \begin{center}
-            \begin{tabular}{|l|l|c|} \hline
-              \            & $g_{21} = 1$         & $g_{21} = 0$ \\ \hline
-              $g_{12} = 1$ & $\left( \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - c_{12}, \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - c_{21} \right)$ & $\left( \frac{1}{2} {(1 + \phi)}^2 - c_{12}, \frac{1}{2} \right)$ \\ \hline
-              $g_{12} = 0$ & $\left( \frac{1}{2}, \frac{1}{2} {(1 + \phi)}^2 - c_{21} \right)$ & $\left( \frac{1}{2}, \frac{1}{2} \right)$ \\ \hline
+            \begin{tabular}{|l|l|l|} \hline
+              $\psi_1 \backslash \psi_2$ & $(1,0)$ & $(0,0)$ \\ \hline
+              $(0,1)$ & $\left( \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - c_{12}, \frac{1}{2}{\left( \frac{1}{1 - \phi} \right)}^2 - c_{21} \right)$ & $\left( \frac{1}{2} {(1 + \phi)}^2 - c_{12}, \frac{1}{2} \right)$ \\ \hline
+              $(0,0)$ & $\left( \frac{1}{2}, \frac{1}{2} {(1 + \phi)}^2 - c_{21} \right)$ & $\left( \frac{1}{2}, \frac{1}{2} \right)$ \\ \hline
             \end{tabular}
           \end{center}
         \end{table}
@@ -346,7 +333,7 @@
 
 \begin{frame}{Greatest equilibrium}
 \begin{itemize}
-    \item By the supermodularity, the greatest and smallest equilibrium network exists
+    \item By the supermodularity, the greatest and smallest equilibrium network exist
     \item We focus on the greatest equilibrium network and denote $g^{**}$
     \begin{itemize}
         \item The greatest equilibrium can be obtained by sequential {\it{best response dynamics}} which starts from the potential network
@@ -479,7 +466,6 @@
 
 \begin{frame}{Key player}
 \begin{itemize}
-    \item Key player is the agent who has the largest impact on the aggregate behavior of the network
     \item {\bf{Definition}} : Agent $i$ is a {\it{key player in exogenous network }} if, given network $g$,
         \[ i \in \arg \max_{i \in N} \{ x^*(g) - x^*(g^{-i}) \} \]
         where $x^*(g) = \sum_{i=1}^n x_i^*(g)$ and $g^{-i}$ is the network where agent $i$ is removed from the network $g$
@@ -582,15 +568,10 @@
 \begin{frame}{Conclusion}
 \begin{itemize}
     \item We consider the endogenous network formation with peer effects
-    \item In the model, link formation costs play an important role in determining the network structure and individual and aggregate behaviors
-    \item Due to the supermodularity, we can show the existence of equilibrium network
-    \item We can provide
+    \item Due to the supermodularity, we can show the existence of equilibrium network and provide comparative statics results
+    \item We have a discussion about policy implication : key player and key link policy
     \begin{itemize}
-        \item comparative statics results
-        \item discussion about policy implication : key player and key link policy
-        \begin{itemize}
-            \item Without considering the endogenity of networks, we sometimes have wrong policy implications
-        \end{itemize}
+        \item Without considering the endogenity of networks, we sometimes have wrong policy implications
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -600,6 +581,8 @@
 
 \begin{frame}[label=proof]{Proof of the theorem}
 \begin{itemize}
+    \item {\bf{Lemma 0}} : For a 2nd stage Nash equilibrium $\bm{x}^*$, we have
+            \[ v_i(\bm{x}^*(g), g, \phi) = \frac{1}{2} {x_i^*(g)}^2 \]
     \item {\bf{Lemma 1}} : Consider the network $g$ and $\hat{g}$ with $g \subseteq \hat{g}$. Then,
             \[ \bm{x}^*(\hat{g}) \ge \bm{x}^*(g) \]
     \item {\bf{Lemma 2}} : Consider the network $g$ and $h$ ($\bm{G}$ and $\bm{H}$). Consider the network $g \vee h$ and $g \wedge h$ ($\bm{G} \vee \bm{H}$ and $\bm{G} \wedge \bm{H}$).  Then, for all $i \in N$,
@@ -611,7 +594,7 @@
 
 \begin{frame}{Proof of Lemma 2}
 \begin{itemize}
-    \item Let $\bm{D} = (\bm{G} \vee \bm{H}) - \bm{G} = \bm{H} - (\bm{G} \wedge \bm{H})$ and $\bm{\hat{D}} = \bm{G} - \bm{H}$.
+    \item Let $\bm{D} = (\bm{G} \vee \bm{H}) - \bm{G} = \bm{H} - (\bm{G} \wedge \bm{H})$ and $\bm{\hat{D}} = \bm{G} - (\bm{G} \wedge \bm{H})$.
     \item We have,
         \begin{eqnarray*}
             \bm{x}^*(g \vee h) - \bm{x}^*(g) &=& {(\bm{I} - \phi (\bm{G} \vee \bm{H}))}^{-1} \bm{\alpha} - {(\bm{I} - \phi \bm{G})}^{-1} \bm{\alpha} \\
@@ -642,7 +625,7 @@
         \[ \bm{x}^*(g \vee h) - \bm{x}^*(g) \ge \bm{x}^*(h) - \bm{x}^*(g \wedge h) \]
     \item By Lemma 1, we have
         \[ \bm{x}^*(g \vee h) + \bm{x}^*(g) \ge \bm{x}^*(h) + \bm{x}^*(g \wedge h) \]
-    \item Therefore,
+    \item Therefore, by Lemma 0,
         {\small{
         \[ v_i(\bm{x}^*(g \vee h), g \vee h, \phi) - v_i(\bm{x}^*(g), g, \phi) \ge v_i(\bm{x}^*(h), h, \phi) - v_i(\bm{x}^*(g \wedge h), g \wedge h, \phi)\]
         }}

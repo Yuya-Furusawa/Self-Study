@@ -111,8 +111,8 @@
 	pick 9dc13c0 fix ModuleB
 
 3. 順序を入れ替えてfixupする
-
-	pick 5a43974 add ModuleA
+	
+	>pick 5a43974 add ModuleA
 	fixup 2bf2d88 fix ModuleA
 	pick 249a171 add ModuleB
 	fixup 9dc13c0 fix ModuleB
@@ -128,7 +128,7 @@
 
 1. rebaseする
 
-	pick 5a43974 add ModuleA
+	>pick 5a43974 add ModuleA
 	pick 249a171 add ModuleB
 	pick 2bf2d88 fix ModuleA
 	pick 9dc13c0 fix ModuleB
@@ -137,7 +137,7 @@
 
 2. `pick`を`edit`に変える
 
-	pick 5a43974 add ModuleA
+	>pick 5a43974 add ModuleA
 	pick 249a171 add ModuleB
 	pick 2bf2d88 fix ModuleA
 	edit 9dc13c0 fix ModuleB
@@ -163,7 +163,7 @@
 
 5. メッセージを修正
 
-	add ModuleC
+	>add ModuleC
 	Please enter the commit message for your changes. Lines starting
 	with '#' will be ignored, and an empty message aborts the commit.
 
@@ -191,3 +191,18 @@
 - リモートブランチ`foo`を削除
 
 	`git push --delete origin foo`
+
+
+## ファイルの削除
+
+- ファイルの削除
+
+	`git rm hoge`
+
+- ディレクトリの削除
+	
+	`git rm -r foo`
+
+- gitの管理対象から外す（gitignoreに書き忘れみたいな）
+
+	`git rm --cached hoge`

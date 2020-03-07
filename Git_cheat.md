@@ -112,10 +112,12 @@
 
 3. 順序を入れ替えてfixupする
 	
-	>pick 5a43974 add ModuleA
+	```
+	pick 5a43974 add ModuleA
 	fixup 2bf2d88 fix ModuleA
 	pick 249a171 add ModuleB
 	fixup 9dc13c0 fix ModuleB
+	```
 
 4. viを終了
 
@@ -128,19 +130,23 @@
 
 1. rebaseする
 
-	>pick 5a43974 add ModuleA
+	```
+	pick 5a43974 add ModuleA
 	pick 249a171 add ModuleB
 	pick 2bf2d88 fix ModuleA
 	pick 9dc13c0 fix ModuleB
+	```
 
 9dc13c0のコミットメッセージを"add ModuleC"に変えたい
 
 2. `pick`を`edit`に変える
 
-	>pick 5a43974 add ModuleA
+	```
+	pick 5a43974 add ModuleA
 	pick 249a171 add ModuleB
 	pick 2bf2d88 fix ModuleA
 	edit 9dc13c0 fix ModuleB
+	```
 
 3. エディタを終了
 
@@ -163,9 +169,11 @@
 
 5. メッセージを修正
 
-	>add ModuleC
+	```
+	add ModuleC
 	Please enter the commit message for your changes. Lines starting
 	with '#' will be ignored, and an empty message aborts the commit.
+	```
 
 6. エディタを終了、`git rebase --continue`する
 

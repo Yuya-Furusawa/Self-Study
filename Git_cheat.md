@@ -6,9 +6,11 @@
 
 `git remote add root_branch https://github.com/(Fork元のユーザ名)/(フォークしたいリポジトリ.git)`
 
-	1. 登録の確認
+	```
+	登録の確認
 
 	`git remote -v`
+	```
 
 2. fork元の変更を取ってくる
 
@@ -49,12 +51,14 @@
 1. commitログを確認
 
 `git log --oneline`
-
-	1. コマンド確認
+	
+	```
+	コマンド確認
 
 	commit_id_3 commitメッセージ < HEAD
 	commit_id_2 commitメッセージ
 	commit_id_1 commitメッセージ
+	```
 
 これらをまとめたい
 
@@ -64,17 +68,21 @@
 
 次の画面が表示される
 
+	```
 	pick commit_id_1 commitメッセージ
 	pick commit_id_2 commitメッセージ
 	pick commit_id_3 commitメッセージ
+	```
 
 3. fixupにする
 
 コマンド`pick`を`fixup`にする
 
+	```
 	pick commit_id_1 commitメッセージ
 	fixup commit_id_2 commitメッセージ
 	fixup commit_id_3 commitメッセージ
+	```
 
 4. viを終了
 
@@ -91,11 +99,13 @@
 
 例えばこんな感じ
 
+	```
 	9dc13c0 (HEAD -> master) fix ModuleB
 	2bf2d88 fix ModuleA
 	249a171 add ModuleB
 	5a43974 add ModuleA
 	65ef5c7 first commit
+	```
 
 5a43974と2bf2d88、249a171と9dc13c0をまとめたい
 
@@ -105,10 +115,12 @@
 
 こんな感じのvimが開く
 
+	```
 	pick 5a43974 add ModuleA
 	pick 249a171 add ModuleB
 	pick 2bf2d88 fix ModuleA
 	pick 9dc13c0 fix ModuleB
+	```
 
 3. 順序を入れ替えてfixupする
 	
@@ -152,10 +164,12 @@
 
 こんな感じの画面になる
 
+	```
 	You can amend the commit now, with
 	git commit --amend 
 	Once you are satisfied with your changes, run
 	git rebase --continue
+	```
 
  4. commmitする
 
@@ -163,9 +177,11 @@
 
 するとこんな感じになる
 
+	```
 	fix ModuleB
 	Please enter the commit message for your changes. Lines starting
 	with '#' will be ignored, and an empty message aborts the commit.
+	```
 
 5. メッセージを修正
 
@@ -214,3 +230,14 @@
 - gitの管理対象から外す（gitignoreに書き忘れみたいな）
 
 	`git rm --cached hoge`
+
+## ファイルの変更を元に戻す
+
+- ローカルでいじったファイルを元に戻す
+
+	`git checkout <filename>`
+
+- 特定のファイルではなく全てのファイルを元に戻す
+
+	`git checkout .`
+

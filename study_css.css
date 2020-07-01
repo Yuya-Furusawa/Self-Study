@@ -1,0 +1,82 @@
+h1 {
+	/* h1の部分の文字色を#ff0000にする */
+	color: #ff0000;
+
+	/* h1の部分のフォントサイズを40pxにする */
+	font-size: 40px;
+
+	/* h1の部分の書体をserifにする */
+	font-family: serif;
+
+	/* h1の部分の背景色を#ddddddにする */
+	background-color: #dddddd;
+
+	/* 幅と高さの調整 */
+	width: 200px;
+	height: 80px;
+}
+
+p {
+	/* pの部分の文字色を#0000ffにする */
+	color: #0000ff;
+
+	/* h1の部分のフォントサイズを20pxにする */
+	font-size: 20px;
+
+	/* h1の部分の書体をLucida Grandeにする */
+	font-family: "Lucida Grande";
+}
+
+/* 箇条書き全てにCSS適用 */
+li {
+	color: red;
+
+	/* 先頭の黒点をなくすことができる*/
+	list-style: none;
+
+	/* 要素を横並べにする */
+	float: left;
+}
+
+/* classの場合は先頭にドットをつける*/
+.selected{
+	color: red;
+}
+
+.logo {
+	/* 上下左右に20pxの余白を作る */
+	padding: 20px;
+
+	/* 上部に20pxの余白を作る */
+	padding-top: 20px;
+
+	/* 上　右　下　左 */
+	padding: 20px 10px 20px 10px;
+
+	/* 枠線 */
+	border: 5px solid red;
+
+	/* 下部に線 */
+	border-bottom: 1px solid #333;
+
+	/* paddingは枠線の内側の余白、marginは枠線の外側の余白 */
+	/* ボックスモデル参照 */
+	margin: 20px;
+}
+
+/* li要素にCSS適用 */
+.header-list li {
+	color: #ff0000;
+}
+
+/* copy-containerのh1要素にCSS適用 */
+.copy-container h1 {
+	color: #ff0000;
+}
+
+/* h1とpにCSS適用 */
+h1, p {
+	color: red;
+}
+
+
